@@ -1,0 +1,13 @@
+# Fdb version 3
+["pdflatex"] 1660413828 "Background.tex" "Background.pdf" "Background" 1660413828
+  "/etc/texmf/web2c/texmf.cnf" 1653299699 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1657110475 8256434 0e524f95bf058ac0ff00ffa38ccf7c69 ""
+  "Background.aux" 1660312166 40 9fba16f8fedf6d9230ff63dcbcd7015b ""
+  "Background.tex" 1660413828 5141 01f247896acf490ac0ff034a452056f9 ""
+  (generated)
+  "Background.pdf"
+  "Background.log"

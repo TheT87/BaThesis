@@ -1,0 +1,153 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{dey_understanding_2001}{article}{}
+      \name{author}{1}{}{%
+        {{hash=383a958e7dc63d5a57bbeec2a4e3ac93}{%
+           family={Dey},
+           familyi={D\bibinitperiod},
+           given={Anind\bibnamedelima K},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{383a958e7dc63d5a57bbeec2a4e3ac93}
+      \strng{fullhash}{383a958e7dc63d5a57bbeec2a4e3ac93}
+      \strng{bibnamehash}{383a958e7dc63d5a57bbeec2a4e3ac93}
+      \strng{authorbibnamehash}{383a958e7dc63d5a57bbeec2a4e3ac93}
+      \strng{authornamehash}{383a958e7dc63d5a57bbeec2a4e3ac93}
+      \strng{authorfullhash}{383a958e7dc63d5a57bbeec2a4e3ac93}
+      \field{sortinit}{D}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Context is a poorly used source of information in our computing environments. As a result, we have an impoverished understanding of what context is and how it can be used. In this paper, we provide an operational deﬁnition of context and discuss the different ways in which context can be used by context-aware applications. We also present the Context Toolkit, an architecture that supports the building of these context-aware applications. We discuss the features and abstractions in the toolkit that make the task of building applications easier. Finally, we introduce a new abstraction, a situation which we believe will provide additional support to application designers.}
+      \field{langid}{english}
+      \field{title}{Understanding and Using Context}
+      \field{year}{2001}
+      \field{dateera}{ce}
+      \field{pages}{4}
+      \range{pages}{1}
+      \verb{file}
+      \verb Dey - Understanding and Using Context.pdf:/home/tobi/Zotero/storage/H243MVRQ/Dey - Understanding and Using Context.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{schilit_context-aware_1994}{article}{}
+      \name{author}{3}{}{%
+        {{hash=6001422550b39d5a643bb5f15e20e331}{%
+           family={Schilit},
+           familyi={S\bibinitperiod},
+           given={Bill\bibnamedelima N},
+           giveni={B\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=587ccb72c6cee47c378536560a1608ec}{%
+           family={Adams},
+           familyi={A\bibinitperiod},
+           given={Norman},
+           giveni={N\bibinitperiod}}}%
+        {{hash=a8d1741b2a936d877c8c234b91045a40}{%
+           family={Want},
+           familyi={W\bibinitperiod},
+           given={Roy},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{e3fdddf5a3742a225cabaf71ad56aefe}
+      \strng{fullhash}{e3fdddf5a3742a225cabaf71ad56aefe}
+      \strng{bibnamehash}{e3fdddf5a3742a225cabaf71ad56aefe}
+      \strng{authorbibnamehash}{e3fdddf5a3742a225cabaf71ad56aefe}
+      \strng{authornamehash}{e3fdddf5a3742a225cabaf71ad56aefe}
+      \strng{authorfullhash}{e3fdddf5a3742a225cabaf71ad56aefe}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper describes software that examines and reacts to an individual’s changing context. Such software can promote and mediate people’s interactions with devices, computers, and other people, and it can help navigate unfamiliar places. We believe that a limited amount of information covering a person’s proximate environment is most important for this form of computing since the interesting part of the world around us is what we can see, hear, and touch. In this paper we deﬁne context-aware computing, and describe four categories of context-aware applications: proximate selection, automatic contextual reconﬁguration, contextual information and commands, and context-triggered actions. Instances of these application types have been prototyped on the {PARCTAB}, a wireless, palm-sized computer.}
+      \field{langid}{english}
+      \field{title}{Context-Aware Computing Applications}
+      \field{year}{1994}
+      \field{dateera}{ce}
+      \field{pages}{7}
+      \range{pages}{1}
+      \verb{file}
+      \verb Schilit et al. - 1994 - Context-Aware Computing Applications.pdf:files/411/Schilit et al. - 1994 - Context-Aware Computing Applications.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{wolfgang_kaltz_context-aware_2005}{article}{}
+      \name{author}{3}{}{%
+        {{hash=ad47d244a0baea40f9b1ac40202b3d1d}{%
+           family={Wolfgang\bibnamedelima Kaltz},
+           familyi={W\bibinitperiod\bibinitdelim K\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=144a745417914e451d49fa85f43d29b7}{%
+           family={Ziegler},
+           familyi={Z\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ae4127b539f64c1922842f05b7fda79f}{%
+           family={Lohmann},
+           familyi={L\bibinitperiod},
+           given={Steffen},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{85fa386583311a6a7cace1ba53b46575}
+      \strng{fullhash}{85fa386583311a6a7cace1ba53b46575}
+      \strng{bibnamehash}{85fa386583311a6a7cace1ba53b46575}
+      \strng{authorbibnamehash}{85fa386583311a6a7cace1ba53b46575}
+      \strng{authornamehash}{85fa386583311a6a7cace1ba53b46575}
+      \strng{authorfullhash}{85fa386583311a6a7cace1ba53b46575}
+      \field{sortinit}{W}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This article presents an approach to Web Engineering which aims to account for context-awareness in a comprehensive and integrated fashion, thus enabling an enhanced adaptation of the application to the end-user. A conceptual model, permitting the combination of a domain ontology with context-relevant parameters and a degree of relevance, is presented. Subsequently, the use of such a model in a Web Engineering process is discussed, including appropriate modeling software, and requirements for a runtime system.}
+      \field{day}{1}
+      \field{issn}{0992499X}
+      \field{journaltitle}{Revue d'intelligence artificielle}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{number}{3}
+      \field{shortjournal}{Revue d'intelligence artificielle}
+      \field{shorttitle}{Context-aware Web Engineering}
+      \field{title}{Context-aware Web Engineering: Modeling and Applications}
+      \field{urlday}{6}
+      \field{urlmonth}{6}
+      \field{urlyear}{2022}
+      \field{volume}{19}
+      \field{year}{2005}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{439\bibrangedash 458}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.3166/ria.19.439-458
+      \endverb
+      \verb{file}
+      \verb Wolfgang Kaltz et al. - 2005 - Context-aware Web Engineering Modeling and Applic.pdf:/home/tobi/Zotero/storage/SIWXBHVW/Wolfgang Kaltz et al. - 2005 - Context-aware Web Engineering Modeling and Applic.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://ria.revuesonline.com/article.jsp?articleId=5984
+      \endverb
+      \verb{url}
+      \verb http://ria.revuesonline.com/article.jsp?articleId=5984
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
