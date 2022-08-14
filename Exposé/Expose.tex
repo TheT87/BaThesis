@@ -1,0 +1,146 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{Exposé}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+\renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
+
+\section{Motivation/Hintergrund}
+Sicherheit ist einer der, wenn nicht sogar der, zentralste Aspekt eines jeden It-Systems. Angesichts der Tatsache, das sowohl dass Internet bzw. ein gewisser Grad an Vernetzung verschiedener Geräte, als auch die Interaktion zwischen Mensch und Maschine einerseits nicht mehr wegzudenken sind und andererseits immer vielfältiger, dynamischer, schneller und öfter ablaufen ist Netzwerksicherheit integraler Bestandteil eines It-System . Kein PC, kein Laptop, kein Rechenzentrum, kein schlauer Ofen dieser Welt ist ohne das dazugehörige Netzwerk sonderlich brauchbar. Zugriffskontrolle ist wiederum ein zentraler Aspekt der Sicherheit eines Netzwerkes. Genauso wie IT-Systeme und unser Umgang mit ihnen dem Wandel der Zeit unterliegen, so müssen auch Entscheidungen wer, wann, wie, warum und worauf Zugriff erhält (oder eben nicht erhält) immer öfter, schneller, und besser getroffen werden. Da IDS, die ohne die Verwendung des vorhandenen Netzwerkkontextes Entscheidungen treffen, dieser Aufgabe nicht oder zumindest nicht ausreichend gewachsen sind, ist es dringend notwendig bereits vorhandene, noch ungenutzte Informationen in die Entscheidungsfindung eines jeden Netzwerk-Sicherheits-Monitoring mit einzubeziehen.
+Ebendiese bereits vorhandene Information die ich nutzen will ist Kontext.
+ 
+\section{Forschungsfrage/Herangehensweise} 
+
+Wie in der Einleitung beschrieben ist das zentrale Ziel die Erhöhung der Netzwerksicherheit. Die Unterteilung in Forschungsfrage und Herangehensweise ist mir zum jetzigen Zeitpunkt ein wenig missglückt.
+Im Nachfolgenden habe ich dennoch versucht dieses Ziel in  kleine und gut verständliche Teile zu zerlegen die möglichst wenig Interpretationsspielraum zulassen. 
+\begin{enumerate}
+\item{Verbesserung bestehender IDS-Lösungen(bessere/weniger Zugriffskontrollentscheidungen)}   
+\begin{enumerate}
+\item{Festlegung der IDS-Performancekriterien(bspw. Erkennungsrate/Rate der falsch-positiven Meldungen)} 
+\item{Analyse des Ausmaßes der Mängel bestehender nicht-kontextsensitiver IDS-Systeme}
+\item{Erläuterung der Notwendigkeit der Verwendung von Netzwerkkontext}
+\end{enumerate}
+\item{Erstellung kontextsensitiver IDS-Signaturen} 
+\begin{enumerate}
+\item{Definition eines Kontextbegriffs im Rahmen der Zugriffskontrolle}
+\begin{enumerate}
+\item{Historische Entwicklung des Kontextbegriffs}
+\item{Darlegung/Erläuterung meiner Kontextdefinition}
+\end{enumerate}
+\item{Kontextkategorisierung}
+\begin{enumerate}
+		\item{ Analyse bereits vorgeschlagener Kategorien} 
+		\item{ Erstellung einer Kontexttaxonomie }
+\end{enumerate}
+\item{“Übersetzung”/Transfer der Taxonomie/Kategorien in IDS-Signaturen} 
+\begin{enumerate}
+		\item{ Festlegung auf bestimmte IDS-Implementierungen}
+		\item{ Analyse der IDS-Regel-Syntax  }
+		\item{ Abgleich zwischen Taxonomie und den in der Realität zur Verfügung stehenden Informationen}
+		\item{ Umsetzung/Implementierung der Taxonomie in  IDS-Signaturen}
+\end{enumerate}
+\item{Test der kontextsensitiven Signaturen}
+\begin{enumerate}
+		\item{ (Auswahl eines bereits existierenden/ Erstellung eines eigenen) Datensatzes + dazugehörige Label }
+		\item{ Aufbau eines oder mehrerer Netzwerke  } 
+\end{enumerate}
+\begin{enumerate}
+			\item{ Setup der verschiedenen IDS }
+			\item{ Baseline mit non-kontextsensitiven Signaturen auf Datensatz }
+			\item{ Test der kontextsensitiven Signaturen auf Datensatz} 
+\end{enumerate}
+\item{Auswertung der Testergebnisse}
+\begin{enumerate}
+\item{ Vergleich der IDS-Alerts mit Datensatzlabeln}
+\begin{enumerate}
+\item{ Baselineauswertung } 
+\item{ Vergleich der Performance gemäß der in 1.1 festgelegten Kriterien zwischen non-kontextsenitiven und kontextsenitiven Signaturen} 
+\item{ Vergleich der unterschiedlichen getesteten Kontextkategorie(kombinationen)} 
+\end{enumerate}
+\end{enumerate}
+\item{Konklussion}
+\begin{enumerate}
+\item{ “Bewertung” der theoretischen Mächtigkeit einzelner Kategorien} 
+\item{ Beurteilung/Einschätzung der tatsächlichen Verfügbarkeit von Kontext im Netzwerk }
+\item{ Urteil/""Ranking"" der Kontextarten hinsichtlich der Erhöhung der Netzwerksicherheit}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+\section{Fähigkeiten}
+Zum gegenwärtigen Zeitpunkt fehlt mir noch ganz oder teilweise:
+\begin{enumerate}
+\item{Wissen über die konkrete Funktionsweise/Übersicht über alle Funktionen der von mir gewählten IDS-Implementationen(zeek,suricata,evtl snort etc.)}
+\item{Die Fähigkeit ein Netzwerk aufzusetzen}
+\item{Kommasetzung}
+\item{Das Wissen abschätzen zu können welcher Kontext wie enfach zu nutzen ist was eventuell zu Zeitproblemen/schlechtem Aufwand-Nutzen-Verhältnis bei der Implementierung führen könnte}
+\end{enumerate}
+
+\section{Zeitplan}
+$\rightarrow$ Excel-Template
+
+
+
+\end{document}
+
+
+
+

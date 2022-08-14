@@ -1,0 +1,9 @@
+Leicht edietierte/kommentierte Version der LateX-Vorlage des Lehrstuhl Rechnernetze
+um die Vorlage für Arbeiten an anderen Lehrstühlen/Professuren ohne eigene Vorlage einfacher anzupassen.
+
+Einfach die Bachelorarbeit_Vorlage.tex öffnen und entsprechend den eigenen Wünschen bearbeiten.
+
+Anmerkungen für die wichtigsten Anpassungen des durch die Vorlage generierten Teils sind 
+als Kommentare in der Bachelorarbeit_Vorlage.tex vermerkt
+
+Alle vorhanden Anpassungsoptionen der Vorlage sind in der doku.pdf beschrieben.
