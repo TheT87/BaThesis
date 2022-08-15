@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.1 $
+% $ biblatex bbl format version 3.2 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -19,6 +19,164 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{hutchison_understanding_2005}{book}{}
+      \name{author}{2}{}{%
+        {{hash=58f2279075e5f399402d7b7ebf0a4731}{%
+           family={Bazire},
+           familyi={B\bibinitperiod},
+           given={Mary},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a34ffa2140ed4cfd2131da6865a8fe0b}{%
+           family={Brézillon},
+           familyi={B\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+      }
+      \name{editor}{19}{}{%
+        {{hash=d003d9a994005f480f7fa06dde74326e}{%
+           family={Hutchison},
+           familyi={H\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=45496c6a7530cfbfb4f3218a2602b77e}{%
+           family={Kanade},
+           familyi={K\bibinitperiod},
+           given={Takeo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9dd3a56c94774f5880ca7475fdc308ea}{%
+           family={Kittler},
+           familyi={K\bibinitperiod},
+           given={Josef},
+           giveni={J\bibinitperiod}}}%
+        {{hash=fb11814963625d418100ec9ca3710333}{%
+           family={Kleinberg},
+           familyi={K\bibinitperiod},
+           given={Jon\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=e07c4272d13053fc36d770d4735f2c14}{%
+           family={Mattern},
+           familyi={M\bibinitperiod},
+           given={Friedemann},
+           giveni={F\bibinitperiod}}}%
+        {{hash=47dbc192a926109dd86ea18b25249a93}{%
+           family={Mitchell},
+           familyi={M\bibinitperiod},
+           given={John\bibnamedelima C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=c6af39e79e88306281e6e0b0ccea956c}{%
+           family={Naor},
+           familyi={N\bibinitperiod},
+           given={Moni},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7d3ea70a5274b32c8a184dd4d844ee47}{%
+           family={Nierstrasz},
+           familyi={N\bibinitperiod},
+           given={Oscar},
+           giveni={O\bibinitperiod}}}%
+        {{hash=6bcab2334dc65214139b0ad45fe8185e}{%
+           family={Pandu\bibnamedelima Rangan},
+           familyi={P\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=665b6687b4ed05721bf55d61032505ca}{%
+           family={Steffen},
+           familyi={S\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod}}}%
+        {{hash=8753fbfaaa4aa8a1195c657edc9daef4}{%
+           family={Sudan},
+           familyi={S\bibinitperiod},
+           given={Madhu},
+           giveni={M\bibinitperiod}}}%
+        {{hash=cd9aa5de7673e375889cc32997ef97df}{%
+           family={Terzopoulos},
+           familyi={T\bibinitperiod},
+           given={Demetri},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ddfb7c40f1ab7e805c025ac7ef922cc7}{%
+           family={Tygar},
+           familyi={T\bibinitperiod},
+           given={Dough},
+           giveni={D\bibinitperiod}}}%
+        {{hash=a4cf237a06b02ad7e7601b14b4d005be}{%
+           family={Vardi},
+           familyi={V\bibinitperiod},
+           given={Moshe\bibnamedelima Y.},
+           giveni={M\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=e47f9d085c16045a5911784850208ada}{%
+           family={Weikum},
+           familyi={W\bibinitperiod},
+           given={Gerhard},
+           giveni={G\bibinitperiod}}}%
+        {{hash=1d7c03d291342c5285f88e863eb519c9}{%
+           family={Dey},
+           familyi={D\bibinitperiod},
+           given={Anind},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c0f6e2eda5d2268e45ba15d466d628f3}{%
+           family={Kokinov},
+           familyi={K\bibinitperiod},
+           given={Boicho},
+           giveni={B\bibinitperiod}}}%
+        {{hash=54ff4e24f535a2ee0713cedd2847e3af}{%
+           family={Leake},
+           familyi={L\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=7007b9ff10e5b167663d112a263c8dc2}{%
+           family={Turner},
+           familyi={T\bibinitperiod},
+           given={Roy},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{0d6ee0dd3f362a095c40fb8932c7164e}
+      \strng{fullhash}{0d6ee0dd3f362a095c40fb8932c7164e}
+      \strng{bibnamehash}{0d6ee0dd3f362a095c40fb8932c7164e}
+      \strng{authorbibnamehash}{0d6ee0dd3f362a095c40fb8932c7164e}
+      \strng{authornamehash}{0d6ee0dd3f362a095c40fb8932c7164e}
+      \strng{authorfullhash}{0d6ee0dd3f362a095c40fb8932c7164e}
+      \strng{editorbibnamehash}{1878e5aaeb2ba2e2aaa5cb8a1a7cf207}
+      \strng{editornamehash}{1878e5aaeb2ba2e2aaa5cb8a1a7cf207}
+      \strng{editorfullhash}{bf2901179dc724102fcc1bd2c5dabc04}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper presents an attempt to point out some problematic issues about the understanding of context. Although frequently used in cognitive sciences or other disciplines, context stays a very ill-defined concept. Our goal is to identify the main components of the context on the basis of the analysis of a corpus of 150 definitions coming mainly from the web in different domains of cognitive sciences and close disciplines. We analyzed this corpus of definitions through two methods, namely LSA [1], [2] and STONE [3], [4], and we conclude that finally the content of all the definitions can be analyzed in terms of few parameters like constraint, influence, behavior, nature, structure and system.}
+      \field{booktitle}{Modeling and {Using} {Context}}
+      \field{isbn}{978-3-540-26924-3 978-3-540-31890-3}
+      \field{note}{Series Title: Lecture Notes in Computer Science}
+      \field{title}{Understanding {Context} {Before} {Using} {It}}
+      \field{urlday}{28}
+      \field{urlmonth}{7}
+      \field{urlyear}{2022}
+      \field{volume}{3554}
+      \field{year}{2005}
+      \field{urldateera}{ce}
+      \field{pages}{29\bibrangedash 40}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1007/11508373_3
+      \endverb
+      \verb{file}
+      \verb Bazire and Brézillon - 2005 - Understanding Context Before Using It.pdf:C\:\\Users\\Tobi\\Zotero\\storage\\LH693ZI8\\Bazire and Brézillon - 2005 - Understanding Context Before Using It.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://link.springer.com/10.1007/11508373_3
+      \endverb
+      \verb{url}
+      \verb http://link.springer.com/10.1007/11508373_3
+      \endverb
+    \endentry
     \entry{dey_understanding_2001}{article}{}
       \name{author}{1}{}{%
         {{hash=383a958e7dc63d5a57bbeec2a4e3ac93}{%
@@ -34,7 +192,7 @@
       \strng{authornamehash}{383a958e7dc63d5a57bbeec2a4e3ac93}
       \strng{authorfullhash}{383a958e7dc63d5a57bbeec2a4e3ac93}
       \field{sortinit}{D}
-      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Context is a poorly used source of information in our computing environments. As a result, we have an impoverished understanding of what context is and how it can be used. In this paper, we provide an operational deﬁnition of context and discuss the different ways in which context can be used by context-aware applications. We also present the Context Toolkit, an architecture that supports the building of these context-aware applications. We discuss the features and abstractions in the toolkit that make the task of building applications easier. Finally, we introduce a new abstraction, a situation which we believe will provide additional support to application designers.}
@@ -73,7 +231,7 @@
       \strng{authornamehash}{e3fdddf5a3742a225cabaf71ad56aefe}
       \strng{authorfullhash}{e3fdddf5a3742a225cabaf71ad56aefe}
       \field{sortinit}{S}
-      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This paper describes software that examines and reacts to an individual’s changing context. Such software can promote and mediate people’s interactions with devices, computers, and other people, and it can help navigate unfamiliar places. We believe that a limited amount of information covering a person’s proximate environment is most important for this form of computing since the interesting part of the world around us is what we can see, hear, and touch. In this paper we deﬁne context-aware computing, and describe four categories of context-aware applications: proximate selection, automatic contextual reconﬁguration, contextual information and commands, and context-triggered actions. Instances of these application types have been prototyped on the {PARCTAB}, a wireless, palm-sized computer.}
@@ -112,7 +270,7 @@
       \strng{authornamehash}{85fa386583311a6a7cace1ba53b46575}
       \strng{authorfullhash}{85fa386583311a6a7cace1ba53b46575}
       \field{sortinit}{W}
-      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{This article presents an approach to Web Engineering which aims to account for context-awareness in a comprehensive and integrated fashion, thus enabling an enhanced adaptation of the application to the end-user. A conceptual model, permitting the combination of a domain ontology with context-relevant parameters and a degree of relevance, is presented. Subsequently, the use of such a model in a Web Engineering process is discussed, including appropriate modeling software, and requirements for a runtime system.}

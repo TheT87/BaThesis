@@ -1,79 +1,42 @@
-\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {ngerman}{}
-\babel@toc {ngerman}{}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Zusammenfassung}{5}{section*.5}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {1}General notes}{8}{chapter.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Einführung}{9}{chapter.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Analyse/Beschreibung des Ausmaßes der Mängel bestehender nicht-kontextsensitiver IDS-Systeme}{9}{section.2.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.1}Festlegung der IDS-Performancekriterien(bspw. Erkennungsrate/Rate der falsch-positiven Meldungen)}{9}{subsection.2.1.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Verbesserung bestehender IDS-Lösungen(bessere/weniger Zugriffskontrollentscheidungen)}{9}{section.2.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Erläuterung der Vorteile eines kontextsensitiven IDS}{9}{section.2.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Hintergrund}{10}{chapter.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Definition eines Kontextbegriffs im Rahmen der Zugriffskontrolle}{10}{section.3.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.1}Historische Entwicklung des Kontextbegriffs}{10}{subsection.3.1.1}%
-\defcounter {refsection}{0}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\contentsline {chapter}{\nonumberline Zusammenfassung}{4}{section*.5}%
+\contentsline {chapter}{\numberline {1}General notes}{7}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Einführung}{8}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Analyse/Beschreibung des Ausmaßes der Mängel bestehender nicht-kontextsensitiver IDS-Systeme}{8}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Festlegung der IDS-Performancekriterien(bspw. Erkennungsrate/Rate der falsch-positiven Meldungen)}{8}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Verbesserung bestehender IDS-Lösungen(bessere/weniger Zugriffskontrollentscheidungen)}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Erläuterung der Vorteile eines kontextsensitiven IDS}{8}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Hintergrund}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Definition eines Kontextbegriffs im Rahmen der Zugriffskontrolle}{9}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Historische Entwicklung des Kontextbegriffs}{9}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Darlegung/Erläuterung meiner Kontextdefinition}{10}{subsection.3.1.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.2}Kontextkategorisierung}{10}{section.3.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.1}Analyse bereits vorgeschlagener Kategorien}{10}{subsection.3.2.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.2}Erstellung einer Kontexttaxonomie}{10}{subsection.3.2.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Voraussetzungen und verwandete Arbeiten}{11}{chapter.4}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.0.1}Kontextsensitivität}{11}{subsection.4.0.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Design}{12}{chapter.5}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.1}“Übersetzung”/Transfer der Taxonomie/Kategorien in IDS-Signaturen}{12}{section.5.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.1.1}Festlegung auf bestimmte IDS-Implementierungen}{12}{subsection.5.1.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.1.2}Analyse der IDS-Regel-Syntax}{12}{subsection.5.1.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.1.3}Abgleich zwischen Taxonomie und den in der Realität zur Verfügung stehenden Informationen}{12}{subsection.5.1.3}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.1.4}Umsetzung/Implementierung der Taxonomie in IDS-Signaturen}{12}{subsection.5.1.4}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {6}Implementierung}{13}{chapter.6}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.1}Test der kontextsensitiven Signaturen}{13}{section.6.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1.1}(Auswahl eines bereits existierenden/ Erstellung eines eigenen) Datensatzes + dazugehörige Label}{13}{subsection.6.1.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1.2}Aufbau eines oder mehrerer Netzwerke}{13}{subsection.6.1.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1.3}Setup der verschiedenen IDS}{13}{subsection.6.1.3}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1.4}Baseline mit non-kontextsensitiven Signaturen auf Datensatz}{13}{subsection.6.1.4}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1.5}Test der kontextsensitiven Signaturen auf Datensatz}{13}{subsection.6.1.5}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {7}Evaluation}{14}{chapter.7}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.1}Vergleich der IDS-Alerts mit Datensatzlabeln}{15}{section.7.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1.1}Baselineauswertung}{15}{subsection.7.1.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1.2}Vergleich der Performance gemäß der in 1.1 festgelegten Kriterien zwischen non-kontextsenitiven und kontextsenitiven Signaturen}{15}{subsection.7.1.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1.3}Vergleich der unterschiedlichen getesteten Kontextkategorie(kombinationen)}{15}{subsection.7.1.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.2}“Bewertung” der theoretischen Mächtigkeit einzelner Kategorien}{15}{section.7.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.3}Beurteilung/Einschätzung der tatsächlichen Verfügbarkeit von Kontext im Netzwerk}{15}{section.7.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.4}Urteil/""Ranking"" der Kontextarten hinsichtlich der Erhöhung der Netzwerksicherheit}{15}{section.7.4}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {8}Konklusion/Schlussfolgerung}{16}{chapter.8}%
+\contentsline {section}{\numberline {7.1}Auswertung der Testergebnisse}{14}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Vergleich der IDS-Alerts mit Datensatzlabeln}{14}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Baselineauswertung}{14}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Vergleich der Performance gemäß der in 1.1 festgelegten Kriterien zwischen non-kontextsenitiven und kontextsenitiven Signaturen}{14}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Vergleich der unterschiedlichen getesteten Kontextkategorie(kombinationen)}{14}{subsection.7.2.3}%
+\contentsline {section}{\numberline {7.3}“Bewertung” der theoretischen Mächtigkeit einzelner Kategorien}{14}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Beurteilung/Einschätzung der tatsächlichen Verfügbarkeit von Kontext im Netzwerk}{14}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Urteil/""Ranking"" der Kontextarten hinsichtlich der Erhöhung der Netzwerksicherheit}{14}{section.7.5}%
+\contentsline {chapter}{\numberline {8}Konklusion/Schlussfolgerung}{15}{chapter.8}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

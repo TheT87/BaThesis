@@ -1,17 +1,17 @@
-[0] Config.pm:304> INFO - This is Biber 2.14 (beta)
-[1] Config.pm:307> INFO - Logfile is 'thesis.blg'
-[153] biber:322> INFO - === Sat Aug 13, 2022, 19:59:25
-[181] Biber.pm:415> INFO - Reading 'thesis.bcf'
-[307] Biber.pm:943> INFO - Found 3 citekeys in bib section 0
-[332] Biber.pm:4256> INFO - Processing section 0
-[333] Utils.pm:75> INFO - Globbing data source 'articles.bib'
-[333] Utils.pm:91> INFO - Globbed data source 'articles.bib' to articles.bib
-[352] Biber.pm:4455> INFO - Looking for bibtex format file 'articles.bib' for section 0
-[354] bibtex.pm:1653> INFO - LaTeX decoding ...
-[372] bibtex.pm:1471> INFO - Found BibTeX data source 'articles.bib'
-[454] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[454] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[454] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
-[454] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
-[468] bbl.pm:652> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[472] bbl.pm:755> INFO - Output to thesis.bbl
+[0] Config.pm:306> INFO - This is Biber 2.18
+[0] Config.pm:309> INFO - Logfile is 'thesis.blg'
+[89] biber-MSWIN32:340> INFO - === 
+[118] Biber.pm:418> INFO - Reading 'thesis.bcf'
+[208] Biber.pm:978> INFO - Found 4 citekeys in bib section 0
+[220] Biber.pm:4401> INFO - Processing section 0
+[230] Biber.pm:4592> INFO - Looking for bibtex file 'articles.bib' for section 0
+[264] bibtex.pm:1713> INFO - LaTeX decoding ...
+[275] bibtex.pm:1518> INFO - Found BibTeX data source 'articles.bib'
+[342] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[342] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[342] Biber.pm:4221> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[342] Biber.pm:4227> INFO - No sort tailoring available for locale 'de-DE'
+[350] bbl.pm:654> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[355] bbl.pm:757> INFO - Output to thesis.bbl
+[355] Biber.pm:130> WARN - ISBN '978-3-540-26924-3 978-3-540-31890-3' in entry 'hutchison_understanding_2005' is invalid - run biber with '--validate_datamodel' for details.
+[355] Biber.pm:132> INFO - WARNINGS: 1

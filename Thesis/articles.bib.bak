@@ -1,17 +1,4 @@
-@book{zobel2004writing,
-  title={Writing for computer science},
-  author={Zobel, Justin},
-  volume={8},
-  year={2004},
-  publisher={Springer}
-}
 
-@book{booth2003craft,
-  title={The craft of research},
-  author={Booth, Wayne C and Booth, William C and Colomb, Gregory G and Colomb, Gregory G and Williams, Joseph M and Williams, Joseph M},
-  year={2003},
-  publisher={University of Chicago press}
-}
 
 
 @article{schilit_context-aware_1994,
@@ -51,4 +38,44 @@
 	year = {2016},
 	pages = {55--83},
 	file = {Alegre et al. - 2016 - Engineering context-aware systems and applications.pdf:/home/tobi/Zotero/storage/C76G7TIA/Alegre et al. - 2016 - Engineering context-aware systems and applications.pdf:application/pdf},
+}
+
+@article{wolfgang_kaltz_context-aware_2005,
+	title = {Context-aware Web Engineering: Modeling and Applications},
+	volume = {19},
+	issn = {0992499X},
+	url = {http://ria.revuesonline.com/article.jsp?articleId=5984},
+	doi = {10.3166/ria.19.439-458},
+	shorttitle = {Context-aware Web Engineering},
+	abstract = {This article presents an approach to Web Engineering which aims to account for context-awareness in a comprehensive and integrated fashion, thus enabling an enhanced adaptation of the application to the end-user. A conceptual model, permitting the combination of a domain ontology with context-relevant parameters and a degree of relevance, is presented. Subsequently, the use of such a model in a Web Engineering process is discussed, including appropriate modeling software, and requirements for a runtime system.},
+	pages = {439--458},
+	number = {3},
+	journaltitle = {Revue d'intelligence artificielle},
+	shortjournal = {Revue d'intelligence artificielle},
+	author = {Wolfgang Kaltz, J. and Ziegler, Jürgen and Lohmann, Steffen},
+	urldate = {2022-06-06},
+	date = {2005-06-01},
+	langid = {english},
+	file = {Wolfgang Kaltz et al. - 2005 - Context-aware Web Engineering Modeling and Applic.pdf:/home/tobi/Zotero/storage/SIWXBHVW/Wolfgang Kaltz et al. - 2005 - Context-aware Web Engineering Modeling and Applic.pdf:application/pdf},
+}
+
+
+@book{hutchison_understanding_2005,
+	address = {Berlin, Heidelberg},
+	title = {Understanding {Context} {Before} {Using} {It}},
+	volume = {3554},
+	isbn = {978-3-540-26924-3 978-3-540-31890-3},
+	url = {http://link.springer.com/10.1007/11508373_3},
+	abstract = {This paper presents an attempt to point out some problematic issues about the understanding of context. Although frequently used in cognitive sciences or other disciplines, context stays a very ill-defined concept. Our goal is to identify the main components of the context on the basis of the analysis of a corpus of 150 definitions coming mainly from the web in different domains of cognitive sciences and close disciplines. We analyzed this corpus of definitions through two methods, namely LSA [1], [2] and STONE [3], [4], and we conclude that finally the content of all the definitions can be analyzed in terms of few parameters like constraint, influence, behavior, nature, structure and system.},
+	language = {en},
+	urldate = {2022-07-28},
+	booktitle = {Modeling and {Using} {Context}},
+	publisher = {Springer Berlin Heidelberg},
+	author = {Bazire, Mary and Brézillon, Patrick},
+	editor = {Hutchison, David and Kanade, Takeo and Kittler, Josef and Kleinberg, Jon M. and Mattern, Friedemann and Mitchell, John C. and Naor, Moni and Nierstrasz, Oscar and Pandu Rangan, C. and Steffen, Bernhard and Sudan, Madhu and Terzopoulos, Demetri and Tygar, Dough and Vardi, Moshe Y. and Weikum, Gerhard and Dey, Anind and Kokinov, Boicho and Leake, David and Turner, Roy},
+	year = {2005},
+	doi = {10.1007/11508373_3},
+	note = {Series Title: Lecture Notes in Computer Science},
+	pages = {29--40},
+	file = {Bazire and Brézillon - 2005 - Understanding Context Before Using It.pdf:C\:\\Users\\Tobi\\Zotero\\storage\\LH693ZI8\\Bazire and Brézillon - 2005 - Understanding Context Before Using It.pdf:application/pdf},
 }
