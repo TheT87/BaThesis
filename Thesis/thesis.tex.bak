@@ -76,8 +76,8 @@ BCOR=4mm]{tudscrreprt}
 
 
 
-\input{GeneralNotes.tex}
-\input{Introduction.tex}
+%\input{GeneralNotes.tex}
+%\input{Introduction.tex}
 \input{Background.tex}
 \input{RelatedWork.tex}
 \input{Design.tex}

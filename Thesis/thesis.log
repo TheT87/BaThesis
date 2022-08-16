@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.15)  15 AUG 2022 22:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.15)  17 AUG 2022 00:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1977,26 +1977,20 @@ File: TS1opensans-TLF.fd 2019/06/24 Font definitions for TS1/opensans-TLF.
 
 ])
 (./thesis.toc
-Overfull \hbox (41.5541pt too wide) in paragraph at lines 6--6
- [][] [][]\T1/opensans-TLF/l/n/10.95 Analyse/Beschreibung des Aus-ma-ÿes der Mä
-n-gel be-stehen-der nicht-kontextsensitiver 
+Overfull \hbox (22.87561pt too wide) in paragraph at lines 31--31
+ [][] [][]\T1/opensans-TLF/l/n/10.95 Vergleich der un-ter-schied-li-chen ge-tes
+-te-ten Kon-text-ka-te-go-rie(kombinationen)[] [][]  
  []
 
 LaTeX Font Info:    Font shape `T1/opensans-TLF/l/sl' in size <10.95> not avail
 able
 (Font)              Font shape `T1/opensans-TLF/l/it' tried instead on input li
-ne 30.
+ne 33.
 [5
 
 
 ]
-Overfull \hbox (22.87561pt too wide) in paragraph at lines 37--37
- [][] [][]\T1/opensans-TLF/l/n/10.95 Vergleich der un-ter-schied-li-chen ge-tes
--te-ten Kon-text-ka-te-go-rie(kombinationen)[] [][]  
- []
-
-
-Overfull \hbox (6.32137pt too wide) in paragraph at lines 39--39
+Overfull \hbox (6.32137pt too wide) in paragraph at lines 33--33
  [][] [][]\T1/opensans-TLF/l/n/10.95 Beurteilung/Einschätzung der tat-säch-li-c
 hen Ver-füg-bar-keit von Kon-text im Netz- 
  []
@@ -2005,23 +1999,15 @@ hen Ver-füg-bar-keit von Kon-text im Netz-
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
- [6] (./GeneralNotes.tex
+ [6] (./Background.tex
 chapter 1.
-) (./Introduction.tex [7
 
-]
-chapter 2.
-) (./Background.tex [8
-
-]
-chapter 3.
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--23
+Underfull \hbox (badness 10000) in paragraph at lines 18--27
 
  []
 
 
-Overfull \hbox (9.72699pt too wide) in paragraph at lines 14--23
+Overfull \hbox (9.72699pt too wide) in paragraph at lines 18--27
 \T1/opensans-TLF/l/n/10.95 main on-to-lo-gy ele-ments und Dienst-leis-tungs-be-
 schrei-bun-gen in Form von $\T1/opensans-TLF/l/it/10.95 C \OT1/iwona/l/n/10.95 
 = \OMS/iwona/l/n/10.95 f\T1/opensans-TLF/l/it/10.95 U\T1/opensans-TLF/l/n/10.95
@@ -2032,32 +2018,32 @@ ns-TLF/l/n/10.95 ; \T1/opensans-TLF/l/it/10.95 D\T1/opensans-TLF/l/n/10.95 ; \T
 0.95 S\OMS/iwona/l/n/10.95 g$
  []
 
-) (./RelatedWork.tex [9
+[7
 
-] [10]
+]) (./RelatedWork.tex [8]
+chapter 2.
+) (./Design.tex [9
+
+]
+chapter 3.
+) (./Implementation.tex [10
+
+] [11]
 chapter 4.
-) (./Design.tex [11
+) (./Evaluation.tex [12
 
 ]
 chapter 5.
-) (./Implementation.tex [12
+) (./Conclusion.tex [13
 
 ]
 chapter 6.
-) (./Evaluation.tex [13
-
-]
-chapter 7.
-) (./Conclusion.tex [14
-
-]
-chapter 8.
-) [15
+) [14
 
 ]
 LaTeX Font Info:    Font shape `T1/tudtt/l/n' will be
 (Font)              scaled to size 9.85492pt on input line 88.
- [16
+ [15
 
 ] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
@@ -2067,10 +2053,10 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29497 strings out of 479530
- 579733 string characters out of 5875217
- 1554148 words of memory out of 5000000
- 47622 multiletter control sequences out of 15000+600000
+ 29493 strings out of 479530
+ 580423 string characters out of 5875217
+ 1555426 words of memory out of 5000000
+ 47629 multiletter control sequences out of 15000+600000
  538131 words of font info for 138 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
  108i,19n,106p,10603b,2583s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2085,10 +2071,10 @@ htItalic.pfb><c:/texlive/2022/texmf-dist/fonts/type1/ascender/opensans/OpenSans
 -SemiBold.pfb><c:/texlive/2022/texmf-dist/fonts/type1/google/roboto/RobotoMono-
 Light.pfb><c:/texlive/2022/texmf-dist/fonts/type1/nowacki/iwona/iwonal.pfb><c:/
 texlive/2022/texmf-dist/fonts/type1/nowacki/iwona/iwonali.pfb>
-Output written on thesis.pdf (16 pages, 828068 bytes).
+Output written on thesis.pdf (15 pages, 833016 bytes).
 PDF statistics:
- 389 PDF objects out of 1000 (max. 8388607)
- 338 compressed objects within 4 object streams
- 70 named destinations out of 1000 (max. 500000)
- 394 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 377 PDF objects out of 1000 (max. 8388607)
+ 327 compressed objects within 4 object streams
+ 65 named destinations out of 1000 (max. 500000)
+ 346 words of extra memory for PDF output out of 10000 (max. 10000000)
 

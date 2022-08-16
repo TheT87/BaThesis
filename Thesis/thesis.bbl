@@ -19,6 +19,123 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{aguilar_cameonto_2018}{article}{}
+      \name{author}{3}{}{%
+        {{hash=8fdd89e392bd352ad03ebb786c6e86e3}{%
+           family={Aguilar},
+           familyi={A\bibinitperiod},
+           given={Jose},
+           giveni={J\bibinitperiod}}}%
+        {{hash=37c4d9df4c42e91fb5a103594b2c3e64}{%
+           family={Jerez},
+           familyi={J\bibinitperiod},
+           given={Marxjhony},
+           giveni={M\bibinitperiod}}}%
+        {{hash=bcbd9ca6185ac40b6b1bb77cce648204}{%
+           family={Rodríguez},
+           familyi={R\bibinitperiod},
+           given={Taniana},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{1e5720c76f71628a053df5f829d751ce}
+      \strng{fullhash}{1e5720c76f71628a053df5f829d751ce}
+      \strng{bibnamehash}{1e5720c76f71628a053df5f829d751ce}
+      \strng{authorbibnamehash}{1e5720c76f71628a053df5f829d751ce}
+      \strng{authornamehash}{1e5720c76f71628a053df5f829d751ce}
+      \strng{authorfullhash}{1e5720c76f71628a053df5f829d751ce}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{In order to model a context and adapt it to any domain, it is necessary an ontology that captures generic concepts to a higher level. The context model must provide mechanisms to extend the speciﬁc information of a context in a hierarchical manner. In this paper, we propose CAMeOnto, an ontology with these characteristics, based on the principles of 5Ws: who, when, what, where and why. CAMeOnto is used by CARMiCLOC, a reﬂective middleware for context-aware applications, and is instantiated in several case studies, in order to test how CAMeOnto works correctly and can reason to infer information about the context.}
+      \field{issn}{22108327}
+      \field{journaltitle}{Applied Computing and Informatics}
+      \field{month}{7}
+      \field{number}{2}
+      \field{shorttitle}{{CAMeOnto}}
+      \field{title}{{CAMeOnto}: {Context} awareness meta ontology modeling}
+      \field{urlday}{8}
+      \field{urlmonth}{6}
+      \field{urlyear}{2022}
+      \field{volume}{14}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \field{pages}{202\bibrangedash 213}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1016/j.aci.2017.08.001
+      \endverb
+      \verb{file}
+      \verb Aguilar et al. - 2018 - CAMeOnto Context awareness meta ontology modeling.pdf:C\:\\Users\\Tobi\\Zotero\\storage\\IPGMWCXE\\Aguilar et al. - 2018 - CAMeOnto Context awareness meta ontology modeling.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S2210832717301643
+      \endverb
+      \verb{url}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S2210832717301643
+      \endverb
+    \endentry
+    \entry{alegre_engineering_2016}{article}{}
+      \name{author}{3}{}{%
+        {{hash=1604cd8abd2c0f91de60171f04484f7a}{%
+           family={Alegre},
+           familyi={A\bibinitperiod},
+           given={Unai},
+           giveni={U\bibinitperiod}}}%
+        {{hash=2f80d6de0c98c8f17fd89b89b2a12a8d}{%
+           family={Augusto},
+           familyi={A\bibinitperiod},
+           given={Juan\bibnamedelima Carlos},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=edbd1bdc46ced9e6b034bb475629053d}{%
+           family={Clark},
+           familyi={C\bibinitperiod},
+           given={Tony},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{b88e541b79bf4a733b984a6bd82d498a}
+      \strng{fullhash}{b88e541b79bf4a733b984a6bd82d498a}
+      \strng{bibnamehash}{b88e541b79bf4a733b984a6bd82d498a}
+      \strng{authorbibnamehash}{b88e541b79bf4a733b984a6bd82d498a}
+      \strng{authornamehash}{b88e541b79bf4a733b984a6bd82d498a}
+      \strng{authorfullhash}{b88e541b79bf4a733b984a6bd82d498a}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Context-awareness is an essential component of systems developed in areas like Intelligent Environments, Pervasive \& Ubiquitous Computing and Ambient Intelligence. In these emerging ﬁelds, there is a need for computerized systems to have a higher understanding of the situations in which to provide services or functionalities, to adapt accordingly. The literature shows that researchers modify existing engineering methods in order to better ﬁt the needs of context-aware computing. These eﬀorts are typically disconnected from each other and generally focus on solving speciﬁc development issues. We encourage the creation of a more holistic and uniﬁed engineering process that is tailored for the demands of these systems. For this purpose, we study the state-of-the-art in the development of context-aware systems, focusing on: A) Methodologies for developing context-aware systems, analysing the reasons behind their lack of adoption and features that the community wish they can use; B) Context-aware system engineering challenges and techniques applied during the most common development stages; C) Context-aware systems conceptualization.}
+      \field{issn}{01641212}
+      \field{journaltitle}{Journal of Systems and Software}
+      \field{month}{7}
+      \field{shorttitle}{Engineering context-aware systems and applications}
+      \field{title}{Engineering context-aware systems and applications: {A} survey}
+      \field{urlday}{8}
+      \field{urlmonth}{6}
+      \field{urlyear}{2022}
+      \field{volume}{117}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \field{pages}{55\bibrangedash 83}
+      \range{pages}{29}
+      \verb{doi}
+      \verb 10.1016/j.jss.2016.02.010
+      \endverb
+      \verb{file}
+      \verb Alegre et al. - 2016 - Engineering context-aware systems and applications.pdf:/home/tobi/Zotero/storage/C76G7TIA/Alegre et al. - 2016 - Engineering context-aware systems and applications.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0164121216000467
+      \endverb
+      \verb{url}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S0164121216000467
+      \endverb
+    \endentry
     \entry{hutchison_understanding_2005}{book}{}
       \name{author}{2}{}{%
         {{hash=58f2279075e5f399402d7b7ebf0a4731}{%
@@ -206,6 +323,46 @@
       \verb Dey - Understanding and Using Context.pdf:/home/tobi/Zotero/storage/H243MVRQ/Dey - Understanding and Using Context.pdf:application/pdf
       \endverb
     \endentry
+    \entry{kayes_icaf_2012}{article}{}
+      \name{author}{3}{}{%
+        {{hash=a842985db28c81c333c79123159875e9}{%
+           family={Kayes},
+           familyi={K\bibinitperiod},
+           given={A\bibnamedelima S\bibnamedelima M},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=8efb16654df241d885e2e492a3eda10a}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f7a5cafa513617e4e4454d220f86afe8}{%
+           family={Colman},
+           familyi={C\bibinitperiod},
+           given={Alan},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{b1d02a0e2a103d58dc3a21ca03007f52}
+      \strng{fullhash}{b1d02a0e2a103d58dc3a21ca03007f52}
+      \strng{bibnamehash}{b1d02a0e2a103d58dc3a21ca03007f52}
+      \strng{authorbibnamehash}{b1d02a0e2a103d58dc3a21ca03007f52}
+      \strng{authornamehash}{b1d02a0e2a103d58dc3a21ca03007f52}
+      \strng{authorfullhash}{b1d02a0e2a103d58dc3a21ca03007f52}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Context-aware systems acquire and integrate multi-faceted knowledge about their environments in order to make decisions. A number of attempts to build frameworks for context-aware systems have been made, but these have not provided adequate support for context-aware access control. In this paper, we present a framework for context-aware access control and its prototype implementation. The framework includes a context model for classifying and capturing access control-oriented contextual information, a situation model for identifying and defining contextual conditions of concern, and a policy model for specifying context-aware access control policies.}
+      \field{title}{{ICAF}: {A} {Context}-{Aware} {Framework} for {Access} {Control}}
+      \field{year}{2012}
+      \field{pages}{8}
+      \range{pages}{1}
+      \verb{file}
+      \verb Kayes et al. - ICAF A Context-Aware Framework for Access Control.pdf:C\:\\Users\\Tobi\\Zotero\\storage\\FMLBWCCA\\Kayes et al. - ICAF A Context-Aware Framework for Access Control.pdf:application/pdf
+      \endverb
+    \endentry
     \entry{schilit_context-aware_1994}{article}{}
       \name{author}{3}{}{%
         {{hash=6001422550b39d5a643bb5f15e20e331}{%
@@ -243,6 +400,61 @@
       \range{pages}{1}
       \verb{file}
       \verb Schilit et al. - 1994 - Context-Aware Computing Applications.pdf:files/411/Schilit et al. - 1994 - Context-Aware Computing Applications.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{wei_liu_survey_2011}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=e649afa86c5d219fbaeafca5146d3345}{%
+           family={{Wei Liu}},
+           familyi={W\bibinitperiod}}}%
+        {{hash=5d3f0e5126ab17221ea6d4501144978d}{%
+           family={{Xue Li}},
+           familyi={X\bibinitperiod}}}%
+        {{hash=345595132f16f8c86aaa2d7e0b6230ee}{%
+           family={{Daoli Huang}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Nanjing, China}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{6b397fb561596665b6c1b4d443f47a21}
+      \strng{fullhash}{6b397fb561596665b6c1b4d443f47a21}
+      \strng{bibnamehash}{6b397fb561596665b6c1b4d443f47a21}
+      \strng{authorbibnamehash}{6b397fb561596665b6c1b4d443f47a21}
+      \strng{authornamehash}{6b397fb561596665b6c1b4d443f47a21}
+      \strng{authorfullhash}{6b397fb561596665b6c1b4d443f47a21}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2011 International Conference on Computer Science and Service System ({CSSS})}
+      \field{eventtitle}{2011 International Conference on Computer Science and Service System ({CSSS})}
+      \field{isbn}{978-1-4244-9762-1}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{title}{A survey on context awareness}
+      \field{urlday}{28}
+      \field{urlmonth}{6}
+      \field{urlyear}{2022}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{144\bibrangedash 147}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/CSSS.2011.5972040
+      \endverb
+      \verb{file}
+      \verb Wei Liu et al. - 2011 - A survey on context awareness.pdf:/home/tobi/Zotero/storage/ADMDZ84V/Wei Liu et al. - 2011 - A survey on context awareness.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://ieeexplore.ieee.org/document/5972040/
+      \endverb
+      \verb{url}
+      \verb http://ieeexplore.ieee.org/document/5972040/
       \endverb
     \endentry
     \entry{wolfgang_kaltz_context-aware_2005}{article}{}
@@ -304,6 +516,94 @@
       \verb{url}
       \verb http://ria.revuesonline.com/article.jsp?articleId=5984
       \endverb
+    \endentry
+    \entry{kokinov_operational_2007}{incollection}{}
+      \name{author}{3}{}{%
+        {{hash=09d0c5700790545bea06af3b2372834e}{%
+           family={Zimmermann},
+           familyi={Z\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e21160d080dd9a819f47db4a8de1d546}{%
+           family={Lorenz},
+           familyi={L\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=157947d58824dbc6132c01786f8e811c}{%
+           family={Oppermann},
+           familyi={O\bibinitperiod},
+           given={Reinhard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \name{editor}{4}{}{%
+        {{hash=c0f6e2eda5d2268e45ba15d466d628f3}{%
+           family={Kokinov},
+           familyi={K\bibinitperiod},
+           given={Boicho},
+           giveni={B\bibinitperiod}}}%
+        {{hash=1ad10031f445772530fb3e1e896a47a0}{%
+           family={Richardson},
+           familyi={R\bibinitperiod},
+           given={Daniel\bibnamedelima C.},
+           giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=fc6a177e971b280f224a30efe6506114}{%
+           family={Roth-Berghofer},
+           familyi={R\bibinithyphendelim B\bibinitperiod},
+           given={Thomas\bibnamedelima R.},
+           giveni={T\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=688ae8a78ebcc32b4e377bbbfc2ed46d}{%
+           family={Vieu},
+           familyi={V\bibinitperiod},
+           given={Laure},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{e7736a24434ec7f07efd384d67516a77}
+      \strng{fullhash}{e7736a24434ec7f07efd384d67516a77}
+      \strng{bibnamehash}{e7736a24434ec7f07efd384d67516a77}
+      \strng{authorbibnamehash}{e7736a24434ec7f07efd384d67516a77}
+      \strng{authornamehash}{e7736a24434ec7f07efd384d67516a77}
+      \strng{authorfullhash}{e7736a24434ec7f07efd384d67516a77}
+      \strng{editorbibnamehash}{1ae8ec1e3b4a430dcbc97349cdf384f4}
+      \strng{editornamehash}{1ae8ec1e3b4a430dcbc97349cdf384f4}
+      \strng{editorfullhash}{eb48c2fe3e9b6c9167d6dc2d037681b5}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The definition of context experienced an evolution in the research area of context-aware computing, but still suffers from either generality or incompleteness. Furthermore, many definitions are driven by the ease of implementation. This paper introduces two extensions to available context definitions that provide a natural understanding of this concept to users of context-aware applications and facilitates the engineering of this concept for software developers of such applications.}
+      \field{booktitle}{Modeling and Using Context}
+      \field{isbn}{978-3-540-74254-8}
+      \field{langid}{english}
+      \field{note}{Series Title: Lecture Notes in Computer Science}
+      \field{title}{An Operational Definition of Context}
+      \field{urlday}{1}
+      \field{urlmonth}{6}
+      \field{urlyear}{2022}
+      \field{volume}{4635}
+      \field{year}{2007}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{558\bibrangedash 571}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1007/978-3-540-74255-5_42
+      \endverb
+      \verb{file}
+      \verb Zimmermann et al. - 2007 - An Operational Definition of Context.pdf:/home/tobi/Zotero/storage/CIQWKHY6/Zimmermann et al. - 2007 - An Operational Definition of Context.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://link.springer.com/10.1007/978-3-540-74255-5_42
+      \endverb
+      \verb{url}
+      \verb http://link.springer.com/10.1007/978-3-540-74255-5_42
+      \endverb
+      \keyw{context definition,Relevance: very high}
     \endentry
   \enddatalist
 \endrefsection

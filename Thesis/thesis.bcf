@@ -2349,11 +2349,22 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">articles.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">schilit_context-aware_1994</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">schilit_context-aware_1994</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">dey_understanding_2001</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">wolfgang_kaltz_context-aware_2005</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">hutchison_understanding_2005</bcf:citekey>
+    <bcf:citekey order="1" intorder="1">dey_understanding_2001</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">hutchison_understanding_2005</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">wei_liu_survey_2011</bcf:citekey>
+    <bcf:citekey order="3" intorder="2">alegre_engineering_2016</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">schilit_context-aware_1994</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">schilit_context-aware_1994</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">dey_understanding_2001</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">wei_liu_survey_2011</bcf:citekey>
+    <bcf:citekey order="7" intorder="2">alegre_engineering_2016</bcf:citekey>
+    <bcf:citekey order="7" intorder="3">aguilar_cameonto_2018</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">kokinov_operational_2007</bcf:citekey>
+    <bcf:citekey order="8" intorder="2">kayes_icaf_2012</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">wolfgang_kaltz_context-aware_2005</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">hutchison_understanding_2005</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">kayes_icaf_2012</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">alegre_engineering_2016</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
