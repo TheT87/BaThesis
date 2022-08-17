@@ -9,7 +9,7 @@
 
 
 %“Although “context” is a term that most people tacitly understand, they find it difficult to elucidate [3]. Many multidisciplinary areas use context to enhance their possibilities. Each area understands the notion as a reflection of its own concerns, making it difficult to define [4]. In the literature, several definitions can be found [3] [4] [5] [6] [7] [8] [9]. A detailed comparison between the differences and similarities of these is out the scope of this survey. Nevertheless, it has to be acknowledged that there is no consensus on the definition of context. Also, we highlight that Dey’s [10] is the most acknowledged one, considering it as “any information that can be used to characterize the situation of an entity”, where “an entity can be a person, place, or object that is considered relevant to the interaction between a user and an application, including the user and applications themselves”.” 
-Kontext ist ein Begriff den die meisten Menschen zwar etwas vorstellen, aber nur schwer erläutern oder gar korrekt und vollständig definieren können \cite{dey_understanding_2001}. Auch herrscht in verschiedenen Fachbereichen, mit unterschiedlichen Auffassungen darüber was  Kontext eigentlich ist und welche Ansprüche eine Definition erfüllen muss . Das erschwert eine allumfassende, konkrete Definition zusätzlich \cite{hutchison_understanding_2005}. Ich will in diesem Kapitel also nicht versuchen Kontext abschließend zu definieren da dies in Anbetracht der vielen verschiedenen Definitionen und dem fehlenden Konsens \cite{wei_liu_survey_2011,alegre_engineering_2016} schlicht nicht möglich ist bzw. den Rahmen dieser Arbeit übersteigen würde. Stattdessen werde ich versuchen mithilfe, meiner Ansicht nach relevanter Definitionen für den Bereich der Informatik bzw. der Zugriffskontrolle, die historische Entwicklung des Kontextbegriffs darzustellen. Das ermöglicht dem Leser nachzuvollziehen auf welcher Grundlage ich mich für die von mir gewählte Definition entschieden habe.
+Kontext ist ein Begriff unter dem sich die meisten Menschen zwar etwas vorstellen, aber nur schwer erläutern oder gar korrekt und vollständig definieren können \cite{dey_understanding_2001}. Auch herrscht in verschiedenen Fachbereichen, jede davon mit anderen Sachverhalten und Problemen die die jeweiligen Autoren versuchend zu lösen, eine andere Auffassung darüber welche Ansprüche eine Definition erfüllen muss . Das erschwert eine allumfassende, konkrete Definition zusätzlich \cite{hutchison_understanding_2005}. Ich will in diesem Kapitel also nicht versuchen Kontext abschließend zu definieren, da dies in Anbetracht der vielen verschiedenen Definitionen und dem fehlenden Konsens wie  Kontext zu definieren ist\cite{wei_liu_survey_2011,alegre_engineering_2016} schlicht nicht möglich ist bzw. den Rahmen dieser Arbeit übersteigen würde. Stattdessen werde ich versuchen mithilfe, meiner Ansicht nach relevanter Definitionen für den Bereich der Informatik bzw. der Zugriffskontrolle, die historische Entwicklung des Kontextbegriffs darzustellen. Das soll  dem Leser ermöglichen nachzuvollziehen auf welcher Grundlage ich mich für die von mir gewählte Definition entschieden habe.
 
 \subsection{Historische Entwicklung des Kontextbegriffs}
 
@@ -31,7 +31,74 @@ Kayes \cite{kayes_icaf_2012} definiert Kontextinformationen in Bezug auf Zugriff
 \subsection{Darlegung/Erläuterung meiner Kontextdefinition}
 
 \section{Kontextkategorisierung}
+\subsection{ Analyse bereits vorgeschlagener Kategorien} 
 
-		\subsection{ Analyse bereits vorgeschlagener Kategorien} 
-		\subsection{ Erstellung einer Kontexttaxonomie }
 
+“Based on the evaluation of context categorisation, it is evident that no single categorisation scheme can accommodate all the demands” ([Perera et al., 2014, p. 423]
+\subsection{ Erstellung einer Kontexttaxonomie }
+
+Konzeptionell/Betrieblich
+
+%“Categorise context based on how they were acquired, modelled, and treated.” 
+Kategorisierung anhand dessen wie der Kontext akquiriert, modelliert und behandelt wird
+%“Categorise context based on the meaning and conceptual relationships between the context.” 
+Kategorisierung aufgrund der Bedeutung und der konzeptionellen Beziehungen
+
+Primär/Sekundär
+
+%“Any information retrieved without using existing context and without performing any kind of sensor data fusion operations (e.g. GPS sensor readings as location information).” 
+Informationen die gesammelt wurden ohne auf bereits bestehende 
+
+“%Any information that can be computed using primary context. The secondary context can be computed by using sensor data fusion operations or data retrieval operations such as web service calls (e.g. identify the distance between two sensors by applying sensor data fusion operations on two raw GPS sensor values). Further, retrieved context such as phone numbers, addresses, email addresses, birthdays, list of friends from a contact information provider based on a personal identity as the primary context can also be identified as secondary context.” 
+
+Grund/Aktivität/Zeit/Ort/Indentität
+
+Historie/Zeitliche Entwicklung
+
+Attribute früherer Verbindungen/Verbindungsanfragen einer Entität/Anwendung (Annahme das Netzwerkteilnehmer eindeutig identifizierbar sind)
+
+Scr-IP/Port + Dest-IP/Port
+
+Zeitpunkt
+
+Protokoll
+
+Paketlänge
+
+Verbindung möglich
+
+Verbindung zugelassen
+
+Statisch - Dynamisch
+
+“Static information which will not change over time” 
+
+“Values will be changed over time with a high frequency.” 
+
+Änderungsrate / Abtastrate / Anfragerate
+
+jährlich/monatlich/täglich/stündlich/minütlich/sekündlich
+
+Wie häufig sich Werte/Attribute ändern
+
+Wie oft Werte/Attribute im Netzwerk aktualisiert werden
+
+Wie oft Werte/Atrribute im Netzwerk von Netzwerkteilnehmern angefragt werden
+
+Logisch/Physisch
+
+Protokoll nach dem OSI-Schichtmodell
+
+Anwendung
+
+Transport
+
+Netzwerk
+
+Entität
+
+Gerät
+
+Nutzer
+
+Anwendung
