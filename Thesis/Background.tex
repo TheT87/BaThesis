@@ -34,7 +34,42 @@ Kayes \cite{kayes_icaf_2012} definiert Kontextinformationen in Bezug auf Zugriff
 Das Hauptanliegen
 
 \subsection{ Analyse bereits vorgeschlagener Kategorien} 
+%Abowd et al. [3] introduced one of the leading mechanisms of defining context types. They identified location, identity, time, and activity as the primary context types. Further, they defined secondary context as the context that can be found using primary context.
+\citep{goos_towards_1999} haben einen der führenden Mechanismen zur Definition von Kontexttypen vorgeschlagen. Sie identifizierten Ort, Zeit, Identität, Zeit und Aktivität als primäre Kontexttypen. Weiterhin wird sekundärer Kontext als Kontext definiert der durch Nutzung von Primärkontext erschlossen werden kann.
 
+%Schilit et al. \cite{schilit_context-aware_1994}: They categorised context into three categories using a conceptual categorisation based technique on three common questions that can be used to determine the context. 
+%1) Where you are: This includes all location related information such as GPS coordinates, common names (e.g. coffee shop, university, police), specific names (e.g. Canberra city police), specific addresses, user preferences (e.g. user’s favourite coffee shop). 
+%2) Who you are with: The information about the people present around the user. 
+%3) What resources are nearby: This includes information about resources available in the area where the user is located, such as machinery, smart objects, and utilities. 
+\cite{schilit_context-aware_1994} kategorisieren Kontext basierend auf 3 Fragen, die genutzt werden können um den Kontext zu bestimmen, in 3 Kategorien:
+\begin{enumerate}
+\item{Wo man sich befindet: Enthalt alle Informationen die sich auf einen Ort beziehen, beispielsweise GPS-Koordinaten, Namen von Institutionen oder Gebäuden (ein Café, ein Krankenhaus, eine Universität), spezifische Namen (z.B.: Technische Universität Dresden) spezifischen Adressen(z.B.: APB Nöthnitzer Str. 46) oder Nutzerpräferenzen (z.B. das Lieblingsrestaurant eines Nutzers) }
+\item{Mit wem man sich zusammen aufhält: Information über die Personen die um einen herum anwesend sind}
+\item{Welche Resourcen sich in der Nähe befinden: Informationen darüber welche Ressourcen (Maschinen, technische Geräte, Betriebsmittel) sich im direkten Umfeld eines Nutzers befinden}
+\end{enumerate}
+
+%Henricksen [89] (2003): Categorised context into four categories based on an operational categorisation technique. 
+\cite{henricksen2003framework} ordnet Kontext basierend auf der betrieblichen Katergorisierungstechnik in 4 verschiedene Kategorien:
+%1) Sensed: Sensor data directly sensed from the sensors, such as temperature measured by a temperature sensor. Values will be changed over time with a high frequency. 
+\begin{enumerate}
+\item {Messbar: Informationen die aus direkt messbaren Werten bestehen. Diese ändern sich oft oder gar kontinuierlich. }
+%2) Static: Static information which will not change over time, such as manufacturer of the sensor, capabilities of the sensor, range of the sensor measurements.
+\item {Statisch: Informationen die sich während der Lebenszeit eines Systems gleich bleiben.}
+%3) Profiled: Information that changes over time with a low frequency, such as once per month (e.g. location of sensor, sensor ID). 
+\item {Profiliert: Informationen die sich selten ändern.}
+%4) Derived: The information computed using primary context such as distance of two sensors calculated using two GPS sensors. 
+\item {Abgeleitet: Informationen die unter Verwendung anderer Daten gewonnen wurden. }
+
+\end{enumerate}
+
+%Van Bunningen et al. [95] (2005): Instead of categorising context, they classified the context categorisation schemes into two broader categories: operational and conceptual. 
+\cite{van2005context} ordnet Kategoriesungsversuche in zwei übergeordnete Gruppen: Betrieblich und Konzeptionell. 
+\begin{enumerate}
+%1) Operational categorisation: Categorise context based on how they were acquired, modelled, and treated. 
+\item{Betriebliche Kategorisierung: Einordung anhand dessen wie der Kontext akquiriert, modelliert und behandelt wird.}
+%2) Conceptual categorisation: Categorise context based on the meaning and conceptual relationships between the context.
+\item{Konzeptionelle Kategorisierung: Einordnug anhand der Bedeutung des Kontexts und der konzeptionellen Beziehungen} % TODO konzeptionell nicht mit Konzeptionell erklären
+\end{enumerate}
 
 %“Based on the evaluation of context categorisation, it is evident that no single categorisation scheme can accommodate all the demands” ([Perera et al., 2014, p. 423]
 Die Evaluation verschiedener Kategorisierungsschemata zeigt das keine Kategorisierung allen Ansprüchen gerecht werden kann\cite{perera_context_2014}.
@@ -42,10 +77,6 @@ Die Evaluation verschiedener Kategorisierungsschemata zeigt das keine Kategorisi
 
 Konzeptionell/Betrieblich
 
-%“Categorise context based on how they were acquired, modelled, and treated.” 
-Kategorisierung anhand dessen wie der Kontext akquiriert, modelliert und behandelt wird
-%“Categorise context based on the meaning and conceptual relationships between the context.” 
-Kategorisierung aufgrund der Bedeutung und der konzeptionellen Beziehungen
 
 Primär/Sekundär
 
