@@ -8,23 +8,75 @@
 %\end{enumerate}
 %After the second step, you start the next iteration by identifying design problems that arise when you want to use the most promising design choice. For example, if Mix networks turn out to be the most promising approach for your requirements, you then need to address the question how the mix network should be designed (e.g. how are mix nodes chosen by the users of the anonymization network? How do mix nodes process messages?). Once you identified the most promising solutions to that, you can then start the next iteration and so on until there are no more open design questions that you are aware of.
 
-
-\section{“Übersetzung”/Transfer der Taxonomie/Kategorien in IDS-Signaturen} 
+\section{Umwandlung der Taxonomie in IDS-Signaturen} 
 
 %What is important for the reader is to understand that the contextual awareness of machines is from a radically different nature than the one of humans. Also, that computational systems are good at gathering and aggregating data, but humans are still better at recognizing contexts and determining what action is appropriate in a certain situation [2]. On the other hand, positivism looks at context as a representational problem, considering it as a “form of information, delineable, stable and separable from activity” [5]. The definitions made in the context-aware field, naturally adopt this point of view. For instance, Dey’s definition [10] allows designers to use the concept for determining why a situation occurs and use this to encode some action in the application [26], making the concept operational in terms of the actors and information sources [17]. Nevertheless, since the definition inherently has a positivist view, the potential of C-AS remains limited to the context that developers are able to encode and foresee. \cite{alegre_engineering_2016}
-Um die im Abschnitt Kontexttaxionomie festgelegten Kategorien in Signaturen für ein Intrusion Detection System umzuwandeln zu können gilt es gewisse Dinge zu beachten: Die Kontextsensitivität eines Computers unterscheidet sich drastisch von der eines Menschen. Rechensysteme sind sehr gut darin Daten zu erfassen und zu sammeln, aber Menschen sind immer-noch nötig um verschiedene Kontexte zu erkennen und zu entscheiden welches Handeln in einer bestimmten Situation angemessen ist \cite{dey_understanding_2001}. Der limitierende Faktor des Potenzials eines kontextsensitiven Systems ist das Menge an Kontext die ein Entwickler vorhersehen und kodieren kann.
+Um die im Abschnitt Kontexttaxionomie festgelegten Kategorien in Signaturen für ein Intrusion Detection System umzuwandeln zu können gilt es gewisse Dinge zu beachten:\\\\ Die Kontextsensitivität eines Computers unterscheidet sich drastisch von der eines Menschen. Rechensysteme sind sehr gut darin Daten zu erfassen und zu sammeln, aber Menschen sind immer-noch nötig um verschiedene Kontexte zu erkennen und zu entscheiden welches Handeln in einer bestimmten Situation angemessen ist \cite{dey_understanding_2001}.\\
+Der limitierende Faktor des Potenzials eines kontextsensitiven Systems ist das Maß an Kontext das ein Entwickler vorhersehen und kodieren kann.\\
 %The list of unforeseen or undetectable contexts can be endless.Summarizing, if developers can not determine all that can be affected by an action, it will be very difficult to write a closed and comprehensive set of actions to take in those cases.
-Es ist aber weder beim Design noch später bei der Implementierung unmöglich alle Zusammenhänge vorherzusehen. Dementsprechend schwer wird ein in sich geschlossenes und allumfassendes Regelset festzulegen. \cite{perera_context_2014}   
-
+Es ist aber weder beim Design noch später bei der Implementierung unmöglich alle Zusammenhänge vorherzusehen.\\
+Dementsprechend schwer wird ist es ein in sich geschlossenes und allumfassendes Regelset festzulegen \cite{perera_context_2014}.\\\\
 %“(A) Enumerate the set of contextual states that may exist;” 
 %“(B) Know what information could accurately determine a contextual state within that set;” 
 %“(C) State what appropriate action should be taken in a particular state.”
-%TODO raussuchen: S. Greenberg, Context as a dynamic construct, Human-Computer Interaction 16 (2) (2001) 257–268. 
-Nach \cite{TODO} gibt es 3 Aufgaben die man sich beim Entwerfen eines kontextsensitiven Systems zu lösen versuchen sollte: 
-Spezifizieren aller möglichen Kontextzustände.
-Wissen welche Informationen einen konkreten Kontextzustand akkurat festlegen.
-Welche Aktion im jeweiligen Zustand ausgeführt werden sollen.
-		\subsection{ Festlegung auf bestimmte IDS-Implementierungen}
-		\subsection{ Analyse der IDS-Regel-Syntax}
-		\subsection{ Abgleich zwischen Taxonomie und den in der Realität zur Verfügung stehenden Informationen}
-		
+ Nach Greenberg et al. \cite{greenberg2001context} gibt 3 non-triviale Hauptaspekte die man beim Entwerfen eines kontextsensitiven Systems beachten sollte: 
+%Mehr erklärung nötig?
+\begin{enumerate}
+\item{Spezifizieren aller möglichen Kontextzustände}
+\item{Wissen welche Informationen einen konkreten Kontextzustand akkurat festlegen.}
+\item{Welche Aktion im jeweiligen Zustand ausgeführt werden sollen.}
+\end{enumerate}
+
+\subsection{ Festlegung auf bestimmte IDS-Implementierungen}
+Es steht eine Vielzahl an Software- und Hardwareimplementierungen zur Entscheidung von zugriffkontrollentscheidungen zur  Verfügung.
+Jenachdem welche Kriterien auf welche Art und Weise erfüllt werden müssen hängt vom spezifischen Anwendungsfall ab.
+%TODO meine Kriterien spezifizieren + evtl kurze Erklärung zeek+suricata
+\subsection{Analyse der IDS-Regel-Syntax}
+Wie arbeiten die einzelnen IDS? Wie einfach lassen sich die Zustände die auftretender Kontext annehmen kann in Regeln festlegen?
+\subsection{ Abgleich zwischen Taxonomie und den in der Praxis zur Verfügung stehenden Informationen}
+Wie gut lässt sich bestimmter Kontext in verfügbaren Informationen finden bzw. sind die verfügbaren Informationen in die Taxonomie einsortierbar?
+\section{Anspruch an das IDS}
+Um die Performance eines IDS verbessern zu können, muss man festlegen welche Kriterien die Leistung beeinflussen bzw. bestimmen.
+Mell et al.\cite{mell2003overview} nennen in ihrer Übersicht verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkung zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
+%Coverage: This measurement determines which attacks an IDS can detect under ideal conditions. 
+\subsubsection{Abdeckung}
+Gibt an welche Typen von Angriffen ein IDS unter idealen Bedingungen festellen kann.
+% Probability of False Alarms 
+%This measurement determines the rate of false positives produced by an IDS in a given environment during a particular time frame. A false positive or false alarm is an alert caused by normal non- malicious background traffic
+\subsubsection{Warscheinlichkeit falscher Alarme}
+Gibt die Warscheinlichkeit das durch ein IDS ausgelöste Alarme durch gutartigen bzw. nicht-schädlichen Netzwerkverkehr verursacht wurden an.\\
+\[Rate\;an\;falsch-Positiven\;Meldungen = \frac{Anzahl\;falscher\;Alarme}{Anzahl\;aller\;Alarme}\]
+%Probability of Detection: 
+%This measurement determines the rate of attacks detected correctly by an IDS in a given environment during a particular time frame
+\subsubsection{Warscheinlichkeit einer Erkennung}
+Gibt die Rate der durch das IDS korrekt erkannten Angriffe an.\\
+\[Erkennungswarscheinlichkeit  = \frac{Anzahl\;korrekt\;erkannter\;Angriffe} {Anzahl\;aller\;Angriffe}\]
+%Resistance to Attacks Directed at the IDS This measurement demonstrates how resistant an IDS is to an attacker's attempt to disrupt the correct operation of the IDS. Attacks against an IDS may take the form of: 
+%1. Sending a large amount of non-attack traffic with volume exceeding the IDS’s processing capability. With too much traffic to process, an IDS may drop packets and be unable to detect attacks. 
+%2. Sending to the IDS non-attack packets that are specially crafted to trigger many signatures within the IDS, thereby overwhelming the IDS’s human operator with false positives or crashing alert processing or display tools. 
+%3. Sending to the IDS a large number of attack packets intended to distract the IDS’s human operator while the attacker instigates a real attack
+\subsubsection{Resistenz des IDS}
+Ein signaturbasiertes IDS bzw. der menschliche Administrator hinter dem System weisen Probleme auf die nicht direkt beim Umgang mit verabeitetem Netzwerkverkehr, sondern schon bei der bewussten, unbewussten, oder erzwungenen Entscheidung welcher Netzwerkverkehr überhaupt in Frage kommt, entstehen:
+\begin{enumerate}
+\item{Ein zu große Menge an zu verarbeitendem Netzwerkverkehr die die Verarbeitungskapazität eines IDS übersteigt kann dazu führen das Netzwerkpakete verworfen und Angriffe nicht erkannt werden}
+\item{Pakete die zwar nicht bösartig sind aber so konstruiert das siea möglichst viele IDS Signaturen auslösen, überfordern den Administrator oder stören eventuell sogar die Verarbeitung von Paketen generell. }
+\item{Ein Angreifer könnte eine Vielzahl harmloserer aber trotzdem noch als schädlich zu deklariende Pakete senden um einen größen Angriff im Netzwerkverkehr zu verschleiern.}
+\item{Pakete die möglicherweise vorhandene Fehler im IDS selbst ausnutzen.}
+\end{enumerate}
+%Ability to Correlate Events: This measurement demonstrates how well an IDS correlates attack events. These events may be gathered from IDSs, routers, firewalls, application logs, or a wide variety of other devices.
+\subsubsection{Fähigkeit Ereignisse in Bezug zueinander zu setzen}
+Demonstriert wie gut ein IDS eine Korrelation zwischen einzelnen Ereignissen, möglicherweise verschiedenen Ursprungs herzustellen. Die Ereignisse können dabei aus Routern, Firewalls, Anwendungen, dem IDS selbst oder einer großen Bandbreite anderer Quellen stammen.
+
+%Ability to Detect Never Before Seen Attacks This measurement demonstrates how well an IDS can detect attacks that have not occurred before. For commercial systems, it is generally not useful to take this measurement since their signature-based technology can only detect attacks that had occurred previously (with a few exceptions). However, research systems based on anomaly detection or specification-based approaches may be suitable for this type of measurement. Usually systems detecting attacks that had never been detected before produce more false positives than those that do not have this feature. 
+%3.8 Ability to Identify an Attack This measurement demonstrates how well an IDS can identify the attack that it has detected by labeling each attack with a common name or vulnerability name or by assigning the attack to a category. 
+%3.9 Ability to Determine Attack Success This measurement demonstrates if the IDS can determine the success of attacks from remote sites that give the attacker higher- level privileges on the attacked system. In current network environments, many remote privilege-gaining attacks (or probes) fail and do not damage the system attacked. Many IDSs, however, do not distinguish the failed from the successful attacks. For the same attack, some IDSs can detect the evidence of damages (whether the attack has succeeded) and some IDSs detect only the signature of attack actions (with no indication whether the attack succeeded or not). The ability to determine attack success is essential for the analysis of the attack correlation and the attack scenario; it also greatly simplifies an analyst’s work by distinguishing between more important successful attacks and the usually less damaging failed attacks. Measuring this capability requires the information about failed attacks as well as successful attacks.
+
+
+% Also, the probability of detection varies with the false positive rate, and an IDS can be configured or tuned to favor either the ability to detect attacks or to minimize false positives
+%TODO weiter erklären
+Die Warscheinlichkeit einen Angriff zu erkennen variiert mit der Rate an falsch-positiven Meldungen. Bei der Konfiguration eines IDS kann entweder die Falsch-positiv-Rate oder die Erkennungsrate optimiert werden.
+In dieser Arbeit will ich mich hautsächlich mit der Häufigkeit falsch-positiven Meldungen und der generellen Übersichtsichlichkeit/Interpretierbarkeit der Meldungen durch einen menschlichen Nutzer beschäftigen.		
+
+%One of the primary goals of this correlation is to identify staged penetration attacks. Currently, IDSs have only limited capabilities in this area.
+%Überleitung von zu CAAC
+\section{Kontextsensitivität}
