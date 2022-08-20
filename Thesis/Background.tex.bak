@@ -1,4 +1,3 @@
-
 \chapter{Hintergrund}%
 \label{cha:background}
 
@@ -9,32 +8,137 @@
 
 
 %“Although “context” is a term that most people tacitly understand, they find it difficult to elucidate [3]. Many multidisciplinary areas use context to enhance their possibilities. Each area understands the notion as a reflection of its own concerns, making it difficult to define [4]. In the literature, several definitions can be found [3] [4] [5] [6] [7] [8] [9]. A detailed comparison between the differences and similarities of these is out the scope of this survey. Nevertheless, it has to be acknowledged that there is no consensus on the definition of context. Also, we highlight that Dey’s [10] is the most acknowledged one, considering it as “any information that can be used to characterize the situation of an entity”, where “an entity can be a person, place, or object that is considered relevant to the interaction between a user and an application, including the user and applications themselves”.” 
-Kontext ist ein Begriff den die meisten Menschen zwar etwas vorstellen, aber nur schwer erläutern oder gar korrekt und vollständig definieren können \cite{dey_understanding_2001}. Auch herrscht in verschiedenen Fachbereichen, mit unterschiedlichen Auffassungen darüber was  Kontext eigentlich ist und welche Ansprüche eine Definition erfüllen muss . Das erschwert eine allumfassende, konkrete Definition zusätzlich \cite{hutchison_understanding_2005}. Ich will in diesem Kapitel also nicht versuchen Kontext abschließend zu definieren da dies in Anbetracht der vielen verschiedenen Definitionen und dem fehlenden Konsens \cite{wei_liu_survey_2011,alegre_engineering_2016} schlicht nicht möglich ist bzw. den Rahmen dieser Arbeit übersteigen würde. Stattdessen werde ich versuchen mithilfe, meiner Ansicht nach relevanten Definitionen für den Bereich der Informatik bzw. der Zugriffskontrolle, die historische Entwicklung des Kontextbegriffs darzustellen und so zumindest darzulegen wieso ich mich für die von mir gewählte Definition entschieden habe und worauf diese  Definition aufbaut.
+Kontext ist ein Begriff unter dem sich die meisten Menschen zwar etwas vorstellen, aber nur schwer erläutern oder gar korrekt und vollständig definieren können \cite{dey_understanding_2001}. Auch herrscht in verschiedenen Fachbereichen, jede davon mit anderen Sachverhalten und Problemen die die jeweiligen Autoren versuchend zu lösen, eine andere Auffassung darüber welche Ansprüche eine Definition erfüllen muss . Das erschwert eine allumfassende, konkrete Definition zusätzlich \cite{hutchison_understanding_2005}. Ich will in diesem Kapitel also nicht versuchen Kontext abschließend zu definieren, da dies in Anbetracht der vielen verschiedenen Definitionen und dem fehlenden Konsens wie  Kontext zu definieren ist \cite{wei_liu_survey_2011,alegre_engineering_2016} schlicht nicht möglich ist bzw. den Rahmen dieser Arbeit übersteigen würde. Stattdessen werde ich versuchen mithilfe, meiner Ansicht nach relevanter Definitionen für den Bereich der Informatik bzw. der Zugriffskontrolle, die historische Entwicklung des Kontextbegriffs darzustellen. Das soll  dem Leser ermöglichen nachzuvollziehen auf welcher Grundlage ich mich für die von mir gewählte Definition entschieden habe.
 
 \subsection{Historische Entwicklung des Kontextbegriffs}
 
 %“where you are, who you are with, and what resources are nearby (see Figure 2.).” 
 
-Eine der frühesten Definitionen von Kontext \cite{schilit_context-aware_1994} bestimmt als 3 Hauptaspekte von Kontext an welchem Ort, mit welcen Personen und in der Nähe welcher Ressourcen man sich befindet.
+Eine der frühesten Definitionen von Kontext \cite{schilit_context-aware_1994} bestimmt als 3 Hauptaspekte von Kontext an welchem Ort, mit welcen Personen und in der Nähe welcher Ressourcen man sich befindet.\\
 %“lighting, noise level, network connectivity, communication costs, communication bandwidth, and even the social situation; e.g., whether you are with your manager or with a co-worker.”
-Des weiteren beinhaltet laut \cite{schilit_context-aware_1994} Kontext Attribute wie Beleuchtung, Lautstärke, den Grad der Netzwerkverbindung, Kommunikationskosten, Kommunikationsbandbreite und die soziale Situation.\\\\
+Desweiteren beinhaltet laut  \cite{schilit_context-aware_1994} Kontext Attribute wie Beleuchtung, Lautstärke, den Grad der Netzwerkverbindung, Kommunikationskosten, Kommunikationsbandbreite und die soziale Situation.\\
 %“Context is any information that can be used to characterise the situation of an entity. An entity is a person, place, or object that is considered relevant to the interaction between a user and an application, including the user and applications themselves.” 
-Nach Dey \cite{dey_understanding_2001}, die von den meisten anderen Autoren akzeptierte Definition \cite{wei_liu_survey_2011,alegre_engineering_2016,aguilar_cameonto_2018} oder als Ausgangspunkt für ihre eigene Definition \cite{kokinov_operational_2007,kayes_icaf_2012}, ist "Kontext jede Information die genutzt werden kann um die Situation einer Entität zu charakterisieren. Eine Entität ist eine Person, ein Objekt oder ein Ort mit Relevanz für die Interaktion zwischen Nutzer und Anwendung. Das schließt auch Nutzer und Anwendung selbst mit ein".\\
+Nach der Definition von Dey et al. \cite{dey_understanding_2001} ist "Kontext jede Information die genutzt werden kann um die Situation einer Entität zu charakterisieren. Eine Entität ist eine Person, ein Objekt oder ein Ort mit Relevanz für die Interaktion zwischen Nutzer und Anwendung. Das schließt auch Nutzer und Anwendung selbst mit ein".
+Sie wird allgemein hin von den meisten anderen Autoren als Quasikonsens akzeptiert \cite{wei_liu_survey_2011,alegre_engineering_2016,aguilar_cameonto_2018} oder als Ausgangspunkt für ihre eigene Definition genutzt \cite{kokinov_operational_2007,kayes_icaf_2012}.\\
 %"the context space C may be defined as the combination of context parameters, domain ontology elements and service descriptions: C = fU;P;L;T;D;I;S g [1] where U is the set of user & role factors, P the processes & tasks, L the locations, T the time factors, D the device factors, I the available information items, and S the available services (or service descriptions). A specic context isthen apoint in the context space. 
-In \cite{wolfgang_kaltz_context-aware_2005}  wird Kontext als ein Kontextraum also eine Kombination aus Kontextparametern, domain ontology elements und Dienstleistungsbeschreibungen in Form von $C = \{U;P;L;T;D;I;S\}$ definiert.\\ Dabei ist $U$ das Set aus Nutzern und den dazugehörigen Rollen, $P$ die Prozesse und Aufgaben, $L$ der Ort, $T$ der Zeitfaktor, $D$ beschreibt das Gerät, $I$ die verfügbaren Informationen und $S$ die verfügbaren Dienstleistungen. Ein spezifischer Kontext ist somit ein Punkt in diesem Raum. \\
+Kaltz et al. \cite{wolfgang_kaltz_context-aware_2005} versteht Kontext als ein Kontextraum also eine Kombination aus Kontextparametern, %TODO domain ontology elements
+ und Dienstleistungsbeschreibungen in Form von $C = \{U;P;L;T;D;I;S\}$ definiert.
+Dabei ist $U$ das Set aus Nutzern und den dazugehörigen Rollen, $P$ die Prozesse und Aufgaben, $L$ der Ort, $T$ der Zeitfaktor, $D$ beschreibt das Gerät, $I$ die verfügbaren Informationen und $S$ die verfügbaren Dienstleistungen.
+Ein spezifischer Kontext ist somit ein Punkt in diesem Raum.\\
 %“Our analysis of definitions of context collected on the Web shows that context could be analyzed through six essential components. The context acts like a set of constraints that influence the behavior of a system (a user or a computer) embedded in a given task. We discuss the nature and structure of context in the definitions. There is no consensus about the following questions: Is context external or internal? Is context a set of information or processes? Is context static or dynamic? Is context a simple set of phenomenon or an organized network?”
-Bazire und Brézillon \cite{hutchison_understanding_2005} haben 150 Kontextdefinitionen analysiert und sind dabei zu der Erkenntnis gekommen das Kontext wie eine Begrenzung fungiert welche das Verhalten eines Systems, Nutzers oder Computers in einer bestimmten Tätigkeit beeinflussen. Allerdings herrscht ihrer Ansicht nach kein Konsens ob Kontext extern oder intern, ein Set aus Informationen oder Abläufen, statisch oder dynamisch ist.
-
+Bazire und Brézillon \cite{hutchison_understanding_2005} haben 150 Kontextdefinitionen analysiert und sind dabei zu der Erkenntnis gekommen das Kontext wie eine Begrenzung fungiert welche das Verhalten eines Systems, Nutzers oder Computers in einer bestimmten Tätigkeit beeinflussen.
+Allerdings herrscht ihrer Ansicht nach kein Konsens darüber ob Kontext extern oder intern, ein Set aus Informationen oder Abläufen, statisch oder dynamisch ist.\\
 %“Context information’ used in an access control decision is defined as any relevant information about the state of a relevant entity (user, resource, resource owner and their environments) or the state of a relevant relationship between the entities.” 
 %based on Dey
-Kayes \cite{kayes_icaf_2012} definiert Kontextinformationen in Bezug auf Zugriffskontrollentscheidungen als relevante Informationen über den Zustand einer Entität (Nutzer, Ressource, Ressourcenbesitzer) und deren Umgebung oder die Beziehung zwischen Entitäten.
-
-%“Context: Dey expresses that for the computation [15]: ‘‘Context is any information that can be used to characterize the situation of an entity. An entity is a person, place or object that is considered relevant to the interaction between a user and an application.”” 
+Kayes et al.\cite{kayes_icaf_2012} definieren Kontextinformationen in Bezug auf Zugriffskontrollentscheidungen als relevante Informationen über den Zustand einer Entität (Nutzer, Ressource, Ressourcenbesitzer) und deren Umgebung oder die Beziehung zwischen Entitäten.
 
 \subsection{Darlegung/Erläuterung meiner Kontextdefinition}
 
 \section{Kontextkategorisierung}
+Das Hauptanliegen 
 
-		\subsection{ Analyse bereits vorgeschlagener Kategorien} 
-		\subsection{ Erstellung einer Kontexttaxonomie }
+\subsection{ Analyse bereits vorgeschlagener Kategorien} 
+%Abowd et al. [3] introduced one of the leading mechanisms of defining context types. They identified location, identity, time, and activity as the primary context types. Further, they defined secondary context as the context that can be found using primary context.
+Abowd et al.\cite{abowd_towards_1999} haben einen der führenden Mechanismen zur Definition von Kontexttypen vorgeschlagen. Sie identifizierten Ort, Zeit, Identität, Zeit und Aktivität als primäre Kontexttypen. Weiterhin wird sekundärer Kontext als Kontext definiert der durch Nutzung von Primärkontext erschlossen werden kann.
 
+%Schilit et al. \cite{schilit_context-aware_1994}: They categorised context into three categories using a conceptual categorisation based technique on three common questions that can be used to determine the context. 
+%1) Where you are: This includes all location related information such as GPS coordinates, common names (e.g. coffee shop, university, police), specific names (e.g. Canberra city police), specific addresses, user preferences (e.g. user’s favourite coffee shop). 
+%2) Who you are with: The information about the people present around the user. 
+%3) What resources are nearby: This includes information about resources available in the area where the user is located, such as machinery, smart objects, and utilities. 
+Schilit et al. \cite{schilit_context-aware_1994} kategorisieren Kontext basierend auf 3 Fragen, die genutzt werden können um den Kontext zu bestimmen, in 3 Kategorien:
+\begin{enumerate}
+\item{Wo man sich befindet: Enthalt alle Informationen die sich auf einen Ort beziehen, beispielsweise GPS-Koordinaten, Namen von Institutionen oder Gebäuden (ein Café, ein Krankenhaus, eine Universität), spezifische Namen (z.B.: Technische Universität Dresden) spezifischen Adressen(z.B.: APB Nöthnitzer Str. 46) oder Nutzerpräferenzen (z.B. das Lieblingsrestaurant eines Nutzers) }
+\item{Mit wem man sich zusammen aufhält: Information über die Personen die um einen herum anwesend sind}
+\item{Welche Resourcen sich in der Nähe befinden: Informationen darüber welche Ressourcen (Maschinen, technische Geräte, Betriebsmittel) sich im direkten Umfeld eines Nutzers befinden}
+\end{enumerate}
+
+%Henricksen [89] (2003): Categorised context into four categories based on an operational categorisation technique. 
+Henricken et al.\cite{henricksen2003framework} ordnet Kontext basierend auf der betrieblichen Katergorisierungstechnik in 4 verschiedene Kategorien:
+%1) Sensed: Sensor data directly sensed from the sensors, such as temperature measured by a temperature sensor. Values will be changed over time with a high frequency. 
+\begin{enumerate}
+\item {Messbar: Informationen die aus direkt messbaren Werten bestehen. Diese ändern sich oft oder gar kontinuierlich. }
+%2) Static: Static information which will not change over time, such as manufacturer of the sensor, capabilities of the sensor, range of the sensor measurements.
+\item {Statisch: Informationen die sich während der Lebenszeit eines Systems gleich bleiben.}
+%3) Profiled: Information that changes over time with a low frequency, such as once per month (e.g. location of sensor, sensor ID). 
+\item {Profiliert: Informationen die sich selten ändern.}
+%4) Derived: The information computed using primary context such as distance of two sensors calculated using two GPS sensors. 
+\item {Abgeleitet: Informationen die unter Verwendung anderer Daten gewonnen wurden. }
+
+\end{enumerate}
+
+%Van Bunningen et al. [95] (2005): Instead of categorising context, they classified the context categorisation schemes into two broader categories: operational and conceptual. 
+Van Bunningen et al. \cite{van2005context} ordnen Kategoriesungsversuche in zwei übergeordnete Gruppen: Betrieblich und Konzeptionell. 
+\begin{enumerate}
+%1) Operational categorisation: Categorise context based on how they were acquired, modelled, and treated. 
+\item{Betriebliche Kategorisierung: Einordung anhand dessen wie der Kontext akquiriert, modelliert und behandelt wird.}
+%2) Conceptual categorisation: Categorise context based on the meaning and conceptual relationships between the context.
+\item{Konzeptionelle Kategorisierung: Einordnug anhand der Bedeutung des Kontexts und der konzeptionellen Beziehungen} % TODO konzeptionell nicht mit Konzeptionell erklären
+\end{enumerate}
+
+%“Based on the evaluation of context categorisation, it is evident that no single categorisation scheme can accommodate all the demands” ([Perera et al., 2014, p. 423]
+Die Evaluation verschiedener Kategorisierungsschemata zeigt das keine Kategorisierung allen Ansprüchen gerecht werden kann\cite{perera_context_2014}.
+\section{ Erstellung einer Kontexttaxonomie }
+
+
+Konzeptionell/Betrieblich
+
+
+Primär/Sekundär
+
+%“Any information retrieved without using existing context and without performing any kind of sensor data fusion operations (e.g. GPS sensor readings as location information).” 
+Kontextinformationen die gesammelt werden können ohne bereits vorhandene Daten zu verwenden oder zu kombinieren. \cite{perera_context_2014}
+
+“%Any information that can be computed using primary context. The secondary context can be computed by using sensor data fusion operations or data retrieval operations such as web service calls (e.g. identify the distance between two sensors by applying sensor data fusion operations on two raw GPS sensor values). Further, retrieved context such as phone numbers, addresses, email addresses, birthdays, list of friends from a contact information provider based on a personal identity as the primary context can also be identified as secondary context.” 
+Kontext der durch das verarbeiten von Primärkontext erschlossen werden kann. Dies kann durch die Kombination einzelner Datenpunkte einer oder mehrerer Kategorien oder durch Abfragen weiterer Informationen mithilfe der Primärinformationen geschehen
+
+Grund/Aktivität/Zeit/Ort/Indentität
+
+Historie/Zeitliche Entwicklung
+
+Attribute früherer Verbindungen/Verbindungsanfragen einer Entität/Anwendung (Annahme das Netzwerkteilnehmer eindeutig identifizierbar sind)
+
+Scr-IP/Port + Dest-IP/Port
+
+Zeitpunkt
+
+Protokoll
+
+Paketlänge
+
+Verbindung möglich
+
+Verbindung zugelassen
+
+Statisch - Dynamisch
+
+“Static information which will not change over time” 
+Statischer Kontext ändert sich nicht
+
+“Values will be changed over time with a high frequency.” 
+Werte ändern sich oft
+Änderungsrate / Abtastrate / Anfragerate
+- jährlich/monatlich/täglich/stündlich/minütlich/sekündlich
+
+Wie häufig sich Werte/Attribute ändern
+
+Wie oft Werte/Attribute im Netzwerk aktualisiert werden
+
+Wie oft Werte/Atrribute im Netzwerk von Netzwerkteilnehmern angefragt werden
+
+Logisch/Physisch
+
+Protokoll nach dem OSI-Schichtmodell
+
+Anwendung
+
+Transport
+
+Netzwerk
+
+Entität
+
+Gerät
+
+Nutzer
+
+Anwendung

@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.1 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -19,6 +19,105 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{abowd_towards_1999}{incollection}{}
+      \name{author}{6}{}{%
+        {{hash=c1ca8e8fb08ff442d00a1bc25094660c}{%
+           family={Abowd},
+           familyi={A\bibinitperiod},
+           given={Gregory\bibnamedelima D.},
+           giveni={G\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=383a958e7dc63d5a57bbeec2a4e3ac93}{%
+           family={Dey},
+           familyi={D\bibinitperiod},
+           given={Anind\bibnamedelima K.},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=437b7e313c9cc96f99bd5cdb16235be9}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Peter\bibnamedelima J.},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=1b7c40e5324a83a9a8df40fb8e6e786e}{%
+           family={Davies},
+           familyi={D\bibinitperiod},
+           given={Nigel},
+           giveni={N\bibinitperiod}}}%
+        {{hash=b54f505a6510ce7238c6c7404c4efdee}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fef4cacc48e9e609a737fd2973a12918}{%
+           family={Steggles},
+           familyi={S\bibinitperiod},
+           given={Pete},
+           giveni={P\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=e55e0088485edf422d114d8c3408d9b5}{%
+           family={Gellersen},
+           familyi={G\bibinitperiod},
+           given={Hans-W.},
+           giveni={H\bibinithyphendelim W\bibinitperiod}}}%
+      }
+      \name{editorb}{3}{}{%
+        {{hash=97b8779c08da200ee2eb194bdc10ae4f}{%
+           family={Goos},
+           familyi={G\bibinitperiod},
+           given={Gerhard},
+           giveni={G\bibinitperiod}}}%
+        {{hash=84d4ea2bd3ec736effccd97ee64d09ef}{%
+           family={Hartmanis},
+           familyi={H\bibinitperiod},
+           given={Juris},
+           giveni={J\bibinitperiod}}}%
+        {{hash=85c66f2d841a584a103f4ae08683c2ea}{%
+           family={Leeuwen},
+           familyi={L\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod},
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{7c6160d8749127640a35e15f924d83b0}
+      \strng{fullhash}{4428157a3495732af69ec38e2eec6904}
+      \strng{bibnamehash}{7c6160d8749127640a35e15f924d83b0}
+      \strng{authorbibnamehash}{7c6160d8749127640a35e15f924d83b0}
+      \strng{authornamehash}{7c6160d8749127640a35e15f924d83b0}
+      \strng{authorfullhash}{4428157a3495732af69ec38e2eec6904}
+      \strng{editorbibnamehash}{e55e0088485edf422d114d8c3408d9b5}
+      \strng{editornamehash}{e55e0088485edf422d114d8c3408d9b5}
+      \strng{editorfullhash}{e55e0088485edf422d114d8c3408d9b5}
+      \strng{editorbbibnamehash}{d1a031d47287fd5b6769f029ddffb831}
+      \strng{editorbnamehash}{d1a031d47287fd5b6769f029ddffb831}
+      \strng{editorbfullhash}{d1a031d47287fd5b6769f029ddffb831}
+      \field{sortinit}{A}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Handheld and Ubiquitous Computing}
+      \field{editorbtype}{redactor}
+      \field{isbn}{978-3-540-66550-2 978-3-540-48157-7}
+      \field{langid}{english}
+      \field{note}{Series Title: Lecture Notes in Computer Science}
+      \field{title}{Towards a Better Understanding of Context and Context-Awareness}
+      \field{volume}{1707}
+      \field{year}{1999}
+      \field{dateera}{ce}
+      \field{pages}{304\bibrangedash 307}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1007/3-540-48157-5_29
+      \endverb
+      \verb{file}
+      \verb Abowd et al. - 1999 - Towards a Better Understanding of Context and Cont.pdf:/home/tobi/Zotero/storage/IKH5M6ZH/Abowd et al. - 1999 - Towards a Better Understanding of Context and Cont.pdf:application/pdf
+      \endverb
+    \endentry
     \entry{aguilar_cameonto_2018}{article}{}
       \name{author}{3}{}{%
         {{hash=8fdd89e392bd352ad03ebb786c6e86e3}{%
@@ -47,7 +146,7 @@
       \strng{authornamehash}{1e5720c76f71628a053df5f829d751ce}
       \strng{authorfullhash}{1e5720c76f71628a053df5f829d751ce}
       \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{In order to model a context and adapt it to any domain, it is necessary an ontology that captures generic concepts to a higher level. The context model must provide mechanisms to extend the speciﬁc information of a context in a hierarchical manner. In this paper, we propose CAMeOnto, an ontology with these characteristics, based on the principles of 5Ws: who, when, what, where and why. CAMeOnto is used by CARMiCLOC, a reﬂective middleware for context-aware applications, and is instantiated in several case studies, in order to test how CAMeOnto works correctly and can reason to infer information about the context.}
@@ -57,12 +156,8 @@
       \field{number}{2}
       \field{shorttitle}{{CAMeOnto}}
       \field{title}{{CAMeOnto}: {Context} awareness meta ontology modeling}
-      \field{urlday}{8}
-      \field{urlmonth}{6}
-      \field{urlyear}{2022}
       \field{volume}{14}
       \field{year}{2018}
-      \field{urldateera}{ce}
       \field{pages}{202\bibrangedash 213}
       \range{pages}{12}
       \verb{doi}
@@ -70,12 +165,6 @@
       \endverb
       \verb{file}
       \verb Aguilar et al. - 2018 - CAMeOnto Context awareness meta ontology modeling.pdf:C\:\\Users\\Tobi\\Zotero\\storage\\IPGMWCXE\\Aguilar et al. - 2018 - CAMeOnto Context awareness meta ontology modeling.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://linkinghub.elsevier.com/retrieve/pii/S2210832717301643
-      \endverb
-      \verb{url}
-      \verb https://linkinghub.elsevier.com/retrieve/pii/S2210832717301643
       \endverb
     \endentry
     \entry{alegre_engineering_2016}{article}{}
@@ -106,7 +195,7 @@
       \strng{authornamehash}{b88e541b79bf4a733b984a6bd82d498a}
       \strng{authorfullhash}{b88e541b79bf4a733b984a6bd82d498a}
       \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Context-awareness is an essential component of systems developed in areas like Intelligent Environments, Pervasive \& Ubiquitous Computing and Ambient Intelligence. In these emerging ﬁelds, there is a need for computerized systems to have a higher understanding of the situations in which to provide services or functionalities, to adapt accordingly. The literature shows that researchers modify existing engineering methods in order to better ﬁt the needs of context-aware computing. These eﬀorts are typically disconnected from each other and generally focus on solving speciﬁc development issues. We encourage the creation of a more holistic and uniﬁed engineering process that is tailored for the demands of these systems. For this purpose, we study the state-of-the-art in the development of context-aware systems, focusing on: A) Methodologies for developing context-aware systems, analysing the reasons behind their lack of adoption and features that the community wish they can use; B) Context-aware system engineering challenges and techniques applied during the most common development stages; C) Context-aware systems conceptualization.}
@@ -115,12 +204,8 @@
       \field{month}{7}
       \field{shorttitle}{Engineering context-aware systems and applications}
       \field{title}{Engineering context-aware systems and applications: {A} survey}
-      \field{urlday}{8}
-      \field{urlmonth}{6}
-      \field{urlyear}{2022}
       \field{volume}{117}
       \field{year}{2016}
-      \field{urldateera}{ce}
       \field{pages}{55\bibrangedash 83}
       \range{pages}{29}
       \verb{doi}
@@ -128,12 +213,6 @@
       \endverb
       \verb{file}
       \verb Alegre et al. - 2016 - Engineering context-aware systems and applications.pdf:/home/tobi/Zotero/storage/C76G7TIA/Alegre et al. - 2016 - Engineering context-aware systems and applications.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://linkinghub.elsevier.com/retrieve/pii/S0164121216000467
-      \endverb
-      \verb{url}
-      \verb https://linkinghub.elsevier.com/retrieve/pii/S0164121216000467
       \endverb
     \endentry
     \entry{hutchison_understanding_2005}{book}{}
@@ -265,7 +344,7 @@
       \strng{editornamehash}{1878e5aaeb2ba2e2aaa5cb8a1a7cf207}
       \strng{editorfullhash}{bf2901179dc724102fcc1bd2c5dabc04}
       \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This paper presents an attempt to point out some problematic issues about the understanding of context. Although frequently used in cognitive sciences or other disciplines, context stays a very ill-defined concept. Our goal is to identify the main components of the context on the basis of the analysis of a corpus of 150 definitions coming mainly from the web in different domains of cognitive sciences and close disciplines. We analyzed this corpus of definitions through two methods, namely LSA [1], [2] and STONE [3], [4], and we conclude that finally the content of all the definitions can be analyzed in terms of few parameters like constraint, influence, behavior, nature, structure and system.}
@@ -273,12 +352,8 @@
       \field{isbn}{978-3-540-26924-3 978-3-540-31890-3}
       \field{note}{Series Title: Lecture Notes in Computer Science}
       \field{title}{Understanding {Context} {Before} {Using} {It}}
-      \field{urlday}{28}
-      \field{urlmonth}{7}
-      \field{urlyear}{2022}
       \field{volume}{3554}
       \field{year}{2005}
-      \field{urldateera}{ce}
       \field{pages}{29\bibrangedash 40}
       \range{pages}{12}
       \verb{doi}
@@ -286,12 +361,6 @@
       \endverb
       \verb{file}
       \verb Bazire and Brézillon - 2005 - Understanding Context Before Using It.pdf:C\:\\Users\\Tobi\\Zotero\\storage\\LH693ZI8\\Bazire and Brézillon - 2005 - Understanding Context Before Using It.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://link.springer.com/10.1007/11508373_3
-      \endverb
-      \verb{url}
-      \verb http://link.springer.com/10.1007/11508373_3
       \endverb
     \endentry
     \entry{dey_understanding_2001}{article}{}
@@ -309,7 +378,7 @@
       \strng{authornamehash}{383a958e7dc63d5a57bbeec2a4e3ac93}
       \strng{authorfullhash}{383a958e7dc63d5a57bbeec2a4e3ac93}
       \field{sortinit}{D}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Context is a poorly used source of information in our computing environments. As a result, we have an impoverished understanding of what context is and how it can be used. In this paper, we provide an operational deﬁnition of context and discuss the different ways in which context can be used by context-aware applications. We also present the Context Toolkit, an architecture that supports the building of these context-aware applications. We discuss the features and abstractions in the toolkit that make the task of building applications easier. Finally, we introduce a new abstraction, a situation which we believe will provide additional support to application designers.}
@@ -322,6 +391,56 @@
       \verb{file}
       \verb Dey - Understanding and Using Context.pdf:/home/tobi/Zotero/storage/H243MVRQ/Dey - Understanding and Using Context.pdf:application/pdf
       \endverb
+    \endentry
+    \entry{greenberg2001context}{article}{}
+      \name{author}{1}{}{%
+        {{hash=235c46d06eaf0fbe7ff9c72d756b03a9}{%
+           family={Greenberg},
+           familyi={G\bibinitperiod},
+           given={Saul},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{235c46d06eaf0fbe7ff9c72d756b03a9}
+      \strng{fullhash}{235c46d06eaf0fbe7ff9c72d756b03a9}
+      \strng{bibnamehash}{235c46d06eaf0fbe7ff9c72d756b03a9}
+      \strng{authorbibnamehash}{235c46d06eaf0fbe7ff9c72d756b03a9}
+      \strng{authornamehash}{235c46d06eaf0fbe7ff9c72d756b03a9}
+      \strng{authorfullhash}{235c46d06eaf0fbe7ff9c72d756b03a9}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Human--Computer Interaction}
+      \field{number}{2-4}
+      \field{title}{Context as a dynamic construct}
+      \field{volume}{16}
+      \field{year}{2001}
+      \field{pages}{257\bibrangedash 268}
+      \range{pages}{12}
+    \endentry
+    \entry{henricksen2003framework}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0ec10cc5e0d85cb9daec74163599ea70}{%
+           family={Henricksen},
+           familyi={H\bibinitperiod},
+           given={Karen},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{0ec10cc5e0d85cb9daec74163599ea70}
+      \strng{fullhash}{0ec10cc5e0d85cb9daec74163599ea70}
+      \strng{bibnamehash}{0ec10cc5e0d85cb9daec74163599ea70}
+      \strng{authorbibnamehash}{0ec10cc5e0d85cb9daec74163599ea70}
+      \strng{authornamehash}{0ec10cc5e0d85cb9daec74163599ea70}
+      \strng{authorfullhash}{0ec10cc5e0d85cb9daec74163599ea70}
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A framework for context-aware pervasive computing applications}
+      \field{year}{2003}
     \endentry
     \entry{kayes_icaf_2012}{article}{}
       \name{author}{3}{}{%
@@ -351,7 +470,7 @@
       \strng{authornamehash}{b1d02a0e2a103d58dc3a21ca03007f52}
       \strng{authorfullhash}{b1d02a0e2a103d58dc3a21ca03007f52}
       \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Context-aware systems acquire and integrate multi-faceted knowledge about their environments in order to make decisions. A number of attempts to build frameworks for context-aware systems have been made, but these have not provided adequate support for context-aware access control. In this paper, we present a framework for context-aware access control and its prototype implementation. The framework includes a context model for classifying and capturing access control-oriented contextual information, a situation model for identifying and defining contextual conditions of concern, and a policy model for specifying context-aware access control policies.}
@@ -362,6 +481,104 @@
       \verb{file}
       \verb Kayes et al. - ICAF A Context-Aware Framework for Access Control.pdf:C\:\\Users\\Tobi\\Zotero\\storage\\FMLBWCCA\\Kayes et al. - ICAF A Context-Aware Framework for Access Control.pdf:application/pdf
       \endverb
+    \endentry
+    \entry{mell2003overview}{article}{}
+      \name{author}{5}{}{%
+        {{hash=eac098e5805fbc204d757a7083c69ac6}{%
+           family={Mell},
+           familyi={M\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=f90a5ac889109e669f5fbecacc85fc12}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+        {{hash=569c47ca5cb7e5f48fa5f273940d8e29}{%
+           family={Lippmann},
+           familyi={L\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=7b898d19e9d5edaaf608980742b4dfad}{%
+           family={Haines},
+           familyi={H\bibinitperiod},
+           given={Josh},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c2cf9f74bec67facf5d562a1ad77fc86}{%
+           family={Zissman},
+           familyi={Z\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Citeseer}%
+      }
+      \strng{namehash}{3f7fdd7ee1244a6ae1bdedf7d36ec9ef}
+      \strng{fullhash}{dbad060d90fbfb333115eb5864530ff7}
+      \strng{bibnamehash}{3f7fdd7ee1244a6ae1bdedf7d36ec9ef}
+      \strng{authorbibnamehash}{3f7fdd7ee1244a6ae1bdedf7d36ec9ef}
+      \strng{authornamehash}{3f7fdd7ee1244a6ae1bdedf7d36ec9ef}
+      \strng{authorfullhash}{dbad060d90fbfb333115eb5864530ff7}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An overview of issues in testing intrusion detection systems}
+      \field{year}{2003}
+    \endentry
+    \entry{perera_context_2014}{article}{}
+      \name{author}{4}{}{%
+        {{hash=e5b420aba58a8d93cbbcaf2b1b0f4dab}{%
+           family={Perera},
+           familyi={P\bibinitperiod},
+           given={Charith},
+           giveni={C\bibinitperiod}}}%
+        {{hash=8da289bb46b6a95f52ced670c23af820}{%
+           family={Zaslavsky},
+           familyi={Z\bibinitperiod},
+           given={Arkady},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2df88d211fd24d931ebe3bf0dd661f93}{%
+           family={Christen},
+           familyi={C\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=25d9d97c240056793c5abcc6aee6a4d0}{%
+           family={Georgakopoulos},
+           familyi={G\bibinitperiod},
+           given={Dimitrios},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{3a7a2ea57f7c4872eb630a5e4ed238a4}
+      \strng{fullhash}{1d0a19f39e61587e4ba4540433e37ea0}
+      \strng{bibnamehash}{3a7a2ea57f7c4872eb630a5e4ed238a4}
+      \strng{authorbibnamehash}{3a7a2ea57f7c4872eb630a5e4ed238a4}
+      \strng{authornamehash}{3a7a2ea57f7c4872eb630a5e4ed238a4}
+      \strng{authorfullhash}{1d0a19f39e61587e4ba4540433e37ea0}
+      \field{sortinit}{P}
+      \field{sortinithash}{bb5b15f2db90f7aef79bb9e83defefcb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{As we are moving towards the Internet of Things ({IoT}), the number of sensors deployed around the world is growing at a rapid pace. Market research has shown a signiﬁcant growth of sensor deployments over the past decade and has predicted a signiﬁcant increment of the growth rate in the future. These sensors continuously generate enormous amounts of data. However, in order to add value to raw sensor data we need to understand it. Collection, modelling, reasoning, and distribution of context in relation to sensor data plays critical role in this challenge. Context-aware computing has proven to be successful in understanding sensor data. In this paper, we survey context awareness from an {IoT} perspective. We present the necessary background by introducing the {IoT} paradigm and context-aware fundamentals at the beginning. Then we provide an in-depth analysis of context life cycle. We evaluate a subset of projects (50) which represent the majority of research and commercial solutions proposed in the ﬁeld of context-aware computing conducted over the last decade (2001-2011) based on our own taxonomy. Finally, based on our evaluation, we highlight the lessons to be learnt from the past and some possible directions for future research. The survey addresses a broad range of techniques, methods, models, functionalities, systems, applications, and middleware solutions related to context awareness and {IoT}. Our goal is not only to analyse, compare and consolidate past research work but also to appreciate their ﬁndings and discuss their applicability towards the {IoT}.}
+      \field{issn}{1553-877X}
+      \field{journaltitle}{{IEEE} Communications Surveys \& Tutorials}
+      \field{langid}{english}
+      \field{number}{1}
+      \field{shortjournal}{{IEEE} Commun. Surv. Tutorials}
+      \field{shorttitle}{Context Aware Computing for The Internet of Things}
+      \field{title}{Context Aware Computing for The Internet of Things: A Survey}
+      \field{volume}{16}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{pages}{414\bibrangedash 454}
+      \range{pages}{41}
+      \verb{doi}
+      \verb 10.1109/SURV.2013.042313.00197
+      \endverb
+      \verb{file}
+      \verb Perera et al. - 2014 - Context Aware Computing for The Internet of Things.pdf:/home/tobi/Zotero/storage/FA3TDRRM/Perera et al. - 2014 - Context Aware Computing for The Internet of Things.pdf:application/pdf
+      \endverb
+      \keyw{Relevance: very high}
     \endentry
     \entry{schilit_context-aware_1994}{article}{}
       \name{author}{3}{}{%
@@ -388,7 +605,7 @@
       \strng{authornamehash}{e3fdddf5a3742a225cabaf71ad56aefe}
       \strng{authorfullhash}{e3fdddf5a3742a225cabaf71ad56aefe}
       \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This paper describes software that examines and reacts to an individual’s changing context. Such software can promote and mediate people’s interactions with devices, computers, and other people, and it can help navigate unfamiliar places. We believe that a limited amount of information covering a person’s proximate environment is most important for this form of computing since the interesting part of the world around us is what we can see, hear, and touch. In this paper we deﬁne context-aware computing, and describe four categories of context-aware applications: proximate selection, automatic contextual reconﬁguration, contextual information and commands, and context-triggered actions. Instances of these application types have been prototyped on the {PARCTAB}, a wireless, palm-sized computer.}
@@ -401,6 +618,43 @@
       \verb{file}
       \verb Schilit et al. - 1994 - Context-Aware Computing Applications.pdf:files/411/Schilit et al. - 1994 - Context-Aware Computing Applications.pdf:application/pdf
       \endverb
+    \endentry
+    \entry{van2005context}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=802b12fde834c73b5abb58079cad28b5}{%
+           family={Van\bibnamedelima Bunningen},
+           familyi={V\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Arthur\bibnamedelima H},
+           giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=70fef9a8ec19ebd51ee44505c3f3bb65}{%
+           family={Feng},
+           familyi={F\bibinitperiod},
+           given={Ling},
+           giveni={L\bibinitperiod}}}%
+        {{hash=c6127c2eb3a79b6d7c99b687a3df4360}{%
+           family={Apers},
+           familyi={A\bibinitperiod},
+           given={Peter\bibnamedelima MG},
+           giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{2181c8b52fc9ddefd9411cbd4d004dc5}
+      \strng{fullhash}{2181c8b52fc9ddefd9411cbd4d004dc5}
+      \strng{bibnamehash}{2181c8b52fc9ddefd9411cbd4d004dc5}
+      \strng{authorbibnamehash}{2181c8b52fc9ddefd9411cbd4d004dc5}
+      \strng{authornamehash}{2181c8b52fc9ddefd9411cbd4d004dc5}
+      \strng{authorfullhash}{2181c8b52fc9ddefd9411cbd4d004dc5}
+      \field{sortinit}{V}
+      \field{sortinithash}{02432525618c08e2b03cac47c19764af}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International Workshop on Ubiquitous Data Management}
+      \field{title}{Context for ubiquitous data management}
+      \field{year}{2005}
+      \field{pages}{17\bibrangedash 24}
+      \range{pages}{8}
     \endentry
     \entry{wei_liu_survey_2011}{inproceedings}{}
       \name{author}{3}{}{%
@@ -427,7 +681,7 @@
       \strng{authornamehash}{6b397fb561596665b6c1b4d443f47a21}
       \strng{authorfullhash}{6b397fb561596665b6c1b4d443f47a21}
       \field{sortinit}{W}
-      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2011 International Conference on Computer Science and Service System ({CSSS})}
@@ -436,12 +690,8 @@
       \field{langid}{english}
       \field{month}{6}
       \field{title}{A survey on context awareness}
-      \field{urlday}{28}
-      \field{urlmonth}{6}
-      \field{urlyear}{2022}
       \field{year}{2011}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{144\bibrangedash 147}
       \range{pages}{4}
       \verb{doi}
@@ -449,12 +699,6 @@
       \endverb
       \verb{file}
       \verb Wei Liu et al. - 2011 - A survey on context awareness.pdf:/home/tobi/Zotero/storage/ADMDZ84V/Wei Liu et al. - 2011 - A survey on context awareness.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://ieeexplore.ieee.org/document/5972040/
-      \endverb
-      \verb{url}
-      \verb http://ieeexplore.ieee.org/document/5972040/
       \endverb
     \endentry
     \entry{wolfgang_kaltz_context-aware_2005}{article}{}
@@ -482,7 +726,7 @@
       \strng{authornamehash}{85fa386583311a6a7cace1ba53b46575}
       \strng{authorfullhash}{85fa386583311a6a7cace1ba53b46575}
       \field{sortinit}{W}
-      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{This article presents an approach to Web Engineering which aims to account for context-awareness in a comprehensive and integrated fashion, thus enabling an enhanced adaptation of the application to the end-user. A conceptual model, permitting the combination of a domain ontology with context-relevant parameters and a degree of relevance, is presented. Subsequently, the use of such a model in a Web Engineering process is discussed, including appropriate modeling software, and requirements for a runtime system.}
@@ -495,13 +739,9 @@
       \field{shortjournal}{Revue d'intelligence artificielle}
       \field{shorttitle}{Context-aware Web Engineering}
       \field{title}{Context-aware Web Engineering: Modeling and Applications}
-      \field{urlday}{6}
-      \field{urlmonth}{6}
-      \field{urlyear}{2022}
       \field{volume}{19}
       \field{year}{2005}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{439\bibrangedash 458}
       \range{pages}{20}
       \verb{doi}
@@ -509,12 +749,6 @@
       \endverb
       \verb{file}
       \verb Wolfgang Kaltz et al. - 2005 - Context-aware Web Engineering Modeling and Applic.pdf:/home/tobi/Zotero/storage/SIWXBHVW/Wolfgang Kaltz et al. - 2005 - Context-aware Web Engineering Modeling and Applic.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://ria.revuesonline.com/article.jsp?articleId=5984
-      \endverb
-      \verb{url}
-      \verb http://ria.revuesonline.com/article.jsp?articleId=5984
       \endverb
     \endentry
     \entry{kokinov_operational_2007}{incollection}{}
@@ -573,7 +807,7 @@
       \strng{editornamehash}{1ae8ec1e3b4a430dcbc97349cdf384f4}
       \strng{editorfullhash}{eb48c2fe3e9b6c9167d6dc2d037681b5}
       \field{sortinit}{Z}
-      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{sortinithash}{8f7b480688e809b50b6f6577b16f3db5}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The definition of context experienced an evolution in the research area of context-aware computing, but still suffers from either generality or incompleteness. Furthermore, many definitions are driven by the ease of implementation. This paper introduces two extensions to available context definitions that provide a natural understanding of this concept to users of context-aware applications and facilitates the engineering of this concept for software developers of such applications.}
@@ -582,13 +816,9 @@
       \field{langid}{english}
       \field{note}{Series Title: Lecture Notes in Computer Science}
       \field{title}{An Operational Definition of Context}
-      \field{urlday}{1}
-      \field{urlmonth}{6}
-      \field{urlyear}{2022}
       \field{volume}{4635}
       \field{year}{2007}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{558\bibrangedash 571}
       \range{pages}{14}
       \verb{doi}
@@ -596,12 +826,6 @@
       \endverb
       \verb{file}
       \verb Zimmermann et al. - 2007 - An Operational Definition of Context.pdf:/home/tobi/Zotero/storage/CIQWKHY6/Zimmermann et al. - 2007 - An Operational Definition of Context.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://link.springer.com/10.1007/978-3-540-74255-5_42
-      \endverb
-      \verb{url}
-      \verb http://link.springer.com/10.1007/978-3-540-74255-5_42
       \endverb
       \keyw{context definition,Relevance: very high}
     \endentry

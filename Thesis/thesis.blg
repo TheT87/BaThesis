@@ -1,17 +1,20 @@
-[0] Config.pm:306> INFO - This is Biber 2.18
-[0] Config.pm:309> INFO - Logfile is 'thesis.blg'
-[81] biber-MSWIN32:340> INFO - === 
-[106] Biber.pm:418> INFO - Reading 'thesis.bcf'
-[194] Biber.pm:978> INFO - Found 9 citekeys in bib section 0
-[206] Biber.pm:4401> INFO - Processing section 0
-[216] Biber.pm:4592> INFO - Looking for bibtex file 'articles.bib' for section 0
-[247] bibtex.pm:1713> INFO - LaTeX decoding ...
-[263] bibtex.pm:1518> INFO - Found BibTeX data source 'articles.bib'
-[359] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[359] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[359] Biber.pm:4221> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
-[359] Biber.pm:4227> INFO - No sort tailoring available for locale 'de-DE'
-[371] bbl.pm:654> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[379] bbl.pm:757> INFO - Output to thesis.bbl
-[379] Biber.pm:130> WARN - ISBN '978-3-540-26924-3 978-3-540-31890-3' in entry 'hutchison_understanding_2005' is invalid - run biber with '--validate_datamodel' for details.
-[379] Biber.pm:132> INFO - WARNINGS: 1
+[0] Config.pm:304> INFO - This is Biber 2.14 (beta)
+[1] Config.pm:307> INFO - Logfile is 'thesis.blg'
+[156] biber:322> INFO - === Sat Aug 20, 2022, 17:50:20
+[187] Biber.pm:415> INFO - Reading 'thesis.bcf'
+[316] Biber.pm:943> INFO - Found 15 citekeys in bib section 0
+[341] Biber.pm:4256> INFO - Processing section 0
+[342] Utils.pm:75> INFO - Globbing data source 'articles.bib'
+[342] Utils.pm:91> INFO - Globbed data source 'articles.bib' to articles.bib
+[362] Biber.pm:4455> INFO - Looking for bibtex format file 'articles.bib' for section 0
+[365] bibtex.pm:1653> INFO - LaTeX decoding ...
+[425] bibtex.pm:1471> INFO - Found BibTeX data source 'articles.bib'
+[495] Utils.pm:293> WARN - ISBN '978-3-540-26924-3 978-3-540-31890-3' in entry 'hutchison_understanding_2005' is invalid - run biber with '--validate_datamodel' for details.
+[634] Utils.pm:293> WARN - ISBN '978-3-540-66550-2 978-3-540-48157-7' in entry 'abowd_towards_1999' is invalid - run biber with '--validate_datamodel' for details.
+[760] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[760] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[760] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[760] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
+[788] bbl.pm:652> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[809] bbl.pm:755> INFO - Output to thesis.bbl
+[809] Biber.pm:128> INFO - WARNINGS: 2
