@@ -28,10 +28,10 @@ Dementsprechend schwer wird ist es ein in sich geschlossenes und allumfassendes 
 \end{enumerate}
 
 \subsection{ Festlegung auf bestimmte IDS-Implementierungen}
-Es steht eine Vielzahl an Software- und Hardwareimplementierungen zur Entscheidung von zugriffkontrollentscheidungen zur  Verfügung.
-Jenachdem welche Kriterien auf welche Art und Weise erfüllt werden müssen hängt vom spezifischen Anwendungsfall ab.
+Es steht eine Vielzahl an Software- und Hardwareimplementierungen zur Entscheidung von Zugriffskontrollentscheidungen zur  Verfügung.
+Je nachdem welche Kriterien auf welche Art und Weise erfüllt werden müssen hängt vom spezifischen Anwendungsfall ab.
 %TODO meine Kriterien spezifizieren + evtl kurze Erklärung zeek+suricata
-\subsection{Analyse der IDS-Regel-Syntax}
+\subsection{Analyse der Regel-Syntax eines IDS}
 Wie arbeiten die einzelnen IDS? Wie einfach lassen sich die Zustände die auftretender Kontext annehmen kann in Regeln festlegen?
 \subsection{ Abgleich zwischen Taxonomie und den in der Praxis zur Verfügung stehenden Informationen}
 Wie gut lässt sich bestimmter Kontext in verfügbaren Informationen finden bzw. sind die verfügbaren Informationen in die Taxonomie einsortierbar?
@@ -40,43 +40,48 @@ Um die Performance eines IDS verbessern zu können, muss man festlegen welche Kr
 Mell et al.\cite{mell2003overview} nennen in ihrer Übersicht verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkung zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
 %Coverage: This measurement determines which attacks an IDS can detect under ideal conditions. 
 \subsubsection{Abdeckung}
-Gibt an welche Typen von Angriffen ein IDS unter idealen Bedingungen festellen kann.
+Gibt an welche Typen von Angriffen ein IDS unter idealen Bedingungen feststellen kann.
 % Probability of False Alarms 
 %This measurement determines the rate of false positives produced by an IDS in a given environment during a particular time frame. A false positive or false alarm is an alert caused by normal non- malicious background traffic
-\subsubsection{Warscheinlichkeit falscher Alarme}
-Gibt die Warscheinlichkeit das durch ein IDS ausgelöste Alarme durch gutartigen bzw. nicht-schädlichen Netzwerkverkehr verursacht wurden an.\\
+\subsubsection{Wahrscheinlichkeit falscher Alarme}
+Gibt die Wahrscheinlichkeit das durch ein IDS ausgelöste Alarme durch gutartigen bzw. nicht-schädlichen Netzwerkverkehr verursacht wurden an.\\
 \[Rate\;an\;falsch-Positiven\;Meldungen = \frac{Anzahl\;falscher\;Alarme}{Anzahl\;aller\;Alarme}\]
 %Probability of Detection: 
 %This measurement determines the rate of attacks detected correctly by an IDS in a given environment during a particular time frame
-\subsubsection{Warscheinlichkeit einer Erkennung}
+\subsubsection{Wahrscheinlichkeit einer Erkennung}
 Gibt die Rate der durch das IDS korrekt erkannten Angriffe an.\\
 \[Erkennungswarscheinlichkeit  = \frac{Anzahl\;korrekt\;erkannter\;Angriffe} {Anzahl\;aller\;Angriffe}\]
 %Resistance to Attacks Directed at the IDS This measurement demonstrates how resistant an IDS is to an attacker's attempt to disrupt the correct operation of the IDS. Attacks against an IDS may take the form of: 
 %1. Sending a large amount of non-attack traffic with volume exceeding the IDS’s processing capability. With too much traffic to process, an IDS may drop packets and be unable to detect attacks. 
 %2. Sending to the IDS non-attack packets that are specially crafted to trigger many signatures within the IDS, thereby overwhelming the IDS’s human operator with false positives or crashing alert processing or display tools. 
 %3. Sending to the IDS a large number of attack packets intended to distract the IDS’s human operator while the attacker instigates a real attack
-\subsubsection{Resistenz des IDS}
-Ein signaturbasiertes IDS bzw. der menschliche Administrator hinter dem System weisen Probleme auf die nicht direkt beim Umgang mit verabeitetem Netzwerkverkehr, sondern schon bei der bewussten, unbewussten, oder erzwungenen Entscheidung welcher Netzwerkverkehr überhaupt in Frage kommt, entstehen:
+\subsubsection{Resistenz}
+Ein signatur-basiertes IDS bzw. der menschliche Administrator hinter dem System weisen Probleme auf die nicht direkt beim Umgang mit verarbeitetem Netzwerkverkehr, sondern schon bei der bewussten, unbewussten, oder erzwungenen Entscheidung welcher Netzwerkverkehr überhaupt in Frage kommt, entstehen:
 \begin{enumerate}
 \item{Ein zu große Menge an zu verarbeitendem Netzwerkverkehr die die Verarbeitungskapazität eines IDS übersteigt kann dazu führen das Netzwerkpakete verworfen und Angriffe nicht erkannt werden}
-\item{Pakete die zwar nicht bösartig sind aber so konstruiert das siea möglichst viele IDS Signaturen auslösen, überfordern den Administrator oder stören eventuell sogar die Verarbeitung von Paketen generell. }
-\item{Ein Angreifer könnte eine Vielzahl harmloserer aber trotzdem noch als schädlich zu deklariende Pakete senden um einen größen Angriff im Netzwerkverkehr zu verschleiern.}
+\item{Pakete die zwar nicht bösartig sind aber so konstruiert das sie möglichst viele IDS Signaturen auslösen, überfordern den Administrator oder stören eventuell sogar die Verarbeitung von Paketen generell. }
+\item{Ein Angreifer könnte eine Vielzahl "harmloserer" aber trotzdem noch als schädlich zu deklarierende Pakete senden um einen größeren Angriff im Netzwerkverkehr zu verschleiern.}
 \item{Pakete die möglicherweise vorhandene Fehler im IDS selbst ausnutzen.}
 \end{enumerate}
 %Ability to Correlate Events: This measurement demonstrates how well an IDS correlates attack events. These events may be gathered from IDSs, routers, firewalls, application logs, or a wide variety of other devices.
-\subsubsection{Fähigkeit Ereignisse in Bezug zueinander zu setzen}
-Demonstriert wie gut ein IDS eine Korrelation zwischen einzelnen Ereignissen, möglicherweise verschiedenen Ursprungs herzustellen. Die Ereignisse können dabei aus Routern, Firewalls, Anwendungen, dem IDS selbst oder einer großen Bandbreite anderer Quellen stammen.
-
-%Ability to Detect Never Before Seen Attacks This measurement demonstrates how well an IDS can detect attacks that have not occurred before. For commercial systems, it is generally not useful to take this measurement since their signature-based technology can only detect attacks that had occurred previously (with a few exceptions). However, research systems based on anomaly detection or specification-based approaches may be suitable for this type of measurement. Usually systems detecting attacks that had never been detected before produce more false positives than those that do not have this feature. 
-%3.8 Ability to Identify an Attack This measurement demonstrates how well an IDS can identify the attack that it has detected by labeling each attack with a common name or vulnerability name or by assigning the attack to a category. 
-%3.9 Ability to Determine Attack Success This measurement demonstrates if the IDS can determine the success of attacks from remote sites that give the attacker higher- level privileges on the attacked system. In current network environments, many remote privilege-gaining attacks (or probes) fail and do not damage the system attacked. Many IDSs, however, do not distinguish the failed from the successful attacks. For the same attack, some IDSs can detect the evidence of damages (whether the attack has succeeded) and some IDSs detect only the signature of attack actions (with no indication whether the attack succeeded or not). The ability to determine attack success is essential for the analysis of the attack correlation and the attack scenario; it also greatly simplifies an analyst’s work by distinguishing between more important successful attacks and the usually less damaging failed attacks. Measuring this capability requires the information about failed attacks as well as successful attacks.
+\subsubsection{Korrelation zwischen Einzelereignissen }
+%Demonstriert wie gut ein IDS eine Korrelation zwischen einzelnen Ereignissen, möglicherweise verschiedenen Ursprungs herzustellen. Die Ereignisse können dabei aus Routern, Firewalls, Anwendungen, dem IDS selbst oder einer großen Bandbreite anderer Quellen stammen.
+%Ability to Detect Never Before Seen Attacks: This measurement demonstrates how well an IDS can detect attacks that have not occurred before. For commercial systems, it is generally not useful to take this measurement since their signature-based technology can only detect attacks that had occurred previously (with a few exceptions). However, research systems based on anomaly detection or specification-based approaches may be suitable for this type of measurement. Usually systems detecting attacks that had never been detected before produce more false positives than those that do not have this feature.
+\subsubsection{Unbekannte Angriffe vorhersehen}
+Gibt an wie gut ein IDS Angriffe erkennt die so noch nicht aufgetreten sind. Signatur-basierte IDS sind allgemein, mit wenigen Ausnahmen, nicht in der Lage solche Angriffe zu erkennen. Normalerweise erhöht die Fähigkeit eines Systems noch unbekannte Angriffe zu erkennen, im Vergleich zu Systemen die dies nicht versuchen, zusätzlich die Rate an falsch-positiven Meldungen.
+%Ability to Identify an Attack: This measurement demonstrates how well an IDS can identify the attack that it has detected by labeling each attack with a common name or vulnerability name or by assigning the attack to a category.
+\subsubsection{Identifizieren von Angriffen}
+Wie gut ein IDS Angriffe die es erkennt, einen Namen oder einer Kategorie, beispielsweise ein CVE-Nummer, zuordnen kann.
+%Ability to Determine Attack Success This measurement demonstrates if the IDS can determine the success of attacks from remote sites that give the attacker higher- level privileges on the attacked system. In current network environments, many remote privilege-gaining attacks (or probes) fail and do not damage the system attacked. Many IDSs, however, do not distinguish the failed from the successful attacks. For the same attack, some IDSs can detect the evidence of damages (whether the attack has succeeded) and some IDSs detect only the signature of attack actions (with no indication whether the attack succeeded or not). The ability to determine attack success is essential for the analysis of the attack correlation and the attack scenario; it also greatly simplifies an analyst’s work by distinguishing between more important successful attacks and the usually less damaging failed attacks. Measuring this capability requires the information about failed attacks as well as successful attacks.
 
 
 % Also, the probability of detection varies with the false positive rate, and an IDS can be configured or tuned to favor either the ability to detect attacks or to minimize false positives
 %TODO weiter erklären
-Die Warscheinlichkeit einen Angriff zu erkennen variiert mit der Rate an falsch-positiven Meldungen. Bei der Konfiguration eines IDS kann entweder die Falsch-positiv-Rate oder die Erkennungsrate optimiert werden.
-In dieser Arbeit will ich mich hautsächlich mit der Häufigkeit falsch-positiven Meldungen und der generellen Übersichtsichlichkeit/Interpretierbarkeit der Meldungen durch einen menschlichen Nutzer beschäftigen.		
+Die Wahrscheinlichkeit einen Angriff zu erkennen variiert mit der Rate an falsch-positiven Meldungen. Bei der Konfiguration eines IDS kann entweder die Falsch-positiv-Rate oder die Erkennungsrate optimiert werden.
 
+ 
+
+In dieser Arbeit will ich mich hauptsächlich Abdeckung, Wahrscheinlichkeit einer Erkennung, Wahrscheinlichkeit falscher Alarme und der generellen Übersichtlichkeit/Interpretierbarkeit der Meldungen durch einen menschlichen Nutzer beschäftigen. Zusätzlich will ich beleuchten inwiefern Kontext die Korrelation zwischen Einzelereignissen und das Identifizieren von Angriffen ermöglicht bzw. verbessert.
 %One of the primary goals of this correlation is to identify staged penetration attacks. Currently, IDSs have only limited capabilities in this area.
 %Überleitung von zu CAAC
 \section{Kontextsensitivität}
