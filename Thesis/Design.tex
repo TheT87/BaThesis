@@ -37,7 +37,7 @@ Wie arbeiten die einzelnen IDS? Wie einfach lassen sich die Zustände die auftre
 Wie gut lässt sich bestimmter Kontext in verfügbaren Informationen finden bzw. sind die verfügbaren Informationen in die Taxonomie einsortierbar?
 \section{Anspruch an das IDS}
 Um die Performance eines IDS verbessern zu können, muss man festlegen welche Kriterien die Leistung beeinflussen bzw. bestimmen.
-Mell et al.\cite{mell2003overview} nennen in ihrer Übersicht verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkung zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
+Mell et al.\cite{mell2003overview} nennen in ihrer Übersicht verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkungen zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
 %Coverage: This measurement determines which attacks an IDS can detect under ideal conditions. 
 \subsubsection{Abdeckung}
 Gibt an welche Typen von Angriffen ein IDS unter idealen Bedingungen feststellen kann.
@@ -84,9 +84,9 @@ Indikator dafür ob ein IDS den Erfolg und die Auswirkungen eines Angriffes korr
 %TODO weiter erklären
 Die Wahrscheinlichkeit einen Angriff zu erkennen variiert mit der Rate an falsch-positiven Meldungen. Bei der Konfiguration eines IDS kann entweder die Falsch-positiv-Rate oder die Erkennungsrate optimiert werden.
 
- 
-
-In dieser Arbeit will ich mich hauptsächlich Abdeckung, Wahrscheinlichkeit einer Erkennung, Wahrscheinlichkeit falscher Alarme und der generellen Übersichtlichkeit/Interpretierbarkeit der Meldungen durch einen menschlichen Nutzer beschäftigen. Zusätzlich will ich beleuchten inwiefern Kontext die Korrelation zwischen Einzelereignissen und das Identifizieren von Angriffen ermöglicht bzw. verbessert.
+%unterscheidung performance/securiry related metrics 
+\cite{milenkoski_evaluating_2015}
+In dieser Arbeit beschäftige ich mich ausschließlich mit sicherheitsrelevanten Leistungsmetriken. Dabei will hauptsächlich Abdeckung, Wahrscheinlichkeit einer Erkennung, Wahrscheinlichkeit falscher Alarme und der generellen Interpretierbarkeit der Meldungen durch einen menschlichen Nutzer betrachten. Zusätzlich will ich beleuchten inwiefern Kontext die Korrelation zwischen Einzelereignissen und das Identifizieren von Angriffen ermöglicht bzw. verbessert.
 %One of the primary goals of this correlation is to identify staged penetration attacks. Currently, IDSs have only limited capabilities in this area.
 %Überleitung von zu CAAC
 \section{Kontextsensitivität}
