@@ -16,7 +16,7 @@ Kontext ist ein Begriff unter dem sich die meisten Menschen zwar etwas vorstelle
 
 Eine der frühesten Definitionen von Kontext \cite{schilit_context-aware_1994} bestimmt als 3 Hauptaspekte von Kontext an welchem Ort, mit welcen Personen und in der Nähe welcher Ressourcen man sich befindet.\\
 %“lighting, noise level, network connectivity, communication costs, communication bandwidth, and even the social situation; e.g., whether you are with your manager or with a co-worker.”
-Desweiteren beinhaltet laut  \cite{schilit_context-aware_1994} Kontext Attribute wie Beleuchtung, Lautstärke, den Grad der Netzwerkverbindung, Kommunikationskosten, Kommunikationsbandbreite und die soziale Situation.\\
+Des weiteren beinhaltet laut  \cite{schilit_context-aware_1994} Kontext Attribute wie Beleuchtung, Lautstärke, den Grad der Netzwerkverbindung, Kommunikationskosten, Kommunikationsbandbreite und die soziale Situation.\\
 %“Context is any information that can be used to characterise the situation of an entity. An entity is a person, place, or object that is considered relevant to the interaction between a user and an application, including the user and applications themselves.” 
 Nach der Definition von Dey et al. \cite{dey_understanding_2001} ist "Kontext jede Information die genutzt werden kann um die Situation einer Entität zu charakterisieren. Eine Entität ist eine Person, ein Objekt oder ein Ort mit Relevanz für die Interaktion zwischen Nutzer und Anwendung. Das schließt auch Nutzer und Anwendung selbst mit ein".
 Sie wird allgemein hin von den meisten anderen Autoren als Quasikonsens akzeptiert \cite{wei_liu_survey_2011,alegre_engineering_2016,aguilar_cameonto_2018} oder als Ausgangspunkt für ihre eigene Definition genutzt \cite{kokinov_operational_2007,kayes_icaf_2012}.\\
@@ -34,7 +34,7 @@ Allerdings herrscht ihrer Ansicht nach kein Konsens darüber ob Kontext extern o
 Kayes et al.\cite{kayes_icaf_2012} definieren Kontextinformationen in Bezug auf Zugriffskontrollentscheidungen als relevante Informationen über den Zustand einer Entität (Nutzer, Ressource, Ressourcenbesitzer) und deren Umgebung oder die Beziehung zwischen Entitäten.
 
 %TODO dey Definition	
-because this definition can be used to identify context from data in general. If we consider a data element, by using this definition, we can easily identify whether the data element is context or not.
+%because this definition can be used to identify context from data in general. If we consider a data element, by using this definition, we can easily identify whether the data element is context or not.
 
 \subsection{Kontextdefinition mit Zugriffskontrollbezug}
 \section{Kontextkategorisierung}
@@ -42,7 +42,7 @@ Das Hauptanliegen
 
 \subsection{ Analyse bereits vorgeschlagener Kategorien} 
 %Abowd et al. [3] introduced one of the leading mechanisms of defining context types. They identified location, identity, time, and activity as the primary context types. Further, they defined secondary context as the context that can be found using primary context.
-Abowd et al.\cite{abowd_towards_1999} haben einen der führenden Mechanismen zur Definition von Kontexttypen vorgeschlagen. Sie identifizierten Ort, Zeit, Identität, Zeit und Aktivität als primäre Kontexttypen. Weiterhin wird sekundärer Kontext als Kontext definiert der durch Nutzung von Primärkontext erschlossen werden kann.
+Abowd et al.\cite{abowd_towards_1999} haben einen der führenden Mechanismen zur Definition von Kontexttypen vorgeschlagen. Sie identifizierten Ort, Zeit, Identität, und Aktivität als primäre Kontexttypen. Weiterhin wird sekundärer Kontext als Kontext definiert der durch Nutzung von Primärkontext erschlossen werden kann.
 
 %Schilit et al. \cite{schilit_context-aware_1994}: They categorised context into three categories using a conceptual categorisation based technique on three common questions that can be used to determine the context. 
 %1) Where you are: This includes all location related information such as GPS coordinates, common names (e.g. coffee shop, university, police), specific names (e.g. Canberra city police), specific addresses, user preferences (e.g. user’s favourite coffee shop). 
@@ -83,31 +83,35 @@ Chong\cite{chong_context-aware_nodate} schlägt Historie als Kontextkategorie vo
 \subsection{Notwendigkeit einer Taxonomie}
 %“Based on the evaluation of context categorisation, it is evident that no single categorisation scheme can accommodate all the demands” ([Perera et al., 2014, p. 423]
 Die Evaluation verschiedener Kategorisierungsschemata zeigt das keine Kategorisierung allen Ansprüchen gerecht werden kann\cite{perera_context_2014}.
+
 \section{ Erstellung einer Kontexttaxonomie }
 Im folgenden möchte ich meinen Versuch einer Kombination der bereits vorgeschlagenen Kategorisierungsschemata erläutern. Dazu lege ich zuerst die Definition der einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle fest. Die Kategorien müssen dafür, abhängig davon mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark angepasst werden. Danach definiere ich in welcher Form die Kontextinformationen in den einzelnen Kategorien vorliegen müssen und wie man Informationen aus unterschiedlichen, teils analogen Quellen auf für Netzwerkverkehr anwendbare  %TODO
 
 %TODO Grafik
 
-\subsection{Konzeptionell}
-
+\subsection{Betrieblich}
+%we define a context categorisation scheme (i.e. primary and secondary) that can be used to classify a given data value (e.g. single data item such as current time) of context in terms of an operational perspective (i.e. how the data was acquired).
 
 \subsubsection{Primär}
 
 %“Any information retrieved without using existing context and without performing any kind of sensor data fusion operations (e.g. GPS sensor readings as location information).” 
-Kontextinformationen die gesammelt werden können ohne bereits vorhandene Daten zu verwenden oder zu kombinieren. \cite{perera_context_2014}
+Kontextinformationen die gesammelt werden können ohne bereits vorhandene Daten zu verwenden oder zu kombinieren. \cite{perera_context_2014} 
 
 \subsubsection{Sekundär}
 “%Any information that can be computed using primary context. The secondary context can be computed by using sensor data fusion operations or data retrieval operations such as web service calls (e.g. identify the distance between two sensors by applying sensor data fusion operations on two raw GPS sensor values). Further, retrieved context such as phone numbers, addresses, email addresses, birthdays, list of friends from a contact information provider based on a personal identity as the primary context can also be identified as secondary context.” 
 Kontext der durch das verarbeiten von Primärkontext erschlossen werden kann. Dies kann durch die Kombination einzelner Datenpunkte einer oder mehrerer Kategorien oder durch Abfragen weiterer Informationen mithilfe der Primärinformationen geschehen.
 
-\subsection{Betrieblich}
-\subsubsection{Grund}
-
-\subsubsection{Aktivität}
+\subsection{Konzeptionell}
 \subsubsection{Zeit}
+Wann etwas geschieht.
 \subsubsection{Ort}
+Wo sich etwas befindet.
 \subsubsection{Identität}
-
+Wer etwas macht.
+\subsubsection{Aktivität}
+Was jemand macht.
+\subsubsection{Grund}
+Warum jemand etwas macht.
 %--------------------------
 
 \subsection{Historie/Zeitliche Entwicklung}
