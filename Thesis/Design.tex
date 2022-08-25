@@ -1,63 +1,21 @@
 \chapter{Design}%
 \label{cha:design}
 
-%In this chapter, you should present your solution in detail but at a conceptual level. This means that you explain the overall design including your motivation for this design but you do not provide details on the actual implementation of your design (e.g., in which programming language you wrote it, how the software is structured and so on). This means that you should also point out the aspects where you had different design options and in which points they differ. A good approach to write this chapter is to make yourself aware of the different aspects and design problems that need to be addressed in your design. To do so, you can then proceed repeatedly in three steps:
-%\begin{enumerate}
- %  \item Explain a design problem that needs to addressed by the solution (e.g. to enable anonymous communication over the internet, participants need to be able to send messages to each other without revealing identifying to the corresponding receiver).
-  % \item Discussion of design choices (e.g. Mix Networks, DC-Networks, etc.) with regards to the requirements from the previous chapter and identification of the most promising choices.
-%\end{enumerate}
-%After the second step, you start the next iteration by identifying design problems that arise when you want to use the most promising design choice. For example, if Mix networks turn out to be the most promising approach for your requirements, you then need to address the question how the mix network should be designed (e.g. how are mix nodes chosen by the users of the anonymization network? How do mix nodes process messages?). Once you identified the most promising solutions to that, you can then start the next iteration and so on until there are no more open design questions that you are aware of.
-\section{Kontextkategorisierung}
-Das Hauptanliegen 
 
-\subsection{ Analyse bereits vorgeschlagener Kategorien} 
-%Abowd et al. [3] introduced one of the leading mechanisms of defining context types. They identified location, identity, time, and activity as the primary context types. Further, they defined secondary context as the context that can be found using primary context.
-Abowd et al.\cite{abowd_towards_1999} haben einen der führenden Mechanismen zur Definition von Kontexttypen vorgeschlagen. Sie identifizierten Ort, Zeit, Identität, Zeit und Aktivität als primäre Kontexttypen. Weiterhin wird sekundärer Kontext als Kontext definiert der durch Nutzung von Primärkontext erschlossen werden kann.
-
-%Schilit et al. \cite{schilit_context-aware_1994}: They categorised context into three categories using a conceptual categorisation based technique on three common questions that can be used to determine the context. 
-%1) Where you are: This includes all location related information such as GPS coordinates, common names (e.g. coffee shop, university, police), specific names (e.g. Canberra city police), specific addresses, user preferences (e.g. user’s favourite coffee shop). 
-%2) Who you are with: The information about the people present around the user. 
-%3) What resources are nearby: This includes information about resources available in the area where the user is located, such as machinery, smart objects, and utilities. 
-Schilit et al. \cite{schilit_context-aware_1994} kategorisieren Kontext basierend auf 3 Fragen, die genutzt werden können um den Kontext zu bestimmen, in 3 Kategorien:
-\begin{enumerate}
-\item{Wo man sich befindet: Enthalt alle Informationen die sich auf einen Ort beziehen, beispielsweise GPS-Koordinaten, Namen von Institutionen oder Gebäuden (ein Café, ein Krankenhaus, eine Universität), spezifische Namen (z.B.: Technische Universität Dresden) spezifischen Adressen(z.B.: APB Nöthnitzer Str. 46) oder Nutzerpräferenzen (z.B. das Lieblingsrestaurant eines Nutzers) }
-\item{Mit wem man sich zusammen aufhält: Information über die Personen die um einen herum anwesend sind}
-\item{Welche Ressourcen sich in der Nähe befinden: Informationen darüber welche Ressourcen (Maschinen, technische Geräte, Betriebsmittel) sich im direkten Umfeld eines Nutzers befinden}
-\end{enumerate}
-
-%Henricksen [89] (2003): Categorised context into four categories based on an operational categorisation technique. 
-Henricksen et al.\cite{henricksen2003framework} ordnet Kontext basierend auf der betrieblichen Katergorisierungstechnik in 4 verschiedene Kategorien:
-%1) Sensed: Sensor data directly sensed from the sensors, such as temperature measured by a temperature sensor. Values will be changed over time with a high frequency. 
-\begin{enumerate}
-\item {Messbar: Informationen die aus direkt messbaren Werten bestehen. Diese ändern sich oft oder gar kontinuierlich. }
-%2) Static: Static information which will not change over time, such as manufacturer of the sensor, capabilities of the sensor, range of the sensor measurements.
-\item {Statisch: Informationen die sich während der Lebenszeit eines Systems gleich bleiben.}
-%3) Profiled: Information that changes over time with a low frequency, such as once per month (e.g. location of sensor, sensor ID). 
-\item {Profiliert: Informationen die sich selten ändern.}
-%4) Derived: The information computed using primary context such as distance of two sensors calculated using two GPS sensors. 
-\item {Abgeleitet: Informationen die unter Verwendung anderer Daten gewonnen wurden. }
-
-\end{enumerate}
-
-%Van Bunningen et al. [95] (2005): Instead of categorising context, they classified the context categorisation schemes into two broader categories: operational and conceptual. 
-Van Bunningen et al. \cite{van2005context} ordnen Kategoriesungsversuche in zwei übergeordnete Gruppen: Betrieblich und Konzeptionell. 
-\begin{enumerate}
-%1) Operational categorisation: Categorise context based on how they were acquired, modelled, and treated. 
-\item{Betriebliche Kategorisierung: Einordnung anhand dessen wie der Kontext akquiriert, modelliert und behandelt wird.}
-%2) Conceptual categorisation: Categorise context based on the meaning and conceptual relationships between the context.
-\item{Konzeptionelle Kategorisierung: Einordnung anhand der Bedeutung des Kontextes und der konzeptionellen Beziehungen} % TODO konzeptionell nicht mit Konzeptionell erklären
-\end{enumerate}
-
-%Historical Context: in most cases, a history of sensor readings accumulated over a certain time span could describe additional information about the current situation being sensed. Coupled with information about readings of surrounding sensors, this yields historical context, which can be used to predict future sensor readings.
-Chong\cite{chong_context-aware_nodate} schlägt Historie als Kontextkategorie vor. Dabei werden die Werte die eine bestimmte Messgröße in der Vergangenheit angenommen hat als Kontext definiert. Das erlaubt die Festlegung eines Standardzustandes dieser Werte und unter Umständen eine Vorhersage darüber welche Werte die Messgrößen zukünftig erwartung
-\subsection{Notwendigkeit einer Taxonomie}
-%“Based on the evaluation of context categorisation, it is evident that no single categorisation scheme can accommodate all the demands” ([Perera et al., 2014, p. 423]
-Die Evaluation verschiedener Kategorisierungsschemata zeigt das keine Kategorisierung allen Ansprüchen gerecht werden kann\cite{perera_context_2014}.
 \section{ Erstellung einer Kontexttaxonomie }
-Im folgenden möchte ich meinen Versuch einer Kombination der bereits vorgeschlagenen Kategorisierungsschemata erläutern. Dazu lege ich zuerst die Definition der einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle fest. Die Kategorien müssen dafür, abhängig davon mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark angepasst werden. Danach definiere ich in welcher Form die Kontextinformationen in den einzelnen Kategorien vorliegen müssen und wie man Informationen aus unterschiedlichen, teils analogen Quellen auf für Netzwerkverkehr anwendbare  %TODO
+Im folgenden möchte ich meinen Versuch einer Kombination der bereits vorgeschlagenen Kategorisierungsschemata erläutern:
+\begin{enumerate}
+\item{Dazu lege ich zuerst die Definition der einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle fest.}
+\item{Die Kategorien müssen dafür, abhängig davon mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark angepasst werden.}
+\item{Danach definiere ich in welcher Form die Kontextinformationen in den einzelnen Kategorien vorliegen müssen}
+\item{und wie man Informationen aus unterschiedlichen, teils analogen Quellen gewinnt}
+\item{}
+\end{enumerate}
+      %TODO
 
 %TODO Grafik
 
+\section{Festlegung und Anpassung von Kategorien}
 \subsection{Konzeptionell}
 
 
@@ -81,9 +39,21 @@ Kontext der durch das verarbeiten von Primärkontext erschlossen werden kann. Di
 %--------------------------
 
 \subsection{Historie/Zeitliche Entwicklung}
-Historie früherer Verbindungen/Verbindungsanfragen einer Entität (Annahme das Netzwerkteilnehmer eindeutig identifizierbar sind)
-\subsubsection{Statisch - Dynamisch}
 
+Die Historie einer Entität ist in meiner Taxonomie zweigeteilt. Sie besteht aus:
+\begin{enumerate}
+\item{Einem aktiven Teil also ihrem Verhalten, beispielsweise früheren Verbindungen bzw. Verbindungsanfragen}
+\item{Einem passiven Teil also dem Zustand der für sie charakteristischen Attribute, beispielsweise einem Nutzernamen oder die Versionsnummer eines bestimmten Programms}
+\end{enumerate}
+Die Existenz einer Historie trifft die implizite Annahme das eine Entität eindeutig und über einen längeren Zeitraum identifizierbar ist.
+\subsubsection{Statisch - Dynamisch}
+Wie 
+ %TODO im Kapitel Hintergrund%
+ beschrieben können sich die Werte, aus denen sich die Historie einer Entität zusammensetzt, je nach dem welchem Teil sie zugeordnet werden, verschieden oft ändern.
+Statische Messgrößen ändern dabei ihre Werte nie oder nur sehr selten. Dynamische Messgrößen hingegen sehr oft. 
+
+\subsubsection{Raten}
+Aus der Kombination einer Historie und einer variablen
 \subsubsection{Änderungsrate} 
     Wie häufig sich Werte/Attribute ändern
 \subsubsection{Abtastrate}
@@ -109,25 +79,28 @@ Historie früherer Verbindungen/Verbindungsanfragen einer Entität (Annahme das 
 \subsubsection{Gerät}
 \subsubsection{Umgebung}
 
-\section{Kontextgewinnung}
-%Wo genau bekommt man Kontextinformationen her 
-%TODO  A Context Aware Network-IDS
-- network (open ports) | Nessus
-- devices in network | Configuration Management Database (CMDB), nmap   
-- cve reference - yes/no
-- protocol header
-\section{Werte einer Kategorie}
+\subsection{Werte der Messgrößen einer Kategorie}
 
-
+%TODO Tabelle für Kategorien für die es sinnvoll ist.
 %TODO work in Progress
-Historie
+\subsubsection{Historie}
+Um eine aussagekräftige 
 %Scr-IP/Port + Dest-IP/Port
 %Zeitpunkt
 %Protokoll
 %Paketlänge
 %Verbindung möglich
 %Verbindung zugelassen
-%jährlich/monatlich/täglich/stündlich/minütlich/sekündlich
+%jährlich, monatlich, täglich, stündlich, minütlich, sekündlich 
+
+\subsection{Kontextgewinnung}
+%Wo genau bekommt man Kontextinformationen her 
+%TODO  A Context Aware Network-IDS
+- network (open ports) | Nessus
+- devices in network | Configuration Management Database (CMDB), nmap   
+- cve reference - yes/no
+- protocol header
+
 
 \section{Umwandlung der Taxonomie in IDS-Signaturen} 
 
