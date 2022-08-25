@@ -7,6 +7,127 @@
   % \item Discussion of design choices (e.g. Mix Networks, DC-Networks, etc.) with regards to the requirements from the previous chapter and identification of the most promising choices.
 %\end{enumerate}
 %After the second step, you start the next iteration by identifying design problems that arise when you want to use the most promising design choice. For example, if Mix networks turn out to be the most promising approach for your requirements, you then need to address the question how the mix network should be designed (e.g. how are mix nodes chosen by the users of the anonymization network? How do mix nodes process messages?). Once you identified the most promising solutions to that, you can then start the next iteration and so on until there are no more open design questions that you are aware of.
+\section{Kontextkategorisierung}
+Das Hauptanliegen 
+
+\subsection{ Analyse bereits vorgeschlagener Kategorien} 
+%Abowd et al. [3] introduced one of the leading mechanisms of defining context types. They identified location, identity, time, and activity as the primary context types. Further, they defined secondary context as the context that can be found using primary context.
+Abowd et al.\cite{abowd_towards_1999} haben einen der führenden Mechanismen zur Definition von Kontexttypen vorgeschlagen. Sie identifizierten Ort, Zeit, Identität, Zeit und Aktivität als primäre Kontexttypen. Weiterhin wird sekundärer Kontext als Kontext definiert der durch Nutzung von Primärkontext erschlossen werden kann.
+
+%Schilit et al. \cite{schilit_context-aware_1994}: They categorised context into three categories using a conceptual categorisation based technique on three common questions that can be used to determine the context. 
+%1) Where you are: This includes all location related information such as GPS coordinates, common names (e.g. coffee shop, university, police), specific names (e.g. Canberra city police), specific addresses, user preferences (e.g. user’s favourite coffee shop). 
+%2) Who you are with: The information about the people present around the user. 
+%3) What resources are nearby: This includes information about resources available in the area where the user is located, such as machinery, smart objects, and utilities. 
+Schilit et al. \cite{schilit_context-aware_1994} kategorisieren Kontext basierend auf 3 Fragen, die genutzt werden können um den Kontext zu bestimmen, in 3 Kategorien:
+\begin{enumerate}
+\item{Wo man sich befindet: Enthalt alle Informationen die sich auf einen Ort beziehen, beispielsweise GPS-Koordinaten, Namen von Institutionen oder Gebäuden (ein Café, ein Krankenhaus, eine Universität), spezifische Namen (z.B.: Technische Universität Dresden) spezifischen Adressen(z.B.: APB Nöthnitzer Str. 46) oder Nutzerpräferenzen (z.B. das Lieblingsrestaurant eines Nutzers) }
+\item{Mit wem man sich zusammen aufhält: Information über die Personen die um einen herum anwesend sind}
+\item{Welche Ressourcen sich in der Nähe befinden: Informationen darüber welche Ressourcen (Maschinen, technische Geräte, Betriebsmittel) sich im direkten Umfeld eines Nutzers befinden}
+\end{enumerate}
+
+%Henricksen [89] (2003): Categorised context into four categories based on an operational categorisation technique. 
+Henricksen et al.\cite{henricksen2003framework} ordnet Kontext basierend auf der betrieblichen Katergorisierungstechnik in 4 verschiedene Kategorien:
+%1) Sensed: Sensor data directly sensed from the sensors, such as temperature measured by a temperature sensor. Values will be changed over time with a high frequency. 
+\begin{enumerate}
+\item {Messbar: Informationen die aus direkt messbaren Werten bestehen. Diese ändern sich oft oder gar kontinuierlich. }
+%2) Static: Static information which will not change over time, such as manufacturer of the sensor, capabilities of the sensor, range of the sensor measurements.
+\item {Statisch: Informationen die sich während der Lebenszeit eines Systems gleich bleiben.}
+%3) Profiled: Information that changes over time with a low frequency, such as once per month (e.g. location of sensor, sensor ID). 
+\item {Profiliert: Informationen die sich selten ändern.}
+%4) Derived: The information computed using primary context such as distance of two sensors calculated using two GPS sensors. 
+\item {Abgeleitet: Informationen die unter Verwendung anderer Daten gewonnen wurden. }
+
+\end{enumerate}
+
+%Van Bunningen et al. [95] (2005): Instead of categorising context, they classified the context categorisation schemes into two broader categories: operational and conceptual. 
+Van Bunningen et al. \cite{van2005context} ordnen Kategoriesungsversuche in zwei übergeordnete Gruppen: Betrieblich und Konzeptionell. 
+\begin{enumerate}
+%1) Operational categorisation: Categorise context based on how they were acquired, modelled, and treated. 
+\item{Betriebliche Kategorisierung: Einordnung anhand dessen wie der Kontext akquiriert, modelliert und behandelt wird.}
+%2) Conceptual categorisation: Categorise context based on the meaning and conceptual relationships between the context.
+\item{Konzeptionelle Kategorisierung: Einordnung anhand der Bedeutung des Kontextes und der konzeptionellen Beziehungen} % TODO konzeptionell nicht mit Konzeptionell erklären
+\end{enumerate}
+
+%Historical Context: in most cases, a history of sensor readings accumulated over a certain time span could describe additional information about the current situation being sensed. Coupled with information about readings of surrounding sensors, this yields historical context, which can be used to predict future sensor readings.
+Chong\cite{chong_context-aware_nodate} schlägt Historie als Kontextkategorie vor. Dabei werden die Werte die eine bestimmte Messgröße in der Vergangenheit angenommen hat als Kontext definiert. Das erlaubt die Festlegung eines Standardzustandes dieser Werte und unter Umständen eine Vorhersage darüber welche Werte die Messgrößen zukünftig erwartung
+\subsection{Notwendigkeit einer Taxonomie}
+%“Based on the evaluation of context categorisation, it is evident that no single categorisation scheme can accommodate all the demands” ([Perera et al., 2014, p. 423]
+Die Evaluation verschiedener Kategorisierungsschemata zeigt das keine Kategorisierung allen Ansprüchen gerecht werden kann\cite{perera_context_2014}.
+\section{ Erstellung einer Kontexttaxonomie }
+Im folgenden möchte ich meinen Versuch einer Kombination der bereits vorgeschlagenen Kategorisierungsschemata erläutern. Dazu lege ich zuerst die Definition der einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle fest. Die Kategorien müssen dafür, abhängig davon mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark angepasst werden. Danach definiere ich in welcher Form die Kontextinformationen in den einzelnen Kategorien vorliegen müssen und wie man Informationen aus unterschiedlichen, teils analogen Quellen auf für Netzwerkverkehr anwendbare  %TODO
+
+%TODO Grafik
+
+\subsection{Konzeptionell}
+
+
+\subsubsection{Primär}
+
+%“Any information retrieved without using existing context and without performing any kind of sensor data fusion operations (e.g. GPS sensor readings as location information).” 
+Kontextinformationen die gesammelt werden können ohne bereits vorhandene Daten zu verwenden oder zu kombinieren. \cite{perera_context_2014}
+
+\subsubsection{Sekundär}
+“%Any information that can be computed using primary context. The secondary context can be computed by using sensor data fusion operations or data retrieval operations such as web service calls (e.g. identify the distance between two sensors by applying sensor data fusion operations on two raw GPS sensor values). Further, retrieved context such as phone numbers, addresses, email addresses, birthdays, list of friends from a contact information provider based on a personal identity as the primary context can also be identified as secondary context.” 
+Kontext der durch das verarbeiten von Primärkontext erschlossen werden kann. Dies kann durch die Kombination einzelner Datenpunkte einer oder mehrerer Kategorien oder durch Abfragen weiterer Informationen mithilfe der Primärinformationen geschehen.
+
+\subsection{Betrieblich}
+\subsubsection{Grund}
+
+\subsubsection{Aktivität}
+\subsubsection{Zeit}
+\subsubsection{Ort}
+\subsubsection{Identität}
+
+%--------------------------
+
+\subsection{Historie/Zeitliche Entwicklung}
+Historie früherer Verbindungen/Verbindungsanfragen einer Entität (Annahme das Netzwerkteilnehmer eindeutig identifizierbar sind)
+\subsubsection{Statisch - Dynamisch}
+
+\subsubsection{Änderungsrate} 
+    Wie häufig sich Werte/Attribute ändern
+\subsubsection{Abtastrate}
+    Wie oft Werte/Attribute im Netzwerk aktualisiert werden
+\subsubsection{Anfrage-rate}
+    Wie oft Werte/Attribute im Netzwerk von Netzwerkteilnehmern angefragt werden
+
+%--------------------------
+\subsection{Logisch}
+
+\subsubsection{Protokoll nach dem OSI-Schichtmodell}
+
+\paragraph{Anwendung}
+\paragraph{Transport}
+\paragraph{Netzwerk}
+
+\subsubsection{Entität}
+\paragraph{Gerät}
+\paragraph{Nutzer}
+\paragraph{Anwendung}
+
+\subsection{Physisch}
+\subsubsection{Gerät}
+\subsubsection{Umgebung}
+
+\section{Kontextgewinnung}
+%Wo genau bekommt man Kontextinformationen her 
+%TODO  A Context Aware Network-IDS
+- network (open ports) | Nessus
+- devices in network | Configuration Management Database (CMDB), nmap   
+- cve reference - yes/no
+- protocol header
+\section{Werte einer Kategorie}
+
+
+%TODO work in Progress
+Historie
+%Scr-IP/Port + Dest-IP/Port
+%Zeitpunkt
+%Protokoll
+%Paketlänge
+%Verbindung möglich
+%Verbindung zugelassen
+%jährlich/monatlich/täglich/stündlich/minütlich/sekündlich
 
 \section{Umwandlung der Taxonomie in IDS-Signaturen} 
 
