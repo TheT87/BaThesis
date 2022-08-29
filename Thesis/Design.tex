@@ -20,13 +20,13 @@ Abowd et al.\cite{abowd_towards_1999} haben einen der führenden Mechanismen zur
 %3) What resources are nearby: This includes information about resources available in the area where the user is located, such as machinery, smart objects, and utilities. 
 Schilit et al. \cite{schilit_context-aware_1994} kategorisieren Kontext basierend auf 3 Fragen, die genutzt werden können um den Kontext zu bestimmen, in 3 Kategorien:
 \begin{enumerate}
-\item{Wo man sich befindet: Enthalt alle Informationen die sich auf einen Ort beziehen, beispielsweise GPS-Koordinaten, Namen von Institutionen oder Gebäuden (ein Café, ein Krankenhaus, eine Universität), spezifische Namen (z.B.: Technische Universität Dresden) spezifischen Adressen(z.B.: APB Nöthnitzer Str. 46) oder Nutzerpräferenzen (z.B. das Lieblingsrestaurant eines Nutzers) }
+\item{Wo man sich befindet: Enthält alle Informationen die sich auf einen Ort beziehen, beispielsweise GPS-Koordinaten, Namen von Institutionen oder Gebäuden (ein Café, ein Krankenhaus, eine Universität), spezifische Namen (z.B.: Technische Universität Dresden) spezifischen Adressen(z.B.: APB Nöthnitzer Str. 46) oder Nutzerpräferenzen (z.B. das Lieblingsrestaurant eines Nutzers) }
 \item{Mit wem man sich zusammen aufhält: Information über die Personen die um einen herum anwesend sind}
 \item{Welche Ressourcen sich in der Nähe befinden: Informationen darüber welche Ressourcen (Maschinen, technische Geräte, Betriebsmittel) sich im direkten Umfeld eines Nutzers befinden}
 \end{enumerate}
 
 %Henricksen [89] (2003): Categorised context into four categories based on an operational categorisation technique. 
-Henricksen et al.\cite{henricksen2003framework} ordnet Kontext basierend auf der betrieblichen Katergorisierungstechnik in 4 verschiedene Kategorien:
+Henricksen et al.\cite{henricksen2003framework} ordnet Kontext basierend auf der betrieblichen Kategorisierungstechnik in 4 verschiedene Kategorien:
 %1) Sensed: Sensor data directly sensed from the sensors, such as temperature measured by a temperature sensor. Values will be changed over time with a high frequency. 
 \begin{enumerate}
 \item {Messbar: Informationen die aus direkt messbaren Werten bestehen. Diese ändern sich oft oder gar kontinuierlich. }
@@ -40,7 +40,7 @@ Henricksen et al.\cite{henricksen2003framework} ordnet Kontext basierend auf der
 \end{enumerate}
 
 %Van Bunningen et al. [95] (2005): Instead of categorising context, they classified the context categorisation schemes into two broader categories: operational and conceptual. 
-Van Bunningen et al. \cite{van2005context} ordnen Kategoriesungsversuche in zwei übergeordnete Gruppen: Betrieblich und Konzeptionell. 
+Van Bunningen et al. \cite{van2005context} ordnen Kategorisierungsversuche in zwei übergeordnete Gruppen: Betrieblich und Konzeptionell. 
 \begin{enumerate}
 %1) Operational categorisation: Categorise context based on how they were acquired, modelled, and treated. 
 \item{Betriebliche Kategorisierung: Einordnung anhand dessen wie der Kontext akquiriert, modelliert und behandelt wird.}
@@ -66,15 +66,18 @@ Kontextinformationen die gesammelt werden können ohne bereits vorhandene Daten 
 
 \subsubsection{Sekundär}
 %"Any information that can be computed using primary context. The secondary context can be computed by using sensor data fusion operations or data retrieval operations such as web service calls (e.g. identify the distance between two sensors by applying sensor data fusion operations on two raw GPS sensor values). Further, retrieved context such as phone numbers, addresses, email addresses, birthdays, list of friends from a contact information provider based on a personal identity as the primary context can also be identified as secondary context.” 
-Kontext der durch das verarbeiten von Primärkontext erschlossen werden kann. Dies kann durch die Kombination einzelner Datenpunkte einer oder mehrerer Kategorien oder durch Abfragen weiterer Informationen mithilfe der Primärinformationen geschehen \cite{abowd_towards_1999}.
+Kontext der durch das verarbeiten von primärem Kontext erschlossen werden kann. Dies kann durch die Kombination einzelner Datenpunkte einer oder mehrerer Kategorien oder durch Abfragen weiterer Informationen mithilfe der primären Informationen geschehen \cite{abowd_towards_1999}.
 
 \subsection{Betrieblich}
-\subsubsection{Grund}
-\subsubsection{Aktivität}
 \subsubsection{Zeit}
+Zu welcher Zeit ein Zugriffsanfrage erfolgt.
 \subsubsection{Ort}
+Von welchem Ort eine Zugriffsanfrage stammt.
 \subsubsection{Identität}
-
+Wer Zugriff auf eine Ressource erfragt.
+\subsubsection{Aktivität}
+Was in einer Situation passiert bzw. welche Aktion eine Entität ausführt.
+\subsubsection{Grund}
 %--------------------------
 \subsection{Historie/Zeitliche Entwicklung}
 Die Historie einer Entität ist in meiner Taxonomie zweigeteilt. Sie besteht aus:
@@ -82,12 +85,12 @@ Die Historie einer Entität ist in meiner Taxonomie zweigeteilt. Sie besteht aus
 \item{Einem aktiven Teil also ihrem Verhalten, beispielsweise früheren Verbindungen bzw. Verbindungsanfragen}
 \item{Einem passiven Teil also dem Zustand der für sie charakteristischen Attribute, beispielsweise einem Nutzernamen oder die Versionsnummer eines bestimmten Programms}
 \end{enumerate}
-Die Existenz einer Historie trifft die implizite Annahme das eine Entität eindeutig und über einen längeren Zeitraum identifizierbar ist.
+Die Existenz einer Historie trifft die implizite Annahme das eine Entität eindeutig und über einen längeren Zeitraum im Netzwerkverkehr identifizierbar ist.
 \subsubsection{Statisch - Dynamisch}
 Wie 
  %TODO im Kapitel Hintergrund%
  beschrieben können sich die Werte, aus denen sich die Historie einer Entität zusammensetzt, je nach dem welchem Teil sie zugeordnet werden, verschieden oft ändern.
-Statische Messgrößen ändern dabei ihre Werte nie oder nur sehr selten. Dynamische Messgrößen hingegen sehr oft. In meinem Fall erachte ich dabei eine Kategorisierung in jährlich, monatlich, täglich, stündlich, minütlich, sekündlich für sinnvoll.
+Statische Messgrößen ändern dabei ihre Werte nie oder nur sehr selten. Dynamische Messgrößen hingegen sehr oft. In meinem Fall erachte ich dabei eine Kategorisierung in jährlich, monatlich, wöchentlich, täglich, stündlich, minütlich und sekündlich für sinnvoll.
 
 
 \subsubsection{Raten}
