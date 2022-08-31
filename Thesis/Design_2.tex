@@ -3,7 +3,7 @@
 \section{Umwandlung der Taxonomie in IDS-Signaturen} 
 
 %What is important for the reader is to understand that the contextual awareness of machines is from a radically different nature than the one of humans. Also, that computational systems are good at gathering and aggregating data, but humans are still better at recognizing contexts and determining what action is appropriate in a certain situation [2]. On the other hand, positivism looks at context as a representational problem, considering it as a “form of information, delineable, stable and separable from activity” [5]. The definitions made in the context-aware field, naturally adopt this point of view. For instance, Dey’s definition [10] allows designers to use the concept for determining why a situation occurs and use this to encode some action in the application [26], making the concept operational in terms of the actors and information sources [17]. Nevertheless, since the definition inherently has a positivist view, the potential of C-AS remains limited to the context that developers are able to encode and foresee. \cite{alegre_engineering_2016}
-Um die im Abschnitt Kontexttaxionomie festgelegten Kategorien in Signaturen für ein Intrusion Detection System umzuwandeln zu können gilt es gewisse Dinge zu beachten:\\\\ Die Kontextsensitivität eines Computers unterscheidet sich drastisch von der eines Menschen. Rechensysteme sind sehr gut darin Daten zu erfassen und zu sammeln, aber Menschen sind immer-noch nötig um verschiedene Kontexte zu erkennen und zu entscheiden welches Handeln in einer bestimmten Situation angemessen ist \cite{dey_understanding_2001}.\\
+Um die im Abschnitt Kontexttaxonomie festgelegten Kategorien in Signaturen für ein Intrusion Detection System umzuwandeln zu können gilt es gewisse Dinge zu beachten:\\\\ Die Kontextsensitivität eines Computers unterscheidet sich drastisch von der eines Menschen. Rechensysteme sind sehr gut darin Daten zu erfassen und zu sammeln, aber Menschen sind immer-noch nötig um verschiedene Kontexte zu erkennen und zu entscheiden welches Handeln in einer bestimmten Situation angemessen ist \cite{dey_understanding_2001}.\\
 Der limitierende Faktor des Potenzials eines kontextsensitiven Systems ist das Maß an Kontext das ein Entwickler vorhersehen und kodieren kann.\\
 %The list of unforeseen or undetectable contexts can be endless.Summarizing, if developers can not determine all that can be affected by an action, it will be very difficult to write a closed and comprehensive set of actions to take in those cases.
 Es ist aber weder beim Design noch später bei der Implementierung unmöglich alle Zusammenhänge vorherzusehen.\\
@@ -20,29 +20,41 @@ Dementsprechend schwer wird ist es ein in sich geschlossenes und allumfassendes 
 \end{enumerate}
 
 \subsection{Entscheidung für ein IDS}
-IDSs können anhand der überwachten Plattform, der verwendeten Erkennungsmethode und der Struktur in der sie eingesetzt werden kategorisiert werden.
-
-
+IDSs können anhand der überwachten Plattform, der verwendeten Erkennungsmethode und der Struktur in der sie eingesetzt werden kategorisiert werden \cite{milenkoski_evaluating_2015}.\\\\
 \begin{tabularx}{\columnwidth}{l|l|l}
 \hline
-Eigenschaft & IDS Typ & Beschreibung\\
+Eigenschaft 
+& IDS Typ 
+& Beschreibung\\
 \hline
-Plattform   & Host     & Überwacht Aktivitäten auf dem System auf dem es eingesetzt wird um lokale Angriffe zu erkennen. \\
-& Netzwerk & Überwacht Aktivitäten im Netzwerk um Angriffe, die über eine Netzwerkverbindung ausgeführt werden zu erkennen.\\ 
-& Hybrid   & Kombiniert host- und netzwerk-basierte Intrusion Detection Systeme.\\
+Plattform   
+& Host     
+& Überwacht Aktivitäten auf dem System auf dem es eingesetzt wird um lokale Angriffe zu erkennen. \\
+& Netzwerk 
+& Überwacht Aktivitäten im Netzwerk um Angriffe, die über eine Netzwerkverbindung ausgeführt werden zu erkennen.\\ 
+& Hybrid   
+& Kombiniert host- und netzwerk-basierte Intrusion Detection Systeme.\\
 \hline
-Angriffserkennung & Signatur        & \\
-                  & Anomalie        & \\
-                  & Hybrid          & \\ 
+Angriffserkennung 
+& Signatur        
+& Überwacht System- und/oder Netzwerkaktivitäten anhand einer Reihe von Signaturen bekannter Angriffe auswertet. Daher ist es nicht in der Lage, Zero-Day-Angriffe zu erkennen, d. h. Angriffe, die Schwachstellen ausnutzen, die vor der Ausführung der Angriffe nicht öffentlich bekannt sind.\\
+& Anomalie        
+& Verwendet ein Basisprofil regulärer Netz- und/oder Systemaktivitäten als Referenz, um zwischen regulären und auffälligen Aktivitäten zu unterscheiden, wobei letztere als Angriffe behandelt werden. Wird typischerweise durch die Überwachung regulärer Aktivitäten trainiert, um ein Basisaktivitätsprofil zu erstellen.\\
+& Hybrid          
+& Verwendet sowohl signaturbasierte als auch anomaliebasierte Angriffserkennungsmethoden.\\ 
+\hline
+Struktur
+& Zentral
+& Kann nur an einem einzigen Standort eingesetzt werden.\\
+& Verteilt
+& Besteht aus mehreren Teilsystemen für die an verschiedenen Standorten eingesetzt werden können und miteinander kommunizieren, um für die Erkennung von Angriffen relevante Daten, z. B. Angriffswarnungen, auszutauschen. Kann koordinierte Angriffe auf mehrere Standorte in einer bestimmten zeitlichen Abfolge erkennen.\\
 \hline
 \end{tabularx}
 
 %TODO NIDS vs HIDS + signature vs anomaly -> zeek+osquery
 \subsection{Verbesserung der Schwächen des gewählten IDS}
-Zuerst einmal stellt sich die Frage: Wie einfach lassen sich die Zustände die auftretender Kontext annehmen kann in Regeln festlegen? Der Nachteil eines rein signatur-basierten IDS ausschließlich Angriffe zu erkennen die vordefinierten Verhaltensmustern entsprechen will ich verbessern. Dazu verwende ich das bereits erwähnte "osquery" um die Signatur
-\subsection{ Vergleich der Taxonomie und der zur Verfügung stehenden Informationen}
-Die Informationen die ich in den definierten Kategorien als gegeben vorausgesetzt habe sind in der Praxis unterschiedlich schwer zu akquirieren. Offensichtlich ist es um ein Vielfaches einfacher korrekt die aktuelle Uhrzeit zu ermitteln als den Grund dafür das ein Nutzer eine Aktion ausführt zu bestimmen. Die nachfolgende Grafik dient dazu den meiner Einschätzung nach benötigten Aufwand zur Beschaffung einer Information zu veranschaulichen.
-%TODO Grafik
+Der Nachteil eines signatur-basierten IDS ausschließlich Angriffe zu erkennen die vordefinierten Verhaltensmustern entsprechen will ich verbessern. Dazu verwende ich das bereits erwähnte "osquery" um die Signaturen 
+
 \section{Anspruch an das IDS}
 Um die Performance des gewählten IDS verbessern zu können, muss man festlegen welche Kriterien die Leistung beeinflussen bzw. bestimmen.
 Mell et al.\cite{mell2003overview} nennen in ihrer Übersicht verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkungen zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.

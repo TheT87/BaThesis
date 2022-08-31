@@ -14,19 +14,14 @@ Zuerst erläutere ich die meiner Meinung nach bestehende Notwendigkeit für eine
 Die Evaluation verschiedener Kategorisierungsschemata zeigt das keine Kategorisierung allen Ansprüchen gerecht werden kann\cite{perera_context_2014}.
 \section{ Erstellung einer Kontexttaxonomie }
 Im folgenden möchte ich meinen Versuch einer Kombination der bereits vorgeschlagenen Kategorisierungsschemata erläutern. Dazu lege ich zuerst die Definition der einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle fest. Die Kategorien müssen dafür, abhängig davon mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark angepasst werden.
-
-
 \subsection{Konzeptionell}
 Einordnung anhand der Bedeutung des Kontextes und der begrifflichen Beziehungen.
 \subsubsection{Primär}
-
 %“Any information retrieved without using existing context and without performing any kind of sensor data fusion operations (e.g. GPS sensor readings as location information).” 
 Kontextinformationen die gesammelt werden können ohne bereits vorhandene Daten zu verwenden oder zu kombinieren. \cite{abowd_towards_1999}
-
 \subsubsection{Sekundär}
 %"Any information that can be computed using primary context. The secondary context can be computed by using sensor data fusion operations or data retrieval operations such as web service calls (e.g. identify the distance between two sensors by applying sensor data fusion operations on two raw GPS sensor values). Further, retrieved context such as phone numbers, addresses, email addresses, birthdays, list of friends from a contact information provider based on a personal identity as the primary context can also be identified as secondary context.” 
 Kontext der durch das verarbeiten von primärem Kontext erschlossen werden kann. Dies kann durch die Kombination einzelner Datenpunkte einer oder mehrerer Kategorien oder durch Abfragen weiterer Informationen mithilfe der primären Informationen geschehen \cite{abowd_towards_1999}.
-
 \subsection{Betrieblich}
 Wie schon in der Analyse bereits vorgeschlagener Kategorien bedeutet die betriebliche Kategorisierung: "Einordnung anhand dessen wie der Kontext akquiriert, modelliert und behandelt wird".
 \subsubsection{Zeit}
@@ -51,8 +46,6 @@ Wie
  %TODO im Kapitel Hintergrund%
  beschrieben können sich die Werte, aus denen sich die Historie einer Entität zusammensetzt, je nach dem welchem Teil sie zugeordnet werden, verschieden oft ändern.
 Statische Messgrößen ändern dabei ihre Werte nie oder nur sehr selten. Dynamische Messgrößen hingegen sehr oft. In meinem Fall erachte ich dabei eine Kategorisierung in jährlich, monatlich, wöchentlich, täglich, stündlich, minütlich und sekündlich für sinnvoll.
-
-
 \subsubsection{Raten}
 Die Historie ist weiterhin in 3 verschiedene Bereiche unterteilt. Abängig davon wo die Änderung auftritt und ob das IDS oder eine Entität die Aktualisierung des Wertes auslöst.
 \subsubsection{Änderungsrate} 
@@ -61,16 +54,13 @@ Gibt an wie oft eine Entität eine Werteänderungen mitteilt.
 Wie oft Werte einer Entität vom IDS abgefragt bzw aktualisiert werden.
 \subsubsection{Abfragerate}
 Wie oft Werte im Netzwerk von einer Entität, die nicht das IDS ist, abgefragt werden.
-
 %--------------------------
 \subsection{Protokoll}
-
 \subsubsection{Anwendung}
 \subsubsection{Transport}
 \subsubsection{Netzwerk}
 
 \subsection{Logisch}
-
 \subsubsection{Attribute der Entitäten}
 Kategorisierung von Kontextinformationen abhängig davon welche Art von Entität sie betreffen.
 Diese Unterscheidung setzt genauso wie die Historie eindeutig identifizierbare Entitäten voraus.
@@ -98,16 +88,10 @@ Einordnung der Kontextinformationen abhängig davon sie der für den Anwendungsf
 Informationen die dem
 \subsubsection{ungewöhnliches Verhalten}
 \newpage
-
-
-%TODO Grafik
-\includegraphics[width=13.5cm,height=24.1cm]{test}
-
+\includegraphics[width=13cm,height=24.1cm]{test}
 \section{Werte einer Kategorie}
-
-\subsection{Protokoll}
-
 %TODO work in Progress
+
 \subsection{Historie}
 %Scr-IP/Port + Dest-IP/Port
 %Zeitpunkt
