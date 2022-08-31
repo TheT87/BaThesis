@@ -1,126 +1,4 @@
-\chapter{Design}%
-\label{cha:design}
-
-%In this chapter, you should present your solution in detail but at a conceptual level. This means that you explain the overall design including your motivation for this design but you do not provide details on the actual implementation of your design (e.g., in which programming language you wrote it, how the software is structured and so on). This means that you should also point out the aspects where you had different design options and in which points they differ. A good approach to write this chapter is to make yourself aware of the different aspects and design problems that need to be addressed in your design. To do so, you can then proceed repeatedly in three steps:
-%\begin{enumerate}
- %  \item Explain a design problem that needs to addressed by the solution (e.g. to enable anonymous communication over the internet, participants need to be able to send messages to each other without revealing identifying to the corresponding receiver).
-  % \item Discussion of design choices (e.g. Mix Networks, DC-Networks, etc.) with regards to the requirements from the previous chapter and identification of the most promising choices.
-%\end{enumerate}
-%After the second step, you start the next iteration by identifying design problems that arise when you want to use the most promising design choice. For example, if Mix networks turn out to be the most promising approach for your requirements, you then need to address the question how the mix network should be designed (e.g. how are mix nodes chosen by the users of the anonymization network? How do mix nodes process messages?). Once you identified the most promising solutions to that, you can then start the next iteration and so on until there are no more open design questions that you are aware of.
-Zuerst erläutere ich die meiner Meinung nach bestehende Notwendigkeit für eine Taxonomie. Dann definiere ich die Kontextkategorien meiner Taxonomie. Danach definiere ich in welcher Form die Kontextinformationen in den einzelnen Kategorien vorliegen müssen und wie man Informationen aus unterschiedlichen Quellen in einer für IDS-Signaturen verwendbaren Form gewinnt. Zusätzlich gehe ich noch darauf ein welchen Anforderungen ich an ein IDS stelle und welche Schwächen ich in dem von mir gewählten IDS mithilfe von Kontextsensitivität lösen will. Abschließend bewerte ich wie gut sich die benötigten Kontextinformationen gewinnen lassen. 
-
-\section{Notwendigkeit einer Taxonomie}
-%TODO “Based on the evaluation of context categorisation, it is evident that no single categorisation scheme can accommodate all the demands” ([Perera et al., 2014, p. 423]
-Die Evaluation verschiedener Kategorisierungsschemata zeigt das keine Kategorisierung allen Ansprüchen gerecht werden kann\cite{perera_context_2014}.
-\section{ Erstellung einer Kontexttaxonomie }
-Im folgenden möchte ich meinen Versuch einer Kombination der bereits vorgeschlagenen Kategorisierungsschemata erläutern. Dazu lege ich zuerst die Definition der einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle fest. Die Kategorien müssen dafür, abhängig davon mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark angepasst werden.
-
-%TODO Grafik
-\includegraphics[width=13.5cm,height=24.1cm]{test}
-
-\subsection{Konzeptionell}
-Einordnung anhand der Bedeutung des Kontextes und der begrifflichen Beziehungen.
-\subsubsection{Primär}
-
-%“Any information retrieved without using existing context and without performing any kind of sensor data fusion operations (e.g. GPS sensor readings as location information).” 
-Kontextinformationen die gesammelt werden können ohne bereits vorhandene Daten zu verwenden oder zu kombinieren. \cite{abowd_towards_1999}
-
-\subsubsection{Sekundär}
-%"Any information that can be computed using primary context. The secondary context can be computed by using sensor data fusion operations or data retrieval operations such as web service calls (e.g. identify the distance between two sensors by applying sensor data fusion operations on two raw GPS sensor values). Further, retrieved context such as phone numbers, addresses, email addresses, birthdays, list of friends from a contact information provider based on a personal identity as the primary context can also be identified as secondary context.” 
-Kontext der durch das verarbeiten von primärem Kontext erschlossen werden kann. Dies kann durch die Kombination einzelner Datenpunkte einer oder mehrerer Kategorien oder durch Abfragen weiterer Informationen mithilfe der primären Informationen geschehen \cite{abowd_towards_1999}.
-
-\subsection{Betrieblich}
-Wie schon in der Analyse bereits vorgeschlagener Kategorien bedeutet die betriebliche Kategorisierung: "Einordnung anhand dessen wie der Kontext akquiriert, modelliert und behandelt wird".
-\subsubsection{Zeit}
-Zu welcher Zeit ein Zugriffsanfrage erfolgt.
-\subsubsection{Ort}
-Von welchem Ort eine Zugriffsanfrage stammt.
-\subsubsection{Identität}
-Wer Zugriff auf eine Ressource erfragt.
-\subsubsection{Aktivität}
-Was in einer Situation passiert bzw. welche Aktion eine Entität ausführt.
-\subsubsection{Grund}
-%--------------------------
-\subsection{Historie}
-Die Historie einer Entität ist in meiner Taxonomie zweigeteilt. Sie besteht aus:
-\begin{enumerate}
-\item{Einem aktiven Teil also ihrem Verhalten, beispielsweise früheren Verbindungen bzw. Verbindungsanfragen}
-\item{Einem passiven Teil also dem Zustand der für sie charakteristischen Attribute, beispielsweise einem Nutzernamen oder die Versionsnummer eines bestimmten Programms}
-\end{enumerate}
-Die Existenz einer Historie trifft die implizite Annahme das eine Entität eindeutig und über einen längeren Zeitraum im Netzwerkverkehr identifizierbar ist.
-\subsubsection{Dynamik}
-Wie 
- %TODO im Kapitel Hintergrund%
- beschrieben können sich die Werte, aus denen sich die Historie einer Entität zusammensetzt, je nach dem welchem Teil sie zugeordnet werden, verschieden oft ändern.
-Statische Messgrößen ändern dabei ihre Werte nie oder nur sehr selten. Dynamische Messgrößen hingegen sehr oft. In meinem Fall erachte ich dabei eine Kategorisierung in jährlich, monatlich, wöchentlich, täglich, stündlich, minütlich und sekündlich für sinnvoll.
-
-
-\subsubsection{Raten}
-Die Historie ist weiterhin in 3 verschiedene Bereiche unterteilt. Abängig davon wo die Änderung auftritt und ob das IDS oder eine Entität die Aktualisierung des Wertes auslöst.
-\subsubsection{Änderungsrate} 
-Gibt an wie oft eine Entität eine Werteänderungen mitteilt.
-\subsubsection{Abtastrate}
-Wie oft Werte einer Entität vom IDS abgefragt bzw. aktualisiert werden.
-\subsubsection{Abfragerate}
-Wie oft Werte im Netzwerk von einer Entität, die nicht das IDS ist, abgefragt werden.
-
-%--------------------------
-\subsection{Protokoll}
-
-\subsubsection{Anwendung}
-\subsubsection{Transport}
-\subsubsection{Netzwerk}
-
-\subsection{Logisch}
-
-\subsubsection{Attribute der Entitäten}
-Kategorisierung von Kontextinformationen abhängig davon welche Art von Entität sie betreffen.
-Diese Unterscheidung setzt genauso wie die Historie eindeutig identifizierbare Entitäten voraus.
-\paragraph{Gerät}
-Informationen die sich auf ein spezifisches Gerät beziehen
-\begin{enumerate}
-\item{Ein Gerät ist beispielsweise einen Router oder das Endgerät eines Nutzers. }
-\item{Informationen können beispielsweise die Liste an installierter Software, die Menge laufender Prozesse oder die Auslastung der Hardwarekomponenten sein.}
-\end{enumerate}
-\paragraph{Nutzer}
-Informationen die sich auf einen Nutzer beziehen.
-\begin{enumerate}
-\item{Ein Nutzer im Sinne eines Computersystems und keine physische Person. So kann eine physische Person durchaus mehrere verschiedene logische Nutzerkonten haben. }
-\item{Informationen können die Zugriffsrechte oder %TODO
-umfassen.}
-\end{enumerate}
-\paragraph{Anwendung}
-Informationen die sich auf eine Anwendung beziehen.
-\begin{enumerate}
-\item{}
-\end{enumerate}
-\subsection{Verhaltensbezogen}
-\subsubsection{Erwartetes Verhalten}
-\subsubsection{ungewöhnliches Verhalten}
-
-
-
-\section{Werte einer Kategorie}
-
-
-
-%TODO Historie als Text rest in Grafik
-\subsection{Historie}
-%Scr-IP/Port + Dest-IP/Port
-%Zeitpunkt
-%Protokoll
-%Paketlänge
-%Verbindung möglich
-%Verbindung zugelassen
-
-\section{Kontextgewinnung}
-%Wo genau bekommt man Kontextinformationen her 
-%TODO  A Context Aware Network-IDS
-- network (open ports) | Nessus
-- devices in network | Configuration Management Database (CMDB), nmap   
-- cve reference - yes/no
-- protocol header
-
+	
 
 \section{Umwandlung der Taxonomie in IDS-Signaturen} 
 
@@ -142,32 +20,50 @@ Dementsprechend schwer wird ist es ein in sich geschlossenes und allumfassendes 
 \end{enumerate}
 
 \subsection{Entscheidung für ein IDS}
-Im großen und ganzen unterscheidet man IDS allgemein in Systeme die ausschließlich auf einem bestimmten Host nur den Netzwerkverkehr des jeweiligen Endgerätes mitschneiden und Systeme die im Netzwerk einen Großteil oder sogar den gesamten Netzwerkverkehr mitlesen. Diese können entweder mit 
+IDSs können anhand der überwachten Plattform, der verwendeten Erkennungsmethode und der Struktur in der sie eingesetzt werden kategorisiert werden.
+
+
+\begin{tabularx}{\columnwidth}{l|l|l}
+\hline
+Eigenschaft & IDS Typ & Beschreibung\\
+\hline
+Plattform   & Host     & Überwacht Aktivitäten auf dem System auf dem es eingesetzt wird um lokale Angriffe zu erkennen. \\
+& Netzwerk & Überwacht Aktivitäten im Netzwerk um Angriffe, die über eine Netzwerkverbindung ausgeführt werden zu erkennen.\\ 
+& Hybrid   & Kombiniert host- und netzwerk-basierte Intrusion Detection Systeme.\\
+\hline
+Angriffserkennung & Signatur        & \\
+                  & Anomalie        & \\
+                  & Hybrid          & \\ 
+\hline
+\end{tabularx}
+
 %TODO NIDS vs HIDS + signature vs anomaly -> zeek+osquery
 \subsection{Verbesserung der Schwächen des gewählten IDS}
 Zuerst einmal stellt sich die Frage: Wie einfach lassen sich die Zustände die auftretender Kontext annehmen kann in Regeln festlegen? Der Nachteil eines rein signatur-basierten IDS ausschließlich Angriffe zu erkennen die vordefinierten Verhaltensmustern entsprechen will ich verbessern. Dazu verwende ich das bereits erwähnte "osquery" um die Signatur
-
+\subsection{ Vergleich der Taxonomie und der zur Verfügung stehenden Informationen}
+Die Informationen die ich in den definierten Kategorien als gegeben vorausgesetzt habe sind in der Praxis unterschiedlich schwer zu akquirieren. Offensichtlich ist es um ein Vielfaches einfacher korrekt die aktuelle Uhrzeit zu ermitteln als den Grund dafür das ein Nutzer eine Aktion ausführt zu bestimmen. Die nachfolgende Grafik dient dazu den meiner Einschätzung nach benötigten Aufwand zur Beschaffung einer Information zu veranschaulichen.
+%TODO Grafik
 \section{Anspruch an das IDS}
 Um die Performance des gewählten IDS verbessern zu können, muss man festlegen welche Kriterien die Leistung beeinflussen bzw. bestimmen.
 Mell et al.\cite{mell2003overview} nennen in ihrer Übersicht verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkungen zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
 %Coverage: This measurement determines which attacks an IDS can detect under ideal conditions. 
-\subsection{Abdeckung}
+\subsubsection{Abdeckung}
 Gibt an welche Typen von Angriffen ein IDS unter idealen Bedingungen feststellen kann.
 % Probability of False Alarms 
 %This measurement determines the rate of false positives produced by an IDS in a given environment during a particular time frame. A false positive or false alarm is an alert caused by normal non- malicious background traffic
-\subsection{Wahrscheinlichkeit falscher Alarme}
+\subsubsection{Wahrscheinlichkeit falscher Alarme}
 Gibt die Wahrscheinlichkeit das durch ein IDS ausgelöste Alarme durch gutartigen bzw. nicht-schädlichen Netzwerkverkehr verursacht wurden an.\\
 \[Rate\;an\;falsch-Positiven\;Meldungen = \frac{Anzahl\;falscher\;Alarme}{Anzahl\;aller\;Alarme}\]
 %Probability of Detection: 
 %This measurement determines the rate of attacks detected correctly by an IDS in a given environment during a particular time frame
-\subsection{Wahrscheinlichkeit einer Erkennung}
+\subsubsection{Wahrscheinlichkeit einer Erkennung}
 Gibt die Rate der durch das IDS korrekt erkannten Angriffe an.\\
 \[Erkennungswarscheinlichkeit  = \frac{Anzahl\;korrekt\;erkannter\;Angriffe} {Anzahl\;aller\;Angriffe}\]
 %Resistance to Attacks Directed at the IDS This measurement demonstrates how resistant an IDS is to an attacker's attempt to disrupt the correct operation of the IDS. Attacks against an IDS may take the form of: 
 %1. Sending a large amount of non-attack traffic with volume exceeding the IDS’s processing capability. With too much traffic to process, an IDS may drop packets and be unable to detect attacks. 
 %2. Sending to the IDS non-attack packets that are specially crafted to trigger many signatures within the IDS, thereby overwhelming the IDS’s human operator with false positives or crashing alert processing or display tools. 
 %3. Sending to the IDS a large number of attack packets intended to distract the IDS’s human operator while the attacker instigates a real attack
-\subsection{Resistenz}
+\subsubsection{Resistenz}
 Ein signatur-basiertes IDS bzw. der menschliche Administrator hinter dem System weisen Probleme auf die nicht direkt beim Umgang mit verarbeitetem Netzwerkverkehr, sondern schon bei der bewussten, unbewussten, oder erzwungenen Entscheidung welcher Netzwerkverkehr überhaupt in Frage kommt, entstehen:
 \begin{enumerate}
 \item{Ein zu große Menge an zu verarbeitendem Netzwerkverkehr die die Verarbeitungskapazität eines IDS übersteigt kann dazu führen das Netzwerkpakete verworfen und Angriffe nicht erkannt werden}
@@ -176,30 +72,30 @@ Ein signatur-basiertes IDS bzw. der menschliche Administrator hinter dem System 
 \item{Pakete die möglicherweise vorhandene Fehler im IDS selbst ausnutzen.}
 \end{enumerate}
 %Ability to Correlate Events: This measurement demonstrates how well an IDS correlates attack events. These events may be gathered from IDSs, routers, firewalls, application logs, or a wide variety of other devices.
-\subsection{Korrelation zwischen Einzelereignissen }
+\subsubsection{Korrelation zwischen Einzelereignissen }
 Demonstriert wie gut ein IDS eine Korrelation zwischen einzelnen Ereignissen, möglicherweise verschiedenen Ursprungs herzustellen. Die Ereignisse können dabei aus Routern, Firewalls, Anwendungen, dem IDS selbst oder einer großen Bandbreite anderer Quellen stammen.
 %Ability to Detect Never Before Seen Attacks: This measurement demonstrates how well an IDS can detect attacks that have not occurred before. For commercial systems, it is generally not useful to take this measurement since their signature-based technology can only detect attacks that had occurred previously (with a few exceptions). However, research systems based on anomaly detection or specification-based approaches may be suitable for this type of measurement. Usually systems detecting attacks that had never been detected before produce more false positives than those that do not have this feature.
-\subsection{Unbekannte Angriffe vorhersehen}
+\subsubsection{Unbekannte Angriffe vorhersehen}
 Gibt an wie gut ein IDS einen Angriff erkennt der so noch nicht aufgetreten ist. Signatur-basierte IDS sind allgemein, mit wenigen Ausnahmen, nicht in der Lage solch einen Angriff zu erkennen. Normalerweise erhöht die Fähigkeit eines Systems einen noch unbekannten Angriff zu erkennen, im Vergleich zu Systemen die dies nicht versuchen, zusätzlich die Rate an falsch-positiven Meldungen.
 %Ability to Identify an Attack: This measurement demonstrates how well an IDS can identify the attack that it has detected by labeling each attack with a common name or vulnerability name or by assigning the attack to a category.
-\subsection{Identifizieren von Angriffen}
+\subsubsection{Identifizieren von Angriffen}
 Wie gut ein IDS einem Angriff den es erkennt, einen Namen oder eine Kategorie, beispielsweise ein CVE-Nummer, zuordnen kann.
 %Ability to Determine Attack Success: This measurement demonstrates if the IDS can determine the success of attacks from remote sites that give the attacker higher- level privileges on the attacked system. In current network environments, many remote privilege-gaining attacks (or probes) fail and do not damage the system attacked. Many IDSs, however, do not distinguish the failed from the successful attacks. For the same attack, some IDSs can detect the evidence of damages (whether the attack has succeeded) and some IDSs detect only the signature of attack actions (with no indication whether the attack succeeded or not). The ability to determine attack success is essential for the analysis of the attack correlation and the attack scenario; it also greatly simplifies an analyst’s work by distinguishing between more important successful attacks and the usually less damaging failed attacks. Measuring this capability requires the information about failed attacks as well as successful attacks.
-\subsection{Beurteilung  eines Angriffs}
+\subsubsection{Beurteilung  eines Angriffs}
 Indikator dafür ob ein IDS den Erfolg und die Auswirkungen eines Angriffes korrekt beurteilen kann. In aktuellen Netzwerkumgebungen schlagen viele Angriffs(-vesuche) fehl. Die meisten IDS unterscheiden allerdings nicht zwischen erfolgreichen und fehlgeschlagenen Angriffen. Für den selben Angriff können manche IDS die Anzeichen dafür ob ein Angriff erfolgreich war erkennen, andere lediglich das ein Angriff stattgefunden hat, allerdings ohne feststellen zu können ob er erfolgreich war. Die Fähigkeit, den Grad zu dem ein Angriff auf das überwachte System erfolgreich war zu beurteilen ist essenziell. Eine Vorfilterung der Meldungen durch das IDS vereinfacht die Arbeit des Netzwerkadministrators bzw. Analysten stark, da so eine Analyse des Angriffsszenarios und der Korrelation einzelner Angriffe vereinfacht wird. Diese Fähigkeit bei einem gegebenen IDS messen zu können setzt das Wissen, darüber welche Angriffe erfolgreich sind und welche nicht, voraus.
 
 % Other Measurements
 % There are other measurements, such as ease of use, ease of maintenance, deployments issues, resource requirements, availability and quality of support etc. These measurements are not directly related to the IDS performance but may be more significant
 
-\section{Einordnung der Kriterien}
+\subsection{Einordnung der Kriterien}
 % Also, the probability of detection varies with the false positive rate, and an IDS can be configured or tuned to favor either the ability to detect attacks or to minimize false positives
 %TODO weiter erklären
 Die Wahrscheinlichkeit einen Angriff zu erkennen variiert mit der Rate an falsch-positiven Meldungen. Bei der Konfiguration eines IDS kann entweder die Falsch-positiv-Rate oder die Erkennungsrate optimiert werden.
 
 %unterscheidung performance/security related metrics 
-\section{Auswahl der Kriterien}
+\subsection{Auswahl der Kriterien}
 \cite{milenkoski_evaluating_2015}
-In dieser Arbeit beschäftige ich mich ausschließlich mit sicherheitsrelevanten Leistungsmetriken. Dabei will ich hauptsächlich den Einfluss von Kontextsensitivität auf die Abdeckung, die Erkennungswahrscheinlichkeit, die Wahrscheinlichkeit  falscher Alarme und die Interpretierbarkeit von Meldungen durch einen menschlichen Nutzer betrachten. Zusätzlich will ich beleuchten inwiefern Kontext die Korrelation zwischen Einzelereignissen und das Identifizieren von Angriffen ermöglicht bzw. verbessert.
+In dieser Arbeit beschäftige ich mich ausschließlich mit sicherheitsrelevanten Leistungsmetriken. Dabei will ich hauptsächlich den Einfluss von Kontextsensitivtät auf die Abdeckung, die Erkennungswahrscheinlichkeit, die Wahrscheinlichkeit  falscher Alarme und die Interpretierbarkeit von Meldungen durch einen menschlichen Nutzer betrachten. Zusätzlich will ich beleuchten inwiefern Kontext die Korrelation zwischen Einzelereignissen und das Identifizieren von Angriffen ermöglicht bzw. verbessert.
 %One of the primary goals of this correlation is to identify staged penetration attacks. Currently, IDSs have only limited capabilities in this area.
 %Überleitung  zu CAAC
 \section{Kontextsensitivität}
