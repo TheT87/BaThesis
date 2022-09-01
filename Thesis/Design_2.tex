@@ -41,7 +41,7 @@ Angriffserkennung
 & Anomalie        
 & Verwendet ein Basisprofil regulärer Netz- und/oder Systemaktivitäten als Referenz, um zwischen regulären und auffälligen Aktivitäten zu unterscheiden, wobei letztere als Angriffe behandelt werden. Wird typischerweise durch die Überwachung regulärer Aktivitäten trainiert, um ein Basisaktivitätsprofil zu erstellen.\\
 & Hybrid          
-& Verwendet sowohl signaturbasierte als auch anomaliebasierte Angriffserkennungsmethoden.\\ 
+& Verwendet sowohl signatur-basierte als auch anomalie-basierte Angriffserkennungsmethoden.\\ 
 \hline
 Struktur
 & Zentral
@@ -54,7 +54,7 @@ Struktur
 %TODO NIDS vs HIDS + signature vs anomaly -> zeek+osquery
 \subsection{Verbesserung der Schwächen}
 Der Hauptnachteil eines signatur-basierten IDS ausschließlich Angriffe zu erkennen die vordefinierten Verhaltensmustern entsprechen. Der Hauptnachteil eines anomalie-basierten IDS  ist die Notwendigkeit die Baseline, mitunter sehr oft zu aktualisieren. 
-Um den Nachteil den die Verwendung von Signaturen mit sich bringt auszugleichen verwende ich osquery. osquery bietet die Möglichkeit eine Vielzahl an Informationen über die im Netzwerk befindlichen Systeme zu akquirieren. Dies ermöglicht beispielweise mir die schon vorhanden Signaturen so zu verbessern das sie eine größere Menge von Ereignissen abdecken oder bereits definierte Ereignisse genauer zu spezifizieren und so weniger falsche Meldungen zu generieren.
+Um den Nachteil den die Verwendung von Signaturen mit sich bringt auszugleichen verwende ich osquery. osquery bietet die Möglichkeit eine Vielzahl an Informationen über die im Netzwerk befindlichen Systeme zu akquirieren. Dies ermöglicht beispielsweise mir die schon vorhanden Signaturen so zu verbessern das sie eine größere Menge von Ereignissen abdecken oder bereits definierte Ereignisse genauer zu spezifizieren und so weniger falsche Meldungen zu generieren.
 \pagebreak
 \section{Anspruch an das IDS}
 Um die Performance des gewählten IDS verbessern zu können, muss man festlegen welche Kriterien die Leistung beeinflussen bzw. bestimmen.

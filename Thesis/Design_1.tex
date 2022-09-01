@@ -35,7 +35,7 @@ Was in einer Situation passiert bzw. welche Aktion eine Entität ausführt.
 \subsubsection{Grund}
 %--------------------------
 \subsection{Historie}
-Die Historie einer Entität ist in meiner Taxonomie zweigeteilt. Sie besteht aus:
+Die Historie einer Entität wird in dieser Taxonomie zweigeteilt. Sie besteht aus:
 \begin{enumerate}
 \item{Einem aktiven Teil also ihrem Verhalten, beispielsweise früheren Verbindungen bzw. Verbindungsanfragen}
 \item{Einem passiven Teil also dem Zustand der für sie charakteristischen Attribute, beispielsweise einem Nutzernamen oder die Versionsnummer eines bestimmten Programms}
@@ -45,24 +45,28 @@ Die Existenz einer Historie trifft die implizite Annahme das eine Entität einde
 Wie 
  %TODO im Kapitel Hintergrund%
  beschrieben können sich die Werte, aus denen sich die Historie einer Entität zusammensetzt, je nach dem welchem Teil sie zugeordnet werden, verschieden oft ändern.
-Statische Messgrößen ändern dabei ihre Werte nie oder nur sehr selten. Dynamische Messgrößen hingegen sehr oft. In meinem Fall erachte ich dabei eine Kategorisierung in jährlich, monatlich, wöchentlich, täglich, stündlich, minütlich und sekündlich für sinnvoll.
+Statische Messgrößen ändern dabei ihre Werte nie oder nur sehr selten. Dynamische Messgrößen hingegen sehr oft. In diesem Fall erachte geschieht eine Unterteilung jährlich, monatlich, wöchentlich, täglich, stündlich, minütlich und sekündlich.
 \subsubsection{Raten}
-Die Historie ist weiterhin in 3 verschiedene Bereiche unterteilt. Abängig davon wo die Änderung auftritt und ob das IDS oder eine Entität die Aktualisierung des Wertes auslöst.
-\subsubsection{Änderungsrate} 
+Die Historie ist weiterhin in 3 verschiedene Bereiche unterteilt. Abhängig davon wo die Änderung auftritt und ob das IDS oder eine Entität die Aktualisierung des Wertes auslöst.
+\paragraph{Änderungsrate} 
 Gibt an wie oft eine Entität eine Werteänderungen mitteilt.
-\subsubsection{Abtastrate}
+\paragraph{Abtastrate}
 Wie oft Werte einer Entität vom IDS abgefragt bzw aktualisiert werden.
-\subsubsection{Abfragerate}
+\paragraph{Abfragerate}
 Wie oft Werte im Netzwerk von einer Entität, die nicht das IDS ist, abgefragt werden.
 %--------------------------
-\subsection{Protokoll}
-Kategorisierung anhand des verwendeten Kommunikationsprotokolls. Orientiert sich am ISO/OSI-Referenzmodell \cite{day1983osi}.
-\subsubsection{Anwendung}
-
-\subsubsection{Transport}
-\subsubsection{Netzwerk}
 
 \subsection{Logisch}
+\subsubsection{Protokoll}
+Kategorisierung anhand des verwendeten Kommunikationsprotokolls. Orientiert sich am ISO/OSI-Referenzmodell \cite{day1983osi}. Die Zuordnung zu einer bestimmten Schicht und damit Kategorie erfolgt anhand der für die einzelnen Schichten üblichen Protokolle. Ermöglicht die Identifikation von Entitäten anhand der von ihnen genutzten Protokolle. So kann beispielsweise ein Switch oder Router von der Anwendung eines Nutzers unterschieden werden.
+\paragraph{Anwendung}
+Fasst allen Netzwerkverkehr der sich der Sitzungsschicht, Darstellungsschicht oder Anwendungsschicht zuordnen lassen
+\paragraph{Transport}
+Pakete die sich der Transportschicht zuordnen lassen.
+\paragraph{Vermittlung}
+Netzwerkverkehr 
+
+
 \subsubsection{Attribute der Entitäten}
 Kategorisierung von Kontextinformationen abhängig davon welche Art von Entität sie betreffen.
 Diese Unterscheidung setzt genauso wie die Historie eindeutig identifizierbare Entitäten voraus.
@@ -76,19 +80,21 @@ Informationen die sich auf ein spezifisches Gerät beziehen
 Informationen die sich auf einen Nutzer beziehen.
 \begin{enumerate}
 \item{Ein Nutzer im Sinne eines Computersystems und keine physische Person. So kann eine physische Person durchaus mehrere verschiedene logische Nutzerkonten haben. }
-\item{Informationen können die Zugriffsrechte oder %TODO
-umfassen.}
+\item{Informationen können zum Beispiel die Zugriffsrechte eines Nutzers sein.}
 \end{enumerate}
 \paragraph{Anwendung}
 Informationen die sich auf eine Anwendung beziehen.
 \begin{enumerate}
-\item{}
+\item{Anwendung umfasst jegliche Softwareprozesse die für sich oder in Kombination einen bestimmten Zweck erfüllen.}
+\item{Eine Anwendung erzeugt für sie charakteristischen Netzwerkverkehr, versendet oder empfängt also bestimmte Informationen.}
 \end{enumerate}
 \subsection{Verhaltensbezogen}
 Einordnung der Kontextinformationen abhängig davon sie der für den Anwendungsfall definierten Normen entsprechen.
 \subsubsection{Erwartetes Verhalten}
-Informationen die dem
+Werte der Kategorien oder Verhalten von Entitäten passend  zu den im Netzwerk vorherrschenden Bedingungen.
 \subsubsection{ungewöhnliches Verhalten}
+Werte der Kategorien oder Verhalten von Entitäten die in Kombination mit den im Netzwerk vorherrschenden Bedingungen entweder auffällig oder irrational sind.
+
 \newpage
 \includegraphics[width=13cm,height=24.1cm]{test}
 \section{Werte einer Kategorie}
