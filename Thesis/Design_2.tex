@@ -18,10 +18,10 @@ Dementsprechend schwer wird ist es ein in sich geschlossenes und allumfassendes 
 \item{Wissen welche Informationen einen konkreten Kontextzustand akkurat festlegen.}
 \item{Welche Aktion im jeweiligen Zustand ausgeführt werden sollen.}
 \end{enumerate}
-
+\pagebreak
 \subsection{Entscheidung für ein IDS}
 IDSs können anhand der überwachten Plattform, der verwendeten Erkennungsmethode und der Struktur in der sie eingesetzt werden kategorisiert werden \cite{milenkoski_evaluating_2015}.\\\\
-\begin{tabularx}{\columnwidth}{l|l|l}
+\begin{tabularx}{\columnwidth}{p{3cm} l p{10cm}}
 \hline
 Eigenschaft 
 & IDS Typ 
@@ -52,9 +52,10 @@ Struktur
 \end{tabularx}
 
 %TODO NIDS vs HIDS + signature vs anomaly -> zeek+osquery
-\subsection{Verbesserung der Schwächen des gewählten IDS}
-Der Nachteil eines signatur-basierten IDS ausschließlich Angriffe zu erkennen die vordefinierten Verhaltensmustern entsprechen will ich verbessern. Dazu verwende ich das bereits erwähnte "osquery" um die Signaturen 
-
+\subsection{Verbesserung der Schwächen}
+Der Hauptnachteil eines signatur-basierten IDS ausschließlich Angriffe zu erkennen die vordefinierten Verhaltensmustern entsprechen. Der Hauptnachteil eines anomalie-basierten IDS  ist die Notwendigkeit die Baseline, mitunter sehr oft zu aktualisieren. 
+Um den Nachteil den die Verwendung von Signaturen mit sich bringt auszugleichen verwende ich osquery. osquery bietet die Möglichkeit eine Vielzahl an Informationen über die im Netzwerk befindlichen Systeme zu akquirieren. Dies ermöglicht beispielweise mir die schon vorhanden Signaturen so zu verbessern das sie eine größere Menge von Ereignissen abdecken oder bereits definierte Ereignisse genauer zu spezifizieren und so weniger falsche Meldungen zu generieren.
+\pagebreak
 \section{Anspruch an das IDS}
 Um die Performance des gewählten IDS verbessern zu können, muss man festlegen welche Kriterien die Leistung beeinflussen bzw. bestimmen.
 Mell et al.\cite{mell2003overview} nennen in ihrer Übersicht verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkungen zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
