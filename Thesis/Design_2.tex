@@ -54,14 +54,14 @@ Struktur
 %TODO NIDS vs HIDS + signature vs anomaly -> zeek+osquery
 \subsection{Verbesserung der Schwächen}
 Der Hauptnachteil eines signatur-basierten IDS ausschließlich Angriffe zu erkennen die vordefinierten Verhaltensmustern entsprechen. Der Hauptnachteil eines anomalie-basierten IDS  ist die Notwendigkeit die Baseline, mitunter sehr oft zu aktualisieren. 
-Um den Nachteil den die Verwendung von Signaturen mit sich bringt auszugleichen verwende ich osquery. osquery bietet die Möglichkeit eine Vielzahl an Informationen über die im Netzwerk befindlichen Systeme zu akquirieren. Dies ermöglicht beispielsweise mir die schon vorhanden Signaturen so zu verbessern das sie eine größere Menge von Ereignissen abdecken oder bereits definierte Ereignisse genauer zu spezifizieren und so weniger falsche Meldungen zu generieren.
+Um diese Nachteile auszugleichen bietet es sich an die bereits vorhandenen, gesammelten und aufbereiteten Kontextinformationen zu verwenden. Dies ermöglicht die schon vorhanden Signaturen so zu verbessern das sie eine größere Menge von Ereignissen abdecken oder bereits definierte Ereignisse genauer zu spezifizieren und so weniger (falsche) Meldungen zu generieren ohne dabei das Verhalten des Netzwerkverkehrs dauerhaft neu bewerten zu müssen.
 \pagebreak
 \section{Anspruch an das IDS}
 Um die Performance des gewählten IDS verbessern zu können, muss man festlegen welche Kriterien die Leistung beeinflussen bzw. bestimmen.
 Mell et al.\cite{mell2003overview} nennen in ihrer Übersicht verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkungen zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
 %Coverage: This measurement determines which attacks an IDS can detect under ideal conditions. 
 \subsubsection{Abdeckung}
-Gibt an welche Typen von Angriffen ein IDS unter idealen Bedingungen feststellen kann.
+Gibt an welche Typen von Angriffen ein IDS unter idealen Bedingungen erkennen kann.
 % Probability of False Alarms 
 %This measurement determines the rate of false positives produced by an IDS in a given environment during a particular time frame. A false positive or false alarm is an alert caused by normal non- malicious background traffic
 \subsubsection{Wahrscheinlichkeit falscher Alarme}
