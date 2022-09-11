@@ -15,19 +15,14 @@
 \subsection{ Test der kontextsensitiven Signaturen auf Datensatz} 
 
 \section{Netzwerk}
-Das Netzwerk besteht aus vier Docker Containern. 
-
-\begin{TAB}(r,1cm,1cm)[1pt]{|c|c|c|}{|c|c|c|c|c|}% (rows,min,max)[tabcolsep]{columns}{rows}
-Name & Zweck & IP-Adresse + Port \\ 
-Teinehmer 1 	+ Opfer	& Für die Relasisierung verschiedener Angriffe & 172.17.0.5 + 40000 \\ 
-Teilnehmer 2 + Angreifer & Für die Relasisierung verschiedener Angriffe & 172.17.0.4 + 40001 \\
-Angreifer & Container der mithilfe von Scapy Netzwerkverkehr simuliert & 172.17.0.3 \\
-Wireshark + Zeek + osquery & Mitschnitt, Speicherung, Verarbeitung und Auswertung des Netzwerkverkehrs & 172.26.144.132 \\
-\end{TAB}
-
+%Das Netzwerk besteht aus einem Sys
 
 
 \section{Netzwerkverkehr}
+Der Netzwerkverkehr wurde mittels Scapy erzeugt. Das erlaubt die Kontrolle und schnelle Anpassung der verschiedenen Schichten eines Packets.
+\subsection{Geografische Koordinaten und Ortszeit}
+\subsection{Größe des Netzwerks}
+\subsection{Rechte eines Nutzers}
 \section{Angriffe}
 \subsection{ARP-Spoofing}
 \subsection{NAT-Slipstreaming}

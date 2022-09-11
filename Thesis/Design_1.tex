@@ -100,11 +100,30 @@ Werte der Kategorien oder Verhalten von Entitäten die in Kombination mit den im
 
 \newpage
 \includegraphics[width=15cm,height=17.5cm]{graphic_2}
+
+\subsection{Netzwerk}
+Kontext der nicht Entitäten im Netzwerk betrifft sondern das Netzwerk selbst. 
 \section{Form des Kontextes}
-Nachdem die einzelnen Kategorien definiert wurden muss man auch noch festlegen in welcher Form die Kontextinformationen vorliegen sollen bzw. gebracht werden müssen.
+Nachdem die einzelnen Kategorien definiert wurden muss festgelegt werden in welcher Form die Kontextinformationen vorliegen sollen bzw. gebracht werden müssen.
 %TODO work in Progress
 
 \subsection{Historie}
+Die Historie einer Entität muss genug Informationen enthalten um damit neue Entscheidungen in der Gegenwart oder Zukunft zu treffen und sie eindeutig zu identifizieren. Die Identifikation erfolgt anhand der Headerinformationen der einzelnen  Kommunikationsschichten. In der Historie gespeichert werden in entweder die gesamte Payload eines Pakets oder zumindest ein ausreichend aussagekräftiges Subset. Die Regelmäßigkeit mit der die Historie aktualisiert bzw. erweitert wird ist vom jeweiligen Gegebenheiten und Ansprüchen abhängig.
+\begin{tabularx}{1\textwidth} { 
+  | >{\raggedright\arraybackslash}X 
+  | >{\raggedright\arraybackslash}X 
+  | }
+ \hline
+ Identifikationsmerkmale der Anfrage & Zugriffsentscheidung \\
+ \hline
+ MAC-Adresse & MAC-Adresse des Ziels  \\\hline
+ IP-Adresse &  IP-Adresse des Ziels, gesetzte Flags, TTL, Protokoll \\\hline
+ Port & Port des Ziels, protokollspezifische Informationen\\
+ 		& 			\\
+\hline
+\end{tabularx}
+
+
 %Scr-IP/Port + Dest-IP/Port
 %Zeitpunkt
 %Protokoll
