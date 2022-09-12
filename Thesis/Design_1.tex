@@ -104,11 +104,13 @@ Werte der Kategorien oder Verhalten von Entitäten die in Kombination mit den im
 \subsection{Netzwerk}
 Kontext der nicht Entitäten im Netzwerk betrifft sondern das Netzwerk selbst. 
 \section{Form des Kontextes}
-Nachdem die einzelnen Kategorien definiert wurden muss festgelegt werden in welcher Form die Kontextinformationen vorliegen sollen bzw. gebracht werden müssen.
+Nachdem die einzelnen Kategorien definiert wurden muss festgelegt werden in welcher Form die Kontextinformationen vorliegen sollen bzw. gebracht werden müssen. Dies ist hauptsächlich davon abhängig wie die Informationen in das IDS eingelesen werden.
+
+
 %TODO work in Progress
 
 \subsection{Historie}
-Die Historie einer Entität muss genug Informationen enthalten um damit neue Entscheidungen in der Gegenwart oder Zukunft zu treffen und sie eindeutig zu identifizieren. Die Identifikation erfolgt anhand der Headerinformationen der einzelnen  Kommunikationsschichten. In der Historie gespeichert werden in entweder die gesamte Payload eines Pakets oder zumindest ein ausreichend aussagekräftiges Subset. Die Regelmäßigkeit mit der die Historie aktualisiert bzw. erweitert wird ist vom jeweiligen Gegebenheiten und Ansprüchen abhängig.
+Die Historie einer Entität muss genug Informationen enthalten um damit neue Entscheidungen in der Gegenwart oder Zukunft zu treffen und sie eindeutig zu identifizieren. Die Identifikation erfolgt anhand der Headerinformationen der einzelnen  Kommunikationsschichten. In der Historie gespeichert werden in entweder die gesamte Payload eines Pakets oder zumindest ein ausreichend aussagekräftiges Subset. Die Regelmäßigkeit mit der die Historie aktualisiert bzw. erweitert wird ist vom jeweiligen Gegebenheiten und Ansprüchen abhängig.\\
 \begin{tabularx}{1\textwidth} { 
   | >{\raggedright\arraybackslash}X 
   | >{\raggedright\arraybackslash}X 
@@ -132,10 +134,10 @@ Die Historie einer Entität muss genug Informationen enthalten um damit neue Ent
 %Verbindung zugelassen
 \section{Kontextgewinnung}
 %Wo genau bekommt man Kontextinformationen her 
-Abschließend muss man die benötigten Kontextinformationen noch sammeln.
+.
 Dabei sollte man bedenken an welcher Stelle und wie oft man Informationen abruft oder automatisch aktualisiert. \cite{perera_context_2014}
 
-  Es folgt eine Übersicht einiger Möglichkeiten Kontext zu gewinnen.    
+Es folgt eine Übersicht einiger Beispiele für Möglichkeiten Kontextinformationen zu gewinnen. 
 %TODO  A Context Aware Network-IDS
 - osquery
 - network (open ports) | Nessus

@@ -5,24 +5,38 @@
 
 % Comparative study and analysis of network intrusion detection tools
 
-		\subsection{ Umsetzung/Implementierung der Taxonomie in  IDS-Signaturen}
-\section{Test der kontextsensitiven Signaturen}
+%\subsection{ Umsetzung/Implementierung der Taxonomie in  IDS-Signaturen}
+%\section{Test der kontextsensitiven Signaturen}
 
-\subsection{ (Auswahl eines bereits existierenden/ Erstellung eines eigenen) Datensatzes + dazugehörige Label }
-\subsection{ Aufbau eines oder mehrerer Netzwerke  } 
-\subsection{ Setup der verschiedenen IDS }
-\subsection{ Grundlage mit non-kontextsensitiven Signaturen auf Datensatz }
-\subsection{ Test der kontextsensitiven Signaturen auf Datensatz} 
+%\subsection{ (Auswahl eines bereits existierenden/ Erstellung eines eigenen) Datensatzes + dazugehörige Label }
+%\subsection{ Aufbau eines oder mehrerer Netzwerke  } 
+%\subsection{ Setup der verschiedenen IDS }
+%\subsection{ Grundlage mit non-kontextsensitiven Signaturen auf Datensatz }
+%\subsection{ Test der kontextsensitiven Signaturen auf Datensatz} 
 
-\section{Netzwerk}
-%Das Netzwerk besteht aus einem Sys
+\section{Versuchsaufbau}
+Der Ablauf für alle Anwendungsfälle ist grundsätzlich sehr ähnlich:
+\begin{enumerate}
+\item{Erzeugung des Netzwerkverkehrs}
+\item{Mitschnitt des Netzwerkverkehrs}
+\item{Analyse mittels eines Zeek-Skripts}
+\item{Generierung von Logs}
+\end{enumerate}
+\subsection{Netzwerk}
+Das Netzwerk besteht aus einem gleichbleibenden Endgerät in Form eines PC der als Ziel bzw. Endpunkt für den simulierten Netzwerkverkehr dient und verschiedenen anderen Teilnehmern bzw Angreifern. Die genauen Informationen der einzelnen Teilnehmer sind im jeweiligen Szenario genauer spezifiziert.
+\subsection{Netzwerkverkehr}
+\subsubsection{Erzeugung}
+Der Netzwerkverkehr wurde mittels Scapy erzeugt. Das ermöglicht den für die verschiedenenen Szenarien benötigten Netzwerkverkehr zu erzeugen und die einzelnen Schichten eines Pakets zur Verdeutlichung des jeweiligen Anwendungsfalls anzupassen. Für einzelne Skripte ist ausschnittsweise der erzeugte Netzwerkverkehr oder das dazugehörige Skript eingebunden. Eine Übersicht über alle dafür verwendeten Skripte findet sich im Anhang.
+\subsubsection{Mitschneiden}
+Mitgeschnitten wurde mittels WireShark.
 
-
-\section{Netzwerkverkehr}
-Der Netzwerkverkehr wurde mittels Scapy erzeugt. Das erlaubt die Kontrolle und schnelle Anpassung der verschiedenen Schichten eines Packets.
+\section{Skripte}
 \subsection{Geografische Koordinaten und Ortszeit}
+
 \subsection{Größe des Netzwerks}
+
 \subsection{Rechte eines Nutzers}
+
 \section{Angriffe}
 \subsection{ARP-Spoofing}
 \subsection{NAT-Slipstreaming}
