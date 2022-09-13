@@ -27,15 +27,61 @@ Der Ablauf für alle Anwendungsfälle ist grundsätzlich sehr ähnlich:
 Das Netzwerk besteht aus einem gleichbleibenden Endgerät in Form eines PC der als Ziel bzw. Endpunkt für den simulierten Netzwerkverkehr dient und verschiedenen anderen Teilnehmern bzw Angreifern. Die genauen Informationen der einzelnen Teilnehmer sind im jeweiligen Szenario genauer spezifiziert.
 \subsection{Netzwerkverkehr}
 \subsubsection{Erzeugung}
-Der Netzwerkverkehr wurde mittels Scapy erzeugt. Das ermöglicht den für die verschiedenenen Szenarien benötigten Netzwerkverkehr zu erzeugen und die einzelnen Schichten eines Pakets zur Verdeutlichung des jeweiligen Anwendungsfalls anzupassen. Für einzelne Skripte ist ausschnittsweise der erzeugte Netzwerkverkehr oder das dazugehörige Skript eingebunden. Eine Übersicht über alle dafür verwendeten Skripte findet sich im Anhang.
+Der Netzwerkverkehr wurde mittels Scapy erzeugt. Das ermöglicht den für die verschiedenenen Szenarien benötigten Netzwerkverkehr zu erzeugen und die einzelnen Schichten eines Packets zur Verdeutlichung des jeweiligen Anwendungsfalls anzupassen. Für einzelne Skripte ist ausschnittsweise der erzeugte Netzwerkverkehr oder das dazugehörige Skript eingebunden. Eine Übersicht über alle dafür verwendeten Skripte findet sich im Anhang.
 \subsubsection{Mitschneiden}
 Mitgeschnitten wurde mittels WireShark.
 
 \section{Skripte}
 \subsection{Geografische Koordinaten und Ortszeit}
+Das Volumen von durch Menschen verursachten Netzwerkverkehrs ist tageszeitabhängig. So wird in der Regel nachts weniger kommuniziert als am Tag.  Deshalb ist es sinnvoll den Grenzwert für erzeugten Verkehrsaufkommen ab dem ein Sender als potenziell böswillig eingestuft wird je nach Uhrzeit anzupassen.\\
+\begin{figure}[h!]
 
-\inputminted{python}{geolocation_packets.py}\\
-\inputminted{zeek}{geolocation.zeek}
+\begin{lstlisting}
+def send_packet(ip_address):
+    source_server = ip_address
+    target_server = "172.17.144.87"
+
+    # Send 10  packets
+    for x in range(0, 15):
+        port = random.randint(40000, 42000)
+        layer_2 = Ether()
+        layer_3 = IP(src=source_server, dst=target_server)
+        layer_4 = TCP(sport=port,dport=port)
+        tcp_pkt = layer_2 / layer_3 / layer_4
+        sendp(tcp_pkt)
+\end{lstlisting}
+\caption{Erzeugen von Netzwerkverkehr}\\
+\end{figure}
+
+\begin{figure}[h!]
+\begin{lstlisting}
+function geolocation(c: connection):double{
+	local origin_country = lookup_location(c$id$orig_h)$country_code;
+	local origin_longitude = lookup_location(c$id$orig_h)$longitude;
+	return origin_longitude;
+}
+
+function time_at_geolocation(longitude: double): int{
+	#	1 degree of longitude is 4 minutes of time
+	local time_difference  = (longitude - home_longitude)*240;
+	local double_time_difference = time_to_double(network_time()) + time_difference;
+	local epoch_time_difference = double_to_time(double_time_difference);
+	local time_at_origin  = strftime("%H", epoch_time_difference);
+	local useable_time_at_origin = to_int(time_at_origin);
+	return useable_time_at_origin;
+}
+
+function set_threshold(c_time: int): double{
+	if(c_time< opening_time || c_time > closing_time )
+		threshold = threshold*0.5;
+	else 
+		threshold = threshold*1.1;
+	return threshold;
+
+}
+\end{lstlisting}
+\caption{Setzen des Grenzwertes von Verbindungsversuchen}
+\end{figure}
 \subsection{Größe des Netzwerks}
 
 \subsection{Rechte eines Nutzers}
