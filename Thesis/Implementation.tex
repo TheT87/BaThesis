@@ -36,7 +36,7 @@ Mitgeschnitten wurde mittels WireShark.
 Das Volumen von durch Menschen verursachten Netzwerkverkehrs ist tageszeitabhängig. So wird in der Regel nachts weniger kommuniziert als am Tag.  Deshalb ist es sinnvoll den Grenzwert für erzeugten Verkehrsaufkommen ab dem ein Sender als potenziell böswillig eingestuft wird je nach Uhrzeit anzupassen.\\
 \begin{figure}[h!]
 
-\begin{lstlisting}
+\begin{lstlisting}[language=python]
 def send_packet(ip_address):
     source_server = ip_address
     target_server = "172.17.144.87"
