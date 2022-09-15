@@ -20,7 +20,7 @@ Der Ablauf für alle Anwendungsfälle ist grundsätzlich sehr ähnlich:
 \begin{enumerate}
 \item{Erzeugung des Netzwerkverkehrs}
 \item{Mitschnitt des Netzwerkverkehrs}
-\item{Analyse mittels eines Zeek-Skripts}
+\item{Analyse mittels Zeek-Skripts}
 \item{Generierung von Logs}
 \end{enumerate}
 \subsection{Netzwerk}
@@ -29,8 +29,13 @@ Das Netzwerk besteht aus einem gleichbleibenden Endgerät in Form eines PC der a
 \subsubsection{Erzeugung}
 Der Netzwerkverkehr wurde mittels Scapy erzeugt. Das ermöglicht den für die verschiedenenen Szenarien benötigten Netzwerkverkehr zu erzeugen und die einzelnen Schichten eines Packets zur Verdeutlichung des jeweiligen Anwendungsfalls anzupassen. Für einzelne Skripte ist ausschnittsweise der erzeugte Netzwerkverkehr oder das dazugehörige Skript eingebunden. Eine Übersicht über alle dafür verwendeten Skripte findet sich im Anhang.
 \subsubsection{Mitschneiden}
-Mitgeschnitten wurde mittels WireShark.
-
+Der Netzwerkverkehr wurde mittels WireShark mitgeschnitten.
+\subsection{Zeek}
+%TODO
+%Zeek is a passive, open-source network traffic analyzer. Many operators use Zeek as a network security monitor (NSM) to support investigations of suspicious or malicious activity.
+%Zeek is a fully customizable and extensible platform for traffic analysis. Zeek provides users a domain-specific, Turing-complete scripting language for expressing arbitrary analysis tasks
+%In brief, Zeek is optimized for interpreting network traffic and generating logs based on that traffic. It is not optimized for byte matching, and users seeking signature detection approaches would be better served by trying intrusion detection systems such as Suricata. Zeek is also not a protocol analyzer in the sense of Wireshark, seeking to depict every element of network traffic at the frame level, or a system for storing traffic in packet capture (PCAP) form. Rather, Zeek sits at the “happy medium” representing compact yet high fidelity network logs, generating better understanding of network traffic and usage.
+%Zeek as a NSM platform enables collection of at least two, and in some ways three, of these data forms, namely transaction data, extracted content, and alert data
 \section{Skripte}
 \subsection{Geografische Koordinaten und Ortszeit}
 Das Volumen von durch Menschen verursachten Netzwerkverkehrs ist meist tageszeitabhängig. So wird in der Regel nachts weniger kommuniziert als am Tag.  Deshalb ist es sinnvoll den Grenzwert für erzeugten Verkehrsaufkommen ab dem ein Sender als potenziell böswillig eingestuft wird je nach Uhrzeit anzupassen.\\
@@ -50,7 +55,7 @@ def send_packet(ip_address):
         tcp_pkt = layer_2 / layer_3 / layer_4
         sendp(tcp_pkt)
 \end{lstlisting}
-\caption{Erzeugen von Netzwerkverkehr}\\
+\caption{Erzeugen von Netzwerkverkehr}
 \end{figure}
 
 \begin{figure}[h!]
