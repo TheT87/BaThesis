@@ -33,7 +33,7 @@ Wer Zugriff auf eine Ressource erfragt.
 \paragraph{Aktivität}
 Was in einer Situation passiert bzw. welche Aktion eine Entität ausführt.
 \paragraph{Grund}
-Placeholder\linebreak
+Warum etwas getan wird.\linebreak
 \includegraphics[width=14cm,height=13.5cm]{graphic_1}
 %--------------------------
 \subsection{Historie}
@@ -47,7 +47,7 @@ Die Existenz einer Historie trifft die implizite Annahme das eine Entität einde
 Wie 
  %TODO im Kapitel Hintergrund%
  beschrieben können sich die Werte, aus denen sich die Historie einer Entität zusammensetzt, je nach dem welchem Teil sie zugeordnet werden, verschieden oft ändern.
-Statische Messgrößen ändern dabei ihre Werte nie oder nur sehr selten. Dynamische Messgrößen hingegen sehr oft. In diesem Fall wird eine Unterteilung jährlich, monatlich, wöchentlich, täglich, stündlich, minütlich und sekündlich vorgenommen.
+Statische Messgrößen ändern dabei ihre Werte nie oder nur sehr selten. Dynamische Messgrößen hingegen sehr oft. In diesem Fall wird eine Unterteilung in jährlich, monatlich, wöchentlich, täglich, stündlich, minütlich und sekündlich vorgenommen.
 \subsubsection{Raten}
 Die Historie ist weiterhin in 3 verschiedene Bereiche unterteilt. Abhängig davon wo die Änderung auftritt und ob das IDS oder eine Entität die Aktualisierung des Wertes auslöst.
 \paragraph{Änderungsrate} 
@@ -57,20 +57,30 @@ Wie oft Werte einer Entität vom IDS abgefragt bzw aktualisiert werden.
 \paragraph{Abfragerate}
 Wie oft Werte im Netzwerk von einer Entität, die nicht das IDS ist, abgefragt werden.\\\\
 \includegraphics{history}
+\pagebreak
 %--------------------------
 
-\subsection{Logisch}
-\subsubsection{Protokoll}
-Kategorisierung anhand des verwendeten Kommunikationsprotokolls. Orientiert sich am ISO/OSI-Referenzmodell \cite{day1983osi}. Die Zuordnung zu einer bestimmten Schicht und damit Kategorie erfolgt anhand der für die einzelnen Schichten üblichen Protokolle. Ermöglicht die Identifikation von Entitäten anhand der von ihnen genutzten Protokolle. So kann beispielsweise ein Switch oder Router von einem Nutzer unterschieden werden.
+\subsection{Netzwerk}
+Ein Netzwerk besteht im allgemeinen aus:
+\begin{enumerate}
+\item{Entitäten die daran teilnehmen}
+\item{Kommunikation zwischen den Entitäten}
+\item{Annahmen bzw. Normen bezüglich:}
+\begin{enumerate}
+	\item{des Verhaltens und der Eigenschaften der Entitäten}
+	\item{der Form und dem Inhalt der Kommunikation}
+\end{enumerate}
+\end{enumerate}
+In Rahmen der Zugriffskontrolle erfolgt Kommunikation im Netzwerk über spezifische Protokolle zwischen verschiedenen Entitäten die durch bestimmte Attribute charakterisiert werden. Die Normen werden dabei initial festgelegt und im Verlauf der Lebenszeit des Netzwerkes angepasst.  
+\subsubsection{Protokolle}
+Kategorisierung anhand des verwendeten Kommunikationsprotokolls. Orientiert sich am ISO/OSI-Referenzmodell \cite{day1983osi}. Die Zuordnung zu einer bestimmten Schicht und damit Kategorie erfolgt anhand der für die einzelnen Schichten üblichen Protokolle. Das ermöglicht die Identifikation von Entitäten anhand der von ihnen genutzten Protokolle. So kann beispielsweise ein Switch oder Router von einem Nutzer oder einer Anwendung unterschieden werden.
 \paragraph{Anwendung}
 Beinhaltet allen Netzwerkverkehr der sich der Sitzungsschicht, Darstellungsschicht oder Anwendungsschicht zuordnen lässt 
 \paragraph{Transport}
 Pakete die sich der Transportschicht zuordnen lassen.
 \paragraph{Vermittlung}
 Netzwerkverkehr der zur Vermittlungsschicht gehört.
-
-
-\subsubsection{Attribute der Entitäten}
+\subsubsection{Entitäten}
 Kategorisierung von Kontextinformationen abhängig davon welche Art von Entität sie betreffen.
 Diese Unterscheidung setzt genauso wie die Historie eindeutig identifizierbare Entitäten voraus.
 \paragraph{Gerät}
@@ -91,18 +101,17 @@ Informationen die sich auf eine Anwendung beziehen.
 \item{Anwendung umfasst jegliche Softwareprozesse die für sich oder in Kombination einen bestimmten Zweck erfüllen.}
 \item{Eine Anwendung erzeugt für sie charakteristischen Netzwerkverkehr, versendet oder empfängt also bestimmte Informationen.}
 \end{enumerate}
-\subsection{Verhaltensbezogen}
-Einordnung der Kontextinformationen abhängig davon sie der für den Anwendungsfall definierten Normen entsprechen.
-\subsubsection{Erwartetes Verhalten}
-Werte der Kategorien oder Verhalten von Entitäten passend  zu den im Netzwerk vorherrschenden Bedingungen.
-\subsubsection{Ungewöhnliches Verhalten}
+\subsection{Verhalten}
+Einordnung der Kontextinformationen abhängig davon ob sie der für den Anwendungsfall definierten Normen entsprechen.
+\paragraph{Erwartet}
+Werte der Kategorien oder Verhalten von Entitäten passend zu den im Netzwerk vorherrschenden Bedingungen.
+\paragraph{Ungewöhnlich}
 Werte der Kategorien oder Verhalten von Entitäten die in Kombination mit den im Netzwerk vorherrschenden Bedingungen entweder auffällig oder irrational sind.
 
 \newpage
 \includegraphics[width=15cm,height=17.5cm]{graphic_2}
 
-\subsection{Netzwerk}
-Kontext der nicht Entitäten im Netzwerk betrifft sondern das Netzwerk selbst. 
+
 \section{Form des Kontextes}
 Nachdem die einzelnen Kategorien definiert wurden muss festgelegt werden in welcher Form die Kontextinformationen vorliegen sollen bzw. gebracht werden müssen. Dies ist hauptsächlich davon abhängig wie die Informationen in das IDS eingelesen werden.
 

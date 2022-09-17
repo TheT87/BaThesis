@@ -1,7 +1,3 @@
-
-@load base/utils/time
-
-
 module GeoLogTest;
 
 export {
@@ -12,6 +8,7 @@ export {
     # Define the record type that will contain the data to log.
     type Info: record {
         ts: time        &log;
+        rts : string 	&log;
         id: conn_id     &log; 
         notice : string &log;
     };
@@ -24,11 +21,13 @@ redef record connection += {
 };
 
 global ip_addresses : table[addr] of int;
-global threshold = 20.0 ;
+global threshold : int; 
+global night_time_decrease : int;
+global day_time_increase : int;
 #const home_country = "DE";
 #const home_latitude = 51.025889;
 const home_longitude = 13.723376;
-const closing_time = 18;
+const closing_time = 19;
 const opening_time = 7;
 
 function geolocation(c: connection):double{
@@ -48,10 +47,14 @@ function time_at_geolocation(longitude: double): int{
 }
 
 function set_threshold(c_time: int): double{
+	print(c_time);
+	threshold = 10;
+	night_time_decrease = 10;
+	day_time_increase = 10;
 	if(c_time< opening_time || c_time > closing_time )
-		threshold = threshold*0.5;
+		threshold = threshold-night_time_decrease;
 	else 
-		threshold = threshold*1.1;
+		threshold = threshold+day_time_increase;
 	return threshold;
 
 }
@@ -59,8 +62,7 @@ function set_threshold(c_time: int): double{
 function number_of_connection_attempts(c:connection): int{
 	if (c$id$orig_h in ip_addresses){
 		local val = ip_addresses[c$id$orig_h];
-		ip_addresses[c$id$orig_h] = val+1;
-			
+		ip_addresses[c$id$orig_h] = val+1;		
 	} else {
 		ip_addresses[c$id$orig_h] = 1;
 	}
@@ -68,28 +70,26 @@ function number_of_connection_attempts(c:connection): int{
 }
 
 function log_exceeded_ips (c: connection, threshold: double, number_of_connections: int){
+	print(id_string(c$id));
 	if (number_of_connections > threshold){
-		local rec: GeoLogTest::Info = [$ts=network_time(), $id=c$id, $notice="Threshold exceeded"];
+		local rec: GeoLogTest::Info = [$ts=current_time(),$rts=strftime("%H:%M:%S",network_time()), $id=c$id, $notice="Threshold exceeded"];
 		# Store a copy of the data in the connection record so other
     	# event handlers can access it.
     	c$geologtest = rec;
 		Log::write(GeoLogTest::LOG, rec);
+		break;
 	}
 }
 
 event zeek_init(){
-	local debug_plugin = NetControl::create_debug(T);
-	NetControl::activate(debug_plugin, 0);
 	Log::create_stream(GeoLogTest::LOG, [$columns=Info, $path="geologtest"]);
 }
 
 
 event connection_attempt(c: connection){
-
 	local origin = geolocation(c);
 	local origin_time = time_at_geolocation(origin);
 	local connection_attempt_threshold = set_threshold(origin_time);
 	local count_connection_attempts_c = number_of_connection_attempts(c);
 	log_exceeded_ips(c,connection_attempt_threshold,count_connection_attempts_c);
-	
 }

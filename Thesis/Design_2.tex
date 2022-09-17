@@ -3,11 +3,11 @@
 \section{Umwandlung der Taxonomie in IDS-Signaturen} 
 
 %What is important for the reader is to understand that the contextual awareness of machines is from a radically different nature than the one of humans. Also, that computational systems are good at gathering and aggregating data, but humans are still better at recognizing contexts and determining what action is appropriate in a certain situation [2]. On the other hand, positivism looks at context as a representational problem, considering it as a “form of information, delineable, stable and separable from activity” [5]. The definitions made in the context-aware field, naturally adopt this point of view. For instance, Dey’s definition [10] allows designers to use the concept for determining why a situation occurs and use this to encode some action in the application [26], making the concept operational in terms of the actors and information sources [17]. Nevertheless, since the definition inherently has a positivist view, the potential of C-AS remains limited to the context that developers are able to encode and foresee. \cite{alegre_engineering_2016}
-Um die im Abschnitt Kontexttaxonomie festgelegten Kategorien in für ein IDS nutzbare Form zu bringen gilt es gewisse Dinge zu beachten:\\\\ Die Kontextsensitivität eines Computers unterscheidet sich drastisch von der eines Menschen. Rechensysteme sind sehr gut darin Daten zu erfassen und zu sammeln, aber Menschen sind immer-noch nötig um verschiedene Kontexte zu erkennen und zu entscheiden welches Handeln in einer bestimmten Situation angemessen ist \cite{dey_understanding_2001}.\\
-Der limitierende Faktor des Potenzials eines kontextsensitiven Systems ist das Maß an Kontext das ein Entwickler vorhersehen und kodieren kann.\\
+Um die im Abschnitt Kontexttaxonomie festgelegten Kategorien in für ein IDS nutzbare Form zu bringen gilt es gewisse Dinge zu beachten:\\ Die Kontextsensitivität eines Computers unterscheidet sich drastisch von der eines Menschen. Rechensysteme sind sehr gut darin Daten zu erfassen und zu sammeln, aber Menschen sind immer-noch nötig um verschiedene Kontexte zu erkennen und zu entscheiden welches Handeln in einer bestimmten Situation angemessen ist \cite{dey_understanding_2001}.
+Der limitierende Faktor des Potenzials eines kontextsensitiven Systems ist das Maß an Kontext das ein Entwickler vorhersehen und kodieren kann.
 %The list of unforeseen or undetectable contexts can be endless.Summarizing, if developers can not determine all that can be affected by an action, it will be very difficult to write a closed and comprehensive set of actions to take in those cases.
-Es ist aber weder beim Design noch später bei der Implementierung unmöglich alle Zusammenhänge vorherzusehen.\\
-Dementsprechend schwer wird ist es ein in sich geschlossenes und allumfassendes Regelset festzulegen \cite{perera_context_2014}.\\\\
+Es ist aber weder beim Design noch später bei der Implementierung unmöglich alle Zusammenhänge vorherzusehen.
+Dementsprechend schwer wird ist es ein in sich geschlossenes und allumfassendes Regelset festzulegen \cite{perera_context_2014}.
 %“(A) Enumerate the set of contextual states that may exist;” 
 %“(B) Know what information could accurately determine a contextual state within that set;” 
 %“(C) State what appropriate action should be taken in a particular state.”
@@ -57,7 +57,7 @@ Der Hauptnachteil eines signatur-basierten IDS ausschließlich Angriffe zu erken
 Um diese Nachteile auszugleichen bietet es sich an die bereits vorhandenen, gesammelten und aufbereiteten Kontextinformationen zu verwenden. Dies ermöglicht die schon vorhanden Signaturen so zu verbessern das sie eine größere Menge von Ereignissen abdecken oder bereits definierte Ereignisse genauer zu spezifizieren und so weniger (falsche) Meldungen zu generieren ohne dabei das Verhalten des Netzwerkverkehrs dauerhaft neu bewerten zu müssen.
 \pagebreak
 \section{Anspruch an das IDS}
-Um die Performance des gewählten IDS verbessern zu können, muss man festlegen welche Kriterien die Leistung beeinflussen bzw. bestimmen.
+Um die Performance des konkret gewählten IDS verbessern zu können, muss man festlegen welche Kriterien die Leistung beeinflussen bzw. bestimmen und wie man diese gewichtet.
 Mell et al.\cite{mell2003overview} nennen in ihrer Übersicht verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkungen zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
 %Coverage: This measurement determines which attacks an IDS can detect under ideal conditions. 
 \subsubsection{Abdeckung}
