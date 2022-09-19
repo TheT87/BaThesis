@@ -12,7 +12,7 @@ Zuerst wird die Notwendigkeit für eine Taxonomie erläutert. Dann erfolgt die D
 \section{Notwendigkeit einer Taxonomie}
 %TODO “Based on the evaluation of context categorisation, it is evident that no single categorisation scheme can accommodate all the demands” ([Perera et al., 2014, p. 423]
 Die Evaluation verschiedener Kategorisierungsschemata zeigt das keine Kategorisierung allen Ansprüchen gerecht werden kann \cite{perera_context_2014}.
-\section{ Erstellung einer Kontexttaxonomie }
+\section{ Erstellung einer Taxonomie }
 Im folgenden möchte ich meinen Versuch einer Kombination der bereits vorgeschlagenen Kategorisierungsschemata erläutern. Dazu lege ich zuerst die Definition der einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle fest. Die Kategorien müssen dafür, abhängig davon mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark angepasst werden.
 \subsection{Konzeptionell}
 Einordnung anhand der Bedeutung des Kontextes und der begrifflichen Beziehungen.
@@ -34,9 +34,10 @@ Wer Zugriff auf eine Ressource erfragt.
 Was in einer Situation passiert bzw. welche Aktion eine Entität ausführt.
 \paragraph{Grund}
 Warum etwas getan wird.
-\begin{figure}[h!]
+\begin{figure}[H]
+\centering
 \includegraphics[width=15cm,height=15.2569cm]{graphic_1}
-\caption{•}
+\caption{Nutzerzentrierte Kategorisierung}
 \end{figure}
 %--------------------------
 \subsection{Historie}
@@ -59,11 +60,11 @@ Gibt an wie oft eine Entität eine Werteänderungen mitteilt.
 Wie oft Werte einer Entität vom IDS abgefragt bzw aktualisiert werden.
 \paragraph{Abfragerate}
 Wie oft Werte im Netzwerk von einer Entität, die nicht das IDS ist, abgefragt werden.
-\begin{figure}[h!]
+\begin{figure}[H]
+\centering
 \includegraphics{history}
-\caption{•}
+\caption{Historie}
 \end{figure}
-\pagebreak
 %--------------------------
 
 \subsection{Netzwerk}
@@ -110,13 +111,14 @@ Informationen die sich auf eine Anwendung beziehen.
 \subsubsection{Normen}
 Einordnung der Kontextinformationen abhängig davon ob sie der für den Anwendungsfall definierten Normen entsprechen.
 \paragraph{Erwartet}
-Form der Kommunikation mit verschiedenen Protokollen oder Verhalten von Entitäten passend zu den im Netzwerk vorherrschenden Bedingungen.
+Form der Kommunikation mit verschiedenen Protokollen oder Verhalten von Entitäten entsprechend den im Netzwerk geltenden Vorschriften.
 \paragraph{Ungewöhnlich}
 Form der Kommunikation mit verschiedenen Protokollen oder Verhalten von Entitäten die in Kombination mit den im Netzwerk vorherrschenden Bedingungen entweder auffällig oder irrational sind.
 \newpage
-\begin{figure}[h!]
+\begin{figure}[H]
+\centering
 \includegraphics[width=15cm,height=16.97cm]{graphic_2}
-\caption{Kategorisierung von Kontextinformationen als Bestandteile eines Netzwerkes}
+\caption{Kategorisierung von Kontextinformationen als Netzwerkbestandteile}
 \end{figure}
 \newpage
 
@@ -127,23 +129,22 @@ Nachdem die einzelnen Kategorien definiert wurden muss festgelegt werden in welc
 %TODO work in Progress
 
 \subsection{Historie}
-Die Historie einer Entität muss genug Informationen enthalten um damit neue Entscheidungen in der Gegenwart oder Zukunft zu treffen und sie eindeutig zu identifizieren. Die Identifikation erfolgt anhand der Headerinformationen der einzelnen  Kommunikationsschichten. In der Historie gespeichert werden in entweder die gesamte Payload eines Pakets oder zumindest ein ausreichend aussagekräftiges Subset. Die Regelmäßigkeit mit der die Historie aktualisiert bzw. erweitert wird ist vom jeweiligen Gegebenheiten und Ansprüchen abhängig.
-\begin{figure}[h!]
-\begin{tabularx}{1\textwidth} { 
-  | >{\raggedright\arraybackslash}X 
-  | >{\raggedright\arraybackslash}X 
-  | }
- \hline
- Identifikationsmerkmale der Anfrage & Zugriffsentscheidung \\
- \hline
- MAC-Adresse & MAC-Adresse des Ziels  \\\hline
- IP-Adresse &  IP-Adresse des Ziels, gesetzte Flags, TTL, Protokoll \\\hline
- Port & Port des Ziels, protokollspezifische Informationen\\
- 		& 			\\
-\hline
-\end{tabularx}
+Die Historie einer Entität muss genug Informationen enthalten, um damit neue Entscheidungen in der Gegenwart oder Zukunft zu treffen und sie eindeutig zu identifizieren. Die Identifikation erfolgt anhand der Headerinformationen der einzelnen  Kommunikationsschichten. In der Historie gespeichert werden entweder die gesamte Payload eines Pakets oder zumindest ein ausreichend aussagekräftiges Subset. Die Regelmäßigkeit mit der die Historie aktualisiert bzw. erweitert wird ist vom jeweiligen Gegebenheiten und Anforderungen abhängig. Nach Ansicht des Autors sollte ein Subset mindestens folgende Daten beinhalten, um eine ausreichende Rekonstruktion des Kenntnisstandes, mit dem die Zugriffsentscheidungen ursprünglich getroffen wurden, zu ermöglichen und damit aussagekräftig zu sein:
+\begin{enumerate}
+\item{Zur Identifikation einer Entität und der Zuordnung ihrer Verbindung:}
+\begin{enumerate}
+\item{MAC-Adresse}
+\item{IP-Adresse}
+\item{Port}
+\end{enumerate}
+\item{Zur Rekonstruktion der ursprünglichen Zugriffsentscheidungen die die Entität betreffen:}
+\begin{enumerate}
+\item{MAC-Adresse des Ziels}
+\item{IP-Adresse des Ziels, gesetzte Flags, TTL, Protokoll}
+\item{Port des Ziels, protokollspezifische Informationen}
+\end{enumerate}
 
-\end{figure}
+\end{enumerate}
 
 %Scr-IP/Port + Dest-IP/Port
 %Zeitpunkt

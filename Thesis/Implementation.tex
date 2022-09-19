@@ -44,9 +44,10 @@ Ein passives, quelloffenes Analysewerkzeug für Netzwerkverkehr das via eigener 
 \item{Interpretation von Netzwerkverkehr}
 \item{Erstellung von Protokollen auf der Grundlage dieses Verkehrs}
 \end{enumerate}
-Zeek ist dabei weder rein signatur-basiert wie Suricata noch ausschließlich als Protokollanalysator im Sinne von Wireshark zu verstehen. Vielmehr handelt es sich bei Zeek um eine Mischung die eine kompakte, aber dennoch detailgetreue Darstellung von Netzwerkprotokollen ermöglicht. Dies erlaubt ein besseres Verständnis des Netzwerkverkehrs und der Netzwerknutzung.
-\subsection{zeek-agent}
-\newpage
+Zeek ist dabei weder rein signatur-basiert wie Suricata noch ausschließlich als Protokollanalysator im Sinne von Wireshark zu verstehen. Vielmehr handelt es sich bei Zeek um eine Mischung die eine kompakte, aber dennoch detailgetreue Darstellung von Netzwerkprotokollen ermöglicht. Dies erlaubt ein besseres Verständnis des Netzwerkverkehrs und der Netzwerknutzung \cite{zeek}.
+\subsection{Zeek-Agent}
+Der Zeek Agent ist ein Endpunkt-Agent, der Host-Informationen zur zentralen Überwachung an Zeek sendet. In Zeek werden die Host-Aktivitäten, wie z. B. aktuelle Prozesse, offene Sockets oder die Liste der Benutzer auf dem System, genau wie die Netzwerkaktivitäten, als Ereignisse auf Skript-Ebene angezeigt \cite{zeek-agent}.
+
 \section{Skripte}
 Der Kern der Implementierung sind Zeek Skripte. Hier werden die gesammelten Kontextinformationen verwendet. Nachfolgend werden für einige ausgewählte Kategorien Anwendungsfälle vorgestellt.
 \subsection{Logging in Zeek}
