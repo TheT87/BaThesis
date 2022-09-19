@@ -12,7 +12,7 @@
 %\subsection{ (Auswahl eines bereits existierenden/ Erstellung eines eigenen) Datensatzes + dazugehörige Label }
 %\subsection{ Aufbau eines oder mehrerer Netzwerke  } 
 %\subsection{ Setup der verschiedenen IDS }
-%\subsection{ Grundlage mit non-kontextsensitiven Signaturen auf Datensatz }
+%\subsection{ Grundlage mit non-kontextsensitiven Signaturen auf Datensatz}
 %\subsection{ Test der kontextsensitiven Signaturen auf Datensatz} 
 
 Der im Kapitel Design dargelegte Aufbau eines Netzwerkes findet sich auch in der Implementation wieder. Scapy, Wireshark und Zeek kümmern sich dabei mit um Kommunikation, zeek-agent um die Entitäten und der Autor um die Annahmen und daraus resultierenden Normen.
@@ -26,7 +26,7 @@ Der Ablauf für alle Anwendungsfälle ist grundsätzlich sehr ähnlich:
 \item{Generierung von Logs}
 \end{enumerate}
 \subsection{Netzwerk}
-Das Netzwerk besteht aus einem gleichbleibenden Endgerät in Form eines PC der als Ziel bzw. Endpunkt für den simulierten Netzwerkverkehr dient und verschiedenen anderen Teilnehmern bzw Angreifern. Die genauen Informationen der einzelnen Entitäten sind im jeweiligen Szenario genauer spezifiziert.
+Das Netzwerk besteht aus einem gleichbleibenden Endgerät das als Ziel bzw. Endpunkt für den simulierten Netzwerkverkehr dient und verschiedenen anderen Teilnehmern bzw Angreifern. Die genauen Informationen der einzelnen Entitäten sind im jeweiligen Szenario genauer spezifiziert.
 \subsection{Netzwerkverkehr}
 \subsubsection{Scapy}
 Der Netzwerkverkehr wurde mittels Scapy erzeugt. Das ermöglicht den für die verschiedenen Szenarien benötigten Netzwerkverkehr zu erzeugen und die einzelnen Schichten eines Packets zur Verdeutlichung des jeweiligen Anwendungsfalls anzupassen. Für einzelne Skripte ist ausschnittsweise der erzeugte Netzwerkverkehr oder das dazugehörige Skript eingebunden. Eine Übersicht über alle dafür verwendeten Skripte findet sich im Anhang.
@@ -46,17 +46,56 @@ Ein passives, quelloffenes Analysewerkzeug für Netzwerkverkehr das via eigener 
 \end{enumerate}
 Zeek ist dabei weder rein signatur-basiert wie Suricata noch ausschließlich als Protokollanalysator im Sinne von Wireshark zu verstehen. Vielmehr handelt es sich bei Zeek um eine Mischung die eine kompakte, aber dennoch detailgetreue Darstellung von Netzwerkprotokollen ermöglicht. Dies erlaubt ein besseres Verständnis des Netzwerkverkehrs und der Netzwerknutzung.
 \subsection{zeek-agent}
+\newpage
 \section{Skripte}
-\subsection{Geografische Koordinaten und Ortszeit}
-Das Volumen von durch Menschen verursachten Netzwerkverkehrs ist meist tageszeitabhängig. So wird in der Regel nachts weniger kommuniziert als am Tag.  Deshalb ist es sinnvoll den Grenzwert für erzeugten Verkehrsaufkommen ab dem ein Sender als potenziell böswillig eingestuft wird je nach Uhrzeit anzupassen.\\
+Der Kern der Implementierung sind Zeek Skripte. Hier werden die gesammelten Kontextinformationen verwendet. Nachfolgend werden für einige ausgewählte Kategorien Anwendungsfälle vorgestellt.
+\subsection{Logging in Zeek}
+
 \begin{figure}[h!]
+\centering
+\begin{lstlisting}
+module ExampleModule;
 
+export {
+    # Create an ID for our new stream. By convention, this is
+    # called "LOG".
+    redef enum Log::ID += { LOG };
+
+    # Define the record type that will contain the data to log.
+    type Info: record {
+        timestamp: time		&log;
+        id: connection_id	&log; 
+        notice: string		&log;
+    };
+}
+
+redef record connection += {
+    # By convention, the name of this new field is the lowercase name
+    # of the module.
+    querytest: Info &optional;
+};
+event zeek_init(){
+	Log::create_stream(ExampleModule::LOG, [$columns=Info, $path="examplemodule"]);
+	local record: ExampleLog::Info = [$ts=current_time(), $id=c$id, $notice="Example Notice"];
+    # Store a copy of the data in the connection record so other
+    # event handlers can access it.
+    c$examplelog = record;
+    Log::write(ExampleModule::LOG, rec);
+}
+\end{lstlisting}
+\caption{Generierung einer Log-Datei mit Verbindungsinformationen}
+\end{figure}
+%\newpage
+\subsection{SQL-Abfragen}
+\subsection{Geografische Koordinaten und Ortszeit}
+Das Volumen von durch Menschen verursachten Netzwerkverkehr ist meist tageszeitabhängig. So wird in der Regel nachts weniger kommuniziert als am Tag.  Deshalb ist es sinnvoll den Grenzwert für erzeugtes Verkehrsaufkommen, ab dem ein Sender als potenziell böswillig eingestuft wird, je nach Uhrzeit anzupassen.\\
+\begin{figure}[h!]
+\centering
 \begin{lstlisting}[language=python]
-def send_packet(ip_address):
-    source_server = ip_address
-    target_server = "172.17.144.87"
-
-    # Send 10  packets
+def send_packet(ip_address_src,ip_address_dst):
+    source_server = ip_address_src
+    target_server = ip_address_dst
+	# Send 10  packets
     for x in range(0, 15):
         port = random.randint(40000, 42000)
         layer_2 = Ether()
@@ -67,7 +106,6 @@ def send_packet(ip_address):
 \end{lstlisting}
 \caption{Erzeugen von Netzwerkverkehr}
 \end{figure}
-
 \begin{figure}[h!]
 \begin{lstlisting}
 function geolocation(c: connection):double{
@@ -96,7 +134,50 @@ function set_threshold(c_time: int): double{
 \end{lstlisting}
 \caption{Setzen des Grenzwertes von Verbindungsversuchen}
 \end{figure}
+\pagebreak
 \subsection{Offene Ports}
+Verwendet werden Ports die die aktuell auf dem System laufenden Prozesse.
+\begin{enumerate}
+\item{}
+\item{}
+\item{}
+\end{enumerate}
+
+ Wenn eine Verbindung oder der Versuch eine Verbindung zu etablieren, mit einem bestimmten Port des Systems als Ziel, von Zeek beobachtet wird ohne das ein Prozess gibt der diesem Port mittels dem zeek-agent zugeordnet werden kann, wird die Verbindung bzw. der Verbindungsversuch im dazugehöirgen Log vermerkt.
+
+\begin{figure}
+\begin{lstlisting}
+global local_ports : table[int] of string ={
+        [80] = "http",
+        [22] = "ssh",
+        [25552] = "application_1"
+    };
+event zeek_init(){
+    local query_stmt = "SELECT users.name, users.is_admin, sockets.process, sockets.protocol, sockets.local_addr, sockets.local_port, sockets.remote_addr, sockets.remote_port FROM users JOIN processes ON users.uid=processes.uid JOIN sockets ON sockets.pid=processes.pid";
+    local query_event = users_result;
+    local query_schedule = 10 secs;
+    local port_query = ZeekAgent::query([$sql_stmt=query_stmt,$event_=query_event,$schedule_=query_schedule]);
+}
+
+event users_result(ctx: ZeekAgent::Context, data: Columns){
+    local connection_port = data$remote_port;
+   	local new_entry : count = connection_port;
+    local_ports[new_entry] = data$name;
+}
+
+function check_outgoing_connection(c:connection){
+    local c_port = port_to_count(c$id$orig_p);
+    local rec : PortCheck::Info;
+    if(c_port !in local_ports){
+        rec = [$ts=current_time(), $id=c$id, $notice="No Application using this port"];
+        }
+    c$portcheck = rec;
+    Log::write(PortCheck::LOG, rec);
+    
+}
+\end{lstlisting}
+\caption{•}
+\end{figure}
 \subsection{DNS-Auflösung}
 \subsection{Rechte eines Nutzers}
 \subsection{}
