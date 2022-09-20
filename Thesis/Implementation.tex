@@ -30,6 +30,20 @@ Das Netzwerk besteht aus einem gleichbleibenden Endgerät das als Ziel bzw. Endp
 \subsection{Netzwerkverkehr}
 \subsubsection{Scapy}
 Der Netzwerkverkehr wurde mittels Scapy erzeugt. Das ermöglicht den für die verschiedenen Szenarien benötigten Netzwerkverkehr zu erzeugen und die einzelnen Schichten eines Packets zur Verdeutlichung des jeweiligen Anwendungsfalls anzupassen. Für einzelne Skripte ist ausschnittsweise der erzeugte Netzwerkverkehr oder das dazugehörige Skript eingebunden. Eine Übersicht über alle dafür verwendeten Skripte findet sich im Anhang.
+\begin{figure}[h!]
+\centering
+\begin{lstlisting}[language=python]
+def send_packet(ip_address_src,ip_address_dst):
+    source_server = ip_address_src
+    target_server = ip_address_dst
+    layer_2 = Ether()
+    layer_3 = IP(src=source_server, dst=target_server)
+    layer_4 = TCP(sport=80,dport=43468)
+    tcp_pkt = layer_2 / layer_3 / layer_4
+    sendp(tcp_pkt)
+\end{lstlisting}
+\caption{Aufbau und Erzeugung eines Pakets}
+\end{figure}
 \subsubsection{Wireshark}
 Mitschitt der von Scapy erzeugten Pakets und Erzeugung der für die Analyse via Zeek benötigten pcapng-Dateien.
 \subsection{Zeek}
@@ -38,25 +52,18 @@ Mitschitt der von Scapy erzeugten Pakets und Erzeugung der für die Analyse via 
 %Zeek is a fully customizable and extensible platform for traffic analysis. Zeek provides users a domain-specific, Turing-complete scripting language for expressing arbitrary analysis tasks
 %In brief, Zeek is optimized for interpreting network traffic and generating logs based on that traffic. It is not optimized for byte matching, and users seeking signature detection approaches would be better served by trying intrusion detection systems such as Suricata. Zeek is also not a protocol analyzer in the sense of Wireshark, seeking to depict every element of network traffic at the frame level, or a system for storing traffic in packet capture (PCAP) form. Rather, Zeek sits at the “happy medium” representing compact yet high fidelity network logs, generating better understanding of network traffic and usage.
 %Zeek as a NSM platform enables collection of at least two, and in some ways three, of these data forms, namely transaction data, extracted content, and alert data
-Ein passives, quelloffenes Analysewerkzeug für Netzwerkverkehr das via eigener  Skriptsprache folgendes ermöglicht:
+Ein passives, quelloffenes Analysewerkzeug für Netzwerkverkehr das via eigener  Skriptsprache unter anderem folgendes ermöglicht:
 \begin{enumerate}
 \item{Implementierung beliebiger Analyseaufgaben}
 \item{Interpretation von Netzwerkverkehr}
 \item{Erstellung von Protokollen auf der Grundlage dieses Verkehrs}
 \end{enumerate}
-Zeek ist dabei weder rein signatur-basiert wie Suricata noch ausschließlich als Protokollanalysator im Sinne von Wireshark zu verstehen. Vielmehr handelt es sich bei Zeek um eine Mischung die eine kompakte, aber dennoch detailgetreue Darstellung von Netzwerkprotokollen ermöglicht. Dies erlaubt ein besseres Verständnis des Netzwerkverkehrs und der Netzwerknutzung \cite{zeek}.
-\subsection{Zeek-Agent}
-Der Zeek Agent ist ein Endpunkt-Agent, der Host-Informationen zur zentralen Überwachung an Zeek sendet. In Zeek werden die Host-Aktivitäten, wie z. B. aktuelle Prozesse, offene Sockets oder die Liste der Benutzer auf dem System, genau wie die Netzwerkaktivitäten, als Ereignisse auf Skript-Ebene angezeigt \cite{zeek-agent}.
-
-\section{Skripte}
-Der Kern der Implementierung sind Zeek Skripte. Hier werden die gesammelten Kontextinformationen verwendet. Nachfolgend werden für einige ausgewählte Kategorien Anwendungsfälle vorgestellt.
+Zeek ist dabei weder rein signatur-basiert wie Suricata noch ausschließlich als Protokollanalysator im Sinne von Wireshark zu verstehen. Vielmehr handelt es sich bei Zeek um eine Mischung die eine kompakte, aber dennoch detailgetreue Darstellung von Netzwerkprotokollen ermöglicht. Dies erlaubt ein besseres Verständnis des Netzwerkverkehrs und der Netzwerknutzung.
 \subsection{Logging in Zeek}
-
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \begin{lstlisting}
 module ExampleModule;
-
 export {
     # Create an ID for our new stream. By convention, this is
     # called "LOG".
@@ -87,50 +94,28 @@ event zeek_init(){
 \caption{Generierung einer Log-Datei mit Verbindungsinformationen}
 \end{figure}
 %\newpage
+\subsection{zeek-agent}
+\newpage
+\section{Skripte}
+Der Kern der Implementierung sind Zeek Skripte. Hier werden die gesammelten Kontextinformationen verwendet. Nachfolgend werden für einige ausgewählte Kategorien Anwendungsfälle vorgestellt.
+
 \subsection{SQL-Abfragen}
 \subsection{Geografische Koordinaten und Ortszeit}
-Das Volumen von durch Menschen verursachten Netzwerkverkehr ist meist tageszeitabhängig. So wird in der Regel nachts weniger kommuniziert als am Tag.  Deshalb ist es sinnvoll den Grenzwert für erzeugtes Verkehrsaufkommen, ab dem ein Sender als potenziell böswillig eingestuft wird, je nach Uhrzeit anzupassen.\\
-\begin{figure}[h!]
-\centering
-\begin{lstlisting}[language=python]
-def send_packet(ip_address_src,ip_address_dst):
-    source_server = ip_address_src
-    target_server = ip_address_dst
-	# Send 10  packets
-    for x in range(0, 15):
-        port = random.randint(40000, 42000)
-        layer_2 = Ether()
-        layer_3 = IP(src=source_server, dst=target_server)
-        layer_4 = TCP(sport=port,dport=port)
-        tcp_pkt = layer_2 / layer_3 / layer_4
-        sendp(tcp_pkt)
-\end{lstlisting}
-\caption{Erzeugen von Netzwerkverkehr}
-\end{figure}
-\begin{figure}[h!]
+IP-Adressräume lassen sich aufgrund des Vergabeverfahrens größtenteils einem geographischen Ort zuordnen. Damit kann man den räumlichen Abstand zwischen verschiedenen Verbindungsteilnehmern ermitteln. Mithilfe der lokalen Uhrzeit in Kombination mit dem aus dem Abstand ermittelten Zeitunterschied kann man die Uhrzeit am Ursprung der Anfrage bestimmen. Das Volumen von durch Menschen verursachten Netzwerkverkehr ist meist tageszeitabhängig. So wird in der Regel nachts weniger kommuniziert als am Tag.  Deshalb ist es sinnvoll den Grenzwert für erzeugtes Verkehrsaufkommen, ab dem ein Sender als potenziell böswillig eingestuft wird, je nach Uhrzeit anzupassen.
+\begin{figure}[H]
 \begin{lstlisting}
 function geolocation(c: connection):double{
-	local origin_country = lookup_location(c$id$orig_h)$country_code;
 	local origin_longitude = lookup_location(c$id$orig_h)$longitude;
 	return origin_longitude;
 }
 
-function time_at_geolocation(longitude: double): int{
+function local_time_at_origin(longitude: double): int{
 	#	1 degree of longitude is 4 minutes of time
 	local time_difference  = (longitude - home_longitude)*240;
 	local double_time_difference = time_to_double(network_time()) + time_difference;
 	local epoch_time_difference = double_to_time(double_time_difference);
 	local time_at_origin  = strftime("%H", epoch_time_difference);
-	local useable_time_at_origin = to_int(time_at_origin);
-	return useable_time_at_origin;
-}
-
-function set_threshold(c_time: int): double{
-	if(c_time< opening_time || c_time > closing_time )
-		threshold = threshold*0.5;
-	else 
-		threshold = threshold*1.1;
-	return threshold;
+	return time_at_origin;
 }
 \end{lstlisting}
 \caption{Setzen des Grenzwertes von Verbindungsversuchen}
