@@ -1,4 +1,3 @@
-
 \chapter{Implementierung}%
 \label{cha:implementation}
 
@@ -16,36 +15,10 @@
 %\subsection{ Test der kontextsensitiven Signaturen auf Datensatz} 
 
 Der im Kapitel Design dargelegte Aufbau eines Netzwerkes findet sich auch in der Implementation wieder. Scapy, Wireshark und Zeek kümmern sich dabei mit um Kommunikation, zeek-agent um die Entitäten und der Autor um die Annahmen und daraus resultierenden Normen.
-
-\section{Versuchsaufbau}
-Der Ablauf für alle Anwendungsfälle ist grundsätzlich sehr ähnlich:
-\begin{enumerate}
-\item{Erzeugung}
-\item{Mitschnitt}
-\item{Analyse}
-\item{Generierung von Logs}
-\end{enumerate}
+\section{Erläuterung der wichtigsten Komponenten}
+Eine kurze Vorstellung der wichtigsten Komponenten der Implementierung insofern sie im Rahmen der einzelnen Schritte des Versuchsaufbaus
 \subsection{Netzwerk}
 Das Netzwerk besteht aus einem gleichbleibenden Endgerät das als Ziel bzw. Endpunkt für den simulierten Netzwerkverkehr dient und verschiedenen anderen Teilnehmern bzw Angreifern. Die genauen Informationen der einzelnen Entitäten sind im jeweiligen Szenario genauer spezifiziert.
-\subsection{Netzwerkverkehr}
-\subsubsection{Scapy}
-Der Netzwerkverkehr wurde mittels Scapy erzeugt. Das ermöglicht den für die verschiedenen Szenarien benötigten Netzwerkverkehr zu erzeugen und die einzelnen Schichten eines Packets zur Verdeutlichung des jeweiligen Anwendungsfalls anzupassen. Für einzelne Skripte ist ausschnittsweise der erzeugte Netzwerkverkehr oder das dazugehörige Skript eingebunden. Eine Übersicht über alle dafür verwendeten Skripte findet sich im Anhang.
-\begin{figure}[h!]
-\centering
-\begin{lstlisting}[language=python]
-def send_packet(ip_address_src,ip_address_dst):
-    source_server = ip_address_src
-    target_server = ip_address_dst
-    layer_2 = Ether()
-    layer_3 = IP(src=source_server, dst=target_server)
-    layer_4 = TCP(sport=80,dport=43468)
-    tcp_pkt = layer_2 / layer_3 / layer_4
-    sendp(tcp_pkt)
-\end{lstlisting}
-\caption{Aufbau und Erzeugung eines Pakets}
-\end{figure}
-\subsubsection{Wireshark}
-Mitschitt der von Scapy erzeugten Pakets und Erzeugung der für die Analyse via Zeek benötigten pcapng-Dateien.
 \subsection{Zeek}
 %TODO
 %Zeek is a passive, open-source network traffic analyzer. Many operators use Zeek as a network security monitor (NSM) to support investigations of suspicious or malicious activity.
@@ -58,8 +31,93 @@ Ein passives, quelloffenes Analysewerkzeug für Netzwerkverkehr das via eigener 
 \item{Interpretation von Netzwerkverkehr}
 \item{Erstellung von Protokollen auf der Grundlage dieses Verkehrs}
 \end{enumerate}
-Zeek ist dabei weder rein signatur-basiert wie Suricata noch ausschließlich als Protokollanalysator im Sinne von Wireshark zu verstehen. Vielmehr handelt es sich bei Zeek um eine Mischung die eine kompakte, aber dennoch detailgetreue Darstellung von Netzwerkprotokollen ermöglicht. Dies erlaubt ein besseres Verständnis des Netzwerkverkehrs und der Netzwerknutzung.
-\subsection{Logging in Zeek}
+Zeek ist dabei weder rein signatur-basiert wie Suricata noch ausschließlich als Protokollanalysator im Sinne von Wireshark zu verstehen. Vielmehr handelt es sich bei Zeek um eine Mischung die eine kompakte, aber dennoch detailgetreue Darstellung von Netzwerkprotokollen ermöglicht. Dies erlaubt ein besseres Verständnis des Netzwerkverkehrs und der Netzwerknutzung \cite{zeek_about_page}.
+
+\subsection{zeek-agent}
+\cite{zeek_agent}
+
+\section{Versuchsaufbau}
+Der Ablauf für alle Anwendungsfälle ist grundsätzlich sehr ähnlich:
+\begin{enumerate}
+\item{Spezifikation der Netzwerkes}
+\item{Erzeugung}
+\item{Mitschnitt}
+\item{Analyse}
+\begin{enumerate}
+\item{Einlesen von Netzwerkverkehr}
+\item{Einbindung des zusätzlichen Kontextes}
+\item{Logging}
+\end{enumerate}
+\end{enumerate}
+\subsection{Erzeugung}
+%\subsubsection{Scapy}
+Der Netzwerkverkehr wurde mittels Scapy erzeugt. Das ermöglicht den für die verschiedenen Szenarien benötigten Netzwerkverkehr zu erzeugen und die einzelnen Schichten eines Packets an den jeweiligen Anwendungsfalls anzupassen. In \ref{Code_1} ist dieser Prozess auschnittsweise dargestellt. Eine Übersicht über alle dafür verwendeten Skripte findet sich im Anhang.
+\begin{figure}[h!]
+\label{Code_1}
+\centering
+\begin{lstlisting}[language=python]
+def send_packet(ip_address_src,ip_address_dst):
+    source_server = ip_address_src
+    target_server = ip_address_dst
+    layer_2 = Ether()
+    layer_3 = IP(src=source_server, dst=target_server)
+    layer_4 = TCP(sport=80,dport=43468)
+    tcp_pkt = layer_2 / layer_3 / layer_4
+    sendp(tcp_pkt)
+\end{lstlisting}
+\caption{Erzeugen und Senden eines Pakets}
+\end{figure}
+\subsection{Mitschnitt}
+%\subsubsection{Wireshark}
+Der Mitschitt der von Scapy versendeten Pakets erfolgt mit Wireshark. Die mitgeschnittenen Pakets werden im als pcap-Dateien gespeichert um das einlesen in Zeek zu ermöglichen.
+
+
+%defining the format of your data, letting Zeek know that you wish to create a new log, and then calling the Log::write method to output log records.
+\subsection{Logging}
+In Zeek erfolgt das Schreiben in Logs immer nach dem selben Prinzip:
+\begin{enumerate}
+\item{Vor dem Ausführen eines Skriptes wird ein Log und die darin zu speichernden Informationen festgelegt}
+\begin{figure}[H]
+\label{log_1	}
+\centering
+\begin{lstlisting}
+module ExampleModule;
+export {
+    # Create an ID for our new stream. By convention, this is called "LOG".
+    redef enum Log::ID += { LOG };
+    # Define the record type that will contain the data to log.
+    type Info: record {
+        timestamp: time		&log;
+        id: connection_id	&log; 
+        notice: string		&log;
+    };
+}
+redef record connection += {
+    # By convention, the name of this new field is the lowercase name
+    # of the module.
+    examplelog: Info &optional;
+};
+\end{lstlisting}
+\caption{Definition des Formats der Log-Datei}
+\end{figure}
+\item{Sobald Zeek startet wird ein Log }
+\begin{figure}[H]
+\centering
+\begin{lstlisting}
+event zeek_init(){
+	local c : connection;
+	Log::create_stream(ExampleModule::LOG, [$columns=Info, $path="examplemodule"]);
+	local record: ExampleLog::Info = [$ts=current_time(), $id=c$id, $notice="Example Notice"];
+    # Store a copy of the data in the connection record so other
+    # event handlers can access it.
+    c$examplelog = record;
+    Log::write(ExampleModule::LOG, rec);
+}
+\end{lstlisting}
+\caption{Generierung einer Log-Datei mit Verbindungsinformationen}
+\end{figure}
+\end{enumerate}
+
 \begin{figure}[H]
 \centering
 \begin{lstlisting}
@@ -80,7 +138,7 @@ export {
 redef record connection += {
     # By convention, the name of this new field is the lowercase name
     # of the module.
-    querytest: Info &optional;
+    examplelog: Info &optional;
 };
 event zeek_init(){
 	Log::create_stream(ExampleModule::LOG, [$columns=Info, $path="examplemodule"]);
@@ -94,7 +152,6 @@ event zeek_init(){
 \caption{Generierung einer Log-Datei mit Verbindungsinformationen}
 \end{figure}
 %\newpage
-\subsection{zeek-agent}
 \newpage
 \section{Skripte}
 Der Kern der Implementierung sind Zeek Skripte. Hier werden die gesammelten Kontextinformationen verwendet. Nachfolgend werden für einige ausgewählte Kategorien Anwendungsfälle vorgestellt.
@@ -108,28 +165,27 @@ function geolocation(c: connection):double{
 	local origin_longitude = lookup_location(c$id$orig_h)$longitude;
 	return origin_longitude;
 }
-
-function local_time_at_origin(longitude: double): int{
-	#	1 degree of longitude is 4 minutes of time
-	local time_difference  = (longitude - home_longitude)*240;
-	local double_time_difference = time_to_double(network_time()) + time_difference;
-	local epoch_time_difference = double_to_time(double_time_difference);
-	local time_at_origin  = strftime("%H", epoch_time_difference);
-	return time_at_origin;
+...
+event connection_attempt(c: connection){
+	local origin = geolocation(c);
+	local origin_time = time_at_geolocation(origin);
+	local connection_attempt_threshold = set_threshold(origin_time);
+	local count_connection_attempts_c = number_of_connection_attempts(c);
+	log_exceeded_ips(c,connection_attempt_threshold,count_connection_attempts_c);
 }
 \end{lstlisting}
 \caption{Setzen des Grenzwertes von Verbindungsversuchen}
 \end{figure}
-\pagebreak
 \subsection{Offene Ports}
-Verwendet werden Ports die die aktuell auf dem System laufenden Prozesse.
+%Verwendet werden Ports die die aktuell auf dem System laufenden Prozesse.
+Wenn eine Verbindung oder der Versuch eine Verbindung zu etablieren, mit einem bestimmten Port des Systems als Ziel beobachtet wird ohne das ein Prozess gibt der diesem Port mittels zugeordnet werden kann, wird die Verbindung bzw. der Verbindungsversuch im dazugehörigen Log vermerkt.
 \begin{enumerate}
-\item{}
-\item{}
-\item{}
+\item{Das Skript erfagt bei den zeek-agents in regelmäßigen Abständen die auf Hostsystemen laufenden Prozesse und deren verwendete Ports}
+\item{Eine Verbindungversuch zu einem System wird von Zeek beobachtet}
+\item{Das Skript vergleicht den Zielport der Anfrage mit der Liste von Hostports}
+\item{Abhängig vom Ergebnis wird eine Meldung geloggt}
 \end{enumerate}
 
- Wenn eine Verbindung oder der Versuch eine Verbindung zu etablieren, mit einem bestimmten Port des Systems als Ziel, von Zeek beobachtet wird ohne das ein Prozess gibt der diesem Port mittels dem zeek-agent zugeordnet werden kann, wird die Verbindung bzw. der Verbindungsversuch im dazugehöirgen Log vermerkt.
 
 \begin{figure}
 \begin{lstlisting}

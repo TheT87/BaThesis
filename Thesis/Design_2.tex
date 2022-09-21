@@ -20,38 +20,40 @@ Dementsprechend schwer wird ist es ein in sich geschlossenes und allumfassendes 
 \end{enumerate}
 \pagebreak
 \subsection{Entscheidung für ein IDS}
-IDSs können anhand der überwachten Plattform, der verwendeten Erkennungsmethode und der Struktur in der sie eingesetzt werden kategorisiert werden \cite{milenkoski_evaluating_2015}.\\\\
+IDSs können anhand der überwachten Plattform, der verwendeten Erkennungsmethode und der Struktur in der sie eingesetzt werden kategorisiert werden. \cite{milenkoski_evaluating_2015}.\\\\
+\begin{table}
+\label{Tabelle_1}
+\caption{Placeholder}
 \begin{tabularx}{\columnwidth}{p{3cm} l p{10cm}}
-\hline
+\toprule
 Eigenschaft 
 & IDS Typ 
 & Beschreibung\\
-\hline
+\midrule
 Plattform   
 & Host     
-& Überwacht Aktivitäten auf dem System auf dem es eingesetzt wird um lokale Angriffe zu erkennen. \\
+& Überwacht Aktivitäten auf dem System auf dem es eingesetzt wird um lokale Angriffe zu erkennen.\\\addlinespace[0.5em]
 & Netzwerk 
 & Überwacht Aktivitäten im Netzwerk um Angriffe, die über eine Netzwerkverbindung ausgeführt werden zu erkennen.\\ 
 & Hybrid   
 & Kombiniert host- und netzwerk-basierte Intrusion Detection Systeme.\\
-\hline
+\midrule
 Angriffserkennung 
 & Signatur        
-& Überwacht System- und/oder Netzwerkaktivitäten anhand einer Reihe von Signaturen bekannter Angriffe auswertet. Daher ist es nicht in der Lage, Zero-Day-Angriffe zu erkennen, d. h. Angriffe, die Schwachstellen ausnutzen, die vor der Ausführung der Angriffe nicht öffentlich bekannt sind.\\
+& Überwacht System- und/oder Netzwerkaktivitäten anhand einer Reihe von Signaturen bekannter Angriffe auswertet. Daher ist es nicht in der Lage, Zero-Day-Angriffe zu erkennen, d. h. Angriffe, die Schwachstellen ausnutzen, die vor der Ausführung der Angriffe nicht öffentlich bekannt sind.\\\addlinespace[0.5em]
 & Anomalie        
-& Verwendet ein Basisprofil regulärer Netz- und/oder Systemaktivitäten als Referenz, um zwischen regulären und auffälligen Aktivitäten zu unterscheiden, wobei letztere als Angriffe behandelt werden. Wird typischerweise durch die Überwachung regulärer Aktivitäten trainiert, um ein Basisaktivitätsprofil zu erstellen.\\
+& Verwendet ein Basisprofil regulärer Netz- und/oder Systemaktivitäten als Referenz, um zwischen regulären und auffälligen Aktivitäten zu unterscheiden, wobei letztere als Angriffe behandelt werden. Wird typischerweise durch die Überwachung regulärer Aktivitäten trainiert, um ein Basisaktivitätsprofil zu erstellen.\\\addlinespace[0.5em]
 & Hybrid          
 & Verwendet sowohl signatur-basierte als auch anomalie-basierte Angriffserkennungsmethoden.\\ 
-\hline
+\midrule
 Struktur
 & Zentral
-& Kann nur an einem einzigen Standort eingesetzt werden.\\
+& Kann nur an einem einzigen Standort eingesetzt werden.\\\addlinespace[0.5em]
 & Verteilt
 & Besteht aus mehreren Teilsystemen für die an verschiedenen Standorten eingesetzt werden können und miteinander kommunizieren, um für die Erkennung von Angriffen relevante Daten, z. B. Angriffswarnungen, auszutauschen. Kann koordinierte Angriffe auf mehrere Standorte in einer bestimmten zeitlichen Abfolge erkennen.\\
-\hline
+\bottomrule
 \end{tabularx}
-
-%TODO NIDS vs HIDS + signature vs anomaly -> zeek+osquery
+\end{table}
 \subsection{Verbesserung der Schwächen}
 Der Hauptnachteil eines signatur-basierten IDS ausschließlich Angriffe zu erkennen die vordefinierten Verhaltensmustern entsprechen. Der Hauptnachteil eines anomalie-basierten IDS  ist die Notwendigkeit die Baseline, mitunter sehr oft zu aktualisieren. 
 Um diese Nachteile auszugleichen bietet es sich an die bereits vorhandenen, gesammelten und aufbereiteten Kontextinformationen zu verwenden. Dies ermöglicht die schon vorhanden Signaturen so zu verbessern das sie eine größere Menge von Ereignissen abdecken oder bereits definierte Ereignisse genauer zu spezifizieren und so weniger (falsche) Meldungen zu generieren ohne dabei das Verhalten des Netzwerkverkehrs dauerhaft neu bewerten zu müssen.
@@ -107,7 +109,6 @@ Die Wahrscheinlichkeit einen Angriff zu erkennen variiert mit der Rate an falsch
 
 %unterscheidung performance/security related metrics 
 \subsection{Auswahl der Kriterien}
-\cite{milenkoski_evaluating_2015}
 Diese Arbeit beschäftigt sich ausschließlich mit sicherheitsrelevanten Leistungsmetriken. Dabei soll hauptsächlich der Einfluss von Kontextsensitivität auf die Abdeckung, die Erkennungswahrscheinlichkeit und die Rate falsch-positiver Alarme  betrachtet werden. Zusätzlich wird beleuchtet ob zusätzlicher Kontext die Interpretierbarkeit von Meldungen durch einen menschlichen Nutzer und das Identifizieren von Angriffen verbessert.
 %One of the primary goals of this correlation is to identify staged penetration attacks. Currently, IDSs have only limited capabilities in this area.
 %Überleitung  zu CAAC
