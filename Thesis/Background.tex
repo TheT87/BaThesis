@@ -27,6 +27,7 @@ Allerdings herrscht ihrer Ansicht nach kein Konsens darüber ob Kontext extern o
 
 %“Context information’ used in an access control decision is defined as any relevant information about the state of a relevant entity (user, resource, resource owner and their environments) or the state of a relevant relationship between the entities.” 
 %based on Dey
+Im Rahmen der Zugriffskontrolle 
 Kayes et al.\cite{kayes_icaf_2012} definieren Kontextinformationen in Bezug auf Zugriffskontrollentscheidungen als relevante Informationen über den Zustand einer Entität (Nutzer, Ressource, Ressourcenbesitzer) und deren Umgebung oder die Beziehung zwischen Entitäten.
 
 %TODO dey Definition	
@@ -36,10 +37,9 @@ Kayes et al.\cite{kayes_icaf_2012} definieren Kontextinformationen in Bezug auf 
 \section{Kontextkategorisierung}
 Nachdem ein Überblick über das Kontextverständnis in der gängigen Literatur gegeben und Kontext im Bezug auf Kontextkontrolle definiert wurde folgt eine Kategorisierung von Kontext.
 \subsection{ Analyse bereits vorgeschlagener Kategorien} 
-Auch bei der Kategorisierung von Kontext gibt es richtungsweisende Vorschläge
+Auch bei der Kategorisierung von Kontext gibt es richtungsweisende Vorschläge.
 %Abowd et al. [3] introduced one of the leading mechanisms of defining context types. They identified location, identity, time, and activity as the primary context types. Further, they defined secondary context as the context that can be found using primary context.
 Abowd et al.\cite{abowd_towards_1999} haben einen der führenden Mechanismen zur Definition von Kontexttypen vorgeschlagen. Sie identifizierten Ort, Zeit, Identität, und Aktivität als primäre Kontexttypen. Weiterhin wird sekundärer Kontext als Kontext definiert der durch Nutzung von Primärkontext erschlossen werden kann.
-
 %Schilit et al. \cite{schilit_context-aware_1994}: They categorised context into three categories using a conceptual categorisation based technique on three common questions that can be used to determine the context. 
 %1) Where you are: This includes all location related information such as GPS coordinates, common names (e.g. coffee shop, university, police), specific names (e.g. Canberra city police), specific addresses, user preferences (e.g. user’s favourite coffee shop). 
 %2) Who you are with: The information about the people present around the user. 
@@ -50,7 +50,6 @@ Schilit et al. \cite{schilit_context-aware_1994} kategorisieren Kontext basieren
 \item{Mit wem man sich zusammen aufhält: Information über die Personen die um einen herum anwesend sind}
 \item{Welche Ressourcen sich in der Nähe befinden: Informationen darüber welche Ressourcen (Maschinen, technische Geräte, Betriebsmittel) sich im direkten Umfeld eines Nutzers befinden}
 \end{enumerate}
-
 %Henricksen [89] (2003): Categorised context into four categories based on an operational categorisation technique. 
 Henricksen et al.\cite{henricksen2003framework} ordnet Kontext basierend auf der betrieblichen Kategorisierungstechnik in 4 verschiedene Kategorien:
 %1) Sensed: Sensor data directly sensed from the sensors, such as temperature measured by a temperature sensor. Values will be changed over time with a high frequency. 
@@ -62,9 +61,7 @@ Henricksen et al.\cite{henricksen2003framework} ordnet Kontext basierend auf der
 \item {Profiliert: Informationen die sich selten ändern.}
 %4) Derived: The information computed using primary context such as distance of two sensors calculated using two GPS sensors. 
 \item {Abgeleitet: Informationen die unter Verwendung anderer Daten gewonnen wurden. }
-
 \end{enumerate}
-
 %Van Bunningen et al. [95] (2005): Instead of categorising context, they classified the context categorisation schemes into two broader categories: operational and conceptual. 
 Van Bunningen et al. \cite{van2005context} ordnen Kategorisierungsversuche in zwei übergeordnete Gruppen: Betrieblich und Konzeptionell. 
 \begin{enumerate}

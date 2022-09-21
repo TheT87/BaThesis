@@ -33,13 +33,14 @@ Ein passives, quelloffenes Analysewerkzeug für Netzwerkverkehr das via eigener 
 \end{enumerate}
 Zeek ist dabei weder rein signatur-basiert wie Suricata noch ausschließlich als Protokollanalysator im Sinne von Wireshark zu verstehen. Vielmehr handelt es sich bei Zeek um eine Mischung die eine kompakte, aber dennoch detailgetreue Darstellung von Netzwerkprotokollen ermöglicht. Dies erlaubt ein besseres Verständnis des Netzwerkverkehrs und der Netzwerknutzung \cite{zeek_about_page}.
 
-\subsection{zeek-agent}
-\cite{zeek_agent}
+\subsection{Zeek-Agent}
+Zeek-Agent ist ein Endpunkt-Agent der Informationen, für zentrales Monitoring an Zeek sendet.
+Abfragen kann man verschiedene Aktivitäten eines Hostsystems, darunter zum Beispiel aktuell laufende Prozesse, offene Sockets oder den Inhalt bestimmter Dateien. Diese erscheinen in Zeek, genauso wie Netzwerkaktivität, als Ereignisse und können so in Skripten verwendet werden \cite{zeek_agent}.
 
 \section{Versuchsaufbau}
 Der Ablauf für alle Anwendungsfälle ist grundsätzlich sehr ähnlich:
 \begin{enumerate}
-\item{Spezifikation der Netzwerkes}
+%\item{Spezifikation des Netzwerkes}
 \item{Erzeugung}
 \item{Mitschnitt}
 \item{Analyse}
@@ -51,11 +52,8 @@ Der Ablauf für alle Anwendungsfälle ist grundsätzlich sehr ähnlich:
 \end{enumerate}
 \subsection{Erzeugung}
 %\subsubsection{Scapy}
-Der Netzwerkverkehr wurde mittels Scapy erzeugt. Das ermöglicht den für die verschiedenen Szenarien benötigten Netzwerkverkehr zu erzeugen und die einzelnen Schichten eines Packets an den jeweiligen Anwendungsfalls anzupassen. In \ref{Code_1} ist dieser Prozess auschnittsweise dargestellt. Eine Übersicht über alle dafür verwendeten Skripte findet sich im Anhang.
-\begin{figure}[h!]
-\label{Code_1}
-\centering
-\begin{lstlisting}[language=python]
+Der Netzwerkverkehr wurde mittels Scapy erzeugt. Das ermöglicht den für die verschiedenen Szenarien benötigten Netzwerkverkehr zu erzeugen und die einzelnen Schichten eines Pakets an den jeweiligen Anwendungsfalls anzupassen. In ist dieser Prozess ausschnittsweise dargestellt. Eine Übersicht über alle dafür verwendeten Skripte findet sich im Anhang.
+\begin{lstlisting}[language=python,caption={Konfiguration und Versendung eines Pakets},firstnumber=6]
 def send_packet(ip_address_src,ip_address_dst):
     source_server = ip_address_src
     target_server = ip_address_dst
@@ -65,8 +63,7 @@ def send_packet(ip_address_src,ip_address_dst):
     tcp_pkt = layer_2 / layer_3 / layer_4
     sendp(tcp_pkt)
 \end{lstlisting}
-\caption{Erzeugen und Senden eines Pakets}
-\end{figure}
+%\end{figure}
 \subsection{Mitschnitt}
 %\subsubsection{Wireshark}
 Der Mitschitt der von Scapy versendeten Pakets erfolgt mit Wireshark. Die mitgeschnittenen Pakets werden im als pcap-Dateien gespeichert um das einlesen in Zeek zu ermöglichen.
@@ -77,50 +74,13 @@ Der Mitschitt der von Scapy versendeten Pakets erfolgt mit Wireshark. Die mitges
 In Zeek erfolgt das Schreiben in Logs immer nach dem selben Prinzip:
 \begin{enumerate}
 \item{Vor dem Ausführen eines Skriptes wird ein Log und die darin zu speichernden Informationen festgelegt}
-\begin{figure}[H]
-\label{log_1	}
-\centering
-\begin{lstlisting}
-module ExampleModule;
-export {
-    # Create an ID for our new stream. By convention, this is called "LOG".
-    redef enum Log::ID += { LOG };
-    # Define the record type that will contain the data to log.
-    type Info: record {
-        timestamp: time		&log;
-        id: connection_id	&log; 
-        notice: string		&log;
-    };
-}
-redef record connection += {
-    # By convention, the name of this new field is the lowercase name
-    # of the module.
-    examplelog: Info &optional;
-};
-\end{lstlisting}
-\caption{Definition des Formats der Log-Datei}
-\end{figure}
-\item{Sobald Zeek startet wird ein Log }
-\begin{figure}[H]
-\centering
-\begin{lstlisting}
-event zeek_init(){
-	local c : connection;
-	Log::create_stream(ExampleModule::LOG, [$columns=Info, $path="examplemodule"]);
-	local record: ExampleLog::Info = [$ts=current_time(), $id=c$id, $notice="Example Notice"];
-    # Store a copy of the data in the connection record so other
-    # event handlers can access it.
-    c$examplelog = record;
-    Log::write(ExampleModule::LOG, rec);
-}
-\end{lstlisting}
-\caption{Generierung einer Log-Datei mit Verbindungsinformationen}
-\end{figure}
+\item{Nutzer-definierter Log wird initialisiert}
+\item{Log-Eintrag für den Log wird definiert}
+\item{Log-Eintrag wird der Verbindung als Information hinzugefügt}
+\item{Eintrag wird in den Log geschrieben}
 \end{enumerate}
-
-\begin{figure}[H]
-\centering
-\begin{lstlisting}
+\lstset{escapeinside={(*@}{@*)}}
+\begin{lstlisting}[caption={Generierung einer Log-Datei mit Verbindungsinformationen}]
 module ExampleModule;
 export {
     # Create an ID for our new stream. By convention, this is
@@ -149,77 +109,179 @@ event zeek_init(){
     Log::write(ExampleModule::LOG, rec);
 }
 \end{lstlisting}
-\caption{Generierung einer Log-Datei mit Verbindungsinformationen}
-\end{figure}
-%\newpage
-\newpage
 \section{Skripte}
 Der Kern der Implementierung sind Zeek Skripte. Hier werden die gesammelten Kontextinformationen verwendet. Nachfolgend werden für einige ausgewählte Kategorien Anwendungsfälle vorgestellt.
-
-\subsection{SQL-Abfragen}
 \subsection{Geografische Koordinaten und Ortszeit}
-IP-Adressräume lassen sich aufgrund des Vergabeverfahrens größtenteils einem geographischen Ort zuordnen. Damit kann man den räumlichen Abstand zwischen verschiedenen Verbindungsteilnehmern ermitteln. Mithilfe der lokalen Uhrzeit in Kombination mit dem aus dem Abstand ermittelten Zeitunterschied kann man die Uhrzeit am Ursprung der Anfrage bestimmen. Das Volumen von durch Menschen verursachten Netzwerkverkehr ist meist tageszeitabhängig. So wird in der Regel nachts weniger kommuniziert als am Tag.  Deshalb ist es sinnvoll den Grenzwert für erzeugtes Verkehrsaufkommen, ab dem ein Sender als potenziell böswillig eingestuft wird, je nach Uhrzeit anzupassen.
-\begin{figure}[H]
-\begin{lstlisting}
+Das Volumen von durch Menschen verursachten Netzwerkverkehr ist meist tageszeitabhängig. So wird in der Regel nachts weniger kommuniziert als am Tag. Deshalb erscheint es sinnvoll den Grenzwert für erzeugtes Verkehrsaufkommen, ab dem ein Sender als potenziell böswillig eingestuft wird, je nach Uhrzeit anzupassen.
+\subparagraph{Zeile \ref{g_lookup_1}} Zuordnung einer IP-Adresse zu einem geographischen Ort.
+%Möglich aufgrund des Vergabeverfahrens.
+\subparagraph{Zeile \ref{g_lookup_2} - \ref{g_lookup_3}} Ermittlung der Uhrzeit am Ursprung der Anfrage mithilfe der lokalen Uhrzeit in Kombination mit dem aus dem Abstand ermittelten Zeitunterschied.
+\subparagraph{Zeile \ref{g_lookup_4}} Anpassung des Grenzwertes
+\lstset{escapeinside={(*@}{@*)}}
+\begin{lstlisting}[firstnumber=33,linerange={33-38,40-41,45-46,48-54},consecutivenumbers=false,caption={Geolocation und Setzen des Grenzwertes}]
+module GeoLogTest;
+
+export {
+    # Create an ID for our new stream. By convention, this is
+    # called "LOG".
+    redef enum Log::ID += { LOG };
+
+    # Define the record type that will contain the data to log.
+    type Info: record {
+        ts: time        &log;
+        rts : string 	&log;
+        id: conn_id     &log; 
+        notice : string &log;
+    };
+}
+
+redef record connection += {
+    # By convention, the name of this new field is the lowercase name
+    # of the module.
+    geologtest: Info &optional;
+};
+
+global ip_addresses : table[addr] of int;
+global threshold : int; 
+global night_time_decrease : int;
+global day_time_increase : int;
+#const home_country = "DE";
+#const home_latitude = 51.025889;
+const home_longitude = 13.723376;
+const closing_time = 19;
+const opening_time = 7;
+
 function geolocation(c: connection):double{
-	local origin_longitude = lookup_location(c$id$orig_h)$longitude;
+	local origin_longitude = lookup_location(c$id$orig_h)$longitude;(*@\label{g_lookup_1}@*)
 	return origin_longitude;
 }
-...
-event connection_attempt(c: connection){
-	local origin = geolocation(c);
-	local origin_time = time_at_geolocation(origin);
-	local connection_attempt_threshold = set_threshold(origin_time);
-	local count_connection_attempts_c = number_of_connection_attempts(c);
-	log_exceeded_ips(c,connection_attempt_threshold,count_connection_attempts_c);
+
+function time_at_geolocation(longitude: double): int{ (*@\label{g_lookup_2}@*)
+	#	1 degree of longitude is 4 minutes of time
+	local time_difference  = (longitude - home_longitude)*240;
+	local double_time_difference = time_to_double(network_time()) + time_difference;
+	local epoch_time_difference = double_to_time(double_time_difference);
+	local time_at_origin  = strftime("%H", epoch_time_difference);
+	local useable_time_at_origin = to_int(time_at_origin);
+	return useable_time_at_origin; (*@\label{g_lookup_3}@*)
+}
+
+function set_threshold(c_time: int): double{ (*@\label{g_lookup_4}@*)
+	if(c_time< opening_time || c_time > closing_time )
+		threshold = threshold-night_time_decrease;
+	else 
+		threshold = threshold+day_time_increase;
+	return threshold; 
 }
 \end{lstlisting}
-\caption{Setzen des Grenzwertes von Verbindungsversuchen}
-\end{figure}
+%\begin{figure}[H]
+
+%\caption{Setzen des Grenzwertes von Verbindungsversuchen}
+%\end{figure}
 \subsection{Offene Ports}
 %Verwendet werden Ports die die aktuell auf dem System laufenden Prozesse.
 Wenn eine Verbindung oder der Versuch eine Verbindung zu etablieren, mit einem bestimmten Port des Systems als Ziel beobachtet wird ohne das ein Prozess gibt der diesem Port mittels zugeordnet werden kann, wird die Verbindung bzw. der Verbindungsversuch im dazugehörigen Log vermerkt.
 \begin{enumerate}
 \item{Das Skript erfagt bei den zeek-agents in regelmäßigen Abständen die auf Hostsystemen laufenden Prozesse und deren verwendete Ports}
-\item{Eine Verbindungversuch zu einem System wird von Zeek beobachtet}
-\item{Das Skript vergleicht den Zielport der Anfrage mit der Liste von Hostports}
-\item{Abhängig vom Ergebnis wird eine Meldung geloggt}
+\item{Das Skript vergleicht den Zielport jeder eingehenden Verbindung mit der Liste von Hostports}
+\item{Abhängig vom Ergebnis wird eine Meldung in den Log geschrieben}
 \end{enumerate}
 
-
-\begin{figure}
 \begin{lstlisting}
+@load site/packages/zeek-agent-v2
+@load site/packages/zeek-agent-v2/framework/main
+@load site/packages/zeek-agent-v2/table
+@load site/zeek-agent-v2
+@load site/zeek-agent-v2/framework
+@load site/zeek-agent-v2/table
+
+
+module Querytest;
+
+export {
+    # Create an ID for our new stream. By convention, this is
+    # called "LOG".
+    redef enum Log::ID += { LOG };
+
+    # Define the record type that will contain the data to log.
+    type Info: record {
+        ts: time        &log;
+        id: conn_id     &log; 
+        notice : string &log;
+    };
+}
+
+redef record connection += {
+    # By convention, the name of this new field is the lowercase name
+    # of the module.
+    querytest: Info &optional;
+};
+
+type Columns: record {
+    name: string &optional &log; ##< short name
+    is_admin: bool &optional &log; ##< 1 if user has adminstrative privileges
+    process: string &optional &log; ##< name of process holding socket
+    protocol: count &optional &log; ##< transport protocol
+    local_addr: addr &optional &log; ##< local IP address
+    local_port: count &optional &log; ##< local port number
+    remote_addr: addr &optional &log; ##< remote IP address
+    remote_port: count &optional &log; ##< remote port number
+};
+
+
 global local_ports : table[int] of string ={
         [80] = "http",
         [22] = "ssh",
-        [25552] = "application_1"
+        [25552] = "application_1",
     };
-event zeek_init(){
-    local query_stmt = "SELECT users.name, users.is_admin, sockets.process, sockets.protocol, sockets.local_addr, sockets.local_port, sockets.remote_addr, sockets.remote_port FROM users JOIN processes ON users.uid=processes.uid JOIN sockets ON sockets.pid=processes.pid";
-    local query_event = users_result;
-    local query_schedule = 10 secs;
-    local port_query = ZeekAgent::query([$sql_stmt=query_stmt,$event_=query_event,$schedule_=query_schedule]);
+global allowed_ports : table[int] of string = {
+        [42124] = "application_2",
+        [42125] = "application_3" 
+    };
+
+function check_outgoing_connection(c:connection){
+    local _port = port_to_count(c$id$orig_p);
+    if(_port !in local_ports){
+        local rec: Querytest::Info = [$ts=current_time(), $id=c$id, $notice="No Application running on this port"];
+        # Store a copy of the data in the connection record so other
+        # event handlers can access it.
+        c$querytest = rec;
+        Log::write(Querytest::LOG, rec);
+    }else{
+        local rec_2: Querytest::Info = [$ts=current_time(), $id=c$id, $notice="Working"];
+        # Store a copy of the data in the connection record so other
+        # event handlers can access it.
+        c$querytest = rec_2;
+        Log::write(Querytest::LOG, rec_2);
+    
+    }
 }
 
 event users_result(ctx: ZeekAgent::Context, data: Columns){
+    #print data;
+    local new_entry : count;
     local connection_port = data$remote_port;
-   	local new_entry : count = connection_port;
+    new_entry = connection_port;
     local_ports[new_entry] = data$name;
 }
 
-function check_outgoing_connection(c:connection){
-    local c_port = port_to_count(c$id$orig_p);
-    local rec : PortCheck::Info;
-    if(c_port !in local_ports){
-        rec = [$ts=current_time(), $id=c$id, $notice="No Application using this port"];
-        }
-    c$portcheck = rec;
-    Log::write(PortCheck::LOG, rec);
-    
+event zeek_init(){
+	Log::create_stream(Querytest::LOG, [$columns=Info, $path="querytest"]);
+    local str_stmt_join = "SELECT users.name, users.is_admin, sockets.process, sockets.protocol, sockets.local_addr, sockets.local_port, sockets.remote_addr, sockets.remote_port FROM users JOIN processes ON users.uid=processes.uid JOIN sockets ON sockets.pid=processes.pid";
+    local query_event = users_result;
+    local _schedule = 10 secs;
+    local test_query_join = ZeekAgent::query([$sql_stmt=str_stmt_join,$event_=query_event,$schedule_=_schedule]);
+}
+
+event connection_state_remove(c: connection){
+    check_outgoing_connection(c);
+}
+
+event zeek_done(){
+    print "Done";
 }
 \end{lstlisting}
-\caption{•}
-\end{figure}
+
 \subsection{DNS-Auflösung}
 \subsection{Rechte eines Nutzers}
 \subsection{}

@@ -21,17 +21,19 @@ BCOR=4mm]{tudscrreprt}
 \usepackage{booktabs}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{grey}{rgb}{0.95,0.95,0.95}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
 \lstset{frame=tb,
   language=Python,
+  backgroundcolor=\color{grey},
   aboveskip=3mm,
   belowskip=3mm,
   showstringspaces=false,
   columns=flexible,
   basicstyle={\small\ttfamily},
   numbers=left,
-  step=1;
+  stepnumber=4,
   numberstyle=\tiny\color{gray},
   keywordstyle=\color{blue},
   commentstyle=\color{dkgreen},
@@ -40,7 +42,25 @@ BCOR=4mm]{tudscrreprt}
   breakatwhitespace=true,
   tabsize=3 
 }
-
+\lstset{frame=tb,
+  language=Python,
+  backgroundcolor=\color{grey},
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  stepnumber=1,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+  escapeinside={Ö}{Ä}
+}
 
 \usepackage[unicode=true,
  bookmarks=true,bookmarksnumbered=false,bookmarksopen=true,bookmarksopenlevel=1,
@@ -104,6 +124,7 @@ BCOR=4mm]{tudscrreprt}
 \tableofcontents{}
 \listoffigures
 \listoftables
+\lstlistoflistings
 \newpage{}
 
 
