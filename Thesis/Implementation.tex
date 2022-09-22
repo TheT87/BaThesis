@@ -14,11 +14,9 @@
 %\subsection{ Grundlage mit non-kontextsensitiven Signaturen auf Datensatz}
 %\subsection{ Test der kontextsensitiven Signaturen auf Datensatz} 
 
-Der im Kapitel Design dargelegte Aufbau eines Netzwerkes findet sich auch in der Implementation wieder. Scapy, Wireshark und Zeek kümmern sich dabei mit um Kommunikation, zeek-agent um die Entitäten und der Autor um die Annahmen und daraus resultierenden Normen.
+Der im Kapitel \ref{cha:design} dargelegte Aufbau eines Netzwerkes findet sich auch in der Implementation wieder. Scapy, Wireshark und Zeek verarbeiten Kommunikationsdaten, zeek-agent stellt die Attribute der Entitäten bereit und der Skript-schreibende legt die geltenden Normen durch die erstellten Skripte und das dadurch abgedeckte Verhalten fest.
 \section{Erläuterung der wichtigsten Komponenten}
-Eine kurze Vorstellung der wichtigsten Komponenten der Implementierung insofern sie im Rahmen der einzelnen Schritte des Versuchsaufbaus
-\subsection{Netzwerk}
-Das Netzwerk besteht aus einem gleichbleibenden Endgerät das als Ziel bzw. Endpunkt für den simulierten Netzwerkverkehr dient und verschiedenen anderen Teilnehmern bzw Angreifern. Die genauen Informationen der einzelnen Entitäten sind im jeweiligen Szenario genauer spezifiziert.
+Eine kurze Vorstellung der wichtigsten Komponenten der Implementierung insofern sie im Rahmen der einzelnen Schritte des Versuchsaufbaus essenziell sind.
 \subsection{Zeek}
 %TODO
 %Zeek is a passive, open-source network traffic analyzer. Many operators use Zeek as a network security monitor (NSM) to support investigations of suspicious or malicious activity.
@@ -80,7 +78,7 @@ In Zeek erfolgt das Schreiben in Logs immer nach dem selben Prinzip:
 \item{Eintrag wird in den Log geschrieben (Z. \ref{logging_6})}
 \end{enumerate}
 \lstset{escapeinside={(*@}{@*)}}
-\begin{lstlisting}[caption={[Generierung einer Log-Datei]Generierung einer Log-Datei mit Verbindungsinformationen}]
+\begin{lstlisting}[consecutivenumbers=false,caption={Generierung einer Log-Datei mit Verbindungsinformationen}]
 export {
     # Create an ID for our new stream. By convention, this is called "LOG".
     redef enum Log::ID += { LOG }; (*@\label{logging_1}@*)	
@@ -116,7 +114,7 @@ Zeile \ref{g_lookup_1} Zuordnung einer IP-Adresse zu einem geographischen Ort.\\
 Zeile \ref{g_lookup_2} - \ref{g_lookup_3} Ermittlung der Uhrzeit am Ursprung der Anfrage mithilfe der lokalen Uhrzeit in Kombination mit dem aus dem Abstand ermittelten Zeitunterschied.\\
 Zeile \ref{g_lookup_4} Anpassung des Grenzwertes\\
 \lstset{escapeinside={(*@}{@*)}}
-\begin{lstlisting}[caption={Geolocation und Setzen des Grenzwertes},firstline=31,firstnumber=31,linerange={31-37,42-54}]
+\begin{lstlisting}[consecutivenumbers=false,caption={Geolocation und Setzen des Grenzwertes},firstnumber=31,linerange={31-37,42-54}]
 module GeoLogTest;
 
 export {
@@ -158,7 +156,6 @@ function time_at_geolocation(longitude: double): int{ (*@\label{g_lookup_2}@*)
 	local epoch_time_difference = double_to_time(epoch_time_difference);
 	local time_at_origin  = strftime("%H", epoch_time_difference);
 	local useable_time_at_origin = to_int(time_at_origin);
-	...	
 	return useable_time_at_origin; (*@\label{g_lookup_3}@*)
 }
 
@@ -174,7 +171,7 @@ function set_threshold(c_time: int): double{ (*@\label{g_lookup_4}@*)
 
 %\caption{Setzen des Grenzwertes von Verbindungsversuchen}
 %\end{figure}
-\subsection{Offene Ports}
+\subsection{Verwendete Ports}
 %Verwendet werden Ports die die aktuell auf dem System laufenden Prozesse.
 Wenn eine Verbindung oder der Versuch eine Verbindung zu etablieren, mit einem bestimmten Port des Systems als Ziel beobachtet wird ohne das ein Prozess gibt der diesem Port mittels zugeordnet werden kann, wird die Verbindung bzw. der Verbindungsversuch im dazugehörigen Log vermerkt.
 \begin{enumerate}
@@ -182,7 +179,7 @@ Wenn eine Verbindung oder der Versuch eine Verbindung zu etablieren, mit einem b
 \item{Das Skript vergleicht den Zielport jeder eingehenden Verbindung mit der Liste von Hostports}
 \item{Abhängig vom Ergebnis wird eine Meldung in den Log geschrieben}
 \end{enumerate}
-\begin{lstlisting}[firstline=52,lastline=77,firstnumber=52,linerange={52-54,70-77}]
+\begin{lstlisting}[caption={Abfrage und Abgleich der Ports },consecutivenumbers=false,lastline=77,firstnumber=52,numberblanklines=false,linerange={52-55,62-70,76-77}]
 @load site/packages/zeek-agent-v2
 @load site/packages/zeek-agent-v2/framework/main
 @load site/packages/zeek-agent-v2/table
@@ -236,22 +233,14 @@ global allowed_ports : table[int] of string = {
 
 function check_outgoing_connection(c:connection){
     local _port = port_to_count(c$id$orig_p);
-    if(_port !in local_ports){...}
+    if(_port !in local_ports){
         local rec: Querytest::Info = [$ts=current_time(), $id=c$id, $notice="No Application running on this port"];
-        # Store a copy of the data in the connection record so other
-        # event handlers can access it.
-        c$querytest = rec;
-        Log::write(Querytest::LOG, rec);
-    ...}
-    else{
-        local rec_2: Querytest::Info = [$ts=current_time(), $id=c$id, $notice="Working"];
-        # Store a copy of the data in the connection record so other
-        # event handlers can access it.
-        c$querytest = rec_2;
-        Log::write(Querytest::LOG, rec_2);
-    
-    }
-}
+    }else{
+    	local rec: Querytest::Info = [$ts=current_time(), $id=c$id]}
+    # Store a copy of the data in the connection record so other
+    # event handlers can access it.
+    c$querytest = rec;
+    Log::write(Querytest::LOG, rec);}
 
 event users_result(ctx: ZeekAgent::Context, data: Columns){
     local new_entry : count;
@@ -260,12 +249,14 @@ event users_result(ctx: ZeekAgent::Context, data: Columns){
     local_ports[new_entry] = data$name;
 }
 
+
 event zeek_init(){
 	Log::create_stream(Querytest::LOG, [$columns=Info, $path="querytest"]);
     local str_stmt_join = "SELECT users.name, users.is_admin, sockets.process, sockets.protocol, sockets.local_addr, sockets.local_port, sockets.remote_addr, sockets.remote_port FROM users JOIN processes ON users.uid=processes.uid JOIN sockets ON sockets.pid=processes.pid";
     local query_event = users_result;
     local _schedule = 10 secs;
-    local test_query_join = ZeekAgent::query([$sql_stmt=str_stmt_join,$event_=query_event,$schedule_=_schedule]);
+    
+    local test_query_join = ZeekAgent::query([$sql_stmt=str_stmt_join, $event_=query_event, $schedule_=_schedule]);
 }
 
 event connection_state_remove(c: connection){
@@ -278,8 +269,10 @@ event zeek_done(){
 \end{lstlisting}
 \subsection{DNS-Auflösung}
 Menschliche Nutzer verwenden, bei der Nutzung ihres Endgerätes, im Gegensatz zu Computern, keine IP-Adressen um im Suchanfragen zu formulieren. DNS ordnet IP-Adressen menschenfreundliche Domainnamen zu. Wenn sich das Gerät eines Nutzers mit einem anderen verbindet geht dem eine DNS-Anfrage von diesem Gerät an einen DNS-Nameserver vorraus oder die IP-Adresse ist in lokalen Konfigurations-Dateien vermerkt. Wenn beispielsweise eine TCP-Verbindung eines Webbrowsers beobachtet wird, ohne das eine zuordenbare DNS-Anfrage erfolgt ist oder die IP-Adresse in auf dem Endgerätes vermerkt ist, ist das in den meisten Fällen ein Grund zum Handeln.
-Das Skript erfragt periodisch die hosts-Datei eines Unix-Systems (Z. \ref{dns_lookup_1}) und loggt für jede Antwort eines DNS-Servers die aufgelöste Url und dazugehörige IP-Adresse (Z. \ref{dns_lookup_2}). Im Log vermerkt sind ausgehende Verbindungen deren Zieladressen vorher nicht durch einen DNS-Server oder die hosts-Datei aufgelöst wurden.
-\begin{lstlisting}[firstnumber=54,linerange={54-59,62-67},caption={Überprüfung der Verbindungsziele eines Endgerätes}]
+Das Skript erfragt periodisch die hosts-Datei eines Unix-Systems (Z. \ref{dns_lookup_1}).\\
+Loggt für jede Antwort eines DNS-Servers die aufgelöste URL und dazugehörige IP-Adresse (Z. \ref{dns_lookup_2}).\\
+Im Log vermerkt sind ausgehende Verbindungen deren Zieladressen vorher nicht durch einen DNS-Server oder die hosts-Datei aufgelöst wurden (Z. \ref{dns_lookup_3}).
+\begin{lstlisting}[firstnumber=53,linerange={53-64,65-73},caption={Überprüfung der Verbindungsziele eines Endgerätes}]
 @load site/packages/zeek-agent-v2
 @load site/packages/zeek-agent-v2/framework/main
 @load site/packages/zeek-agent-v2/table
@@ -332,15 +325,12 @@ event DNS::log_dns(rec:DNS::Info){
     resolved_addresses [answer_address] = query;
 }
 
-#Gets invoked when the result of a query "arrives". Adds result to corresponding table
 event query_result(ctx: ZeekAgent::Context, data: Columns){
     local ip_address = to_addr(data$line_content[0]);
     local host_name = data$line_content[1];
     resolved_addresses[ip_address] = host_name + " from local hosts";(*@\label{dns_lookup_2}@*)
 }
 
-# Query the local host file via Zeek Agent
-# 172.17.144.22 got added to hosts file manually for demonstration
 function query_hosts_file(){
     local str_stmt_hosts = "SELECT columns FROM files_columns(\"/etc/hosts\",\"$1:text,$2:text\")";
     local query_event = query_result;
@@ -348,21 +338,16 @@ function query_hosts_file(){
     local test_query_join = ZeekAgent::query([$sql_stmt=str_stmt_hosts, $event_=query_event, $schedule_=_schedule]);(*@\label{dns_lookup_1}@*)   
 }
 
-#check if destination ip-address got:
-    # resolved
-    # is a DNS-Server
-    # is neither resolved before connection nor a DNS-Server
-# and write to log
 event check_resolve_table(c : connection){
     local destination_ip = c$id$resp_h;
-    if(destination_ip !in resolved_addresses && destination_ip !in dns_server){
+    if(destination_ip !in resolved_addresses && destination_ip !in dns_server){ (*@\label{dns_lookup_3}@*)
         local rec: DNStest::Info = [$ts=current_time(), $id=c$id, $notice="Connection without Resolve!"];
         c$dnstest = rec;
         Log::write(DNStest::LOG, rec);
     }
 }
 
-# Generated when a connection’s internal state is about to be removed from memory.
+# Generated when a connections internal state is about to be removed from memory.
 # Zeek generates this event reliably once for every connection when it is about to delete the internal state.
 event connection_state_remove(c: connection){
     query_hosts_file();
