@@ -73,26 +73,24 @@ Der Mitschitt der von Scapy versendeten Pakets erfolgt mit Wireshark. Die mitges
 \subsection{Logging}
 In Zeek erfolgt das Schreiben in Logs immer nach dem selben Prinzip:
 \begin{enumerate}
-\item{Vor dem Ausführen eines Skriptes wird ein Log und die darin zu speichernden Informationen festgelegt}
-\item{Nutzer-definierter Log wird initialisiert}
-\item{Log-Eintrag für den Log wird definiert}
-\item{Log-Eintrag wird der Verbindung als Information hinzugefügt}
-\item{Eintrag wird in den Log geschrieben}
+\item{Vor dem Ausführen eines Skriptes wird ein Log und die darin zu speichernden Informationen festgelegt (Z. \ref{logging_1}-\ref{logging_2})}
+\item{Nutzer-definierter Log wird initialisiert (Z. \ref{logging_3})}
+\item{Log-Eintrag für den Log wird definiert (Z. \ref{logging_4})}
+\item{Log-Eintrag wird der Verbindung als Information hinzugefügt (Z. \ref{logging_5})}
+\item{Eintrag wird in den Log geschrieben (Z. \ref{logging_6})}
 \end{enumerate}
 \lstset{escapeinside={(*@}{@*)}}
-\begin{lstlisting}[caption={Generierung einer Log-Datei mit Verbindungsinformationen}]
-module ExampleModule;
+\begin{lstlisting}[caption={[Generierung einer Log-Datei]Generierung einer Log-Datei mit Verbindungsinformationen}]
 export {
-    # Create an ID for our new stream. By convention, this is
-    # called "LOG".
-    redef enum Log::ID += { LOG };
+    # Create an ID for our new stream. By convention, this is called "LOG".
+    redef enum Log::ID += { LOG }; (*@\label{logging_1}@*)	
 
     # Define the record type that will contain the data to log.
     type Info: record {
         timestamp: time		&log;
         id: connection_id	&log; 
         notice: string		&log;
-    };
+    };(*@\label{logging_2}@*)
 }
 
 redef record connection += {
@@ -101,29 +99,28 @@ redef record connection += {
     examplelog: Info &optional;
 };
 event zeek_init(){
-	Log::create_stream(ExampleModule::LOG, [$columns=Info, $path="examplemodule"]);
-	local record: ExampleLog::Info = [$ts=current_time(), $id=c$id, $notice="Example Notice"];
+	Log::create_stream(ExampleModule::LOG, $columns=Info, $path="examplemodule"]);(*@\label{logging_3}@*)
+	local record: ExampleLog::Info = $ts=current_time(), $id=c$id, $notice="Example Notice"];(*@\label{logging_4}@*)
     # Store a copy of the data in the connection record so other
     # event handlers can access it.
-    c$examplelog = record;
-    Log::write(ExampleModule::LOG, rec);
+    c$examplelog = record;(*@\label{logging_5}@*)
+    Log::write(ExampleModule::LOG, rec);(*@\label{logging_6}@*)
 }
 \end{lstlisting}
 \section{Skripte}
 Der Kern der Implementierung sind Zeek Skripte. Hier werden die gesammelten Kontextinformationen verwendet. Nachfolgend werden für einige ausgewählte Kategorien Anwendungsfälle vorgestellt.
 \subsection{Geografische Koordinaten und Ortszeit}
-Das Volumen von durch Menschen verursachten Netzwerkverkehr ist meist tageszeitabhängig. So wird in der Regel nachts weniger kommuniziert als am Tag. Deshalb erscheint es sinnvoll den Grenzwert für erzeugtes Verkehrsaufkommen, ab dem ein Sender als potenziell böswillig eingestuft wird, je nach Uhrzeit anzupassen.
-\subparagraph{Zeile \ref{g_lookup_1}} Zuordnung einer IP-Adresse zu einem geographischen Ort.
+Das Volumen von durch Menschen verursachten Netzwerkverkehr ist meist tageszeitabhängig. So wird in der Regel nachts weniger kommuniziert als am Tag. Deshalb erscheint es sinnvoll den Grenzwert für erzeugtes Verkehrsaufkommen, ab dem ein Sender als potenziell böswillig eingestuft wird, je nach Uhrzeit anzupassen.\\
+Zeile \ref{g_lookup_1} Zuordnung einer IP-Adresse zu einem geographischen Ort.\\
 %Möglich aufgrund des Vergabeverfahrens.
-\subparagraph{Zeile \ref{g_lookup_2} - \ref{g_lookup_3}} Ermittlung der Uhrzeit am Ursprung der Anfrage mithilfe der lokalen Uhrzeit in Kombination mit dem aus dem Abstand ermittelten Zeitunterschied.
-\subparagraph{Zeile \ref{g_lookup_4}} Anpassung des Grenzwertes
+Zeile \ref{g_lookup_2} - \ref{g_lookup_3} Ermittlung der Uhrzeit am Ursprung der Anfrage mithilfe der lokalen Uhrzeit in Kombination mit dem aus dem Abstand ermittelten Zeitunterschied.\\
+Zeile \ref{g_lookup_4} Anpassung des Grenzwertes\\
 \lstset{escapeinside={(*@}{@*)}}
-\begin{lstlisting}[firstnumber=33,linerange={33-38,40-41,45-46,48-54},consecutivenumbers=false,caption={Geolocation und Setzen des Grenzwertes}]
+\begin{lstlisting}[caption={Geolocation und Setzen des Grenzwertes},firstline=31,firstnumber=31,linerange={31-37,42-54}]
 module GeoLogTest;
 
 export {
-    # Create an ID for our new stream. By convention, this is
-    # called "LOG".
+    # Create an ID for our new stream. By convention, this is called "LOG".
     redef enum Log::ID += { LOG };
 
     # Define the record type that will contain the data to log.
@@ -136,12 +133,11 @@ export {
 }
 
 redef record connection += {
-    # By convention, the name of this new field is the lowercase name
-    # of the module.
+    # By convention, the name of this new field is the lowercase name of the module.
     geologtest: Info &optional;
 };
 
-global ip_addresses : table[addr] of int;
+global ip_addresses : tableaddr] of int;
 global threshold : int; 
 global night_time_decrease : int;
 global day_time_increase : int;
@@ -157,12 +153,12 @@ function geolocation(c: connection):double{
 }
 
 function time_at_geolocation(longitude: double): int{ (*@\label{g_lookup_2}@*)
-	#	1 degree of longitude is 4 minutes of time
-	local time_difference  = (longitude - home_longitude)*240;
-	local double_time_difference = time_to_double(network_time()) + time_difference;
-	local epoch_time_difference = double_to_time(double_time_difference);
+	local time_to_add  = (longitude - home_longitude)*240;
+	local time_difference = network_time()) + time_to_add;
+	local epoch_time_difference = double_to_time(epoch_time_difference);
 	local time_at_origin  = strftime("%H", epoch_time_difference);
 	local useable_time_at_origin = to_int(time_at_origin);
+	...	
 	return useable_time_at_origin; (*@\label{g_lookup_3}@*)
 }
 
@@ -174,7 +170,7 @@ function set_threshold(c_time: int): double{ (*@\label{g_lookup_4}@*)
 	return threshold; 
 }
 \end{lstlisting}
-%\begin{figure}[H]
+%\begin{figure}H]
 
 %\caption{Setzen des Grenzwertes von Verbindungsversuchen}
 %\end{figure}
@@ -186,8 +182,7 @@ Wenn eine Verbindung oder der Versuch eine Verbindung zu etablieren, mit einem b
 \item{Das Skript vergleicht den Zielport jeder eingehenden Verbindung mit der Liste von Hostports}
 \item{Abhängig vom Ergebnis wird eine Meldung in den Log geschrieben}
 \end{enumerate}
-
-\begin{lstlisting}
+\begin{lstlisting}[firstline=52,lastline=77,firstnumber=52,linerange={52-54,70-77}]
 @load site/packages/zeek-agent-v2
 @load site/packages/zeek-agent-v2/framework/main
 @load site/packages/zeek-agent-v2/table
@@ -241,13 +236,14 @@ global allowed_ports : table[int] of string = {
 
 function check_outgoing_connection(c:connection){
     local _port = port_to_count(c$id$orig_p);
-    if(_port !in local_ports){
+    if(_port !in local_ports){...}
         local rec: Querytest::Info = [$ts=current_time(), $id=c$id, $notice="No Application running on this port"];
         # Store a copy of the data in the connection record so other
         # event handlers can access it.
         c$querytest = rec;
         Log::write(Querytest::LOG, rec);
-    }else{
+    ...}
+    else{
         local rec_2: Querytest::Info = [$ts=current_time(), $id=c$id, $notice="Working"];
         # Store a copy of the data in the connection record so other
         # event handlers can access it.
@@ -258,7 +254,6 @@ function check_outgoing_connection(c:connection){
 }
 
 event users_result(ctx: ZeekAgent::Context, data: Columns){
-    #print data;
     local new_entry : count;
     local connection_port = data$remote_port;
     new_entry = connection_port;
@@ -281,7 +276,109 @@ event zeek_done(){
     print "Done";
 }
 \end{lstlisting}
-
 \subsection{DNS-Auflösung}
-\subsection{Rechte eines Nutzers}
-\subsection{}
+Menschliche Nutzer verwenden, bei der Nutzung ihres Endgerätes, im Gegensatz zu Computern, keine IP-Adressen um im Suchanfragen zu formulieren. DNS ordnet IP-Adressen menschenfreundliche Domainnamen zu. Wenn sich das Gerät eines Nutzers mit einem anderen verbindet geht dem eine DNS-Anfrage von diesem Gerät an einen DNS-Nameserver vorraus oder die IP-Adresse ist in lokalen Konfigurations-Dateien vermerkt. Wenn beispielsweise eine TCP-Verbindung eines Webbrowsers beobachtet wird, ohne das eine zuordenbare DNS-Anfrage erfolgt ist oder die IP-Adresse in auf dem Endgerätes vermerkt ist, ist das in den meisten Fällen ein Grund zum Handeln.
+Das Skript erfragt periodisch die hosts-Datei eines Unix-Systems (Z. \ref{dns_lookup_1}) und loggt für jede Antwort eines DNS-Servers die aufgelöste Url und dazugehörige IP-Adresse (Z. \ref{dns_lookup_2}). Im Log vermerkt sind ausgehende Verbindungen deren Zieladressen vorher nicht durch einen DNS-Server oder die hosts-Datei aufgelöst wurden.
+\begin{lstlisting}[firstnumber=54,linerange={54-59,62-67},caption={Überprüfung der Verbindungsziele eines Endgerätes}]
+@load site/packages/zeek-agent-v2
+@load site/packages/zeek-agent-v2/framework/main
+@load site/packages/zeek-agent-v2/table
+@load site/zeek-agent-v2
+@load site/zeek-agent-v2/framework
+@load site/zeek-agent-v2/table
+@load base/protocols/conn/contents
+@load base/protocols/dns
+@load base/bif
+module DNStest;
+
+export {
+    # Create an ID for our new stream. By convention, this is
+    # called "LOG".
+    redef enum Log::ID += { LOG };
+
+    # Define the record type that will contain the data to log.
+    type Info: record {
+        ts: time        &log;
+        id: conn_id     &log; 
+        notice : string &log;
+    };
+}   
+
+redef record connection += {
+    # By convention, the name of this new field is the lowercase name
+    # of the module.
+    dnstest: Info &optional;
+};
+
+type Columns: record{
+    line_content : vector of string &log;
+};
+
+global resolved_addresses : table [addr] of string={
+    [1.2.3.4] = "www.example.com"
+};
+global dns_server : set[addr];
+
+event zeek_init(){
+    Log::create_stream(DNStest::LOG, [$columns=Info, $path="dnstest"]);
+}
+
+#An event that can be handled to access the DNS::Info record as it is sent to the logging framework.
+event DNS::log_dns(rec:DNS::Info){
+    # builds pair of ip addr that gets send to name-server and the resolved answer string
+    local query : string = rec$query;
+    local answer : vector of string = rec$answers;
+    local answer_address  = to_addr(answer[1]);
+    resolved_addresses [answer_address] = query;
+}
+
+#Gets invoked when the result of a query "arrives". Adds result to corresponding table
+event query_result(ctx: ZeekAgent::Context, data: Columns){
+    local ip_address = to_addr(data$line_content[0]);
+    local host_name = data$line_content[1];
+    resolved_addresses[ip_address] = host_name + " from local hosts";(*@\label{dns_lookup_2}@*)
+}
+
+# Query the local host file via Zeek Agent
+# 172.17.144.22 got added to hosts file manually for demonstration
+function query_hosts_file(){
+    local str_stmt_hosts = "SELECT columns FROM files_columns(\"/etc/hosts\",\"$1:text,$2:text\")";
+    local query_event = query_result;
+    local _schedule =  30 secs;
+    local test_query_join = ZeekAgent::query([$sql_stmt=str_stmt_hosts, $event_=query_event, $schedule_=_schedule]);(*@\label{dns_lookup_1}@*)   
+}
+
+#check if destination ip-address got:
+    # resolved
+    # is a DNS-Server
+    # is neither resolved before connection nor a DNS-Server
+# and write to log
+event check_resolve_table(c : connection){
+    local destination_ip = c$id$resp_h;
+    if(destination_ip !in resolved_addresses && destination_ip !in dns_server){
+        local rec: DNStest::Info = [$ts=current_time(), $id=c$id, $notice="Connection without Resolve!"];
+        c$dnstest = rec;
+        Log::write(DNStest::LOG, rec);
+    }
+}
+
+# Generated when a connection’s internal state is about to be removed from memory.
+# Zeek generates this event reliably once for every connection when it is about to delete the internal state.
+event connection_state_remove(c: connection){
+    query_hosts_file();
+    local destination_ip = c$id$resp_h;
+    local conn_service = c$service;
+    # Add DNS-Server to set
+    if("DNS" in conn_service){
+        add dns_server[destination_ip];
+    }
+    # schedule resolve check so query result get added to the table before the connection gets checked 
+    schedule 45 secs {check_resolve_table(c)}; 
+}
+
+# Generated at Zeek termination time.
+event zeek_done(){
+    print "Done";
+}
+\end{lstlisting}
+

@@ -7,22 +7,23 @@
   % \item Discussion of design choices (e.g. Mix Networks, DC-Networks, etc.) with regards to the requirements from the previous chapter and identification of the most promising choices.
 %\end{enumerate}
 %After the second step, you start the next iteration by identifying design problems that arise when you want to use the most promising design choice. For example, if Mix networks turn out to be the most promising approach for your requirements, you then need to address the question how the mix network should be designed (e.g. how are mix nodes chosen by the users of the anonymization network? How do mix nodes process messages?). Once you identified the most promising solutions to that, you can then start the next iteration and so on until there are no more open design questions that you are aware of.
-Zuerst wird die Notwendigkeit für eine Taxonomie erläutert. Dann erfolgt die Definition der Taxonomiekategorien. Danach wird festgelegt in welcher Form die Kontextinformationen in den einzelnen Kategorien vorliegen müssen und wie man Informationen aus unterschiedlichen Quellen in einer für sammelt. Zusätzlich wird noch darauf eingegangen welche Anforderungen ein IDS erfüllen sollte, welche davon im speziellen für diese Arbeit relevant sind und welche Schwächen des IDS mithilfe des vorgeschlagenen Designs und Kontextsensitivität gelöst werden. 
-
+Zuerst wird die Notwendigkeit für eine Taxonomie erläutert. Dann erfolgt die Definition der Taxonomiekategorien. Danach wird festgelegt in welcher Form die Kontextinformationen in den einzelnen Kategorien vorliegen müssen und wie man Informationen aus unterschiedlichen Quellen in einer für sammelt. Zusätzlich wird noch darauf eingegangen welche Anforderungen ein IDS erfüllen sollte, welche davon im speziellen für diese Arbeit relevant sind und welche Schwächen des IDS mithilfe des vorgeschlagenen Designs und Kontextsensitivität gelöst werden.
 \section{Notwendigkeit einer Taxonomie}
 %TODO “Based on the evaluation of context categorisation, it is evident that no single categorisation scheme can accommodate all the demands” ([Perera et al., 2014, p. 423]
 Die Evaluation verschiedener Kategorisierungsschemata zeigt das keine Kategorisierung allen Ansprüchen gerecht werden kann \cite{perera_context_2014}.
 \section{ Erstellung einer Taxonomie }
-Im folgenden möchte ich meinen Versuch einer Kombination der bereits vorgeschlagenen Kategorisierungsschemata erläutern. Dazu lege ich zuerst die Definition der einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle fest. Die Kategorien müssen dafür, abhängig davon mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark angepasst werden.
-\subsection{Konzeptionell}
+Im folgenden möchte ich meinen Versuch einer Kombination der bereits vorgeschlagenen Kategorisierungsschemata erläutern. Dazu lege ich zuerst die Definition der einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle fest. Die Kategorien müssen dafür, abhängig davon mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark angepasst werden.Zur Veranschaulichung des Zusammenhangs der Kategorien dienen die jeweiligen Grafiken.
+\subsection{Mensch}
+
+\subsubsection{Konzeptionell}
 Einordnung anhand der Bedeutung des Kontextes und der begrifflichen Beziehungen.
-\subsubsection{Primär}
+\paragraph{Primär}
 %“Any information retrieved without using existing context and without performing any kind of sensor data fusion operations (e.g. GPS sensor readings as location information).” 
 Kontextinformationen die gesammelt werden können ohne bereits vorhandene Daten zu verwenden oder zu kombinieren \cite{abowd_towards_1999}. 
-\subsubsection{Sekundär}
+\paragraph{Sekundär}
 %"Any information that can be computed using primary context. The secondary context can be computed by using sensor data fusion operations or data retrieval operations such as web service calls (e.g. identify the distance between two sensors by applying sensor data fusion operations on two raw GPS sensor values). Further, retrieved context such as phone numbers, addresses, email addresses, birthdays, list of friends from a contact information provider based on a personal identity as the primary context can also be identified as secondary context.” 
 Kontext der durch das verarbeiten von primärem Kontext erschlossen werden kann. Dies kann durch die Kombination einzelner Datenpunkte einer oder mehrerer Kategorien oder durch Abfragen weiterer Informationen mithilfe der primären Informationen geschehen \cite{abowd_towards_1999}.
-\subsection{Betrieblich}
+\subsubsection{Betrieblich}
 Wie schon in der Analyse bereits vorgeschlagener Kategorien bedeutet die betriebliche Kategorisierung: ``Einordnung anhand dessen wie der Kontext akquiriert, modelliert und behandelt wird ''.
 \paragraph{Zeit}
 Zu welcher Zeit ein Zugriffsanfrage erfolgt.
@@ -38,32 +39,6 @@ Warum etwas getan wird.
 \centering
 \includegraphics[width=15cm,height=15.2569cm]{graphic_1}
 \caption{Nutzerzentrierte Kategorisierung}
-\end{figure}
-%--------------------------
-\subsection{Historie}
-Die Historie einer Entität wird in dieser Taxonomie zweigeteilt. Sie besteht aus:
-\begin{enumerate}
-\item{Einem aktiven Teil also ihrem Verhalten, beispielsweise früheren Verbindungen bzw. Verbindungsanfragen}
-\item{Einem passiven Teil also dem Zustand der für sie charakteristischen Attribute, beispielsweise einem Nutzernamen oder die Versionsnummer eines bestimmten Programms}
-\end{enumerate}
-Die Existenz einer Historie trifft die implizite Annahme das eine Entität eindeutig und über einen längeren Zeitraum im Netzwerkverkehr identifizierbar ist.
-\subsubsection{Dynamik}
-Wie 
- %TODO im Kapitel Hintergrund%
- beschrieben können sich die Werte, aus denen sich die Historie einer Entität zusammensetzt, je nach dem welchem Teil sie zugeordnet werden, verschieden oft ändern.
-Statische Messgrößen ändern dabei ihre Werte nie oder nur sehr selten. Dynamische Messgrößen hingegen sehr oft. In diesem Fall wird eine Unterteilung in jährlich, monatlich, wöchentlich, täglich, stündlich, minütlich und sekündlich vorgenommen.
-\subsubsection{Raten}
-Die Historie ist weiterhin in 3 verschiedene Bereiche unterteilt. Abhängig davon wo die Änderung auftritt und ob das IDS oder eine Entität die Aktualisierung des Wertes auslöst.
-\paragraph{Änderungsrate} 
-Gibt an wie oft eine Entität eine Werteänderungen mitteilt.
-\paragraph{Abtastrate}
-Wie oft Werte einer Entität vom IDS abgefragt bzw aktualisiert werden.
-\paragraph{Abfragerate}
-Wie oft Werte im Netzwerk von einer Entität, die nicht das IDS ist, abgefragt werden.
-\begin{figure}[H]
-\centering
-\includegraphics{history}
-\caption{Historie}
 \end{figure}
 %--------------------------
 
@@ -120,7 +95,34 @@ Form der Kommunikation mit verschiedenen Protokollen oder Verhalten von Entität
 \includegraphics[width=15cm,height=16.97cm]{graphic_2}
 \caption{Kategorisierung von Kontextinformationen als Netzwerkbestandteile}
 \end{figure}
-\newpage
+\subsection{Historie}
+Unabhängig vom gewählten Fokus bzw. Blickwinkel auf die Kategorisierung von Kontext benötigt man, um von bereits gesammelten Kontext nutzen zu können, eine Art Gedächtnis. Im Fall eines IDS welches ohnehin, aufgrund seiner Funktionsweise, über einen längeren Zeitraum Informationen verarbeitet und neue Erkenntnisse speichert, bietet sich eine Historie wie in Kapitel \ref{cha:background} erwähnt an.
+Die Historie einer Entität wird in dieser Taxonomie zweigeteilt. Sie besteht aus:
+\begin{enumerate}
+\item{Einem aktiven Teil also ihrem Verhalten, beispielsweise früheren Verbindungen bzw. Verbindungsanfragen}
+\item{Einem passiven Teil also dem Zustand der für sie charakteristischen Attribute, beispielsweise einem Nutzernamen oder die Versionsnummer eines bestimmten Programms}
+\end{enumerate}
+Die Existenz einer Historie trifft die implizite Annahme das eine Entität eindeutig und über einen längeren Zeitraum im Netzwerkverkehr identifizierbar ist.
+\subsubsection{Dynamik}
+Wie 
+ %TODO im Kapitel Hintergrund%
+ beschrieben können sich die Werte, aus denen sich die Historie einer Entität zusammensetzt, je nach dem welchem Teil sie zugeordnet werden, verschieden oft ändern.
+Statische Messgrößen ändern dabei ihre Werte nie oder nur sehr selten. Dynamische Messgrößen hingegen sehr oft. In diesem Fall wird eine Unterteilung in jährlich, monatlich, wöchentlich, täglich, stündlich, minütlich und sekündlich vorgenommen.
+\subsubsection{Raten}
+Die Historie ist weiterhin in 3 verschiedene Bereiche unterteilt. Abhängig davon wo die Änderung auftritt und ob das IDS oder eine Entität die Aktualisierung des Wertes auslöst.
+\paragraph{Änderungsrate} 
+Gibt an wie oft eine Entität eine Werteänderungen mitteilt.
+\paragraph{Abtastrate}
+Wie oft Werte einer Entität vom IDS abgefragt bzw aktualisiert werden.
+\paragraph{Abfragerate}
+Wie oft Werte im Netzwerk von einer Entität, die nicht das IDS ist, abgefragt werden.
+\begin{figure}[H]
+\centering
+\includegraphics{history}
+\caption{Historie}
+\end{figure}
+%--------------------------
+
 
 \section{Form des Kontextes}
 Nachdem die einzelnen Kategorien definiert wurden muss festgelegt werden in welcher Form die Kontextinformationen vorliegen sollen bzw. gebracht werden müssen. Dies ist hauptsächlich davon abhängig wie die Informationen in das IDS eingelesen werden.
