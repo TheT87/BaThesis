@@ -16,32 +16,32 @@
 
 Der im Kapitel \ref{cha:design} dargelegte Aufbau eines Netzwerkes findet sich auch in der Implementation wieder. Scapy, Wireshark und Zeek verarbeiten Kommunikationsdaten, zeek-agent stellt die Attribute der Entitäten bereit und der Skript-schreibende legt die geltenden Normen durch die erstellten Skripte und das dadurch abgedeckte Verhalten fest.
 \section{Erläuterung der wichtigsten Komponenten}
-Eine kurze Vorstellung der wichtigsten Komponenten der Implementierung insofern sie im Rahmen der einzelnen Schritte des Versuchsaufbaus essenziell sind.
+Eine kurze Vorstellung der wichtigsten Komponenten der Implementierung, insofern sie im Rahmen der einzelnen Schritte des Versuchsaufbaus essenziell sind.
 \subsection{Zeek}
 %TODO
 %Zeek is a passive, open-source network traffic analyzer. Many operators use Zeek as a network security monitor (NSM) to support investigations of suspicious or malicious activity.
 %Zeek is a fully customizable and extensible platform for traffic analysis. Zeek provides users a domain-specific, Turing-complete scripting language for expressing arbitrary analysis tasks
 %In brief, Zeek is optimized for interpreting network traffic and generating logs based on that traffic. It is not optimized for byte matching, and users seeking signature detection approaches would be better served by trying intrusion detection systems such as Suricata. Zeek is also not a protocol analyzer in the sense of Wireshark, seeking to depict every element of network traffic at the frame level, or a system for storing traffic in packet capture (PCAP) form. Rather, Zeek sits at the “happy medium” representing compact yet high fidelity network logs, generating better understanding of network traffic and usage.
 %Zeek as a NSM platform enables collection of at least two, and in some ways three, of these data forms, namely transaction data, extracted content, and alert data
-Ein passives, quelloffenes Analysewerkzeug für Netzwerkverkehr das via eigener  Skriptsprache unter anderem folgendes ermöglicht:
+Ein passives, quelloffenes Analysewerkzeug für Netzwerkverkehr, das via eigener  Skriptsprache unter anderem folgendes ermöglicht:
 \begin{enumerate}
 \item{Implementierung beliebiger Analyseaufgaben}
 \item{Interpretation von Netzwerkverkehr}
 \item{Erstellung von Protokollen auf der Grundlage dieses Verkehrs}
 \end{enumerate}
-Zeek ist dabei weder rein signatur-basiert wie Suricata noch ausschließlich als Protokollanalysator im Sinne von Wireshark zu verstehen. Vielmehr handelt es sich bei Zeek um eine Mischung die eine kompakte, aber dennoch detailgetreue Darstellung von Netzwerkprotokollen ermöglicht. Dies erlaubt ein besseres Verständnis des Netzwerkverkehrs und der Netzwerknutzung \cite{zeek_about_page}.
+Zeek ist dabei weder rein signatur-basiert wie Suricata noch ausschließlich als Protokollanalysator im Sinne von Wireshark zu verstehen. Vielmehr handelt es sich bei Zeek um eine Mischung, die eine kompakte, aber dennoch detailgetreue Darstellung von Netzwerkprotokollen ermöglicht. Dies erlaubt ein besseres Verständnis des Netzwerkverkehrs und der Netzwerknutzung \cite{zeek_about_page}.
 
 \subsection{Zeek-Agent}
-Zeek-Agent ist ein Endpunkt-Agent der Informationen, für zentrales Monitoring an Zeek sendet.
-Abfragen kann man verschiedene Aktivitäten eines Hostsystems, darunter zum Beispiel aktuell laufende Prozesse, offene Sockets oder den Inhalt bestimmter Dateien. Diese erscheinen in Zeek, genauso wie Netzwerkaktivität, als Ereignisse und können so in Skripten verwendet werden \cite{zeek_agent}.
+Zeek-Agent ist ein Endpunkt-Agent, der Informationen für zentrales Monitoring an Zeek sendet.
+Abfragen kann man verschiedene Aktivitäten eines Hostsystems, darunter zum Beispiel aktuell laufende Prozesse, offene Sockets oder den Inhalt bestimmter Dateien. Diese erscheinen in Zeek, genauso wie Netzwerkaktivität als Ereignisse und können so in Skripten verwendet werden \cite{zeek_agent}.
 
 \section{Versuchsaufbau}
 Der Ablauf für alle Anwendungsfälle ist grundsätzlich sehr ähnlich:
 \begin{enumerate}
 %\item{Spezifikation des Netzwerkes}
 \item{Erzeugung}
-\item{Mitschnitt}
-\item{Analyse}
+\item{Mitschnitt via WireShark}
+\item{Analyse mittels Zeek und Zeek-Agent}
 \begin{enumerate}
 \item{Einlesen von Netzwerkverkehr}
 \item{Einbindung des zusätzlichen Kontextes}
@@ -50,7 +50,7 @@ Der Ablauf für alle Anwendungsfälle ist grundsätzlich sehr ähnlich:
 \end{enumerate}
 \subsection{Erzeugung}
 %\subsubsection{Scapy}
-Der Netzwerkverkehr wurde mittels Scapy erzeugt. Das ermöglicht den für die verschiedenen Szenarien benötigten Netzwerkverkehr zu erzeugen und die einzelnen Schichten eines Pakets an den jeweiligen Anwendungsfalls anzupassen. In ist dieser Prozess ausschnittsweise dargestellt. Eine Übersicht über alle dafür verwendeten Skripte findet sich im Anhang.
+Der Netzwerkverkehr wurde mit Hilfe von Scapy generiert. Das ermöglicht den für die verschiedenen Szenarien benötigten Netzwerkverkehr zu erzeugen und die einzelnen Schichten eines Pakets an den jeweiligen Anwendungsfall anzupassen. In ist dieser Prozess ausschnittsweise dargestellt. Eine Übersicht über alle dafür verwendeten Skripte findet sich im Anhang.
 \begin{lstlisting}[language=python,caption={Konfiguration und Versendung eines Pakets},firstnumber=6]
 def send_packet(ip_address_src,ip_address_dst):
     source_server = ip_address_src
@@ -61,21 +61,21 @@ def send_packet(ip_address_src,ip_address_dst):
     tcp_pkt = layer_2 / layer_3 / layer_4
     sendp(tcp_pkt)
 \end{lstlisting}
-%\end{figure}
-\subsection{Mitschnitt}
+
+%\subsection{Mitschnitt}
 %\subsubsection{Wireshark}
-Der Mitschitt der von Scapy versendeten Pakets erfolgt mit Wireshark. Die mitgeschnittenen Pakets werden im als pcap-Dateien gespeichert um das einlesen in Zeek zu ermöglichen.
+%Der Mitschitt der von Scapy versendeten Pakets erfolgt mit Wireshark. Die mitgeschnittenen Pakets werden im als pcap-Dateien gespeichert um das einlesen in Zeek zu ermöglichen.
 
 
 %defining the format of your data, letting Zeek know that you wish to create a new log, and then calling the Log::write method to output log records.
 \subsection{Logging}
-In Zeek erfolgt das Schreiben in Logs immer nach dem selben Prinzip:
+In Zeek erfolgt das Schreiben in Logs immer nach demselben Prinzip:
 \begin{enumerate}
 \item{Vor dem Ausführen eines Skriptes wird ein Log und die darin zu speichernden Informationen festgelegt (Z. \ref{logging_1}-\ref{logging_2})}
 \item{Nutzer-definierter Log wird initialisiert (Z. \ref{logging_3})}
-\item{Log-Eintrag für den Log wird definiert (Z. \ref{logging_4})}
+\item{Form des Eintrags für den Log wird definiert (Z. \ref{logging_4})}
 \item{Log-Eintrag wird der Verbindung als Information hinzugefügt (Z. \ref{logging_5})}
-\item{Eintrag wird in den Log geschrieben (Z. \ref{logging_6})}
+\item{Eintrag wird in Log geschrieben (Z. \ref{logging_6})}
 \end{enumerate}
 \lstset{escapeinside={(*@}{@*)}}
 \begin{lstlisting}[consecutivenumbers=false,caption={Generierung einer Log-Datei mit Verbindungsinformationen},label={Code_3}]
@@ -108,10 +108,10 @@ event zeek_init(){
 \section{Skripte}
 Der Kern der Implementierung sind Zeek Skripte. Hier werden die gesammelten Kontextinformationen verwendet. Nachfolgend werden für einige ausgewählte Kategorien Anwendungsfälle vorgestellt.
 \subsection{Geografische Koordinaten und Ortszeit}
-Das Volumen von durch Menschen verursachten Netzwerkverkehr ist meist tageszeitabhängig. So wird in der Regel nachts weniger kommuniziert als am Tag. Deshalb erscheint es sinnvoll den Grenzwert für erzeugtes Verkehrsaufkommen, ab dem ein Sender als potenziell böswillig eingestuft wird, je nach Uhrzeit anzupassen.\\
-Zeile \ref{g_lookup_1} Zuordnung einer IP-Adresse zu einem geographischen Ort.\\
+Das Volumen von durch Menschen verursachten Netzwerkverkehr ist in der Regel größtenteils tageszeitabhängig. So wird üblicherweise nachts weniger kommuniziert als am Tag. Deshalb erscheint es sinnvoll, den Grenzwert für erzeugtes Verkehrsaufkommen, ab dem ein Sender als potenziell böswillig eingestuft wird, je nach Uhrzeit anzupassen.\\
+Zeile \ref{g_lookup_1} Zuordnung einer IP-Adresse zu einem geografischen Ort.\\
 %Möglich aufgrund des Vergabeverfahrens.
-Zeile \ref{g_lookup_2} - \ref{g_lookup_3} Ermittlung der Uhrzeit am Ursprung der Anfrage mithilfe der lokalen Uhrzeit in Kombination mit dem aus dem Abstand ermittelten Zeitunterschied.\\
+Zeile \ref{g_lookup_2} - \ref{g_lookup_3} Ermittlung der Ortszeit am Ursprung der Anfrage mithilfe der lokalen Uhrzeit in Kombination mit dem aus dem Abstand ermittelten Zeitunterschied.\\
 Zeile \ref{g_lookup_4} Anpassung des Grenzwertes\\
 \lstset{escapeinside={(*@}{@*)}}
 \begin{lstlisting}[consecutivenumbers=false,caption={Geolokalisierung und Setzen des Grenzwertes},firstnumber=31,linerange={31-37,42-54}]
@@ -173,7 +173,7 @@ function set_threshold(c_time: int): double{ (*@\label{g_lookup_4}@*)
 %\end{figure}
 \subsection{Verwendete Ports}
 %Verwendet werden Ports die die aktuell auf dem System laufenden Prozesse.
-Wenn eine Verbindung oder der Versuch eine Verbindung zu etablieren, mit einem bestimmten Port des Systems als Ziel beobachtet wird ohne das ein Prozess gibt der diesem Port mittels zugeordnet werden kann, wird die Verbindung bzw. der Verbindungsversuch im dazugehörigen Log vermerkt.
+Wenn eine Verbindung oder ein Verbindungsversuch mit einem bestimmten Port des Systems als Ziel beobachtet wird, ohne das ein Prozess gibt, der diesem Port durch Zeek-Agent zugeordnet werden kann, wird die Verbindung oder der Verbindungsversuch im dazugehörigen Log vermerkt.
 \begin{enumerate}
 \item{Das Skript erfagt bei den zeek-agents in regelmäßigen Abständen die auf Hostsystemen laufenden Prozesse und deren verwendete Ports}
 \item{Das Skript vergleicht den Zielport jeder eingehenden Verbindung mit der Liste von Hostports}
@@ -268,10 +268,10 @@ event zeek_done(){
 }
 \end{lstlisting}
 \subsection{DNS-Auflösung}
-Menschliche Nutzer verwenden, bei der Nutzung ihres Endgerätes, im Gegensatz zu Computern, keine IP-Adressen um im Suchanfragen zu formulieren. DNS ordnet IP-Adressen menschenfreundliche Domainnamen zu. Wenn sich das Gerät eines Nutzers mit einem anderen verbindet geht dem eine DNS-Anfrage von diesem Gerät an einen DNS-Nameserver vorraus oder die IP-Adresse ist in lokalen Konfigurations-Dateien vermerkt. Wenn beispielsweise eine TCP-Verbindung eines Webbrowsers beobachtet wird, ohne das eine zuordenbare DNS-Anfrage erfolgt ist oder die IP-Adresse in auf dem Endgerätes vermerkt ist, ist das in den meisten Fällen ein Grund zum Handeln.
-Das Skript erfragt periodisch die hosts-Datei eines Unix-Systems (Z. \ref{dns_lookup_1}).\\
+Menschliche Nutzer verwenden bei der Nutzung ihres Endgerätes im Gegensatz zu Computern keine IP-Adressen, um im Suchanfragen zu formulieren. DNS ordnet IP-Adressen menschenfreundliche Domainnamen zu. Wenn das System eines Nutzers eine Verbindung aufbaut, geht dem eine DNS-Anfrage von diesem Gerät an einen DNS-Nameserver voraus oder die IP-Adresse ist in lokalen Konfigurationsdateien auffindbar. Wenn beispielsweise eine TCP-Verbindung eines Webbrowsers beobachtet wird, ohne das eine zuordenbare DNS-Anfrage erfolgt ist oder die IP-Adresse in der Routingdatei des Endgerätes vermerkt ist, ist das in den meisten Fällen ein Grund zum Handeln.
+Das Skript erfragt periodisch die Hosts-Datei eines Unix-Systems (Z. \ref{dns_lookup_1}).\\
 Loggt für jede Antwort eines DNS-Servers die aufgelöste URL und dazugehörige IP-Adresse (Z. \ref{dns_lookup_2}).\\
-Im Log vermerkt sind ausgehende Verbindungen deren Zieladressen vorher nicht durch einen DNS-Server oder die hosts-Datei aufgelöst wurden (Z. \ref{dns_lookup_3}).
+Im Log vermerkt sind ausgehende Verbindungen, deren Zieladressen vorher nicht durch einen DNS-Server oder die Hosts-Datei aufgelöst wurden (Z. \ref{dns_lookup_3}).
 \begin{lstlisting}[firstnumber=53,linerange={53-64,65-73},caption={Überprüfung der Verbindungsziele eines Endgerätes}]
 @load site/packages/zeek-agent-v2
 @load site/packages/zeek-agent-v2/framework/main

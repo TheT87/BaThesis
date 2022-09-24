@@ -1,7 +1,4 @@
-	
-
 \section{Umwandlung der Taxonomie in IDS-Signaturen} 
-
 %What is important for the reader is to understand that the contextual awareness of machines is from a radically different nature than the one of humans. Also, that computational systems are good at gathering and aggregating data, but humans are still better at recognizing contexts and determining what action is appropriate in a certain situation [2]. On the other hand, positivism looks at context as a representational problem, considering it as a “form of information, delineable, stable and separable from activity” [5]. The definitions made in the context-aware field, naturally adopt this point of view. For instance, Dey’s definition [10] allows designers to use the concept for determining why a situation occurs and use this to encode some action in the application [26], making the concept operational in terms of the actors and information sources [17]. Nevertheless, since the definition inherently has a positivist view, the potential of C-AS remains limited to the context that developers are able to encode and foresee. \cite{alegre_engineering_2016}
 Um die im Abschnitt Kontexttaxonomie festgelegten Kategorien in für ein IDS nutzbare Form zu bringen, gilt es gewisse Dinge zu beachten:\\ die Kontextsensitivität eines Computers unterscheidet sich drastisch von der eines Menschen. Rechensysteme sind sehr gut darin, Daten zu erfassen und zu sammeln, aber Menschen sind immer noch nötig, um verschiedene Kontexte zu erkennen und zu entscheiden, welches Handeln in einer bestimmten Situation angemessen ist \cite{dey_understanding_2001}.
 Der limitierende Faktor des Potenzials eines kontextsensitiven Systems ist das Maß an Kontext, das ein Entwickler vorhersehen und codieren kann.
@@ -10,7 +7,7 @@ Es ist aber weder beim Design noch später bei der Implementierung unmöglich, a
 %“(A) Enumerate the set of contextual states that may exist;” 
 %“(B) Know what information could accurately determine a contextual state within that set;” 
 %“(C) State what appropriate action should be taken in a particular state.”
- Nach Greenberg et al. \cite{greenberg2001context} gibt es drei non-triviale Hauptaspekte, die beim Entwerfen eines kontextsensitiven Systems beachtet werden sollten:
+Nach Greenberg et al. \cite{greenberg2001context} gibt es drei non-triviale Hauptaspekte, die beim Entwerfen eines kontextsensitiven Systems beachtet werden sollten:
 %Mehr erklärung nötig?
 \begin{enumerate}
 \item{Spezifizieren aller möglichen Kontextzustände}
@@ -18,7 +15,7 @@ Es ist aber weder beim Design noch später bei der Implementierung unmöglich, a
 \item{Welche Aktion im jeweiligen Zustand ausgeführt werden sollen.}
 \end{enumerate}
 \subsection{Entscheidung für ein IDS}
-IDSs können anhand der überwachten Plattform, der verwendeten Erkennungsmethode und der Struktur in der sie eingesetzt wie in Tabelle \ref{Tabelle_1} zu sehen kategorisiert werden \cite{milenkoski_evaluating_2015}.
+IDS können anhand der überwachten Plattform, der verwendeten Erkennungsmethode und der Struktur, in der sie eingesetzt wie in Tabelle \ref{Tabelle_1} zu sehen kategorisiert werden \cite{milenkoski_evaluating_2015}.
 \begin{table}[H]
 \label{Tabelle_1}
 \caption{Einteilungsansätze für IDS}
@@ -30,17 +27,17 @@ Eigenschaft
 \midrule
 Plattform   
 & Host     
-& Überwacht Aktivitäten auf dem System auf dem es eingesetzt wird um lokale Angriffe zu erkennen.\\\addlinespace[0.5em]
+& Überwacht Aktivitäten auf dem System, auf dem es eingesetzt wird, um lokale Angriffe zu erkennen.\\\addlinespace[0.5em]
 & Netzwerk 
-& Überwacht Aktivitäten im Netzwerk um Angriffe, die über eine Netzwerkverbindung ausgeführt werden zu erkennen.\\ 
+& Überwacht Aktivitäten im Netzwerk um Angriffe, die über eine Netzwerkverbindung ausgeführt werden, zu erkennen.\\ 
 & Hybrid   
-& Kombiniert host- und netzwerk-basierte Intrusion Detection Systeme.\\
+& kombiniert host- und netzwerk-basierte Intrusion Detection Systeme.\\
 \midrule
 Angriffserkennung 
 & Signatur        
 & Überwacht System- und/oder Netzwerkaktivitäten anhand einer Reihe von Signaturen bekannter Angriffe auswertet. Daher ist es nicht in der Lage, Zero-Day-Angriffe zu erkennen, d. h. Angriffe, die Schwachstellen ausnutzen, die vor der Ausführung der Angriffe nicht öffentlich bekannt sind.\\\addlinespace[0.5em]
 & Anomalie        
-& Verwendet ein Basisprofil regulärer Netz- und/oder Systemaktivitäten als Referenz, um zwischen regulären und auffälligen Aktivitäten zu unterscheiden, wobei letztere als Angriffe behandelt werden. Wird typischerweise durch die Überwachung regulärer Aktivitäten trainiert, um ein Basisaktivitätsprofil zu erstellen.\\\addlinespace[0.5em]
+& Verwendet ein Basisprofil regulärer Netz- und/oder Systemaktivitäten als Referenz, um zwischen regulären und auffälligen Aktivitäten zu unterscheiden, wobei Letztere als Angriffe behandelt werden. Wird typischerweise durch die Überwachung regulärer Aktivitäten trainiert, um ein Basisaktivitätsprofil zu erstellen.\\\addlinespace[0.5em]
 & Hybrid          
 & Verwendet sowohl signatur-basierte als auch anomalie-basierte Angriffserkennungsmethoden.\\ 
 \midrule
@@ -48,11 +45,11 @@ Struktur
 & Zentral
 & Kann nur an einem einzigen Standort eingesetzt werden.\\\addlinespace[0.5em]
 & Verteilt
-& Besteht aus mehreren Teilsystemen für die an verschiedenen Standorten eingesetzt werden können und miteinander kommunizieren, um für die Erkennung von Angriffen relevante Daten, z. B. Angriffswarnungen, auszutauschen. Kann koordinierte Angriffe auf mehrere Standorte in einer bestimmten zeitlichen Abfolge erkennen.\\
+& Besteht aus mehreren Teilsystemen, für die an verschiedenen Standorten eingesetzt werden können und miteinander kommunizieren, um für die Erkennung von Angriffen relevante Daten, z. B. Angriffswarnungen auszutauschen. Kann koordinierte Angriffe auf mehrere Standorte in einer bestimmten zeitlichen Abfolge erkennen.\\
 \bottomrule
 \end{tabularx}
 \end{table}
-Je nach 
+%TODO flavourtext
 \subsubsection{Schwächen der verfügbaren IDS}
 Der Hauptnachteil eines signatur-basierten IDS ist ausschließlich Angriffe zu erkennen, die vordefinierten Verhaltensmustern entsprechen. Der Hauptnachteil eines anomalie-basierten IDS ist die Baseline. Zuerst muss eine Baseline festgelegt werden, was mitunter je nach Größe und Struktur des Netzwerkes sehr komplex und damit fehleranfällig sein kann. Zusätzlich muss diese Baseline mitunter sehr oft aktualisiert werden, um auf Änderungen im Netzwerk zu reagieren. Dies verlangt dem Überwachenden zusätzliche Ressourcen ab.
 %\pagebreak
@@ -61,7 +58,7 @@ Um die Performance des konkret gewählten IDS verbessern zu können, muss festge
 Mell et al.\cite{mell2003overview} geben eine Übersicht über verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkungen zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
 %Coverage: This measurement determines which attacks an IDS can detect under ideal conditions. 
 \subsubsection{Abdeckung}
-Gibt an welche Typen von Angriffen ein IDS unter idealen Bedingungen erkennen kann.
+Gibt an, welche Typen von Angriffen ein IDS unter idealen Bedingungen erkennen kann.
 % Probability of False Alarms 
 %This measurement determines the rate of false positives produced by an IDS in a given environment during a particular time frame. A false positive or false alarm is an alert caused by normal non- malicious background traffic
 \subsubsection{Wahrscheinlichkeit falscher Alarme}
@@ -80,22 +77,22 @@ Gibt die Rate der durch das IDS korrekt erkannten Angriffe an.\\
 Ein auf Signaturen basierendes IDS bzw. der menschliche Administrator hinter dem System weisen Probleme auf, die nicht direkt beim Umgang mit verarbeitetem Netzwerkverkehr, sondern schon bei der bewussten, unbewussten oder erzwungenen Entscheidung, welcher Netzwerkverkehr überhaupt infrage kommt, entstehen:
 \begin{enumerate}
 \item{Eine zu große Menge an zu verarbeitendem Netzwerkverkehr, die die Verarbeitungskapazität eines IDS übersteigt, kann dazu führen, das Netzwerkpakete verworfen und Angriffe nicht erkannt werden}
-\item{Pakete die zwar nicht bösartig sind, aber so konstruiert das sie möglichst viele IDS Signaturen auslösen, überfordern den Administrator oder stören eventuell sogar die Verarbeitung von Paketen generell. }
+\item{Pakete die zwar nicht bösartig sind, aber so konstruiert das sie möglichst viele IDS Alarme auslösen, überfordern den Administrator oder stören eventuell sogar die Verarbeitung von Paketen generell. }
 \item{Ein Angreifer könnte eine Vielzahl "harmloserer", aber trotzdem noch als schädlich zu deklarierende Pakete senden, um einen größeren Angriff im Netzwerkverkehr zu verschleiern.}
 \item{Pakete, die möglicherweise vorhandene Fehler im IDS selbst ausnutzen.}
 \end{enumerate}
 %Ability to Correlate Events: This measurement demonstrates how well an IDS correlates attack events. These events may be gathered from IDSs, routers, firewalls, application logs, or a wide variety of other devices.
 \subsubsection{Korrelation zwischen Einzelereignissen }
-Demonstriert wie gut ein IDS eine Korrelation zwischen einzelnen Ereignissen, möglicherweise verschiedenen Ursprungs herzustellen. Die Ereignisse können dabei aus Routern, Firewalls, Anwendungen, dem IDS selbst oder einer großen Bandbreite anderer Quellen stammen.
+Demonstriert wie gut ein IDS eine Korrelation zwischen einzelnen Events, möglicherweise verschiedenen Ursprungs herzustellen. Die Ereignisse können dabei aus Routern, Firewalls, Anwendungen, dem IDS selbst oder einer großen Bandbreite anderer Quellen stammen.
 %Ability to Detect Never Before Seen Attacks: This measurement demonstrates how well an IDS can detect attacks that have not occurred before. For commercial systems, it is generally not useful to take this measurement since their signature-based technology can only detect attacks that had occurred previously (with a few exceptions). However, research systems based on anomaly detection or specification-based approaches may be suitable for this type of measurement. Usually systems detecting attacks that had never been detected before produce more false positives than those that do not have this feature.
 \subsubsection{Unbekannte Angriffe vorhersehen}
-Gibt an wie gut ein IDS einen Angriff erkennt der so noch nicht aufgetreten ist. Signatur-basierte IDS sind allgemein, mit wenigen Ausnahmen, nicht in der Lage solch einen Angriff zu erkennen. Normalerweise erhöht die Fähigkeit eines Systems einen noch unbekannten Angriff zu erkennen, im Vergleich zu Systemen die dies nicht versuchen, zusätzlich die Rate an falsch-positiven Meldungen.
+Gibt an, wie gut ein IDS einen Angriff erkennt, der so noch nicht aufgetreten ist. Signatur-basierte IDS sind allgemein mit wenigen Ausnahmen nicht in der Lage, solch einen Angriff zu erkennen. Normalerweise erhöht die Fähigkeit eines Systems, einen noch unbekannten Angriff zu erkennen, im Vergleich zu Systemen, die dies nicht versuchen, zusätzlich die Rate an falsch-positiven Meldungen.
 %Ability to Identify an Attack: This measurement demonstrates how well an IDS can identify the attack that it has detected by labeling each attack with a common name or vulnerability name or by assigning the attack to a category.
 \subsubsection{Identifizieren von Angriffen}
-Wie gut ein IDS einem Angriff den es erkennt, einen Namen oder eine Kategorie, beispielsweise ein CVE-Nummer, zuordnen kann.
+Wie gut ein IDS einem Angriff, den es erkennt, einen Namen oder eine Kategorie, beispielsweise ein CVE-Nummer, zuordnen kann.
 %Ability to Determine Attack Success: This measurement demonstrates if the IDS can determine the success of attacks from remote sites that give the attacker higher- level privileges on the attacked system. In current network environments, many remote privilege-gaining attacks (or probes) fail and do not damage the system attacked. Many IDSs, however, do not distinguish the failed from the successful attacks. For the same attack, some IDSs can detect the evidence of damages (whether the attack has succeeded) and some IDSs detect only the signature of attack actions (with no indication whether the attack succeeded or not). The ability to determine attack success is essential for the analysis of the attack correlation and the attack scenario; it also greatly simplifies an analyst’s work by distinguishing between more important successful attacks and the usually less damaging failed attacks. Measuring this capability requires the information about failed attacks as well as successful attacks.
 \subsubsection{Beurteilung  eines Angriffs}
-Indikator dafür ob ein IDS den Erfolg und die Auswirkungen eines Angriffes korrekt beurteilen kann. In aktuellen Netzwerkumgebungen schlagen viele Angriffs(-vesuche) fehl. Die meisten IDS unterscheiden allerdings nicht zwischen erfolgreichen und fehlgeschlagenen Angriffen. Für den selben Angriff können manche IDS die Anzeichen dafür ob ein Angriff erfolgreich war erkennen, andere lediglich das ein Angriff stattgefunden hat, allerdings ohne feststellen zu können ob er erfolgreich war. Die Fähigkeit, den Grad zu dem ein Angriff auf das überwachte System erfolgreich war zu beurteilen ist essenziell. Eine Vorfilterung der Meldungen durch das IDS vereinfacht die Arbeit des Netzwerkadministrators bzw. Analysten stark, da so eine Analyse des Angriffsszenarios und der Korrelation einzelner Angriffe vereinfacht wird. Diese Fähigkeit bei einem gegebenen IDS messen zu können setzt das Wissen, darüber welche Angriffe erfolgreich sind und welche nicht, voraus.
+Indikator dafür, ob ein IDS den Erfolg und die Auswirkungen eines Angriffes korrekt beurteilen kann. In aktuellen Netzwerkumgebungen schlagen viele Angriffs(-vesuche) fehl. Die meisten IDS unterscheiden allerdings nicht zwischen erfolgreichen und fehlgeschlagenen Angriffen. Für denselben Angriff können manche IDS die Anzeichen dafür, ob ein Angriff erfolgreich war erkennen andere lediglich, das ein Angriff stattgefunden hat, allerdings ohne feststellen zu können, ob er erfolgreich war. Die Fähigkeit, den Grad, zu dem ein Angriff auf das überwachte System erfolgreich war, zu beurteilen, ist essenziell. Eine Voralterung der Meldungen durch das IDS vereinfacht die Arbeit des Netzwerkadministrators bzw. Analysten stark, da so eine Analyse des Angriffsszenarios und der Korrelation einzelner Angriffe vereinfacht wird. Diese Fähigkeit, bei einem gegebenen IDS messen zu können, setzt das Wissen darüber welche Angriffe erfolgreich sind und welche nicht voraus.
 
 % Other Measurements
 % There are other measurements, such as ease of use, ease of maintenance, deployments issues, resource requirements, availability and quality of support etc. These measurements are not directly related to the IDS performance but may be more significant
@@ -103,11 +100,11 @@ Indikator dafür ob ein IDS den Erfolg und die Auswirkungen eines Angriffes korr
 \subsubsection{Einordnung der Kriterien}
 % Also, the probability of detection varies with the false positive rate, and an IDS can be configured or tuned to favor either the ability to detect attacks or to minimize false positives
 %TODO weiter erklären
-Die Wahrscheinlichkeit einen Angriff zu erkennen variiert mit der Rate an falsch-positiven Meldungen. Die Verbesserung von Falsch-positiv-Rate und Erkennungsrate stehen sich diametral gegenüber. Deutlich wird dies am jeweiligen Extremfall: Erkennt das System den gesamten NEtzwerkverkehr als schädlich so erkennt es auch alle Angriffe korrekt. Die Erkennungsrate ist also optimal. Die Falsch-positiv-Rate hingegen sehr schlecht. Erkennt das System einfach kein einziges Paket als Angriff gibt es auch keine falsch-positiven Meldungen. Allerdings ist damit auch die Erkennungsrate maximal schlecht. Bei der Konfiguration eines IDS kann also nur in Hinsicht auf eine der beiden Metriken optimiert werden.
+Die Wahrscheinlichkeit, einen Angriff zu erkennen, variiert mit der Rate an falsch-positiven Meldungen. Die Verbesserung der Rate von falsch-positiven Meldungen und Erkennungsrate stehen sich diametral gegenüber. Deutlich wird dies am jeweiligen Extremfall. Erkennt das System den gesamten Netzwerkverkehr als schädlich so erkennt es auch alle Angriffe korrekt. Die Erkennungsrate ist also optimal. Die Falsch-positiv-Rate hingegen sehr schlecht. Erkennt das System kein Paket als Angriff, gibt es keine falsch-positiven Meldungen. Allerdings ist damit auch die Erkennungsrate maximal schlecht. Bei der Konfiguration eines IDS kann also nur in Hinsicht auf eine der beiden Metriken optimiert werden.
 
 %unterscheidung performance/security related metrics 
 \subsection{Auswahl der Kriterien}
-Diese Arbeit beschäftigt sich ausschließlich mit sicherheitsrelevanten Leistungsmetriken. Dabei soll hauptsächlich der Einfluss von Kontextsensitivität auf die Abdeckung, die Erkennungswahrscheinlichkeit und die Rate falsch-positiver Alarme  betrachtet werden. Zusätzlich wird beleuchtet ob zusätzlicher Kontext die Interpretierbarkeit von Meldungen durch einen menschlichen Nutzer und das Identifizieren von Angriffen verbessert.
+Diese Arbeit beschäftigt sich ausschließlich mit sicherheitsrelevanten Leistungsmetriken. Dabei soll hauptsächlich der Einfluss von Kontextsensitivität auf die Abdeckung, die Erkennungswahrscheinlichkeit und die Rate falsch-positiver Alarme betrachtet werden. Ergänzend wird beleuchtet, ob zusätzlicher Kontext die Interpretierbarkeit von Meldungen durch einen menschlichen Nutzer und das Identifizieren von Angriffen verbessert.
 %One of the primary goals of this correlation is to identify staged penetration attacks. Currently, IDSs have only limited capabilities in this area.
 %Überleitung  zu CAAC
 %\section{Kontextsensitivität}
