@@ -78,7 +78,7 @@ In Zeek erfolgt das Schreiben in Logs immer nach dem selben Prinzip:
 \item{Eintrag wird in den Log geschrieben (Z. \ref{logging_6})}
 \end{enumerate}
 \lstset{escapeinside={(*@}{@*)}}
-\begin{lstlisting}[consecutivenumbers=false,caption={Generierung einer Log-Datei mit Verbindungsinformationen}]
+\begin{lstlisting}[consecutivenumbers=false,caption={Generierung einer Log-Datei mit Verbindungsinformationen},label={Code_3}]
 export {
     # Create an ID for our new stream. By convention, this is called "LOG".
     redef enum Log::ID += { LOG }; (*@\label{logging_1}@*)	

@@ -3,15 +3,14 @@
 \section{Umwandlung der Taxonomie in IDS-Signaturen} 
 
 %What is important for the reader is to understand that the contextual awareness of machines is from a radically different nature than the one of humans. Also, that computational systems are good at gathering and aggregating data, but humans are still better at recognizing contexts and determining what action is appropriate in a certain situation [2]. On the other hand, positivism looks at context as a representational problem, considering it as a “form of information, delineable, stable and separable from activity” [5]. The definitions made in the context-aware field, naturally adopt this point of view. For instance, Dey’s definition [10] allows designers to use the concept for determining why a situation occurs and use this to encode some action in the application [26], making the concept operational in terms of the actors and information sources [17]. Nevertheless, since the definition inherently has a positivist view, the potential of C-AS remains limited to the context that developers are able to encode and foresee. \cite{alegre_engineering_2016}
-Um die im Abschnitt Kontexttaxonomie festgelegten Kategorien in für ein IDS nutzbare Form zu bringen gilt es gewisse Dinge zu beachten:\\ Die Kontextsensitivität eines Computers unterscheidet sich drastisch von der eines Menschen. Rechensysteme sind sehr gut darin Daten zu erfassen und zu sammeln, aber Menschen sind immer-noch nötig um verschiedene Kontexte zu erkennen und zu entscheiden welches Handeln in einer bestimmten Situation angemessen ist \cite{dey_understanding_2001}.
-Der limitierende Faktor des Potenzials eines kontextsensitiven Systems ist das Maß an Kontext das ein Entwickler vorhersehen und kodieren kann.
+Um die im Abschnitt Kontexttaxonomie festgelegten Kategorien in für ein IDS nutzbare Form zu bringen, gilt es gewisse Dinge zu beachten:\\ die Kontextsensitivität eines Computers unterscheidet sich drastisch von der eines Menschen. Rechensysteme sind sehr gut darin, Daten zu erfassen und zu sammeln, aber Menschen sind immer noch nötig, um verschiedene Kontexte zu erkennen und zu entscheiden, welches Handeln in einer bestimmten Situation angemessen ist \cite{dey_understanding_2001}.
+Der limitierende Faktor des Potenzials eines kontextsensitiven Systems ist das Maß an Kontext, das ein Entwickler vorhersehen und codieren kann.
 %The list of unforeseen or undetectable contexts can be endless.Summarizing, if developers can not determine all that can be affected by an action, it will be very difficult to write a closed and comprehensive set of actions to take in those cases.
-Es ist aber weder beim Design noch später bei der Implementierung unmöglich alle Zusammenhänge vorherzusehen.
-Dementsprechend schwer wird ist es ein in sich geschlossenes und allumfassendes Regelset festzulegen \cite{perera_context_2014}.
+Es ist aber weder beim Design noch später bei der Implementierung unmöglich, alle Zusammenhänge vorherzusehen. Dementsprechend schwer wird ist es, ein in sich geschlossenes und allumfassendes Regel-Set festzulegen \cite{perera_context_2014}.
 %“(A) Enumerate the set of contextual states that may exist;” 
 %“(B) Know what information could accurately determine a contextual state within that set;” 
 %“(C) State what appropriate action should be taken in a particular state.”
- Nach Greenberg et al. \cite{greenberg2001context} gibt drei non-triviale Hauptaspekte die man beim Entwerfen eines kontextsensitiven Systems beachten sollte: 
+ Nach Greenberg et al. \cite{greenberg2001context} gibt es drei non-triviale Hauptaspekte, die beim Entwerfen eines kontextsensitiven Systems beachtet werden sollten:
 %Mehr erklärung nötig?
 \begin{enumerate}
 \item{Spezifizieren aller möglichen Kontextzustände}
@@ -19,10 +18,10 @@ Dementsprechend schwer wird ist es ein in sich geschlossenes und allumfassendes 
 \item{Welche Aktion im jeweiligen Zustand ausgeführt werden sollen.}
 \end{enumerate}
 \subsection{Entscheidung für ein IDS}
-IDSs können anhand der überwachten Plattform, der verwendeten Erkennungsmethode und der Struktur in der sie eingesetzt werden kategorisiert werden. \cite{milenkoski_evaluating_2015}.\\\\
-\begin{table}
+IDSs können anhand der überwachten Plattform, der verwendeten Erkennungsmethode und der Struktur in der sie eingesetzt wie in Tabelle \ref{Tabelle_1} zu sehen kategorisiert werden \cite{milenkoski_evaluating_2015}.
+\begin{table}[H]
 \label{Tabelle_1}
-\caption{Placeholder}
+\caption{Einteilungsansätze für IDS}
 \begin{tabularx}{\columnwidth}{p{3cm} l p{10cm}}
 \toprule
 Eigenschaft 
@@ -53,20 +52,20 @@ Struktur
 \bottomrule
 \end{tabularx}
 \end{table}
-\subsection{Verbesserung der Schwächen}
-Der Hauptnachteil eines signatur-basierten IDS ausschließlich Angriffe zu erkennen die vordefinierten Verhaltensmustern entsprechen. Der Hauptnachteil eines anomalie-basierten IDS  ist die Notwendigkeit die Baseline, mitunter sehr oft zu aktualisieren. 
-Um diese Nachteile auszugleichen bietet es sich an die bereits vorhandenen, gesammelten und aufbereiteten Kontextinformationen zu verwenden. Dies ermöglicht die schon vorhanden Signaturen so zu verbessern das sie eine größere Menge von Ereignissen abdecken oder bereits definierte Ereignisse genauer zu spezifizieren und so weniger (falsche) Meldungen zu generieren ohne dabei das Verhalten des Netzwerkverkehrs dauerhaft neu bewerten zu müssen.
-\pagebreak
+Je nach 
+\subsubsection{Schwächen der verfügbaren IDS}
+Der Hauptnachteil eines signatur-basierten IDS ist ausschließlich Angriffe zu erkennen, die vordefinierten Verhaltensmustern entsprechen. Der Hauptnachteil eines anomalie-basierten IDS ist die Baseline. Zuerst muss eine Baseline festgelegt werden, was mitunter je nach Größe und Struktur des Netzwerkes sehr komplex und damit fehleranfällig sein kann. Zusätzlich muss diese Baseline mitunter sehr oft aktualisiert werden, um auf Änderungen im Netzwerk zu reagieren. Dies verlangt dem Überwachenden zusätzliche Ressourcen ab.
+%\pagebreak
 \section{Anspruch an das IDS}
-Um die Performance des konkret gewählten IDS verbessern zu können, muss man festlegen welche Kriterien die Leistung beeinflussen bzw. bestimmen und wie man diese gewichtet.
-Mell et al.\cite{mell2003overview} nennen in ihrer Übersicht verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkungen zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
+Um die Performance des konkret gewählten IDS verbessern zu können, muss festgelegt werden, welche Kriterien die Leistung beeinflussen bzw. bestimmen und wie man diese gewichtet.
+Mell et al.\cite{mell2003overview} geben eine Übersicht über verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkungen zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
 %Coverage: This measurement determines which attacks an IDS can detect under ideal conditions. 
 \subsubsection{Abdeckung}
 Gibt an welche Typen von Angriffen ein IDS unter idealen Bedingungen erkennen kann.
 % Probability of False Alarms 
 %This measurement determines the rate of false positives produced by an IDS in a given environment during a particular time frame. A false positive or false alarm is an alert caused by normal non- malicious background traffic
 \subsubsection{Wahrscheinlichkeit falscher Alarme}
-Gibt die Wahrscheinlichkeit das durch ein IDS ausgelöste Alarme durch gutartigen bzw. nicht-schädlichen Netzwerkverkehr verursacht wurden an.\\
+Gibt die Wahrscheinlichkeit das durch ein IDS ausgelöste Alarme durch gutartigen bzw. nicht-schädlichen Netzwerkverkehr verursacht wurden, an.\\
 \[Rate\;an\;falsch-Positiven\;Meldungen = \frac{Anzahl\;falscher\;Alarme}{Anzahl\;aller\;Alarme}\]
 %Probability of Detection: 
 %This measurement determines the rate of attacks detected correctly by an IDS in a given environment during a particular time frame
@@ -78,12 +77,12 @@ Gibt die Rate der durch das IDS korrekt erkannten Angriffe an.\\
 %2. Sending to the IDS non-attack packets that are specially crafted to trigger many signatures within the IDS, thereby overwhelming the IDS’s human operator with false positives or crashing alert processing or display tools. 
 %3. Sending to the IDS a large number of attack packets intended to distract the IDS’s human operator while the attacker instigates a real attack
 \subsubsection{Resistenz}
-Ein signatur-basiertes IDS bzw. der menschliche Administrator hinter dem System weisen Probleme auf die nicht direkt beim Umgang mit verarbeitetem Netzwerkverkehr, sondern schon bei der bewussten, unbewussten, oder erzwungenen Entscheidung welcher Netzwerkverkehr überhaupt in Frage kommt, entstehen:
+Ein auf Signaturen basierendes IDS bzw. der menschliche Administrator hinter dem System weisen Probleme auf, die nicht direkt beim Umgang mit verarbeitetem Netzwerkverkehr, sondern schon bei der bewussten, unbewussten oder erzwungenen Entscheidung, welcher Netzwerkverkehr überhaupt infrage kommt, entstehen:
 \begin{enumerate}
-\item{Ein zu große Menge an zu verarbeitendem Netzwerkverkehr die die Verarbeitungskapazität eines IDS übersteigt kann dazu führen das Netzwerkpakete verworfen und Angriffe nicht erkannt werden}
-\item{Pakete die zwar nicht bösartig sind aber so konstruiert das sie möglichst viele IDS Signaturen auslösen, überfordern den Administrator oder stören eventuell sogar die Verarbeitung von Paketen generell. }
-\item{Ein Angreifer könnte eine Vielzahl "harmloserer" aber trotzdem noch als schädlich zu deklarierende Pakete senden um einen größeren Angriff im Netzwerkverkehr zu verschleiern.}
-\item{Pakete die möglicherweise vorhandene Fehler im IDS selbst ausnutzen.}
+\item{Eine zu große Menge an zu verarbeitendem Netzwerkverkehr, die die Verarbeitungskapazität eines IDS übersteigt, kann dazu führen, das Netzwerkpakete verworfen und Angriffe nicht erkannt werden}
+\item{Pakete die zwar nicht bösartig sind, aber so konstruiert das sie möglichst viele IDS Signaturen auslösen, überfordern den Administrator oder stören eventuell sogar die Verarbeitung von Paketen generell. }
+\item{Ein Angreifer könnte eine Vielzahl "harmloserer", aber trotzdem noch als schädlich zu deklarierende Pakete senden, um einen größeren Angriff im Netzwerkverkehr zu verschleiern.}
+\item{Pakete, die möglicherweise vorhandene Fehler im IDS selbst ausnutzen.}
 \end{enumerate}
 %Ability to Correlate Events: This measurement demonstrates how well an IDS correlates attack events. These events may be gathered from IDSs, routers, firewalls, application logs, or a wide variety of other devices.
 \subsubsection{Korrelation zwischen Einzelereignissen }
@@ -101,10 +100,10 @@ Indikator dafür ob ein IDS den Erfolg und die Auswirkungen eines Angriffes korr
 % Other Measurements
 % There are other measurements, such as ease of use, ease of maintenance, deployments issues, resource requirements, availability and quality of support etc. These measurements are not directly related to the IDS performance but may be more significant
 
-\subsection{Einordnung der Kriterien}
+\subsubsection{Einordnung der Kriterien}
 % Also, the probability of detection varies with the false positive rate, and an IDS can be configured or tuned to favor either the ability to detect attacks or to minimize false positives
 %TODO weiter erklären
-Die Wahrscheinlichkeit einen Angriff zu erkennen variiert mit der Rate an falsch-positiven Meldungen. Bei der Konfiguration eines IDS kann entweder die Falsch-positiv-Rate oder die Erkennungsrate optimiert werden.
+Die Wahrscheinlichkeit einen Angriff zu erkennen variiert mit der Rate an falsch-positiven Meldungen. Die Verbesserung von Falsch-positiv-Rate und Erkennungsrate stehen sich diametral gegenüber. Deutlich wird dies am jeweiligen Extremfall: Erkennt das System den gesamten NEtzwerkverkehr als schädlich so erkennt es auch alle Angriffe korrekt. Die Erkennungsrate ist also optimal. Die Falsch-positiv-Rate hingegen sehr schlecht. Erkennt das System einfach kein einziges Paket als Angriff gibt es auch keine falsch-positiven Meldungen. Allerdings ist damit auch die Erkennungsrate maximal schlecht. Bei der Konfiguration eines IDS kann also nur in Hinsicht auf eine der beiden Metriken optimiert werden.
 
 %unterscheidung performance/security related metrics 
 \subsection{Auswahl der Kriterien}
