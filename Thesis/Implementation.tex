@@ -78,7 +78,7 @@ In Zeek erfolgt das Schreiben in Logs immer nach demselben Prinzip:
 \item{Eintrag wird in Log geschrieben (Z. \ref{logging_6})}
 \end{enumerate}
 \lstset{escapeinside={(*@}{@*)}}
-\begin{lstlisting}[consecutivenumbers=false,caption={Generierung einer Log-Datei mit Verbindungsinformationen},label={Code_3}]
+\begin{lstlisting}[consecutivenumbers=false,numberblanklines=false,caption={Generierung einer Log-Datei mit Verbindungsinformationen},label={Code_2}]
 export {
     # Create an ID for our new stream. By convention, this is called "LOG".
     redef enum Log::ID += { LOG }; (*@\label{logging_1}@*)	
@@ -114,7 +114,7 @@ Zeile \ref{g_lookup_1} Zuordnung einer IP-Adresse zu einem geografischen Ort.\\
 Zeile \ref{g_lookup_2} - \ref{g_lookup_3} Ermittlung der Ortszeit am Ursprung der Anfrage mithilfe der lokalen Uhrzeit in Kombination mit dem aus dem Abstand ermittelten Zeitunterschied.\\
 Zeile \ref{g_lookup_4} Anpassung des Grenzwertes\\
 \lstset{escapeinside={(*@}{@*)}}
-\begin{lstlisting}[consecutivenumbers=false,caption={Geolokalisierung und Setzen des Grenzwertes},firstnumber=31,linerange={31-37,42-54}]
+\begin{lstlisting}[consecutivenumbers=false,numberblanklines=false,label={Code_3},caption={Geolokalisierung und Setzen des Grenzwertes},firstnumber=31,linerange={31-37,42-54}]
 module GeoLogTest;
 
 export {
@@ -179,7 +179,7 @@ Wenn eine Verbindung oder ein Verbindungsversuch mit einem bestimmten Port des S
 \item{Das Skript vergleicht den Zielport jeder eingehenden Verbindung mit der Liste von Hostports}
 \item{Abhängig vom Ergebnis wird eine Meldung in den Log geschrieben}
 \end{enumerate}
-\begin{lstlisting}[caption={Abfrage und Abgleich der Ports },consecutivenumbers=false,lastline=77,firstnumber=52,numberblanklines=false,linerange={52-55,62-70,76-77}]
+\begin{lstlisting}[caption={Abfrage und Abgleich der Ports },label={Code_4},consecutivenumbers=false,lastline=77,firstnumber=52,numberblanklines=false,linerange={52-55,62-70,76-77}]
 @load site/packages/zeek-agent-v2
 @load site/packages/zeek-agent-v2/framework/main
 @load site/packages/zeek-agent-v2/table
@@ -272,7 +272,7 @@ Menschliche Nutzer verwenden bei der Nutzung ihres Endgerätes im Gegensatz zu C
 Das Skript erfragt periodisch die Hosts-Datei eines Unix-Systems (Z. \ref{dns_lookup_1}).\\
 Loggt für jede Antwort eines DNS-Servers die aufgelöste URL und dazugehörige IP-Adresse (Z. \ref{dns_lookup_2}).\\
 Im Log vermerkt sind ausgehende Verbindungen, deren Zieladressen vorher nicht durch einen DNS-Server oder die Hosts-Datei aufgelöst wurden (Z. \ref{dns_lookup_3}).
-\begin{lstlisting}[firstnumber=53,linerange={53-64,65-73},caption={Überprüfung der Verbindungsziele eines Endgerätes}]
+\begin{lstlisting}[firstnumber=53,label={Code_5},linerange={53-64,65-73},caption={Überprüfung der Verbindungsziele eines Endgerätes},numberblanklines=false]
 @load site/packages/zeek-agent-v2
 @load site/packages/zeek-agent-v2/framework/main
 @load site/packages/zeek-agent-v2/table

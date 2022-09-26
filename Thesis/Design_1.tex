@@ -12,7 +12,6 @@ Zuerst wird die Notwendigkeit für eine Taxonomie erläutert. Dann erfolgt die D
 %TODO “Based on the evaluation of context categorisation, it is evident that no single categorisation scheme can accommodate all the demands” ([Perera et al., 2014, p. 423]
 Die Evaluation verschiedener Kategorisierungsschemata zeigt, dass keine Kategorisierung allen Ansprüchen gerecht werden kann \cite{perera_context_2014}.
 \section{ Erstellung einer Taxonomie }
-%TODO
 Es folgt eine Kombination bereits vorgeschlagener Kategorisierungsschemata. Dazu lege ich zuerst die Definition der einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle fest. Die Kategorien müssen dafür abhängig davon, mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark angepasst werden.
 Die Grafiken \ref{Tax_1} und \ref{Tax_2} veranschaulichen die Beziehung der einzelnen Kategorien zueinander und geben Beispiele dafür, wie Kontextinformationen aussehen können. Als Vorbild diente die Grafik in \cite{perera_context_2014}. 
 \subsection{Mensch}
@@ -41,7 +40,7 @@ Warum etwas getan wird. In  Abbildung \ref{Tax_1}  ist kein primärer Grund vorh
 \begin{figure}[H]
 \label{Tax_1}
 \centering
-\includegraphics[width=15cm,height=15.2569cm]{graphic_1}
+\includegraphics[width=15cm,height=13.8172cm]{graphic_1}
 \caption{Nutzerzentrierte Kategorisierung}
 \end{figure}
 %--------------------------
@@ -58,9 +57,9 @@ Ein Netzwerk besteht im Allgemeinen aus:
 \end{enumerate}
 Im Rahmen der Zugriffskontrolle erfolgt Kommunikation im Netzwerk über spezifische Protokolle zwischen verschiedenen Entitäten, die durch bestimmte Attribute charakterisiert werden. Die Normen werden dabei initial festgelegt und im Verlauf der Lebenszeit des Netzwerkes angepasst.
 \subsubsection{Protokolle}
-Kategorisierung anhand des verwendeten Kommunikationsprotokolls. Orientiert sich am ISO/OSI-Referenzmodell \cite{day1983osi}. Die Zuordnung zu einer bestimmten Ebene und damit Kategorie erfolgt anhand der für die einzelnen Schichten üblichen Protokolle. Das ermöglicht die Identifikation von Entitäten anhand der von ihnen genutzten Protokolle. So kann beispielsweise ein Switch oder Router, der nicht von einem Nutzer oder einer Anwendung unterschieden werden.
+Die Kategorisierung anhand des verwendeten Kommunikationsprotokolls orientiert sich am ISO/OSI-Referenzmodell \cite{day1983osi}. Die Zuordnung zu einer bestimmten Ebene und damit Kategorie erfolgt anhand der für die einzelnen Schichten üblichen Protokolle. Das ermöglicht die Identifikation von Entitäten anhand der von ihnen genutzten Protokolle. So kann beispielsweise ein Switch oder Router, der nicht von einem Nutzer oder einer Anwendung unterschieden werden.
 \paragraph{Anwendung}
-beinhaltet allen Netzwerkverkehr, der sich der Sitzungsschicht, Darstellungsschicht oder Anwendungsschicht zuordnen lässt 
+Beinhaltet allen Netzwerkverkehr, der sich der Sitzungsschicht, Darstellungsschicht oder Anwendungsschicht zuordnen lässt. 
 \paragraph{Transport}
 Pakete, die sich der Transportschicht zuordnen lassen.
 \paragraph{Vermittlung}
@@ -71,7 +70,7 @@ Diese Unterscheidung setzt genauso wie die Historie eindeutig identifizierbare E
 \paragraph{Gerät}
 Informationen, die sich auf ein spezifisches Gerät beziehen
 \begin{enumerate}
-\item{Ein Gerät ist beispielsweise einen Router oder das Endgerät eines Nutzers. }
+\item{Ein Gerät ist beispielsweise ein Router oder das Endgerät eines Nutzers. }
 \item{Informationen können beispielsweise die Liste an installierter Software, die Menge laufender Prozesse oder die Auslastung der Hardwarekomponenten sein.}
 \end{enumerate}
 \paragraph{Nutzer}
@@ -94,9 +93,9 @@ Form der Kommunikation mit verschiedenen Protokollen oder Verhalten von Entität
 Form der Kommunikation mit verschiedenen Protokollen oder Verhalten von Entitäten, die in Kombination mit den im Netzwerk vorherrschenden Bedingungen entweder auffällig oder irrational sind.
 \begin{figure}[H]
 \centering
-\includegraphics[width=15cm,height=16.97cm]{graphic_2}
+\includegraphics[width=15cm,height=16.5508cm]{graphic_2}
 \caption{Kategorisierung von Kontextinformationen als Netzwerkbestandteile}
-\label{Tax_2}
+\label{Tax_2} 
 \end{figure}
 %--------------------------
 \subsection{Historie}
@@ -156,15 +155,22 @@ Die Historie muss genug Informationen enthalten, um damit neue Urteile in der Ge
 %Verbindung zugelassen
 \section{Kontextgewinnung}
 %Wo genau bekommt man Kontextinformationen her 
-Jegliche Kategorisierung von Kontext ist von geringem Nutzen, ohne das Informationen vorhanden sind, die kategorisiert werden können.
-Die benötigten Informationen entweder direkt aus dem Netzwerkverkehr oder erfragt sie von 
-Dabei sollte man bedenken, an welcher Stelle und wie oft man Informationen abruft oder automatisch aktualisiert. \cite{perera_context_2014}
-
-TODO
-Es folgt eine Übersicht einiger Beispiele für Möglichkeiten Kontextinformationen zu gewinnen. 
+Jegliche Kategorisierung von Kontext ist von geringem Nutzen, ohne das Informationen vorhanden sind, die kategorisiert werden können. Dabei bedacht werden sollte, an welcher Stelle und wie oft Informationen abgerufen oder automatisch aktualisiert werden müssen \cite{perera_context_2014}. In Tabelle \ref{Tabelle_2} findet sich eine Übersicht darüber welche Möglichkeiten es gibt bestimmte Kontextinformationen zu sammeln. 
 %TODO  A Context Aware Network-IDS
-- osquery
-- network (open ports) | Nessus
-- devices in network | Configuration Management Database (CMDB), nmap   
-- cve reference - yes/no
-- protocol header
+\begin{table}[H]
+\label{Tabelle_2}
+\caption{Akquirierungspunkte für verschiedene Kontextinformationen}
+\begin{tabularx}{\columnwidth}{p{3cm} p{10cm}}
+\toprule
+Konfigurations-management-datenbank (KMDB) & 
+Beinhaltet die Konfigurationsparameter aller bekannten Hosts, einschließlich der vollständigen Historie, mit Details zu Hardware, Software, Prozessen, Infrastrukturen, Verantwortlichkeiten und anderen Komponenten.\\
+\midrule
+Scanner für Netzwerkschwachstellen &  \\
+\midrule
+Crawler & Erlaubt es die auf einem einzelnen Port aktiven Anwendungen zu ermitteln.\\
+\midrule
+Endpunktagent & Ermöglicht das Abfragen verschiedenster Systemparameter direkt vom Hostsystem. Die Menge an abfragbaren Informationen hängt dabei stark von der gewählten Implementierung ab.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+Je nach Wichtigkeit des jeweiligen Hosts variiert der Detailgrad der Informationen die in einer KMDB vermerkt sind. Bei kritischen Infrastrukturen wie Routern, Switches und zentralen Servern sollte die KMDB mindestens das Betriebssystem, dessen Version sowie alle Anwendungen mit ihren Versionen und Patch-Ständen enthalten. Bei allen hier aufgelisteten Werkzeugen sollte bedacht werden, dass aufgrund der Fehleranfälligkeit dieser Herangehensweise Daten zu sammeln, die gewonnenen Informationen in jedem Fall von Menschen gegengeprüft werden sollten.
