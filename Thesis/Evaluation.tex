@@ -28,7 +28,7 @@ Das Hauptaugenmerk liegt dabei darauf, falsch-positive Meldungen zu verringern u
 Dabei wurden Kontextinformationen aus verschiedenen Einzelkategorien der im Kapitel \ref{cha:design} vorgestellten Taxonomie kombiniert, um im jeweiligen Anwendungsfall eine Verbesserung der IDS-Eigenschaften zu erreichen.
 Die Nützlichkeit der Kontextinformationen hängt dabei von der Verfügbarkeit und Qualität der Informationen sowie der Komplexität, dass dazu benötigte Skript zu erzeugen ab. 
 % How did the experiments that you did actually looked like, or how did you actually measure the chosen metrics?
-Die Verfügbarkeit wird daran bemessen wie anspruchsoll die Informationen zu beschaffen waren. Die Qualität wird von der Höhe des Aufwandes die Informationen in eine Form zu bringen, die eine Verarbeitung zulässt und .
+Die Verfügbarkeit wird daran bemessen wie anspruchsvoll die Informationen zu beschaffen waren. Die Qualität wird von der Höhe des Aufwandes die Informationen in eine Form zu bringen, die eine Verarbeitung zulässt und .
 % What are the actual values that you measured in your experiments? Do they match your intuition about the relationship between the system parameters and the metrics?
 
 
@@ -43,18 +43,11 @@ Aber auch Zeek in Kombination mit Zeek-Agent ist nicht perfekt. Die Vor- und Nac
 %\section{Mächtigkeit eines kontextsensitiven IDS}  
 \section{Vergleich der Kontextkategorien} 
 %\subsection{Theoretische Mächtigkeit einzelner Kategorien}
-Ähnlich wie in den im Bereich \ref{cha:design} verwendeten Grafiken erfolgt auch die Bewertung der Unterteilung im Hinblick auf Verfügbarkeit und Qualität. Auf die im Teilbereich \ref{cha:implementation} implementierten Rubriken und dabei aufgetretene Problem wird jeweils noch einmal separat eingegangen. Alle weiteren im Kapitel \ref{cha:design} aufgestellten Kategorien werden anhand der Erkenntnisse, die während des Implementationsprozesses entstanden sind, ausschließlich in den Grafiken \ref{Tax_Ev_1} und \ref{Tax_Ev_2} bewertet. Dabei erfolgt auch eine Veranschaulichung davon welche Kategorie zur Erfüllung welches Ziels geeignet ist. Dargestellt wird weiterhin, ob eine Kategorie zur Verbesserung der Metriken für sich allein, oder nur in Kombination mit anderen Kategorien beitragen kann.
-
+Ähnlich wie in den im Bereich \ref{cha:design} verwendeten Grafiken erfolgt auch die Bewertung der Unterteilung im Hinblick auf Verfügbarkeit und Qualität. Auf die im Teilbereich \ref{cha:implementation} implementierten Rubriken und dabei aufgetretene Problem wird jeweils noch einmal separat eingegangen. Alle weiteren im Kapitel \ref{cha:design} aufgestellten Kategorien werden anhand der Erkenntnisse, die während des Implementationsprozesses entstanden sind, ausschließlich in der Grafik \ref{Tax_Ev_1} bewertet. Dabei erfolgt auch eine Veranschaulichung davon welche Kategorie zur Erfüllung welches Ziels geeignet ist. Dargestellt wird weiterhin, ob eine Kategorie zur Verbesserung der Metriken für sich allein, oder nur in Kombination mit anderen Kategorien beitragen kann.
 \begin{figure}[H]
-\includegraphics[width=15cm,height=15.2596cm]{graphic_1}
-\caption{Evaluation der nutzerzentrierten Kategorisierung}
+\includegraphics[width=15cm,height=8.5743cm]{Evaluation}
+\caption{Evaluation der Taxonomie}
 \label{Tax_Ev_1}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=15cm,height=16.97cm]{graphic_2}
-\caption{Evaluation der netzwerkzentrierten Kategorisierung}
-\label{Tax_Ev_2}
 \end{figure}
 
 \subsection{Verfügbarkeit der Informationen}

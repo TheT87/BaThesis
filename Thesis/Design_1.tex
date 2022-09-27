@@ -107,7 +107,7 @@ Die Historie einer Entität wird in dieser Taxonomie zweigeteilt. Sie besteht au
 \end{enumerate}
 %Die Existenz einer Historie trifft die implizite Annahme, das eine Entität eindeutig und über einen längeren Zeitraum im Netzwerkverkehr identifizierbar ist.
 \subsubsection{Dynamik}
-Es liegt in der Natur der Sache, das sich die Messwerte, aus denen sich die Historie einer Entität zusammensetzt, je nachdem welchem Teil sie zugeordnet werden, verschieden oft abändern
+Es liegt in der Natur der Sache, das sich die Messwerte, aus denen sich die Historie einer Entität zusammensetzt, je nachdem welchem Teil sie zugeordnet werden, verschieden oft ändern.
 Statische Messgrößen ändern dabei ihre Werte nie oder nur sehr selten. Dynamische Messgrößen hingegen sehr oft. In diesem Fall wird eine Unterteilung in jährlich, monatlich, wöchentlich, täglich, stündlich, minütlich und sekündlich vorgenommen. 
 \subsubsection{Raten}
 Die Historie einer Kontextinformation ist weiterhin in drei verschiedene Bereiche unterteilt. Abhängig davon, wo die Änderung auftritt und ob das IDS oder eine Entität die Aktualisierung des Wertes auslöst.
@@ -115,19 +115,19 @@ Die Historie einer Kontextinformation ist weiterhin in drei verschiedene Bereich
 Häufigkeit mit der eine Werteänderung im Normalfall vorkommt.
 \paragraph{Abtastrate}
 Wie oft Kontextinfomationen abgefragt und aktualisiert werden.
-\paragraph{Abfragerate}
-Wie oft Werte im Netzwerk von einer Entität, die nicht das IDS ist, abgefragt werden.
+%\paragraph{Abfragerate}
+%Wie oft Werte im Netzwerk von einer Entität, die nicht das IDS ist, abgefragt werden.
 \begin{figure}[H]
 \centering
 \includegraphics{history}
-\caption{Farblegende der Dynamik und Historie eines Beispieleintrages}
+\caption{Legende der Dynamik der Legende}
 \
 \end{figure}
 %--------------------------
 
 
 \section{Form des Kontextes}
-Nachdem die einzelnen Kategorien definiert wurden, muss festgelegt werden in welcher Form die Kontextinformationen vorliegen sollen bzw. gebracht werden müssen. Für fast alle Kategorien selbsterklärend. Protokollkontext hat eine durch das Protokoll selbst vorgegebene feste Form, ein Zeitstempel ebenso. Kurzgesagt:Größtenteils ist anhand der Spezifikation der jewiligen eingeordneten Informationen offensichtlich welche Form die Information haben sollte und die Form des Kontextes lediglich nebensächlich. Deshalb wird an dieser Stelle nicht auf alle Kategorien seperat eingegangen.\\
+Nachdem die einzelnen Kategorien definiert wurden, muss festgelegt werden in welcher Form die Kontextinformationen vorliegen sollen bzw. gebracht werden müssen. Für fast alle Kategorien selbsterklärend. Protokollkontext hat eine durch das Protokoll selbst vorgegebene feste Form, ein Zeitstempel ebenso. Kurzgesagt:Größtenteils ist anhand der Spezifikation der jeweiligen eingeordneten Informationen offensichtlich welche Form die Information haben sollte und die Form des Kontextes lediglich nebensächlich. Deshalb wird an dieser Stelle nicht auf alle Kategorien separat eingegangen.\\
 Die Historie bildet eine Ausnahme. Hier gibt es je nach Bedarf des Anwendungsfalls einen gewissen Spielraum. Die gespeicherten Informationen werden abhängig von der Implementierung eventuell nicht vom IDS eingelesen oder gar selbst vom IDS erzeugt. Auch gibt es höchst unterschiedliche Ansprüche an Form, Umfang und Zeitraum oder Beschränkungen hinsichtlich Performanz und Speicherbedarf.
 \subsection{Historie}
 Die Historie muss genug Informationen enthalten, um damit neue Urteile in der Gegenwart oder Zukunft zu fällen und sie eindeutig identifizieren zu können. Schließlich kann eine Historie, die dabei helfen soll, Entscheidungen zu treffen, die den Netzwerkverkehr von Entitäten betreffen kann nicht ohne eindeutig identifizierte Entitäten funktionieren.\\ Die Identifikation erfolgt anhand der Headerinformationen der einzelnen Kommunikationsschichten. In der Historie gespeichert werden entweder die gesamte Payload eines Pakets oder zumindest ein ausreichend aussagekräftige Teilmenge. Die Regelmäßigkeit mit der die Historie aktualisiert bzw. erweitert wird ist von den jeweiligen Gegebenheiten und Anforderungen abhängig. Kommunikationspartner benötigen eine Grundmenge an Informationen um miteinander kommunizieren zu können. Genauso benötigt ein IDS  eine bestimmte Mindestmenge an Informationen, um initial eine Entscheidung treffen zu können. Die nach Ansicht des Autors dafür benötigten Informationen finden sich in Tabelle \ref{Tabelle_3}.
@@ -153,7 +153,7 @@ Wenn nicht wenigstens diese Information im Netzwerkverkehr enthalten sind, kann 
 %Verbindung zugelassen
 \section{Kontextgewinnung}
 %Wo genau bekommt man Kontextinformationen her 
-Jegliche Kategorisierung von Kontext ist von geringem Nutzen, ohne das Informationen vorhanden sind, die kategorisiert werden können. Dabei bedacht werden sollte, an welcher Stelle und wie oft Informationen abgerufen oder automatisch aktualisiert werden müssen \cite{perera_context_2014}. Pimenidis et al. \cite{pimenidis2008context} nennen KMDBs, Scanner oder Crawler als Möglichkeiten Kontextinformatioen zu sammeln. Zusätzlich dazu sind Anwendungen die direkt auf Endgeräten laufen und von dort aus Daten an das IDS schicken erwähnenswert. Eine Übersicht und genauere Erklärung der einzelnen Komponenten findet sich in Tabelle \ref{Tabelle_2}. 
+Jegliche Kategorisierung von Kontext ist von geringem Nutzen, ohne das Informationen vorhanden sind, die kategorisiert werden können. Dabei bedacht werden sollte, an welcher Stelle und wie oft Informationen abgerufen oder automatisch aktualisiert werden müssen \cite{perera_context_2014}. Pimenidis et al. \cite{pimenidis2008context} nennen KMDBs, Scanner oder Crawler als Möglichkeiten Kontextinformationen zu sammeln. Zusätzlich dazu sind Anwendungen die direkt auf Endgeräten laufen und von dort aus Daten an das IDS schicken erwähnenswert. Eine Übersicht und genauere Erklärung der einzelnen Komponenten findet sich in Tabelle \ref{Tabelle_2}. 
 \begin{table}[H]
 \label{Tabelle_2}
 \caption{Akquirierungspunkte für verschiedene Kontextinformationen}
@@ -164,7 +164,7 @@ Werkzeug & Erklärung\\
 Konfigurations-management-datenbank (KMDB) & 
 Beinhaltet die Konfigurationsparameter aller bekannten Hosts, einschließlich der vollständigen Historie, mit Details zu Hardware, Software, Prozessen, Infrastrukturen, Verantwortlichkeiten und anderen Komponenten.\\
 \midrule
-Scanner für Netzwerkschwachstellen &  Scannen von beispielweise Ports um sich einen Überblick über laufende Anwendungen und mögliche Schwachstellen zu verschaffen. \\
+Scanner für Netzwerkschwachstellen &  Scannen von beispielsweise Ports um sich einen Überblick über laufende Anwendungen und mögliche Schwachstellen zu verschaffen. \\
 \midrule
 Crawler & Erlaubt es die auf einem einzelnen Port aktiven Anwendungen zu ermitteln.\\
 \midrule
@@ -172,4 +172,4 @@ Endpunktagent & Ermöglicht das Abfragen verschiedenster Systemparameter direkt 
 \bottomrule
 \end{tabularx}
 \end{table}
-Je nach Wichtigkeit des jeweiligen Hosts variiert der Detailgrad der Informationen die in einer KMDB vermerkt sind. Bei kritischen Infrastrukturen wie Routern, Switches und zentralen Servern sollte die KMDB mindestens das Betriebssystem, dessen Version sowie alle Anwendungen mit ihren Versionen und Patch-Ständen enthalten. Bei allen hier aufgelisteten Werkzeugen sollte bedacht werden, dass aufgrund der Fehleranfälligkeit dieser Herangehensweise Daten zu sammeln, die gewonnenen Informationen in jedem Fall von Menschen gegengeprüft werden sollten.
+Je nach Wichtigkeit des jeweiligen Hosts variiert der Detailgrad der Informationen die in einer KMDB vermerkt sind. Bei kritischen Infrastrukturen wie Routern, Switches und zentralen Servern sollte die KMDB mindestens das Betriebssystem, dessen Version sowie alle Anwendungen mit ihren Versionen und Patch-Ständen enthalten. Bei allen hier aufgelisteten Werkzeugen sollte bedacht werden, dass aufgrund der Fehleranfälligkeit dieser Herangehensweise Daten zu sammeln, die gewonnenen Informationen in jedem Fall von Menschen gegen geprüft werden sollten.
