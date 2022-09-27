@@ -8,14 +8,14 @@
 %\end{enumerate}
 %After the second step, you start the next iteration by identifying design problems that arise when you want to use the most promising design choice. For example, if Mix networks turn out to be the most promising approach for your requirements, you then need to address the question how the mix network should be designed (e.g. how are mix nodes chosen by the users of the anonymization network? How do mix nodes process messages?). Once you identified the most promising solutions to that, you can then start the next iteration and so on until there are no more open design questions that you are aware of.
 Zuerst wird die Notwendigkeit für eine Taxonomie erläutert. Dann erfolgt die Definition der Taxonomiekategorien. Danach wird festgelegt, in welcher Form die Kontextinformationen in den einzelnen Kategorien vorliegen müssen und wie man Informationen aus unterschiedlichen Quellen sammelt. Zusätzlich wird noch darauf eingegangen, welche Anforderungen ein IDS erfüllen sollte, welche davon im speziellen für diese Arbeit relevant sind und welche Schwächen des IDS mithilfe des vorgeschlagenen Designs und Kontextsensitivität gelöst werden.
-\section{Notwendigkeit einer Taxonomie}
+%%\section{Notwendigkeit einer Taxonomie}
 %TODO “Based on the evaluation of context categorisation, it is evident that no single categorisation scheme can accommodate all the demands” ([Perera et al., 2014, p. 423]
-Die Evaluation verschiedener Kategorisierungsschemata zeigt, dass keine Kategorisierung allen Ansprüchen gerecht werden kann \cite{perera_context_2014}.
 \section{ Erstellung einer Taxonomie }
-Es folgt eine Kombination bereits vorgeschlagener Kategorisierungsschemata. Dazu wird  zuerst die einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle definiert. Die Kategorien müssen dafür abhängig davon, mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark abgewandelt werden.
-Die Grafiken \ref{Tax_1} und \ref{Tax_2} veranschaulichen die Beziehung der einzelnen Kategorien zueinander und geben Beispiele dafür, wie Kontextinformationen aussehen können. Als Vorbild diente die Grafik in \cite{perera_context_2014}. 
+Im Abschnitt \ref{cha:background} wurden viele verschiedene Schemata zur Kategorisierung vorgeschlagen, keines dieser Schemata ist aber ausreichend um den Ansprüchen dieser Arbeit gerecht zu werden. Auch eine Evaluation 16 verschiedener Arbeiten durch Perera et al. \cite{perera_context_2014} legen nahe, dass keine Kategorisierung allein allen Ansprüchen gerecht werden kann.
+Es folgt also eine Kombination bereits vorgeschlagener Kategorisierungsschemata. Dazu werden zuerst die einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle definiert. Die Kategorien müssen dafür abhängig davon, mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark abgewandelt werden.
+Die Grafiken \ref{Tax_1} und \ref{Tax_2} veranschaulichen die Beziehung der einzelnen Kategorien zueinander und geben Beispiele dafür, welche Kontextinformationen in den einzelnen Kategorien vorkommen können. Als Inspiration für den Aufbau dieser Grafiken diente eine in \cite{perera_context_2014} verwendete Abbildung. Diese wurde inhaltlich adaptiert, um für den Kontext der Netzwerksicherheit verwendet werden zu können. 
 \subsection{Mensch}
-Die offensichtliche Kategorisierung von Kontext und auch von den meisten Autoren, auf die im Kapitel \ref{cha:background} erwähnt wurden, ist die aus der Perspektive des Nutzers, also einer Person. Auch für eine Einordnung im Rahmen der Zugriffskontrolle lässt sich argumentieren, dass ein Fokus auf Menschen sinnvoll ist. Zwar Rücken gerade in diesem Bereich Personen gelegentlich in den Hintergrund und der überwiegende Teil des Netzwerkverkehrs wird ausgelöst, ohne das Nutzende davon etwas mitbekommen. Aber in letzter Instanz sind sowohl Verursachende, Überwachende und forschende Menschen. Menschen haben vielfältige Anliegen, müssen unauffälligen von auffälligem Netzwerkverkehr unterscheiden, versuchen die Beweggründe anderer indirekt zu erschließen, zu kategorisieren und in Taxonomien zu verpacken.
+Eine naheliegende Kategorisierung von Kontext und außerdem die von den vielen Autoren, auf die im Kapitel \ref{cha:background} eingegangen wurde, ist die aus der Perspektive des Nutzers, also einer Person. Auch für eine Einordnung im Rahmen der Zugriffskontrolle lässt sich argumentieren, dass ein Fokus auf Menschen sinnvoll ist. Zwar Rücken gerade in diesem Bereich Personen gelegentlich in den Hintergrund und der überwiegende Teil des Netzwerkverkehrs wird ausgelöst, ohne das Nutzende davon etwas mitbekommen. Aber in letzter Instanz sind sowohl Verursachende, Überwachende und forschende Menschen. Menschen haben vielfältige Anliegen, müssen unauffälligen von auffälligem Netzwerkverkehr unterscheiden, versuchen die Beweggründe anderer indirekt zu erschließen, zu kategorisieren und in Taxonomien zu visualisieren.
 
 \subsubsection{Konzeptionell}
 Einordnung anhand der Bedeutung des Kontextes und der begrifflichen Beziehungen.
@@ -24,9 +24,9 @@ Einordnung anhand der Bedeutung des Kontextes und der begrifflichen Beziehungen.
 Kontextinformationen, die gesammelt werden können, ohne bereits vorhandene Daten zu verwenden oder zu kombinieren \cite{abowd_towards_1999}. 
 \paragraph{Sekundär}
 %"Any information that can be computed using primary context. The secondary context can be computed by using sensor data fusion operations or data retrieval operations such as web service calls (e.g. identify the distance between two sensors by applying sensor data fusion operations on two raw GPS sensor values). Further, retrieved context such as phone numbers, addresses, email addresses, birthdays, list of friends from a contact information provider based on a personal identity as the primary context can also be identified as secondary context.” 
-Kontext, der durch das Verarbeiten von primärem Kontext erschlossen werden kann. Dies kann durch die Kombination einzelner Datenpunkte einer oder mehrerer Kategorien oder durch Abfragen weiterer Daten mithilfe der primären Informationen geschehen \cite{abowd_towards_1999}.
+Kontext, der durch das Verarbeiten von primärem Kontext erschlossen werden kann. Geschehen kann dies durch die Kombination einzelner Datenpunkte einer oder mehrerer Kategorien oder durch Abfragen weiterer Daten mithilfe der primären Informationen \cite{abowd_towards_1999}.
 \subsubsection{Betrieblich}
-Wie schon in der Analyse bereits vorgeschlagener Kategorien bedeutet die betriebliche Kategorisierung: ``Einordnung anhand dessen, wie der Kontext akquiriert, modelliert und behandelt wird ''\cite{van2005context}.
+Wie schon in der Analyse bereits vorgeschlagener Kategorien, erläutert in Kapitel \ref{cha:background}, meint betriebliche Kategorisierung: ``Einordnung anhand dessen, wie der Kontext akquiriert, modelliert und behandelt wird ''\cite{van2005context}.
 \paragraph{Zeit}
 Zu welcher Zeit eine Zugriffsanfrage erfolgt.
 \paragraph{Ort}
@@ -70,20 +70,20 @@ Diese Unterscheidung setzt genauso wie die Historie eindeutig identifizierbare E
 \paragraph{Gerät}
 Informationen, die sich auf ein spezifisches Gerät beziehen
 \begin{enumerate}
-\item{Ein Gerät ist beispielsweise ein Router oder das Endgerät eines Nutzers. }
+\item{Ein Gerät ist beispielsweise das Endgerät eines Nutzers oder ein Router im Netzwerk. }
 \item{Informationen können beispielsweise die Liste an installierter Software, die Menge laufender Prozesse oder die Auslastung der Hardwarekomponenten sein.}
 \end{enumerate}
-\paragraph{Nutzer}
-Informationen, die sich auf einen Nutzer beziehen.
+\paragraph{Nutzer/Rolle}
+Informationen, die sich auf einen Nutzer oder seine Rolle beziehen.
 \begin{enumerate}
-\item{Ein Nutzer im Sinne eines Computersystems und keine physische Person. So kann eine physische Person mehrere verschiedene logische Nutzerkonten haben. }
-\item{Informationen können zum Beispiel die Zugriffsrechte eines Nutzers sein.}
+\item{Ein Nutzer ist dabei eine physische Person und kann mehrere verschiedene Rollen inne haben. }
+\item{Informationen können beispielsweise Zugriffsrechte sein, die mit einer Rolle verbundenen sind. Auch die Browserhistorie eines Nutzers wäre eine Information die in diese Kategorie fällt.}
 \end{enumerate}
 \paragraph{Anwendung}
 Informationen, die sich auf eine Anwendung beziehen.
 \begin{enumerate}
 \item{Anwendung umfasst jegliche Softwareprozesse, die für sich oder in Kombination einen bestimmten Zweck erfüllen.}
-\item{Eine Anwendung erzeugt für sie charakteristischen Netzwerkverkehr, versendet oder empfängt also bestimmte Informationen.}
+\item{Eine Anwendung erzeugt für charakteristischen Netzwerkverkehr, versendet oder empfängt also bestimmte Informationen nach spezifischen Mustern.}
 \end{enumerate}
 \subsubsection{Policies}
 Einordnung der Kontextinformationen abhängig davon, ob sie der für den Anwendungsfall definierten Normen entsprechen.
@@ -99,7 +99,7 @@ Form der Kommunikation mit verschiedenen Protokollen oder Verhalten von Entität
 \end{figure}
 %--------------------------
 \subsection{Historie}
-Unabhängig vom gewählten Fokus oder Blickwinkel auf die Kategorisierung von Kontext benötigt man, um bereits gesammelte Kontextinformationen nutzen zu können, eine Art Gedächtnis. Im Fall eines IDS, welches ohnehin aufgrund seiner Funktionsweise über einen längeren Zeitraum Informationen verarbeitet und neue Erkenntnisse speichert, bietet sich eine Historie wie in Kapitel \ref{cha:background} beschrieben an.
+Unabhängig vom gewählten Fokus oder Blickwinkel auf die Kategorisierung von Kontext benötigt man, um bereits gesammelte Kontextinformationen nutzen zu können, eine Art Gedächtnis. Im Fall eines IDS, welches ohnehin aufgrund seiner Funktionsweise über einen längeren Zeitraum Informationen verarbeitet und neue Erkenntnisse speichert, bietet sich eine Historie, ähnlich wie in Kapitel \ref{cha:background} beschrieben, an.
 Die Historie einer Entität wird in dieser Taxonomie zweigeteilt. Sie besteht aus:
 \begin{enumerate}
 \item{Einem aktiven Teil also ihrem Verhalten, beispielsweise früheren Verbindungen bzw. Verbindungsanfragen}
@@ -130,23 +130,21 @@ Wie oft Werte im Netzwerk von einer Entität, die nicht das IDS ist, abgefragt w
 Nachdem die einzelnen Kategorien definiert wurden, muss festgelegt werden in welcher Form die Kontextinformationen vorliegen sollen bzw. gebracht werden müssen. Für fast alle Kategorien selbsterklärend. Protokollkontext hat eine durch das Protokoll selbst vorgegebene feste Form, ein Zeitstempel ebenso. Kurzgesagt:Größtenteils ist anhand der Spezifikation der jewiligen eingeordneten Informationen offensichtlich welche Form die Information haben sollte und die Form des Kontextes lediglich nebensächlich. Deshalb wird an dieser Stelle nicht auf alle Kategorien seperat eingegangen.\\
 Die Historie bildet eine Ausnahme. Hier gibt es je nach Bedarf des Anwendungsfalls einen gewissen Spielraum. Die gespeicherten Informationen werden abhängig von der Implementierung eventuell nicht vom IDS eingelesen oder gar selbst vom IDS erzeugt. Auch gibt es höchst unterschiedliche Ansprüche an Form, Umfang und Zeitraum oder Beschränkungen hinsichtlich Performanz und Speicherbedarf.
 \subsection{Historie}
-Die Historie muss genug Informationen enthalten, um damit neue Urteile in der Gegenwart oder Zukunft zu fällen und sie eindeutig identifizieren zu können. Schließlich kann eine Historie, die dabei helfen soll, Entscheidungen zu treffen, die den Netzwerkverkehr von Entitäten betreffen kann nicht ohne eindeutig identifizierte Entitäten funktionieren.\\ Die Identifikation erfolgt anhand der Headerinformationen der einzelnen Kommunikationsschichten. In der Historie gespeichert werden entweder die gesamte Payload eines Pakets oder zumindest ein ausreichend aussagekräftige Teilmenge. Die Regelmäßigkeit mit der die Historie aktualisiert bzw. erweitert wird ist von den jeweiligen Gegebenheiten und Anforderungen abhängig. Nach Ansicht des Autors sollte ein Teilmenge mindestens folgende Daten beinhalten, um eine ausreichende Rekonstruktion des Kenntnisstandes, mit dem die Zugriffsentscheidungen ursprünglich getroffen wurden, zu ermöglichen und damit Aussagekraft zu gewährleisten:
-\begin{enumerate}
-\item{Zur Identifikation einer Entität und der Zuordnung ihrer Verbindung:}
-\begin{enumerate}
-\item{MAC-Adresse}
-\item{IP-Adresse}
-\item{Port}
-\end{enumerate}
-\item{Zur Rekonstruktion der ursprünglichen Zugriffsentscheidungen, die die Entität betreffen:}
-\begin{enumerate}
-\item{MAC-Adresse des Ziels}
-\item{IP-Adresse des Ziels, gesetzte Flags, Gültigkeitsdauer, Protokoll}
-\item{Port des Ziels, protokollspezifische Informationen}
-\end{enumerate}
-
-\end{enumerate}
-
+Die Historie muss genug Informationen enthalten, um damit neue Urteile in der Gegenwart oder Zukunft zu fällen und sie eindeutig identifizieren zu können. Schließlich kann eine Historie, die dabei helfen soll, Entscheidungen zu treffen, die den Netzwerkverkehr von Entitäten betreffen kann nicht ohne eindeutig identifizierte Entitäten funktionieren.\\ Die Identifikation erfolgt anhand der Headerinformationen der einzelnen Kommunikationsschichten. In der Historie gespeichert werden entweder die gesamte Payload eines Pakets oder zumindest ein ausreichend aussagekräftige Teilmenge. Die Regelmäßigkeit mit der die Historie aktualisiert bzw. erweitert wird ist von den jeweiligen Gegebenheiten und Anforderungen abhängig. Kommunikationspartner benötigen eine Grundmenge an Informationen um miteinander kommunizieren zu können. Genauso benötigt ein IDS  eine bestimmte Mindestmenge an Informationen, um initial eine Entscheidung treffen zu können. Die nach Ansicht des Autors dafür benötigten Informationen finden sich in Tabelle \ref{Tabelle_3}.
+\begin{table}[H]
+\label{Tabelle_3}
+\caption{Benötigte Informationen der Historie einer Entität}
+\begin{tabularx}{\columnwidth}{p{3cm} p{12cm}}
+\toprule
+Identifikation & Rekonstruktion der ursprünglichen  Zugriffsentscheidungen\\
+\midrule
+MAC-Adresse & MAC-Adresse des Ziels \\
+IP-Adresse & IP-Adresse des Ziels, gesetzte Flags, Protokoll, Gültigkeitsdauer \\
+Port & Port des Ziels, protokollspezifische Informationen \\
+\bottomrule
+\end{tabularx}
+\end{table}
+Wenn nicht wenigstens diese Information im Netzwerkverkehr enthalten sind, kann ein IDS eine Entität weder eindeutig zuordnen noch eine fundierte Entscheidung treffen. Da also mindestens diese Datenlage bereits benötigt wird, erscheint sie auch als sinnvolle Mindestanforderung für eine Historie. Ohne diese Daten kann keine ausreichende Rekonstruktion des Kenntnisstandes, mit dem die Zugriffsentscheidungen ursprünglich getroffen wurden, ermöglicht werden. Damit ist also keine Aussage über vergangenes Verhalten einer Entität und dessen Bewertung möglich.
 %Scr-IP/Port + Dest-IP/Port
 %Zeitpunkt
 %Protokoll
@@ -162,6 +160,8 @@ Jegliche Kategorisierung von Kontext ist von geringem Nutzen, ohne das Informati
 \caption{Akquirierungspunkte für verschiedene Kontextinformationen}
 \begin{tabularx}{\columnwidth}{p{3cm} p{10cm}}
 \toprule
+Werkzeug & Erklärung\\
+\midrule
 Konfigurations-management-datenbank (KMDB) & 
 Beinhaltet die Konfigurationsparameter aller bekannten Hosts, einschließlich der vollständigen Historie, mit Details zu Hardware, Software, Prozessen, Infrastrukturen, Verantwortlichkeiten und anderen Komponenten.\\
 \midrule
