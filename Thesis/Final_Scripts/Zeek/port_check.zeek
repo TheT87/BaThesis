@@ -6,7 +6,7 @@
 @load site/zeek-agent-v2/table
 
 
-module Querytest;
+module Port_Check;
 
 export {
     # Create an ID for our new stream. By convention, this is
@@ -24,7 +24,7 @@ export {
 redef record connection += {
     # By convention, the name of this new field is the lowercase name
     # of the module.
-    querytest: Info &optional;
+    port_check : Info &optional;
 };
 
 type Columns: record {
@@ -52,17 +52,17 @@ global allowed_ports : table[int] of string = {
 function check_outgoing_connection(c:connection){
     local _port = port_to_count(c$id$orig_p);
     if(_port !in local_ports){
-        local rec: Querytest::Info = [$ts=current_time(), $id=c$id, $notice="No Application running on this port"];
+        local rec: Port_Check::Info = [$ts=current_time(), $id=c$id, $notice="No Application running on this port"];
         # Store a copy of the data in the connection record so other
         # event handlers can access it.
-        c$querytest = rec;
-        Log::write(Querytest::LOG, rec);
+        c$port_check = rec;
+        Log::write(Port_Check::LOG, rec);
     }else{
-        local rec_2: Querytest::Info = [$ts=current_time(), $id=c$id, $notice="Working"];
+        local rec_2: Port_Check::Info = [$ts=current_time(), $id=c$id, $notice="Working"];
         # Store a copy of the data in the connection record so other
         # event handlers can access it.
-        c$querytest = rec_2;
-        Log::write(Querytest::LOG, rec_2);
+        c$port_check = rec_2;
+        Log::write(Port_Check::LOG, rec_2);
     
     }
 }
@@ -76,7 +76,7 @@ event users_result(ctx: ZeekAgent::Context, data: Columns){
 }
 
 event zeek_init(){
-	Log::create_stream(Querytest::LOG, [$columns=Info, $path="querytest"]);
+	Log::create_stream(Port_Check::LOG, [$columns=Info, $path="port_check"]);
     local str_stmt_join = "SELECT users.name, users.is_admin, sockets.process, sockets.protocol, sockets.local_addr, sockets.local_port, sockets.remote_addr, sockets.remote_port FROM users JOIN processes ON users.uid=processes.uid JOIN sockets ON sockets.pid=processes.pid";
     local query_event = users_result;
     local _schedule = 10 secs;

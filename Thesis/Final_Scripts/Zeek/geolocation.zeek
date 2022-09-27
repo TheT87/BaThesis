@@ -1,4 +1,4 @@
-module GeoLogTest;
+module GeoLoc;
 
 export {
     # Create an ID for our new stream. By convention, this is
@@ -17,7 +17,7 @@ export {
 redef record connection += {
     # By convention, the name of this new field is the lowercase name
     # of the module.
-    geologtest: Info &optional;
+    geoloc: Info &optional;
 };
 
 global ip_addresses : table[addr] of int;
@@ -31,7 +31,6 @@ const closing_time = 19;
 const opening_time = 7;
 
 function geolocation(c: connection):double{
-	local origin_country = lookup_location(c$id$orig_h)$country_code;
 	local origin_longitude = lookup_location(c$id$orig_h)$longitude;
 	return origin_longitude;
 }
@@ -47,7 +46,7 @@ function time_at_geolocation(longitude: double): int{
 }
 
 function set_threshold(c_time: int): double{
-	print(c_time);
+	# example threshold for testing
 	threshold = 10;
 	night_time_decrease = 10;
 	day_time_increase = 10;
@@ -70,19 +69,18 @@ function number_of_connection_attempts(c:connection): int{
 }
 
 function log_exceeded_ips (c: connection, threshold: double, number_of_connections: int){
-	print(id_string(c$id));
 	if (number_of_connections > threshold){
-		local rec: GeoLogTest::Info = [$ts=current_time(),$rts=strftime("%H:%M:%S",network_time()), $id=c$id, $notice="Threshold exceeded"];
+		local rec: GeoLoc::Info = [$ts=current_time(),$rts=strftime("%H:%M:%S",network_time()), $id=c$id, $notice="Threshold exceeded"];
 		# Store a copy of the data in the connection record so other
     	# event handlers can access it.
-    	c$geologtest = rec;
-		Log::write(GeoLogTest::LOG, rec);
+    	c$geoloc = rec;
+		Log::write(GeoLoc::LOG, rec);
 		break;
 	}
 }
 
 event zeek_init(){
-	Log::create_stream(GeoLogTest::LOG, [$columns=Info, $path="geologtest"]);
+	Log::create_stream(GeoLoc::LOG, [$columns=Info, $path="geoloc"]);
 }
 
 

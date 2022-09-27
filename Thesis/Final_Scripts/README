@@ -1,0 +1,23 @@
+Setup
+
+scapy
+https://github.com/secdev/scapy
+zeek
+https://docs.zeek.org/en/master/get-started.html
+zeek-agent
+https://github.com/zeek/zeek-agent-v2
+
+Verwendung
+
+Erzeugen von Logs im aktuellen Verzeichnis
+/<zeek-Verzeichnis> -C -r /<Pcap-Datei-Verzeichnis> /<Script-Verzeichnis>
+
+-C tells Zeek to ignore invalid IP Checksums
+
+
+Für Anwendungsfälle relevante Logs
+
+geoloc.log
+port_check.log
+dns_check.log
+

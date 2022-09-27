@@ -15,7 +15,7 @@ def traffic_without_process():
     tcp_pkt = layer_2 / layer_3 / layer_4
     sendp(tcp_pkt)
 
-
+# Not used in the thesis
 def traffic_on_forbidden_ports():
     target_server = "172.17.144.87"
     source_server = "172.123.123." + str(random.randint(2, 255))
@@ -31,4 +31,4 @@ def traffic_on_forbidden_ports():
 if __name__ == '__main__':
     for i in range(0, 20):
         traffic_without_process()
-        traffic_on_forbidden_ports()
+    #    traffic_on_forbidden_ports()

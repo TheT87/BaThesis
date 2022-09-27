@@ -7,7 +7,7 @@
 @load base/protocols/conn/contents
 @load base/protocols/dns
 @load base/bif
-module DNStest;
+module DNS_Check;
 
 export {
     # Create an ID for our new stream. By convention, this is
@@ -25,7 +25,7 @@ export {
 redef record connection += {
     # By convention, the name of this new field is the lowercase name
     # of the module.
-    dnstest: Info &optional;
+    dns_check: Info &optional;
 };
 
 type Columns: record{
@@ -38,7 +38,7 @@ global resolved_addresses : table [addr] of string={
 global dns_server : set[addr];
 
 event zeek_init(){
-    Log::create_stream(DNStest::LOG, [$columns=Info, $path="dnstest"]);
+    Log::create_stream(DNS_Check::LOG, [$columns=Info, $path="dns_check"]);
 }
 
 #An event that can be handled to access the DNS::Info record as it is sent to the logging framework.
@@ -74,11 +74,11 @@ function query_hosts_file(){
 event check_resolve_table(c : connection){
     local destination_ip = c$id$resp_h;
     if(destination_ip !in resolved_addresses && destination_ip !in dns_server){
-        local rec: DNStest::Info = [$ts=current_time(), $id=c$id, $notice="Connection without Resolve!"];
+        local rec: DNS_Check::Info = [$ts=current_time(), $id=c$id, $notice="Connection without Resolve!"];
         # Store a copy of the data in the connection record so other
         # event handlers can access it.
-        c$dnstest = rec;
-        Log::write(DNStest::LOG, rec);
+        c$dns_check = rec;
+        Log::write(DNS_Check::LOG, rec);
     }
 }
 
