@@ -56,7 +56,7 @@ Der Hauptnachteil eines signatur-basierten IDS ist ausschließlich Angriffe zu e
 %\pagebreak
 \section{Anspruch an das IDS}
 Um die Performance des konkret gewählten IDS verbessern zu können, muss festgelegt werden, welche Kriterien die Leistung beeinflussen bzw. bestimmen und wie man diese gewichtet.
-Mell et al.\cite{mell2003overview} geben eine Übersicht über verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkungen zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
+Mell et al. \cite{mell2003overview} geben eine Übersicht über verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkungen zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
 %Coverage: This measurement determines which attacks an IDS can detect under ideal conditions. 
 \subsubsection{Abdeckung}
 Gibt an, welche Typen von Angriffen ein IDS unter idealen Bedingungen erkennen kann.
@@ -86,7 +86,7 @@ Ein auf Signaturen basierendes IDS bzw. der menschliche Administrator hinter dem
 \subsubsection{Korrelation zwischen Einzelereignissen }
 Demonstriert wie gut ein IDS eine Korrelation zwischen einzelnen Events, möglicherweise verschiedenen Ursprungs herzustellen. Die Ereignisse können dabei aus Routern, Firewalls, Anwendungen, dem IDS selbst oder einer großen Bandbreite anderer Quellen stammen.
 %Ability to Detect Never Before Seen Attacks: This measurement demonstrates how well an IDS can detect attacks that have not occurred before. For commercial systems, it is generally not useful to take this measurement since their signature-based technology can only detect attacks that had occurred previously (with a few exceptions). However, research systems based on anomaly detection or specification-based approaches may be suitable for this type of measurement. Usually systems detecting attacks that had never been detected before produce more false positives than those that do not have this feature.
-\subsubsection{Unbekannte Angriffe vorhersehen}
+\subsubsection{Vorhersehen von unbekannten Angriffen}
 Gibt an, wie gut ein IDS einen Angriff erkennt, der so noch nicht aufgetreten ist. Signatur-basierte IDS sind allgemein mit wenigen Ausnahmen nicht in der Lage, solch einen Angriff zu erkennen. Normalerweise erhöht die Fähigkeit eines Systems, einen noch unbekannten Angriff zu erkennen, im Vergleich zu Systemen, die dies nicht versuchen, zusätzlich die Rate an falsch-positiven Meldungen.
 %Ability to Identify an Attack: This measurement demonstrates how well an IDS can identify the attack that it has detected by labeling each attack with a common name or vulnerability name or by assigning the attack to a category.
 \subsubsection{Identifizieren von Angriffen}

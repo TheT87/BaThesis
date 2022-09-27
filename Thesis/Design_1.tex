@@ -12,7 +12,7 @@ Zuerst wird die Notwendigkeit für eine Taxonomie erläutert. Dann erfolgt die D
 %TODO “Based on the evaluation of context categorisation, it is evident that no single categorisation scheme can accommodate all the demands” ([Perera et al., 2014, p. 423]
 Die Evaluation verschiedener Kategorisierungsschemata zeigt, dass keine Kategorisierung allen Ansprüchen gerecht werden kann \cite{perera_context_2014}.
 \section{ Erstellung einer Taxonomie }
-Es folgt eine Kombination bereits vorgeschlagener Kategorisierungsschemata. Dazu wird  zuerst die einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle definiert. Die Kategorien müssen dafür abhängig davon, mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark angepasst werden.
+Es folgt eine Kombination bereits vorgeschlagener Kategorisierungsschemata. Dazu wird  zuerst die einzelnen Kategorien im Bezug auf kontextsensitive Zugriffskontrolle definiert. Die Kategorien müssen dafür abhängig davon, mit welchem Fokus sie der jeweilige Autor konstruiert hat, mehr oder weniger stark abgewandelt werden.
 Die Grafiken \ref{Tax_1} und \ref{Tax_2} veranschaulichen die Beziehung der einzelnen Kategorien zueinander und geben Beispiele dafür, wie Kontextinformationen aussehen können. Als Vorbild diente die Grafik in \cite{perera_context_2014}. 
 \subsection{Mensch}
 Die offensichtliche Kategorisierung von Kontext und auch von den meisten Autoren, auf die im Kapitel \ref{cha:background} erwähnt wurden, ist die aus der Perspektive des Nutzers, also einer Person. Auch für eine Einordnung im Rahmen der Zugriffskontrolle lässt sich argumentieren, dass ein Fokus auf Menschen sinnvoll ist. Zwar Rücken gerade in diesem Bereich Personen gelegentlich in den Hintergrund und der überwiegende Teil des Netzwerkverkehrs wird ausgelöst, ohne das Nutzende davon etwas mitbekommen. Aber in letzter Instanz sind sowohl Verursachende, Überwachende und forschende Menschen. Menschen haben vielfältige Anliegen, müssen unauffälligen von auffälligem Netzwerkverkehr unterscheiden, versuchen die Beweggründe anderer indirekt zu erschließen, zu kategorisieren und in Taxonomien zu verpacken.
@@ -155,7 +155,7 @@ Die Historie muss genug Informationen enthalten, um damit neue Urteile in der Ge
 %Verbindung zugelassen
 \section{Kontextgewinnung}
 %Wo genau bekommt man Kontextinformationen her 
-Jegliche Kategorisierung von Kontext ist von geringem Nutzen, ohne das Informationen vorhanden sind, die kategorisiert werden können. Dabei bedacht werden sollte, an welcher Stelle und wie oft Informationen abgerufen oder automatisch aktualisiert werden müssen \cite{perera_context_2014}. In Tabelle \ref{Tabelle_2} findet sich eine Übersicht darüber welche Möglichkeiten es gibt bestimmte Kontextinformationen zu sammeln. 
+Jegliche Kategorisierung von Kontext ist von geringem Nutzen, ohne das Informationen vorhanden sind, die kategorisiert werden können. Dabei bedacht werden sollte, an welcher Stelle und wie oft Informationen abgerufen oder automatisch aktualisiert werden müssen \cite{perera_context_2014}. Pimenidis et al. \cite{pimenidis2008context}} nennen KMDBs, Scanner oder Crawler als Möglichkeiten Kontextinformatioen zu sammeln. Zusätzlich dazu sind Anwendungen die direkt auf Endgeräten laufen und von dort aus Daten an das IDS schicken erwähnenswert. Eine Übersicht und genauere Erklärung der einzelnen Komponenten findet sich in Tabelle \ref{Tabelle_2}. 
 %TODO  A Context Aware Network-IDS
 \begin{table}[H]
 \label{Tabelle_2}
@@ -165,7 +165,7 @@ Jegliche Kategorisierung von Kontext ist von geringem Nutzen, ohne das Informati
 Konfigurations-management-datenbank (KMDB) & 
 Beinhaltet die Konfigurationsparameter aller bekannten Hosts, einschließlich der vollständigen Historie, mit Details zu Hardware, Software, Prozessen, Infrastrukturen, Verantwortlichkeiten und anderen Komponenten.\\
 \midrule
-Scanner für Netzwerkschwachstellen &  \\
+Scanner für Netzwerkschwachstellen &  Scannen von beispielweise Ports um sich einen Überblick über laufende Anwendungen und mögliche Schwachstellen zu verschaffen. \\
 \midrule
 Crawler & Erlaubt es die auf einem einzelnen Port aktiven Anwendungen zu ermitteln.\\
 \midrule
