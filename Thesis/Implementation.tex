@@ -108,11 +108,15 @@ event zeek_init(){
 \section{Skripte}
 Der Kern der Implementierung sind Zeek Skripte. Hier werden die gesammelten Kontextinformationen verwendet. Nachfolgend werden für einige ausgewählte Kategorien Anwendungsfälle vorgestellt.
 \subsection{Geografische Koordinaten und Ortszeit}
-Das Volumen von durch Menschen verursachten Netzwerkverkehr ist in der Regel größtenteils tageszeitabhängig. So wird üblicherweise nachts weniger kommuniziert als am Tag. Deshalb erscheint es sinnvoll, den Grenzwert für erzeugtes Verkehrsaufkommen, ab dem ein Sender als potenziell böswillig eingestuft wird, je nach Uhrzeit anzupassen. \\\newline
-Zeile \ref{g_lookup_1} Ordnet einer IP-Adresse zu einem geografischen Ort zu.\\
-%Möglich aufgrund des Vergabeverfahrens.
-Zeile \ref{g_lookup_2} - \ref{g_lookup_3} Ermittelt die Ortszeit am Ursprung der Anfrage mithilfe der lokalen Uhrzeit in Kombination mit dem aus dem Abstand ermittelten Zeitunterschied.\\
-Zeile \ref{g_lookup_4} Passt des Grenzwertes entsprechend an.\\\pagebreak
+Das Volumen von durch Menschen verursachten Netzwerkverkehr ist in der Regel größtenteils tageszeitabhängig. So wird üblicherweise nachts weniger kommuniziert als am Tag. Deshalb erscheint es sinnvoll, den Grenzwert für erzeugtes Verkehrsaufkommen, ab dem ein Sender als potenziell böswillig eingestuft wird, je nach Uhrzeit anzupassen. \\
+
+Das Skript ordnet eine IP-Adresse zu einem geografischen Ort zu (Z. \ref{g_lookup_1}).\\
+
+Berechnet die Ortszeit am Ursprung der Anfrage mithilfe der lokalen Uhrzeit in
+
+Kombination mit dem aus dem Abstand ermittelten Zeitunterschied (Z. \ref{g_lookup_2} - \ref{g_lookup_3}).\\
+
+Passt des Grenzwertes entsprechend an (Z. \ref{g_lookup_4}).\\\pagebreak
 \lstset{escapeinside={(*@}{@*)}}
 \begin{lstlisting}[consecutivenumbers=false,numberblanklines=false,label={Code_3},caption={Geolokalisierung und Setzen des Grenzwertes},firstnumber=31,linerange={31-37,42-54}]
 module GeoLogTest;
@@ -173,12 +177,17 @@ function set_threshold(c_time: int): double{ (*@\label{g_lookup_4}@*)
 %\end{figure}
 \subsection{Verwendete Ports}
 %Verwendet werden Ports die die aktuell auf dem System laufenden Prozesse.
-Wenn eine Verbindung oder ein Verbindungsversuch mit einem bestimmten Port des Systems als Ziel beobachtet wird, ohne das ein Prozess gibt, der diesem Port durch Zeek-Agent zugeordnet werden kann, wird die Verbindung oder der Verbindungsversuch im dazugehörigen Log vermerkt.
-\begin{enumerate}
-\item{Das Skript erfagt bei den zeek-agents in regelmäßigen Abständen die auf Hostsystemen laufenden Prozesse und deren verwendete Ports.}
-\item{Das Skript vergleicht den Zielport jeder eingehenden Verbindung mit der Liste von Hostports.}
-\item{Abhängig vom Ergebnis wird eine Meldung in den Log geschrieben.}
-\end{enumerate}
+Wenn eine Verbindung oder ein Verbindungsversuch mit einem bestimmten Port des Systems als Ziel beobachtet wird, ohne das ein Prozess gibt, der diesem Port durch Zeek-Agent zugeordnet werden kann, wird die Verbindung oder der Verbindungsversuch im dazugehörigen Log vermerkt.\\
+
+Das Skript erfagt bei den zeek-agents in regelmäßigen Abständen die auf Hostsystemen
+
+laufenden Prozesse und deren verwendete Ports.\\
+
+Das Skript vergleicht den Zielport jeder eingehenden Verbindung mit der Liste von 
+
+verwendeten Ports auf dem Hostsystem.\\
+
+Abhängig vom Ergebnis wird eine Meldung in den Log geschrieben.
 \begin{lstlisting}[caption={Abfrage und Abgleich der Ports },label={Code_4},consecutivenumbers=false,lastline=77,firstnumber=52,numberblanklines=false,linerange={52-55,62-70,76-77}]
 @load site/packages/zeek-agent-v2
 @load site/packages/zeek-agent-v2/framework/main
@@ -268,11 +277,19 @@ event zeek_done(){
 }
 \end{lstlisting}
 \subsection{DNS-Auflösung}
-Menschliche Nutzer verwenden bei der Nutzung ihres Endgerätes im Gegensatz zu Computern keine IP-Adressen, um im Suchanfragen zu formulieren. DNS ordnet IP-Adressen menschenfreundliche Domainnamen zu. Wenn das System eines Nutzers eine Verbindung aufbaut, geht dem eine DNS-Anfrage von diesem Gerät an einen DNS-Nameserver voraus oder die IP-Adresse ist in lokalen Konfigurationsdateien auffindbar. Wenn beispielsweise eine TCP-Verbindung eines Webbrowsers beobachtet wird, ohne das eine zuordenbare DNS-Anfrage erfolgt ist oder die IP-Adresse in der Routingdatei des Endgerätes vermerkt ist, ist das in den meisten Fällen ein Grund zum Handeln.
+Menschliche Nutzer verwenden bei der Nutzung ihres Endgerätes im Gegensatz zu Computern keine IP-Adressen, um im Suchanfragen zu formulieren. DNS ordnet IP-Adressen menschenfreundliche Domainnamen zu. Wenn das System eines Nutzers eine Verbindung aufbaut, geht dem eine DNS-Anfrage von diesem Gerät an einen DNS-Nameserver voraus oder die IP-Adresse ist in lokalen Konfigurationsdateien auffindbar. Wenn beispielsweise eine TCP-Verbindung eines Webbrowsers beobachtet wird, ohne das eine zuordenbare DNS-Anfrage erfolgt ist oder die IP-Adresse in der Routingdatei des Endgerätes vermerkt ist, ist das in den meisten Fällen ein Grund zum Handeln.\\
+
 Das Skript erfragt periodisch die Hosts-Datei eines Unix-Systems (Z. \ref{dns_lookup_1}).\\
-Loggt für jede Antwort eines DNS-Servers die aufgelöste URL und dazugehörige IP-Adresse (Z. \ref{dns_lookup_2}).\\
-Im Log vermerkt sind ausgehende Verbindungen, deren Zieladressen vorher nicht durch einen DNS-Server oder die Hosts-Datei aufgelöst wurden (Z. \ref{dns_lookup_3}).
-\begin{lstlisting}[firstnumber=53,label={Code_5},linerange={53-64,65-73},caption={Überprüfung der Verbindungsziele eines Endgerätes},numberblanklines=false]
+
+Loggt parallel für jede Antwort eines DNS-Servers die aufgelöste URL und dazugehörige 
+
+IP-Adresse (Z. \ref{dns_lookup_2}).\\
+
+Im Log vermerkt sind ausgehende Verbindungen, deren Zieladressen vorher nicht durch 
+
+einen DNS-Server oder die Hosts-Datei aufgelöst wurden (Z. \ref{dns_lookup_3}).
+
+\begin{lstlisting}[firstnumber=53,label={Code_5},linerange={45-45,47-53,59-64,65-73},caption={Überprüfung der Verbindungsziele eines Endgerätes},numberblanklines=false]
 @load site/packages/zeek-agent-v2
 @load site/packages/zeek-agent-v2/framework/main
 @load site/packages/zeek-agent-v2/table
@@ -322,13 +339,13 @@ event DNS::log_dns(rec:DNS::Info){
     local query : string = rec$query;
     local answer : vector of string = rec$answers;
     local answer_address  = to_addr(answer[1]);
-    resolved_addresses [answer_address] = query;
+    resolved_addresses [answer_address] = query; (*@\label{dns_lookup_2}@*)
 }
 
 event query_result(ctx: ZeekAgent::Context, data: Columns){
     local ip_address = to_addr(data$line_content[0]);
     local host_name = data$line_content[1];
-    resolved_addresses[ip_address] = host_name + " from local hosts";(*@\label{dns_lookup_2}@*)
+    resolved_addresses[ip_address] = host_name + " from local hosts";
 }
 
 function query_hosts_file(){
