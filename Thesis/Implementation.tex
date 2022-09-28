@@ -279,11 +279,11 @@ event zeek_done(){
 \subsection{DNS-Auflösung}
 Menschliche Nutzer verwenden bei der Nutzung ihres Endgerätes im Gegensatz zu Computern keine IP-Adressen, um im Suchanfragen zu formulieren. DNS ordnet IP-Adressen menschenfreundliche Domainnamen zu. Wenn das System eines Nutzers eine Verbindung aufbaut, geht dem eine DNS-Anfrage von diesem Gerät an einen DNS-Nameserver voraus oder die IP-Adresse ist in lokalen Konfigurationsdateien auffindbar. Wenn beispielsweise eine TCP-Verbindung eines Webbrowsers beobachtet wird, ohne das eine zuordenbare DNS-Anfrage erfolgt ist oder die IP-Adresse in der Routingdatei des Endgerätes vermerkt ist, ist das in den meisten Fällen ein Grund zum Handeln.\\
 
-Das Skript erfragt periodisch die Hosts-Datei eines Unix-Systems (Z. \ref{dns_lookup_1}).\\
-
-Loggt parallel für jede Antwort eines DNS-Servers die aufgelöste URL und dazugehörige 
+Das Skript loggt für jede Antwort eines DNS-Servers die aufgelöste URL und dazugehörige 
 
 IP-Adresse (Z. \ref{dns_lookup_2}).\\
+
+Parallel dazu wird periodisch die Hosts-Datei eines Unix-Systems abgefragt(Z. \ref{dns_lookup_1}).\\
 
 Im Log vermerkt sind ausgehende Verbindungen, deren Zieladressen vorher nicht durch 
 

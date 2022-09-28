@@ -13,6 +13,7 @@ In diesem Kapitel soll es darum gehen, welche Punkte bei einem Entwurf einer kon
 Im Abschnitt \ref{cha:background} wurden viele verschiedene Schemata zur Kategorisierung vorgeschlagen, keines dieser Schemata ist aber ausreichend um den Ansprüchen dieser Arbeit gerecht zu werden. Auch eine Evaluation 16 verschiedener Arbeiten durch Perera et al. \cite{perera_context_2014} legt nahe, dass keine Kategorisierung allein allen Anforderungen hinreichend gerecht werden kann.
 Deshalb wird also statt ein einzelnes Schema zu verwenden, eine Kombination bereits vorgeschlagener Kategorisierungsschemata zum Ausgleich der Nachteile der einzelnen Bestandteile vorgeschlagen. Dazu werden die Kategorien zuerst im Bezug auf kontextsensitive Zugriffskontrolle definiert. Einige der verwendeten Kategorien bauen dabei auf den im Kapitel \ref{cha:background} vorgestellten Ansätzen auf. Abhängig davon, mit welchem Fokus sie der jeweilige Autor konstruiert hat, wurden sie für diese Arbeit mehr oder weniger stark angepasst.
 \section{Erstellung einer Taxonomie}
+\label{sec:tax_erstellung}
 Die in dieser Arbeit präsentierte Taxonomie besteht aus 3 Komponenten. Einer Unterteilung mit Fokus auf menschliche Nutzer und Menschen generell, eine Kategorisierung aus dem Betrachtungswinkel eines Computernetzwerkes und einer Historie, um die zeitliche Entwicklung der beiden Schemata einzuordnen und damit die Aussagekraft zu erhöhen.
 Die Abbildung \ref{Tax_1} und Abbildung \ref{Tax_2} \footnote{Als Inspiration für den Stil und die Strukur der Grafiken diente eine in \cite{perera_context_2014} verwendete Abbildung. Diese wurde inhaltlich adaptiert, um für den Kontext der Netzwerksicherheit verwendet werden zu können.}  veranschaulichen dabei die Beziehung der Unterkategorien zueinander und sind jeweils Beispiele dafür versehen, welche Kontextinformationen in den einzelnen Kategorien vorkommen können. 
 \subsection{Mensch}
@@ -20,22 +21,21 @@ Eine naheliegende Sichtweise zur Kategorisierung von Kontext, welche auch von vi
 
 \subsubsection{Konzeptionell}
 %TODO
-Einordnung anhand der Bedeutung des Kontextes und der begrifflichen Beziehungen.
-Zuätzlich weiterhin in primäre und sekundäre Informationen unterteilt
+Kategorisierung anhand der Bedeutung des Kontextes und der begrifflichen Beziehungen die zusätzlich weiterhin in primäre und sekundäre Kontextinformationen unterteilt wird.
 \paragraph{Primär}
 %“Any information retrieved without using existing context and without performing any kind of sensor data fusion operations (e.g. GPS sensor readings as location information).” 
-Kontextinformationen, die gewonnen werden können, ohne bereits vorhandene Daten zu verwenden oder zu kombinieren \cite{abowd_towards_1999}. 
+Primärer Kontext ist jeglicher Kontext, der ohne Verwendung vorhandener Kontextinformationen und ohne Kombination anderer Informationen direkt gewonnen werden können \cite{abowd_towards_1999}. 
 \paragraph{Sekundär}
 %"Any information that can be computed using primary context. The secondary context can be computed by using sensor data fusion operations or data retrieval operations such as web service calls (e.g. identify the distance between two sensors by applying sensor data fusion operations on two raw GPS sensor values). Further, retrieved context such as phone numbers, addresses, email addresses, birthdays, list of friends from a contact information provider based on a personal identity as the primary context can also be identified as secondary context.” 
-Kontextinformationen, die mit Hilfe der Verarbeitung von primärem Kontext erschlossen werden können. Realisiert wird dies durch die Kombination einzelner Datenpunkte einer oder mehrerer Kategorien oder Abfragen weiterer Daten mithilfe der primären Informationen  \cite{abowd_towards_1999}.
+Sekundärer Kontext umfasst alle Kontextinformationen, die mit Hilfe der Verarbeitung von primärem Kontext erschlossen werden können. Realisiert werden kann dies durch die Kombination einzelner Datenpunkte einer oder mehrerer Kategorien oder Abfragen weiterer Daten mithilfe der primären Informationen  \cite{abowd_towards_1999}.
 \subsubsection{Betrieblich}
 Wie schon in der Analyse bereits vorgeschlagener Kategorien, erläutert in Kapitel \ref{cha:background}, meint betriebliche Kategorisierung: ``Einordnung anhand dessen, wie der Kontext akquiriert, modelliert und behandelt wird ''\cite{van2005context}.
 \paragraph{Zeit}
 Zu welcher Zeit eine Zugriffsanfrage erfolgt.
 \paragraph{Ort}
-Von welchem Ort eine Zugriffsanfrage stammt.
+Der im physische oder logische Ort von dem eine Zugriffsanfrage stammt
 \paragraph{Identität}
-Wer Zugriff auf eine Ressource erfragt.
+Welche Entität Zugriff auf eine Ressource erfragt.
 \paragraph{Aktivität}
 Was in einer Situation passiert oder welche Aktion eine Entität ausführt.
 \paragraph{Grund}
@@ -60,7 +60,7 @@ Ein Netzwerk besteht im Allgemeinen aus:
 \end{enumerate}
 Im Rahmen der Zugriffskontrolle erfolgt Kommunikation im Netzwerk über spezifische Protokolle zwischen verschiedenen Entitäten, die durch bestimmte Attribute charakterisiert werden. Die Normen werden dabei initial festgelegt und im Verlauf der Lebenszeit des Netzwerkes angepasst.
 \subsubsection{Protokolle}
-Die Kategorisierung anhand des verwendeten Kommunikationsprotokolls erfolgt, orientiert sich am ISO/OSI-Referenzmodell \cite{day1983osi}. Die Zuordnung zu einer bestimmten Ebene und damit Kategorie erfolgt anhand der für die einzelnen Schichten üblichen Protokolle. Das ermöglicht die Identifikation von Entitäten anhand der von ihnen genutzten Protokolle. So kann beispielsweise ein Switch oder Router, der nicht von einem Nutzer oder einer Anwendung unterschieden werden.
+Die Kategorisierung, die anhand des verwendeten Kommunikationsprotokolls erfolgt, orientiert sich am ISO/OSI-Referenzmodell \cite{day1983osi}. Die Zuordnung zu einer bestimmten Ebene und damit Kategorie wird dabei durch die für die einzelnen Schichten üblichen Protokolle umgesetzt. Das ermöglicht die Identifikation von Entitäten durch von ihnen genutzte Protokolle. So kann beispielsweise ein Switch oder Router, welcher nur in geringem Maße Verkehr oberhalb der Vermittlungsschicht generiert, von einem Nutzer oder einer Anwendung unterschieden werden.
 \paragraph{Anwendung}
 Beinhaltet allen Netzwerkverkehr, der sich der Sitzungsschicht, Darstellungsschicht oder Anwendungsschicht zuordnen lässt. 
 \paragraph{Transport}
@@ -71,7 +71,7 @@ Netzwerkverkehr, der zur Vermittlungsschicht gehört.
 Kategorisierung von Kontextinformationen abhängig davon, welche Art von Entität sie betreffen.
 Diese Unterscheidung setzt genauso wie die Historie eindeutig identifizierbare Entitäten voraus.
 \paragraph{Gerät}
-Informationen, die sich auf ein spezifisches Gerät beziehen
+Informationen, die sich auf ein spezifisches Gerät beziehen.
 \begin{enumerate}
 \item{Ein Gerät ist beispielsweise das Endgerät eines Nutzers oder ein Router im Netzwerk. }
 \item{Informationen können beispielsweise die Liste an installierter Software, die Menge laufender Prozesse oder die Auslastung der Hardwarekomponenten sein.}
@@ -86,7 +86,7 @@ Informationen, die sich auf einen Nutzer oder seine Rolle beziehen.
 Informationen, die sich auf eine Anwendung beziehen.
 \begin{enumerate}
 \item{Anwendung umfasst jegliche Softwareprozesse, die für sich oder in Kombination einen bestimmten Zweck erfüllen.}
-\item{Eine Anwendung erzeugt für charakteristischen Netzwerkverkehr, versendet oder empfängt also bestimmte Informationen nach spezifischen Mustern.}
+\item{Eine Anwendung erzeugt charakteristischen Netzwerkverkehr, versendet oder empfängt also bestimmte Informationen nach spezifischen Mustern.}
 \end{enumerate}
 \subsubsection{Policies}
 Einordnung der Kontextinformationen abhängig davon, ob sie der für den Anwendungsfall definierten Normen entsprechen.
@@ -101,19 +101,18 @@ Form der Kommunikation mit verschiedenen Protokollen oder Verhalten von Entität
 \label{Tax_2} 
 \end{figure}
 %--------------------------
-\subsection{Historie}
+\subsection{Historie der Werte einer Kategorie}
 Unabhängig vom gewählten Fokus oder Blickwinkel auf die Kategorisierung von Kontext benötigt man, um bereits gesammelte Kontextinformationen nutzen zu können, eine Art Gedächtnis. Im Fall eines IDS, welches ohnehin aufgrund seiner Funktionsweise über einen längeren Zeitraum Informationen verarbeitet und neue Erkenntnisse speichert, bietet sich eine Historie, ähnlich wie in Kapitel \ref{cha:background} beschrieben, an.
-Die Historie einer Entität wird in dieser Taxonomie zweigeteilt. Sie besteht aus:
-\begin{enumerate}
-\item{Einem aktiven Teil also ihrem Verhalten, beispielsweise früheren Verbindungen bzw. Verbindungsanfragen}
-\item{Einem passiven Teil also dem Zustand der für sie charakteristischen Attribute, wie etwa einem Nutzernamen oder die Versionsnummer eines bestimmten Programms. }
-\end{enumerate}
+Die Historie einer Entität wird in dieser Taxonomie zweigeteilt. Sie besteht aus einem aktiven und einem passiven Teil, also ihrem Verhalten, beispielsweise früheren Verbindungen oder Verbindungsanfragen und dem Zustand der für sie charakteristischen Attribute wie etwa einem Nutzernamen oder die Versionsnummer eines bestimmten Programms.
+Durch welche Informationen Verhalten repräsentiert wird, ist im Absatz \ref{subs:Form_Hist} ausführlich erläutert, die Zusammensetzung des Zustandsteils wird durch die Kenngrößen und deren Änderungsverhalten dargestellt und in den Abschnitten \ref{subsub:dyn} sowie \ref{subsub:his_val} genauer spezifiziert. Insofern es sich um die Historie einer Entität oder eine Entität betreffende Eigenschaften handelt, wird die implizite Annahme getroffen, dass diese Entitäten eindeutig identifizierbar sind, da sonst eine Zuordnung nicht möglich ist.
 %Die Existenz einer Historie trifft die implizite Annahme, das eine Entität eindeutig und über einen längeren Zeitraum im Netzwerkverkehr identifizierbar ist.
 \subsubsection{Dynamik}
+\label{subsub:dyn}
 Es liegt in der Natur der Sache, das sich die Messwerte, aus denen sich die Historie einer Entität zusammensetzt, je nachdem welchem Teil sie zugeordnet werden, verschieden oft ändern.
 Statische Messgrößen ändern dabei ihre Werte nie oder nur sehr selten. Dynamische Messgrößen hingegen sehr oft. In diesem Fall wird eine Unterteilung in jährlich, monatlich, wöchentlich, täglich, stündlich, minütlich und sekündlich vorgenommen. 
-\subsubsection{Raten}
-Die Historie einer Kontextinformation ist weiterhin in drei verschiedene Bereiche unterteilt. Abhängig davon, wo die Änderung auftritt und ob das IDS oder eine Entität die Aktualisierung des Wertes auslöst.
+\subsubsection{Kenngrößen der Historie}
+\label{subsub:his_val}
+Die Historie einer Kontextinformation ist weiterhin in zwei verschiedene Kenngrößen unterteilt. Abhängig davon, wo die Änderung auftritt und ob das IDS oder eine Entität die Aktualisierung des Wertes auslöst.
 \paragraph{Änderungsrate} 
 Häufigkeit mit der eine Werteänderung im Normalfall vorkommt.
 \paragraph{Abtastrate}
@@ -133,6 +132,7 @@ Wie oft Kontextinfomationen abgefragt und aktualisiert werden.
 Nachdem die einzelnen Kategorien definiert wurden, muss festgelegt werden in welcher Form die Kontextinformationen vorliegen sollen bzw. gebracht werden müssen. Für fast alle Kategorien selbsterklärend. Protokollkontext hat eine durch das Protokoll selbst vorgegebene feste Form, ein Zeitstempel ebenso. Kurzgesagt:Größtenteils ist anhand der Spezifikation der jeweiligen eingeordneten Informationen offensichtlich welche Form die Information haben sollte und die Form des Kontextes lediglich nebensächlich. Deshalb wird an dieser Stelle nicht auf alle Kategorien separat eingegangen.\\
 Die Historie bildet eine Ausnahme. Hier gibt es je nach Bedarf des Anwendungsfalls einen gewissen Spielraum. Die gespeicherten Informationen werden abhängig von der Implementierung eventuell nicht vom IDS eingelesen oder gar selbst vom IDS erzeugt. Auch gibt es höchst unterschiedliche Ansprüche an Form, Umfang und Zeitraum oder Beschränkungen hinsichtlich Performanz und Speicherbedarf.
 \subsection{Historie}
+\label{subs:Form_Hist}
 Die Historie muss genug Informationen enthalten, um damit neue Urteile in der Gegenwart oder Zukunft zu fällen und sie eindeutig identifizieren zu können. Schließlich kann eine Historie, die dabei helfen soll, Entscheidungen zu treffen, die den Netzwerkverkehr von Entitäten betreffen kann nicht ohne eindeutig identifizierte Entitäten funktionieren.\\ Die Identifikation erfolgt anhand der Headerinformationen der einzelnen Kommunikationsschichten. In der Historie gespeichert werden entweder die gesamte Payload eines Pakets oder zumindest ein ausreichend aussagekräftige Teilmenge. Die Regelmäßigkeit mit der die Historie aktualisiert bzw. erweitert wird ist von den jeweiligen Gegebenheiten und Anforderungen abhängig. Kommunikationspartner benötigen eine Grundmenge an Informationen um miteinander kommunizieren zu können. Genauso benötigt ein IDS  eine bestimmte Mindestmenge an Informationen, um initial eine Entscheidung treffen zu können. Die nach Ansicht des Autors dafür benötigten Informationen finden sich in Tabelle \ref{Tabelle_3}.
 \begin{table}[H]
 \label{Tabelle_3}
