@@ -174,15 +174,15 @@ function set_threshold(c_time: int): double{ (*@\label{g_lookup_4}@*)
 %Verwendet werden Ports die die aktuell auf dem System laufenden Prozesse.
 Wenn eine Verbindung oder ein Verbindungsversuch mit einem bestimmten Port des Systems als Ziel beobachtet wird, ohne das ein Prozess gibt, der diesem Port durch Zeek-Agent zugeordnet werden kann, wird die Verbindung oder der Verbindungsversuch im dazugehörigen Log vermerkt.\\
 
-Das Skript erfagt bei den zeek-agents in regelmäßigen Abständen die auf Hostsystemen
+Das Skript erfragt bei den Instanzen des Zeek-Agents in regelmäßigen Abständen die auf
 
-laufenden Prozesse und deren verwendete Ports.\\
+Hostsystemen laufenden Prozesse und deren verwendete Ports (Z. \ref{p_lookup_1} und \ref{p_lookup_1_2}).\\
 
 Das Skript vergleicht den Zielport jeder eingehenden Verbindung mit der Liste von 
 
-verwendeten Ports auf dem Hostsystem.\\
+verwendeten Ports auf dem Hostsystem (Z. \ref{p_lookup_2}).\\
 
-Abhängig vom Ergebnis wird eine Meldung in den Log geschrieben.
+Abhängig vom Ergebnis wird eine Meldung in den Log geschrieben (Z. \ref{p_lookup_3}).
 \begin{lstlisting}[caption={Abfrage und Abgleich der Ports },label={Code_4},consecutivenumbers=false,lastline=77,firstnumber=52,numberblanklines=false,linerange={52-55,62-70,76-77}]
 @load site/packages/zeek-agent-v2
 @load site/packages/zeek-agent-v2/framework/main
@@ -237,8 +237,8 @@ global allowed_ports : table[int] of string = {
 
 function check_outgoing_connection(c:connection){
     local _port = port_to_count(c$id$orig_p);
-    if(_port !in local_ports){
-        local rec: Querytest::Info = [$ts=current_time(), $id=c$id, $notice="No Application running on this port"];
+    if(_port !in local_ports){{(*@\label{p_lookup_2}@*)
+        local rec: Querytest::Info = [$ts=current_time(), $id=c$id, $notice="No Application running on this port"]; (*@\label{p_lookup_3}@*)
     }else{
     	local rec: Querytest::Info = [$ts=current_time(), $id=c$id]}
     # Store a copy of the data in the connection record so other
@@ -246,7 +246,7 @@ function check_outgoing_connection(c:connection){
     c$querytest = rec;
     Log::write(Querytest::LOG, rec);}
 
-event users_result(ctx: ZeekAgent::Context, data: Columns){
+event users_result(ctx: ZeekAgent::Context, data: Columns) {(*@\label{p_lookup_1_2}@*)
     local new_entry : count;
     local connection_port = data$remote_port;
     new_entry = connection_port;
@@ -260,8 +260,8 @@ event zeek_init(){
     local query_event = users_result;
     local _schedule = 10 secs;
     
-    local test_query_join = ZeekAgent::query([$sql_stmt=str_stmt_join, $event_=query_event, $schedule_=_schedule]);
-}
+    local port_query = ZeekAgent::query([$sql_stmt=str_stmt_join, $event_=query_event, $schedule_=_schedule]);(*@\label{p_lookup_1}@*)
+
 
 event connection_state_remove(c: connection){
     check_outgoing_connection(c);
@@ -284,7 +284,7 @@ Im Log vermerkt sind ausgehende Verbindungen, deren Zieladressen vorher nicht du
 
 einen DNS-Server oder die Hosts-Datei aufgelöst wurden (Z. \ref{dns_lookup_3}).
 
-\begin{lstlisting}[firstnumber=53,label={Code_5},linerange={45-45,47-53,59-64,65-73},caption={Überprüfung der Verbindungsziele eines Endgerätes},numberblanklines=false]
+\begin{lstlisting}[firstnumber=45,consecutivenumbers=false,label={Code_5},linerange={45-45,47-52,58-59,61-64,65-73},caption={Überprüfung der Verbindungsziele eines Endgerätes},numberblanklines=false]
 @load site/packages/zeek-agent-v2
 @load site/packages/zeek-agent-v2/framework/main
 @load site/packages/zeek-agent-v2/table
@@ -347,7 +347,7 @@ function query_hosts_file(){
     local str_stmt_hosts = "SELECT columns FROM files_columns(\"/etc/hosts\",\"$1:text,$2:text\")";
     local query_event = query_result;
     local _schedule =  30 secs;
-    local test_query_join = ZeekAgent::query([$sql_stmt=str_stmt_hosts, $event_=query_event, $schedule_=_schedule]);(*@\label{dns_lookup_1}@*)   
+    local hosts_file_query = ZeekAgent::query([$sql_stmt=str_stmt_hosts, $event_=query_event, $schedule_=_schedule]);(*@\label{dns_lookup_1}@*)   
 }
 
 event check_resolve_table(c : connection){
