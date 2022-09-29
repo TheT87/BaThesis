@@ -23,12 +23,7 @@ Eine kurze Vorstellung der wichtigsten Komponenten der Implementierung, insofern
 %Zeek is a fully customizable and extensible platform for traffic analysis. Zeek provides users a domain-specific, Turing-complete scripting language for expressing arbitrary analysis tasks
 %In brief, Zeek is optimized for interpreting network traffic and generating logs based on that traffic. It is not optimized for byte matching, and users seeking signature detection approaches would be better served by trying intrusion detection systems such as Suricata. Zeek is also not a protocol analyzer in the sense of Wireshark, seeking to depict every element of network traffic at the frame level, or a system for storing traffic in packet capture (PCAP) form. Rather, Zeek sits at the “happy medium” representing compact yet high fidelity network logs, generating better understanding of network traffic and usage.
 %Zeek as a NSM platform enables collection of at least two, and in some ways three, of these data forms, namely transaction data, extracted content, and alert data
-Ein passives, quelloffenes Analysewerkzeug für Netzwerkverkehr, das via eigener  Skriptsprache unter anderem folgendes ermöglicht:
-\begin{enumerate}
-\item{Implementierung beliebiger Analyseaufgaben}
-\item{Interpretation von Netzwerkverkehr}
-\item{Erstellung von Protokollen auf der Grundlage dieses Verkehrs}
-\end{enumerate}
+Ein passives, quelloffenes Analysewerkzeug für Netzwerkverkehr, das durch eine eigene Skriptsprache unter anderem die Implementierung beliebiger Analyseaufgaben, die Interpretation von Netzwerkverkehr und Erstellung von Protokollen auf der Grundlage dieses Verkehrs ermöglicht.\\
 Zeek ist dabei weder rein signatur-basiert wie Suricata noch ausschließlich als Protokollanalysator im Sinne von Wireshark zu verstehen. Vielmehr handelt es sich bei Zeek um eine Mischung, die eine kompakte, aber dennoch detailgetreue Darstellung von Netzwerkprotokollen ermöglicht. Dies erlaubt ein besseres Verständnis des Netzwerkverkehrs und der Netzwerknutzung \cite{zeek_about_page}.
 
 \subsection{Zeek-Agent}
