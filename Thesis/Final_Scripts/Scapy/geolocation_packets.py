@@ -2,6 +2,7 @@ from scapy.all import *
 from scapy.layers.inet import IP, TCP
 from scapy.layers.l2 import Ether
 
+
 # not used just testing
 def geolocation(src_ip):
     dst = "172.17.144.87"
@@ -20,11 +21,11 @@ def geolocation(src_ip):
 def traffic(ip_address):
     source_server = ip_address
     target_server = "172.17.144.87"
-    
+
     # Send 10 attack packets
     for x in range(0, 15):
         port = random.randint(40000, 42000)
-        tcp_pkt = Ether() / IP(src=source_server, dst=target_server) / TCP(sport=port,dport=port)
+        tcp_pkt = Ether() / IP(src=source_server, dst=target_server) / TCP(sport=port, dport=port)
         sendp(tcp_pkt)
 
 
