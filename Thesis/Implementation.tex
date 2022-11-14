@@ -14,7 +14,7 @@
 %\subsection{ Grundlage mit non-kontextsensitiven Signaturen auf Datensatz}
 %\subsection{ Test der kontextsensitiven Signaturen auf Datensatz} 
 
-Der im Kapitel \ref{cha:design} dargelegte Aufbau eines Netzwerkes findet sich auch in der Implementation wieder. Scapy, Wireshark und Zeek verarbeiten Kommunikationsdaten, Zeek-agent stellt die Attribute der Entitäten bereit und mit den Skripten werden die geltenden Normen und das dadurch abgedeckte Verhalten festgelegt.
+Der im Kapitel \ref{cha:design} dargelegte Aufbau eines Netzwerkes findet sich auch in der Implementation wieder. Scapy, Wireshark und Zeek verarbeiten Kommunikationsdaten, Zeek-agent stellt die Attribute der Entitäten bereit und mit den in den im Nachfolgenden vorgestellten Skripten werden beispielhaft die geltenden Normen und das dadurch abgedeckte Verhalten festgelegt.
 \section{Erläuterung der wichtigsten Komponenten}
 Eine kurze Vorstellung der wichtigsten Komponenten der Implementierung, insofern sie im Rahmen der einzelnen Schritte des Versuchsaufbaus essenziell sind.
 \subsection{Zeek}
@@ -29,7 +29,7 @@ Zeek ist dabei weder rein signatur-basiert wie Suricata noch ausschließlich als
 \subsection{Zeek-Agent}
 Zeek-Agent ist ein Endpunkt-Agent, der Informationen für zentrales Monitoring an Zeek sendet.
 Abfragen kann man verschiedene Aktivitäten eines Hostsystems, darunter zum Beispiel aktuell laufende Prozesse, offene Sockets oder den Inhalt bestimmter Dateien. Diese erscheinen in Zeek, genauso wie Netzwerkaktivität als Ereignisse und können so in Skripten verwendet werden \cite{zeek_agent}.
-
+\pagebreak
 \section{Versuchsaufbau}
 Der Ablauf für alle Anwendungsfälle ist grundsätzlich sehr ähnlich:
 \begin{enumerate}
@@ -64,7 +64,7 @@ def send_packet(ip_address_src,ip_address_dst):
 
 %defining the format of your data, letting Zeek know that you wish to create a new log, and then calling the Log::write method to output log records.
 \subsection{Logging}
-In Zeek erfolgt das Schreiben in Logs immer nach demselben Prinzip:
+In Zeek erfolgt das Erstellen eines Logs immer nach demselben Prinzip:
 \begin{enumerate}
 \item{Vor dem Ausführen eines Skriptes wird ein Log und die darin zu speichernden Informationen festgelegt (Z. \ref{logging_1}-\ref{logging_2})}
 \item{Nutzer-definierter Log wird initialisiert (Z. \ref{logging_3})}
@@ -72,6 +72,7 @@ In Zeek erfolgt das Schreiben in Logs immer nach demselben Prinzip:
 \item{Log-Eintrag wird der Verbindung als Information hinzugefügt (Z. \ref{logging_5})}
 \item{Eintrag wird in Log geschrieben (Z. \ref{logging_6})}
 \end{enumerate}
+\pagebreak
 \lstset{escapeinside={(*@}{@*)}}
 \begin{lstlisting}[consecutivenumbers=false,numberblanklines=false,caption={Generierung einer Log-Datei mit Verbindungsinformationen},label={Code_2}]
 export {

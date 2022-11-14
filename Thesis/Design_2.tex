@@ -14,6 +14,7 @@ Nach Greenberg et al. \cite{greenberg2001context} gibt es drei nicht-triviale Ha
 \item{Wissen welche Informationen einen konkreten Kontextzustand akkurat festlegen.}
 \item{Welche Aktion im jeweiligen Zustand ausgeführt werden soll.}
 \end{enumerate}
+Diese Fragen sollten sich im Verlauf des Entwurfes eines jeden Designs gestellt werden und waren auch für diese Arbeit von hoher Relevanz, da sie eine große Menge an aufkommenden Problemen greifbar und damit leichter lösbar machen. 
 
 \subsection{Entscheidung für ein IDS}Milenkoski et al. \cite{milenkoski_evaluating_2015} kategorisieren IDS, wie in Tabelle \ref{Tabelle_1} zu sehen, anhand der überwachten Plattform der verwendeten Erkennungsmethode und der Struktur, in der sie eingesetzt werden.
 \begin{table}[H]
@@ -59,11 +60,11 @@ Um die Performance des konkret gewählten IDS verbessern zu können, muss festge
 Mell et al. \cite{mell2003overview} geben eine Übersicht über verschiedene Charakteristiken zur quantitativen Bestimmung der Erkennungsgenauigkeit eines IDS und erläutern zusätzlich die Wechselwirkungen zwischen einzelnen Kriterien, die beim Vergleich verschiedener IDS-Lösungen beachtet werden sollten.
 %Coverage: This measurement determines which attacks an IDS can detect under ideal conditions. 
 \subsubsection{Abdeckung}
-Diese Metrik gibt, welche Typen von Angriffen ein IDS unter idealen Bedingungen erkennen kann.
+Diese Metrik gibt an, welche Typen von Angriffen ein IDS unter idealen Bedingungen erkennen kann.
 % Probability of False Alarms 
 %This measurement determines the rate of false positives produced by an IDS in a given environment during a particular time frame. A false positive or false alarm is an alert caused by normal non- malicious background traffic
 \subsubsection{Wahrscheinlichkeit falscher Alarme}
-Gibt die Wahrscheinlichkeit das durch ein IDS ausgelöste Alarme durch gutartigen bzw. nicht-schädlichen Netzwerkverkehr verursacht wurden, an.\\
+Gibt die Wahrscheinlichkeit, dass durch ein IDS ausgelöste Alarme durch gutartigen bzw. nicht-schädlichen Netzwerkverkehr verursacht wurden, an.\\
 \[Rate\;an\;falsch-Positiven\;Meldungen = \frac{Anzahl\;falscher\;Alarme}{Anzahl\;aller\;Alarme}\]
 %Probability of Detection: 
 %This measurement determines the rate of attacks detected correctly by an IDS in a given environment during a particular time frame
@@ -75,7 +76,7 @@ Gibt die Rate der durch das IDS korrekt erkannten Angriffe an.\\
 %2. Sending to the IDS non-attack packets that are specially crafted to trigger many signatures within the IDS, thereby overwhelming the IDS’s human operator with false positives or crashing alert processing or display tools. 
 %3. Sending to the IDS a large number of attack packets intended to distract the IDS’s human operator while the attacker instigates a real attack
 \subsubsection{Resistenz}
-Ein auf Signaturen basierendes IDS bzw. der menschliche Administrator hinter dem System weisen Probleme auf, die nicht direkt beim Umgang mit verarbeitetem Netzwerkverkehr, sondern schon bei der bewussten, unbewussten oder erzwungenen Entscheidung, welcher Netzwerkverkehr überhaupt infrage kommt, entstehen:
+Ein IDS und der menschliche Administrator hinter dem System weisen Probleme auf, die nicht direkt beim Umgang mit verarbeitetem Netzwerkverkehr, sondern schon bei der bewussten, unbewussten oder erzwungenen Entscheidung, welcher Netzwerkverkehr überhaupt infrage kommt, entstehen:
 \begin{enumerate}
 \item{Eine zu große Menge an zu verarbeitendem Netzwerkverkehr, die die Verarbeitungskapazität eines IDS übersteigt, kann dazu führen, das Netzwerkpakete verworfen und Angriffe nicht erkannt werden.}
 \item{Pakete die zwar nicht bösartig sind, aber so konstruiert das sie möglichst viele IDS Alarme auslösen, überfordern den Administrator oder stören eventuell sogar die Verarbeitung von Paketen generell. }
@@ -84,7 +85,7 @@ Ein auf Signaturen basierendes IDS bzw. der menschliche Administrator hinter dem
 \end{enumerate}
 %Ability to Correlate Events: This measurement demonstrates how well an IDS correlates attack events. These events may be gathered from IDSs, routers, firewalls, application logs, or a wide variety of other devices.
 \subsubsection{Korrelation zwischen Einzelereignissen }
-Korrelation demonstriert wie gut ein IDS eine Korrelation zwischen einzelnen Events, möglicherweise verschiedenen Ursprungs, herzustellen. Die Ereignisse können dabei aus Routern, Firewalls, Anwendungen, dem IDS selbst oder einer großen Bandbreite anderer Quellen stammen.
+Korrelation demonstriert wie gut ein IDS einen Zusammenhang zwischen einzelnen Events, möglicherweise verschiedenen Ursprungs, herstellen kann. Die Ereignisse können dabei aus Routern, Firewalls, Anwendungen, dem IDS selbst oder einer großen Bandbreite anderer Quellen stammen.
 %Ability to Detect Never Before Seen Attacks: This measurement demonstrates how well an IDS can detect attacks that have not occurred before. For commercial systems, it is generally not useful to take this measurement since their signature-based technology can only detect attacks that had occurred previously (with a few exceptions). However, research systems based on anomaly detection or specification-based approaches may be suitable for this type of measurement. Usually systems detecting attacks that had never been detected before produce more false positives than those that do not have this feature.
 \subsubsection{Vorhersehen von unbekannten Angriffen}
 Gibt an, wie gut ein IDS einen Angriff erkennt, der so noch nicht aufgetreten ist. Signatur-basierte IDS sind allgemein mit wenigen Ausnahmen nicht in der Lage, solch einen Angriff zu erkennen. Normalerweise erhöht die Fähigkeit eines Systems, einen noch unbekannten Angriff zu erkennen, im Vergleich zu Systemen, die dies nicht versuchen, zusätzlich die Rate an falsch-positiven Meldungen.
